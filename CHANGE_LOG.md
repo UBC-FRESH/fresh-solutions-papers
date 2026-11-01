@@ -17,3 +17,11 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 
 - P1 started. The first literature pass is recorded in `notes/reference/benchmark-corpus.md`.
 - Next: verify Lockwood and Moore (1993), FHOPS, and the remaining benchmark availability statuses.
+
+### P1 close-out
+
+- Completed the benchmark availability matrix and frozen the replay schema.
+- Verified the Lockwood and Moore (1993) DOI; original instance remains unlocated and is classified as reconstructable candidate.
+- Identified FHOPS as the primary public reproducibility anchor.
+- 138 tests, Sphinx `-W`, JSON schema parse, and workflow validator pass.
+- P1 is complete; P2 remains planned.

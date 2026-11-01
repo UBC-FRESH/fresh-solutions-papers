@@ -11,3 +11,5 @@ Keep private material out of this directory.
 
 - `design/programme.md`: the two-paper thesis, benchmark lanes, fairness rules, and risks.
 - `reference/benchmark-corpus.md`: literature leads and data-availability status.
+
+- `design/benchmark-record-schema.md`: P1 frozen schema for replayable benchmark records.

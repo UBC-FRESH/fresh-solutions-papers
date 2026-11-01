@@ -18,7 +18,7 @@ exists and the maintainer approves it.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
-| P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | active |
+| P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | complete |
 | P2 Architecture and benchmark contracts | TBD | `feature/p2-architecture-contracts` | planned |
 | P3 Paper 1 benchmark evidence | TBD | `feature/p3-paper1-evidence` | planned |
 | P4 Paper 1 writing and verification | TBD | `feature/p4-paper1-writing` | planned |
@@ -67,7 +67,7 @@ Acceptance criteria:
 
 Parent issue: #2
 Branch: `feature/p1-scope-literature`
-Status: active
+Status: complete
 
 Goal: define the research questions and build a reproducible benchmark corpus, not a list of
 aspirational citations.
