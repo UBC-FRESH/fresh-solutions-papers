@@ -135,3 +135,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Selected TSA24/Prince George even-flow harvest scheduling as the candidate case.
 - Defined decision metrics, same-engine baseline, and provenance.
 - Blocked on data licence/partner publication permission; no applied-impact claim.
+
+### P10.7 competitive close-out
+
+- Froze QAP, Paper 1 scaling, TSP, and applied-case status.
+- Verified four benchmark records and 40/40 QAP/baseline replays.
+- Queued the phase PR; publication blocked on P10.6 permission and TSP limits.
