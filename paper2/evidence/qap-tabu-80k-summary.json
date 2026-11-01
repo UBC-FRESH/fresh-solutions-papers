@@ -1,0 +1,13 @@
+[
+  {
+    "instance": "tai30a",
+    "runs": 5,
+    "mean_gap_percent": 0.3484868651912443,
+    "median_gap_percent": 0.39138771033789366,
+    "worst_gap_percent": 0.39138771033789366,
+    "best_gap_percent": 0.1768834846046467,
+    "mean_wall_seconds": 277.39513261939993,
+    "optimum_kind": "best known",
+    "budget_iterations": 80000
+  }
+]

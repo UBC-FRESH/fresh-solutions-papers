@@ -110,3 +110,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - All 40 stopped on patience and replay exactly.
 - TSP Or-opt: mean gaps 3.696–8.229%; QAP swap lane: 5.249–8.897%.
 - Updated draft and README to report converged results.
+
+### P10.2/P10.4 QAP tabu and serious budget
+
+- Pinned `fresh-solutions` v0.4.0.
+- Added QAP tabu runner, replay check, and budget ladder.
+- Certified QAP means: tai12a 0.000%, tai20a 0.403%, tai25a 0.685%, tai30a 0.407%.
+- Added the serious-budget policy; 20/20 certified assignments replay exactly.

@@ -1,0 +1,30 @@
+[
+  {
+    "instance": "tai12a",
+    "mean_gap_10k": 0.0,
+    "mean_gap_20k": 0.0,
+    "improvement_10k_to_20k_points": 0.0,
+    "converged_for_reporting": true
+  },
+  {
+    "instance": "tai20a",
+    "mean_gap_10k": 0.40347869597232056,
+    "mean_gap_20k": 0.37038616482013753,
+    "improvement_10k_to_20k_points": 0.033092531152183025,
+    "converged_for_reporting": true
+  },
+  {
+    "instance": "tai25a",
+    "mean_gap_10k": 0.7863913314645631,
+    "mean_gap_20k": 0.6847169772526336,
+    "improvement_10k_to_20k_points": 0.1016743542119295,
+    "converged_for_reporting": false
+  },
+  {
+    "instance": "tai30a",
+    "mean_gap_10k": 0.7919276009737392,
+    "mean_gap_20k": 0.6996137823915131,
+    "improvement_10k_to_20k_points": 0.09231381858222609,
+    "converged_for_reporting": true
+  }
+]

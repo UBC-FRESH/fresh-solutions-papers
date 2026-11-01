@@ -1,0 +1,46 @@
+[
+  {
+    "instance": "tai12a",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "median_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "best_gap_percent": 0.0,
+    "mean_wall_seconds": 2.2097725887999333,
+    "optimum_kind": "optimum",
+    "budget_iterations": 10000
+  },
+  {
+    "instance": "tai20a",
+    "runs": 5,
+    "mean_gap_percent": 0.40347869597232056,
+    "median_gap_percent": 0.46966375827668655,
+    "worst_gap_percent": 0.46966375827668655,
+    "best_gap_percent": 0.30420110251577154,
+    "mean_wall_seconds": 10.208697341799962,
+    "optimum_kind": "optimum",
+    "budget_iterations": 10000
+  },
+  {
+    "instance": "tai25a",
+    "runs": 5,
+    "mean_gap_percent": 0.7863913314645631,
+    "median_gap_percent": 0.850199099426347,
+    "worst_gap_percent": 1.0402173987540009,
+    "best_gap_percent": 0.4016256930784678,
+    "mean_wall_seconds": 19.856338847799815,
+    "optimum_kind": "optimum",
+    "budget_iterations": 10000
+  },
+  {
+    "instance": "tai30a",
+    "runs": 5,
+    "mean_gap_percent": 0.7919276009737392,
+    "median_gap_percent": 0.9144480146258881,
+    "worst_gap_percent": 1.139292444061148,
+    "best_gap_percent": 0.3980978425274978,
+    "mean_wall_seconds": 34.72099645440012,
+    "optimum_kind": "best known",
+    "budget_iterations": 10000
+  }
+]

@@ -226,13 +226,13 @@ Status: active
 
 Goal: move from architecture/smoke evidence to competitive, converged, independently baselined applied OR results under the required workflow.
 
-- [ ] #32 P10.1 Workflow conformance audit
-- [ ] #33 P10.2 QAP competitive neighborhood
-- [ ] #34 P10.3 TSP 3-opt/Lin–Kernighan evaluation
-- [ ] #35 P10.4 Serious-budget convergence protocol
-- [ ] #36 P10.5 Matched landscape baseline
-- [ ] #37 P10.6 Applied case selection
-- [ ] #38 P10.7 Competitive evidence and closeout
+- [x] P10.1 Workflow conformance audit (#32)
+- [x] P10.2 QAP competitive neighborhood (#33)
+- [ ] P10.3 TSP 3-opt/Lin–Kernighan evaluation (#34)
+- [x] P10.4 Serious-budget convergence protocol (#35)
+- [ ] P10.5 Matched landscape baseline (#36)
+- [ ] P10.6 Applied case selection (#37)
+- [ ] P10.7 Competitive evidence and closeout (#38)
 
 Acceptance criteria:
 
