@@ -26,7 +26,7 @@ exists and the maintainer approves it.
 | P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | complete |
 | P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | complete |
 | P8 Paper 2 multi-seed campaign | #27 | `feature/p8-multiseed` | complete |
-| P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | active |
+| P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | complete |
 
 ## Lifecycle Map
 
@@ -208,11 +208,11 @@ Goal: replace single-seed evidence with a multi-instance, multi-seed distributio
 
 Parent issue: #29
 Branch: `feature/p9-converged`
-Status: active
+Status: complete
 
 Goal: replace pilot Paper 2 evidence with convergence-controlled multi-seed results.
 
-- [ ] P9.1 Run convergence-controlled campaign
-- [ ] P9.2 Record stop evidence and distributions
-- [ ] P9.3 Replay all assignments
-- [ ] P9.4 Update Paper 2 draft and close pilot table
+- [x] P9.1 Run convergence-controlled campaign
+- [x] P9.2 Record stop evidence and distributions
+- [x] P9.3 Replay all assignments
+- [x] P9.4 Update Paper 2 draft and close pilot table

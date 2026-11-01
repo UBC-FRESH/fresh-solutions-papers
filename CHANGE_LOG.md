@@ -103,3 +103,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Recorded five-seed distributions for eight public instances; 40/40 assignments replay exactly.
 - Updated Paper 2 draft and evidence.
 - QAP mean gaps 5.2–8.9%; TSP mean gaps 10.2–56.3%; ch150 is the weak case.
+
+### P9 close-out
+
+- Replaced pilot Paper 2 evidence with 40 converged runs.
+- All 40 stopped on patience and replay exactly.
+- TSP Or-opt: mean gaps 3.696–8.229%; QAP swap lane: 5.249–8.897%.
+- Updated draft and README to report converged results.

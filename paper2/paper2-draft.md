@@ -9,11 +9,10 @@ Fresh Solutions is a general hybrid metaheuristic engine extracted from a compil
 optimisation architecture. A problem adapter supplies discrete variables, options, exact and batched
 evaluation, feasibility, and reversible moves. The engine supplies exact resident state, exact CPU local
 search, batched population search, a population-to-local handoff, and replayable checkpoints. We test the
-transfer claim on eight public QAPLIB/TSPLIB instances with five seeds each. These are pilot runs under a
-10,000-local-iteration budget, not converged benchmark results. The QAP runs plateau at a local optimum
-under the swap neighborhood; the TSP 2-opt runs improve substantially with larger budgets. All 40 reported
-assignments replay exactly. These are transfer smoke tests, not claims of benchmark leadership or
-converged quality.
+transfer claim on eight public QAPLIB/TSPLIB instances with five seeds each. Runs use an explicit patience
+stopping rule with a 500,000-evaluation cap; all 40 runs stopped on patience. Mean QAP gaps are 5.2–8.9%
+and mean TSP gaps are 3.7–8.2% against public known values. All 40 assignments replay exactly. These are
+converged transfer results, not claims of benchmark leadership.
 
 ## 1. Introduction
 
@@ -71,38 +70,39 @@ Configuration:
 ```text
 population: 32
 generations: 50
-local iterations: 10,000
+local iterations per round: 10,000
 seeds: 1, 2, 3, 4, 5
+stability: 3 rounds without >=0.01% relative improvement
+budgets: 30 rounds / 500,000 evaluations
 ```
 
 Every reported assignment is replayed through its adapter and checked against the recorded objective.
 
-## 5. Pilot transfer smoke test
+## 5. Converged results
 
-**Not a converged benchmark.** Five-seed distributions at a 10,000-local-iteration budget; gaps are
-relative to QAPLIB/TSPLIB known values. A convergence audit shows tai12a is stuck at a local optimum and
-ch150 improves from 61.6% to 12.2% with 100k iterations.
+Five-seed distributions after the patience stopping rule; all 40 runs converged on patience.
 
-| Instance | Library | Size | Mean gap | Median gap | Worst gap | Mean wall |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| tai12a | QAPLIB | 12 | 8.897% | 8.039% | 11.616% | 0.360 s |
-| tai20a | QAPLIB | 20 | 7.185% | 7.102% | 9.394% | 0.734 s |
-| tai25a | QAPLIB | 25 | 5.249% | 5.980% | 6.174% | 1.038 s |
-| tai30a | QAPLIB | 30 | 5.679% | 5.937% | 6.678% | 1.359 s |
-| berlin52 | TSPLIB | 52 | 10.196% | 11.058% | 14.956% | 0.611 s |
-| kroA100 | TSPLIB | 100 | 21.490% | 21.958% | 29.997% | 1.095 s |
-| kroB100 | TSPLIB | 100 | 17.108% | 17.325% | 20.004% | 1.094 s |
-| ch150 | TSPLIB | 150 | 56.259% | 56.173% | 61.612% | 1.591 s |
+| Instance | Library | Size | Mean gap | Median gap | Worst gap | Mean evals | Mean wall |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| tai12a | QAPLIB | 12 | 8.897% | 8.039% | 11.616% | 31,635 | 1.10 s |
+| tai20a | QAPLIB | 20 | 7.185% | 7.102% | 9.394% | 37,636 | 2.43 s |
+| tai25a | QAPLIB | 25 | 5.249% | 5.980% | 6.174% | 41,636 | 4.10 s |
+| tai30a | QAPLIB | 30 | 5.679% | 5.937% | 6.678% | 41,636 | 5.28 s |
+| berlin52 | TSPLIB | 52 | 6.433% | 5.754% | 11.522% | 71,639 | 5.02 s |
+| kroA100 | TSPLIB | 100 | 7.323% | 7.293% | 13.847% | 105,642 | 12.51 s |
+| kroB100 | TSPLIB | 100 | 3.696% | 2.823% | 7.272% | 105,642 | 12.81 s |
+| ch150 | TSPLIB | 150 | 8.229% | 8.517% | 10.463% | 171,649 | 29.35 s |
 
-All 40 assignments replay exactly. These numbers are not convergence evidence; see
-`notes/reports/p8-convergence-audit.md`. The 2-opt change improved berlin52 over the v0.1.0 swap-only
-result, but the 10k budget is insufficient for the TSP instances.
+All 40 assignments replay exactly. TSP Or-opt plus the convergence protocol changed the prior pilot
+picture materially: kroB100 is within 3.7% mean gap and ch150 is within 8.2% mean gap. QAP remains
+limited by the swap neighborhood; tai12a is a local optimum at 7.397%.
 
 ## 6. Limitations
 
-- Eight instances and five seeds, but the runs are not converged.
-- One configuration; no per-instance tuning or convergence stopping rule.
-- tai12a is trapped at a local optimum; ch150 needs at least ~100k local iterations before its plateau.
+- Eight instances and five seeds; all stopped on patience, which is not a global-optimality proof.
+- One configuration; no per-instance tuning.
+- QAP tai12a remains trapped at a local optimum; QAP neighborhoods are swap-only.
+- TSP 3-opt/Lin–Kernighan is still absent.
 - TSP 2-opt is basic; ch150 shows the weakness. No Lin–Kernighan or advanced local search.
 - QAP moves are swaps; no robust tabu or specialised QAP neighbourhood.
 - `CpuBatchBackend` is exact but CPU-only; no production GPU kernel.
@@ -119,8 +119,8 @@ PYTHONPATH=fresh-solutions python paper2/replay_public.py
 Artifacts:
 
 - `paper2/instances/` — pinned public instances and provenance.
-- `paper2/evidence/multiseed.json` — 40 assignments and per-run gaps.
-- `paper2/evidence/multiseed-summary.json` — per-instance distributions.
+- `paper2/evidence/converged.json` — 40 assignments, gaps, stop evidence.
+- `paper2/evidence/converged-summary.json` — per-instance distributions.
 - `fresh-solutions` — released engine v0.2.0.
 
 ## 8. Conclusion
