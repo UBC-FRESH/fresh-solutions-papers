@@ -113,8 +113,9 @@ Goal: produce the forestry evidence: reproduced baselines, hybrid runs, and exac
 - [x] P3.2 Implement the benchmark-record validator and replay gate
 - [x] P3.3 Record the first benchmark evidence or documented stop
 - [x] P3.4 Record hardware and software provenance for every run
-- [ ] P3.5 Implement or reject the WS4/FHOPS comparison adapter
-- [ ] P3.6 Run the next public benchmark evidence pass
+- [x] P3.5 Implement or reject the WS4/FHOPS comparison adapter
+- [x] P3.6 Run the next public benchmark evidence pass
+- [ ] P3.7 Record the first WS4 architecture benchmark
 
 Acceptance criteria:
 

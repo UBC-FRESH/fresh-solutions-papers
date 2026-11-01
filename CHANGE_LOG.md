@@ -46,3 +46,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `evidence/fhops-tiny7-sa-200-r42/` with schedule, record, hash, and replay script.
 - Validator accepted the record: exact-replay gate and SHA-256 hash pass.
 - P3 remains active; P3.5/P3.6 are the next comparison tasks.
+
+### P3.5/P3.6
+
+- Rejected a direct FHOPS/WS4 adapter as a problem-contract mismatch; FHOPS remains a public baseline and reproducibility stack.
+- Recorded FHOPS small21 SA baseline: objective 15508.884819999994, exact replay, hard violations 0.
+- Added `evidence/fhops-small21-sa-200-r42/`.
+- P3.7 remains open for the first WS4 architecture benchmark.
