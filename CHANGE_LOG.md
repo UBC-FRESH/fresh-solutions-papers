@@ -25,3 +25,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Identified FHOPS as the primary public reproducibility anchor.
 - 138 tests, Sphinx `-W`, JSON schema parse, and workflow validator pass.
 - P1 is complete; P2 remains planned.
+
+### P2 close-out
+
+- Froze the compiled-state architecture, benchmark adapter contract, and exact replay/feasibility rules.
+- Recorded cache identity and invalidation rules, including the distinction between pricing changes and table rebuilds.
+- P2 is complete; P3 remains planned.

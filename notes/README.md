@@ -13,3 +13,7 @@ Keep private material out of this directory.
 - `reference/benchmark-corpus.md`: literature leads and data-availability status.
 
 - `design/benchmark-record-schema.md`: P1 frozen schema for replayable benchmark records.
+
+- `design/compiled-state-architecture.md`: P2 architecture claim, cache identity, and hybrid search contracts.
+- `design/benchmark-adapter-contract.md`: P2 adapter surface and evidence rules.
+- `design/replay-and-feasibility.md`: P2 exact-replay and hard-feasibility gate.
