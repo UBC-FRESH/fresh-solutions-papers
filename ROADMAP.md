@@ -25,7 +25,7 @@ exists and the maintainer approves it.
 | P5 Release and reproducibility | #21 | `feature/p5-release` | complete |
 | P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | complete |
 | P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | complete |
-| P8 Paper 2 multi-seed campaign | #27 | `feature/p8-multiseed` | active |
+| P8 Paper 2 multi-seed campaign | #27 | `feature/p8-multiseed` | complete |
 
 ## Lifecycle Map
 
@@ -194,11 +194,11 @@ Goal: expand Paper 2 public evidence and write the first transfer-paper draft.
 
 Parent issue: #27
 Branch: `feature/p8-multiseed`
-Status: active
+Status: complete
 
 Goal: replace single-seed evidence with a multi-instance, multi-seed distribution.
 
-- [ ] P8.1 Add four larger public instances
-- [ ] P8.2 Run five seeds per instance
-- [ ] P8.3 Record distribution and exact replay
-- [ ] P8.4 Update Paper 2 draft
+- [x] P8.1 Add four larger public instances
+- [x] P8.2 Run five seeds per instance
+- [x] P8.3 Record distribution and exact replay
+- [x] P8.4 Update Paper 2 draft

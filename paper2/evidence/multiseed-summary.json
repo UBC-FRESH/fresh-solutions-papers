@@ -1,0 +1,98 @@
+[
+  {
+    "instance": "tai12a",
+    "size": 12,
+    "family": "qap",
+    "runs": 5,
+    "mean_gap_percent": 8.897404819620704,
+    "median_gap_percent": 8.038642521032369,
+    "worst_gap_percent": 11.615927563097106,
+    "best_gap_percent": 6.887209468130615,
+    "mean_wall_seconds": 0.3595432503148913,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "tai20a",
+    "size": 20,
+    "family": "qap",
+    "runs": 5,
+    "mean_gap_percent": 7.184604581211744,
+    "median_gap_percent": 7.102384993503743,
+    "worst_gap_percent": 9.394412365916967,
+    "best_gap_percent": 5.329773896133803,
+    "mean_wall_seconds": 0.7343244533985853,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "tai25a",
+    "size": 25,
+    "family": "qap",
+    "runs": 5,
+    "mean_gap_percent": 5.24919983277019,
+    "median_gap_percent": 5.980179155215309,
+    "worst_gap_percent": 6.174481005023748,
+    "best_gap_percent": 3.2366507432816793,
+    "mean_wall_seconds": 1.0377462901175023,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "tai30a",
+    "size": 30,
+    "family": "qap",
+    "runs": 5,
+    "mean_gap_percent": 5.679125878779812,
+    "median_gap_percent": 5.937036959628105,
+    "worst_gap_percent": 6.67845156549584,
+    "best_gap_percent": 4.14950174518438,
+    "mean_wall_seconds": 1.3592180037871002,
+    "optimum_kind": "best known"
+  },
+  {
+    "instance": "berlin52",
+    "size": 52,
+    "family": "tsp",
+    "runs": 5,
+    "mean_gap_percent": 10.196234420578095,
+    "median_gap_percent": 11.05807478122514,
+    "worst_gap_percent": 14.956245027844073,
+    "best_gap_percent": 3.3280297003447363,
+    "mean_wall_seconds": 0.6114720912650228,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "kroA100",
+    "size": 100,
+    "family": "tsp",
+    "runs": 5,
+    "mean_gap_percent": 21.49046142279861,
+    "median_gap_percent": 21.95752278921154,
+    "worst_gap_percent": 29.99718071609811,
+    "best_gap_percent": 14.058829057419416,
+    "mean_wall_seconds": 1.0947208151221275,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "kroB100",
+    "size": 100,
+    "family": "tsp",
+    "runs": 5,
+    "mean_gap_percent": 17.107628381735243,
+    "median_gap_percent": 17.325324059437243,
+    "worst_gap_percent": 20.003613206268913,
+    "best_gap_percent": 12.131340047874984,
+    "mean_wall_seconds": 1.0941489662975072,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "ch150",
+    "size": 150,
+    "family": "tsp",
+    "runs": 5,
+    "mean_gap_percent": 56.25919117647059,
+    "median_gap_percent": 56.1734068627451,
+    "worst_gap_percent": 61.611519607843135,
+    "best_gap_percent": 51.0110294117647,
+    "mean_wall_seconds": 1.5914330599829554,
+    "optimum_kind": "optimum"
+  }
+]

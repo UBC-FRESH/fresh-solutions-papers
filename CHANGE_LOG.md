@@ -96,3 +96,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Refreshed four-instance Paper 2 evidence and wrote the first transfer-paper draft.
 - All four assignments replay exactly.
 - P7 is complete; no leadership claim is made.
+
+### P8 close-out
+
+- Added tai25a, tai30a, kroB100, ch150.
+- Recorded five-seed distributions for eight public instances; 40/40 assignments replay exactly.
+- Updated Paper 2 draft and evidence.
+- QAP mean gaps 5.2–8.9%; TSP mean gaps 10.2–56.3%; ch150 is the weak case.

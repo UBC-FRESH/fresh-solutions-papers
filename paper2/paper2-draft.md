@@ -9,10 +9,10 @@ Fresh Solutions is a general hybrid metaheuristic engine extracted from a compil
 optimisation architecture. A problem adapter supplies discrete variables, options, exact and batched
 evaluation, feasibility, and reversible moves. The engine supplies exact resident state, exact CPU local
 search, batched population search, a population-to-local handoff, and replayable checkpoints. We test the
-transfer claim on four public QAPLIB/TSPLIB instances. The QAP results are within 7.4–7.6% of the known
-optima on 12- and 20-facility instances; the 2-opt TSP results are within 15.0% and 23.0% on 52- and
-100-city instances. All reported assignments replay exactly. These are first-pass transfer results, not
-claims of benchmark leadership.
+transfer claim on eight public QAPLIB/TSPLIB instances with five seeds each. Mean QAP gaps range from
+5.2% to 8.9% of the known optima on 12–30-facility instances. Mean TSP gaps range from 10.2% on the
+52-city instance to 56.3% on the 150-city instance. All 40 reported assignments replay exactly. These are
+transfer results, not claims of benchmark leadership.
 
 ## 1. Introduction
 
@@ -71,28 +71,35 @@ Configuration:
 population: 32
 generations: 50
 local iterations: 10,000
-seed: 3
+seeds: 1, 2, 3, 4, 5
 ```
 
 Every reported assignment is replayed through its adapter and checked against the recorded objective.
 
 ## 5. Results
 
-| Instance | Library | Size | Objective | Optimum | Gap | Wall |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| tai12a | QAPLIB | 12 | 241,016 | 224,416 | 7.397% | 0.351 s |
-| tai20a | QAPLIB | 20 | 757,090 | 703,482 | 7.620% | 0.746 s |
-| berlin52 | TSPLIB | 52 | 8,670 | 7,542 | 14.956% | 0.571 s |
-| kroA100 | TSPLIB | 100 | 26,180 | 21,282 | 23.015% | 1.126 s |
+Five-seed distributions; gaps are relative to QAPLIB/TSPLIB known values.
 
-All four assignments replay exactly. The TSP improvement from swap-only to 2-opt changed berlin52 from
-17,216 (128.268% gap) to 8,670 (14.956% gap) under the reported configuration.
+| Instance | Library | Size | Mean gap | Median gap | Worst gap | Mean wall |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| tai12a | QAPLIB | 12 | 8.897% | 8.039% | 11.616% | 0.360 s |
+| tai20a | QAPLIB | 20 | 7.185% | 7.102% | 9.394% | 0.734 s |
+| tai25a | QAPLIB | 25 | 5.249% | 5.980% | 6.174% | 1.038 s |
+| tai30a | QAPLIB | 30 | 5.679% | 5.937% | 6.678% | 1.359 s |
+| berlin52 | TSPLIB | 52 | 10.196% | 11.058% | 14.956% | 0.611 s |
+| kroA100 | TSPLIB | 100 | 21.490% | 21.958% | 29.997% | 1.095 s |
+| kroB100 | TSPLIB | 100 | 17.108% | 17.325% | 20.004% | 1.094 s |
+| ch150 | TSPLIB | 150 | 56.259% | 56.173% | 61.612% | 1.591 s |
+
+All 40 assignments replay exactly. The 2-opt change improved berlin52 from the v0.1.0 swap-only result
+(17,216; 128.268% gap) to the v0.2.0 range reported above. QAP is the stronger transfer lane; TSP 2-opt
+falls off on the 150-city instance.
 
 ## 6. Limitations
 
-- Four instances only; no full QAPLIB/TSPLIB campaign.
-- One seed and one configuration; no variance study.
-- TSP 2-opt is basic; no Lin–Kernighan or advanced local search.
+- Eight instances and five seeds, still not a full QAPLIB/TSPLIB campaign.
+- One configuration; no per-instance tuning.
+- TSP 2-opt is basic; ch150 shows the weakness. No Lin–Kernighan or advanced local search.
 - QAP moves are swaps; no robust tabu or specialised QAP neighbourhood.
 - `CpuBatchBackend` is exact but CPU-only; no production GPU kernel.
 - The engine is a transfer prototype, not a claim of state-of-the-art performance.
@@ -108,7 +115,8 @@ PYTHONPATH=fresh-solutions python paper2/replay_public.py
 Artifacts:
 
 - `paper2/instances/` — pinned public instances and provenance.
-- `paper2/evidence/public.json` — assignments, configs, objectives, gaps, wall times.
+- `paper2/evidence/multiseed.json` — 40 assignments and per-run gaps.
+- `paper2/evidence/multiseed-summary.json` — per-instance distributions.
 - `fresh-solutions` — released engine v0.2.0.
 
 ## 8. Conclusion
