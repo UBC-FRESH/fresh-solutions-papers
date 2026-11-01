@@ -17,8 +17,8 @@ exists and the maintainer approves it.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap | TBD | `feature/p0-bootstrap` | planned |
-| P1 Scope, literature, and benchmark corpus | TBD | `feature/p1-scope-literature` | planned |
+| P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
+| P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | active |
 | P2 Architecture and benchmark contracts | TBD | `feature/p2-architecture-contracts` | planned |
 | P3 Paper 1 benchmark evidence | TBD | `feature/p3-paper1-evidence` | planned |
 | P4 Paper 1 writing and verification | TBD | `feature/p4-paper1-writing` | planned |
@@ -46,9 +46,9 @@ exists and the maintainer approves it.
 
 ## Phase 0: Bootstrap
 
-Parent issue: TBD
+Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: planned
+Status: complete
 
 Goal: adapt the seed to the paper programme, add `fresh-solutions` as a submodule, and make the first
 pull request reviewable.
@@ -65,9 +65,9 @@ Acceptance criteria:
 
 ## Phase 1: Scope, literature, and benchmark corpus
 
-Parent issue: TBD
+Parent issue: #2
 Branch: `feature/p1-scope-literature`
-Status: planned
+Status: active
 
 Goal: define the research questions and build a reproducible benchmark corpus, not a list of
 aspirational citations.
