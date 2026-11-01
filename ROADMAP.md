@@ -21,7 +21,7 @@ exists and the maintainer approves it.
 | P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | complete |
 | P2 Architecture and benchmark contracts | #8 | `feature/p2-architecture-contracts` | complete |
 | P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | complete |
-| P4 Paper 1 writing and verification | TBD | `feature/p4-paper1-writing` | planned |
+| P4 Paper 1 writing and verification | #19 | `feature/p4-paper1-writing` | active |
 | P5 Fresh Solutions and Paper 2 evidence | TBD | `feature/p5-fresh-solutions` | planned |
 | P6 Release, reproducibility, and operation | TBD | `feature/p6-release` | planned |
 
@@ -124,9 +124,9 @@ Acceptance criteria:
 
 ## Phase 4: Paper 1 writing and verification
 
-Parent issue: TBD
+Parent issue: #19
 Branch: `feature/p4-paper1-writing`
-Status: planned
+Status: active
 
 Goal: turn the evidence into a defensible architecture paper.
 
