@@ -89,3 +89,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Refreshed public evidence with population 32 / 50 generations / 3,000 local iterations.
 - tai12a: 241,016 (7.397% gap); berlin52: 9,033 (19.769% gap).
 - Replay passes for both assignments.
+
+### P7 close-out
+
+- Added tai20a and kroA100 public instances.
+- Refreshed four-instance Paper 2 evidence and wrote the first transfer-paper draft.
+- All four assignments replay exactly.
+- P7 is complete; no leadership claim is made.

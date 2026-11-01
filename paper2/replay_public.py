@@ -11,13 +11,15 @@ sys.path.insert(0, str(ROOT.parent / "fresh-solutions"))
 
 from fresh_solutions.adapters import QuadraticAssignment, TravellingSalesman  # noqa: E402
 
-records = json.loads((ROOT / "evidence" / "public.json").read_text(encoding="utf-8"))
-adapters = {
+RECORDS = json.loads((ROOT / "evidence" / "public.json").read_text(encoding="utf-8"))
+ADAPTERS = {
     "tai12a": QuadraticAssignment.from_qaplib(ROOT / "instances" / "tai12a.dat"),
+    "tai20a": QuadraticAssignment.from_qaplib(ROOT / "instances" / "tai20a.dat"),
     "berlin52": TravellingSalesman.from_tsplib(ROOT / "instances" / "berlin52.tsp"),
+    "kroA100": TravellingSalesman.from_tsplib(ROOT / "instances" / "kroA100.tsp"),
 }
-for record in records:
-    adapter = adapters[record["instance"]]
+for record in RECORDS:
+    adapter = ADAPTERS[record["instance"]]
     assignment = {int(key): value for key, value in record["result"]["assignment"].items()}
     evaluation = adapter.evaluate(assignment)
     expected = record["result"]["objective"]
