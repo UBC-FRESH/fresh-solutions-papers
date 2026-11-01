@@ -1,7 +1,10 @@
-# Fresh Solutions: a compiled-state hybrid metaheuristic engine for hard combinatorial optimisation
+# Fresh Solutions: internal engineering notes
 
-Status: first evidence-constrained draft
+Status: **DO NOT SUBMIT — engineering smoke notes, not publication evidence**
 Date: 2026-11-01
+
+This document is not a paper draft. It records smoke-test behaviour and limits. The QAP/TSP results are engineering evidence only. QAP is limited by a local-optimum swap
+neighborhood; no publication claim is supported.
 
 ## Abstract
 

@@ -1,4 +1,7 @@
-# Paper 2 public evidence
+# Paper 2 internal engineering notes
+
+**DO NOT SUBMIT as publication evidence.** This directory contains smoke tests and benchmark-harness
+checks. The QAP/TSP results are not a publication-grade benchmark campaign.
 
 Convergence-controlled public-library evidence using Fresh Solutions v0.3.0.
 
@@ -20,9 +23,9 @@ PYTHONPATH=fresh-solutions python paper2/run_converged.py
 PYTHONPATH=fresh-solutions python paper2/replay_converged.py
 ```
 
-Evidence: `paper2/evidence/public.json`.
+Internal evidence: `paper2/evidence/converged.json`.
 
-## Results
+## Internal smoke observations — not paper results
 
 Config: Fresh Solutions v0.3.0, population 32, generations 50, 10,000 local iterations per round,
 seeds 1–5, patience 3 rounds, 30 rounds / 500,000 evaluation cap.

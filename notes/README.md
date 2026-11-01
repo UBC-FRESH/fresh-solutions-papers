@@ -28,3 +28,5 @@ Keep private material out of this directory.
 - `reports/p4-review.md`: P4 claim audit and internal review.
 
 - `reports/p8-convergence-audit.md`: Paper 2 pilot results are under-converged; final tables require a stopping rule and stronger neighborhoods.
+
+- `reports/paper2-smoke-notes.md`: **DO NOT SUBMIT**; engineering smoke tests for Paper 2, not publication evidence.

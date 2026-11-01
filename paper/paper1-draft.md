@@ -1,6 +1,6 @@
 # Compiled spatial optimisation: GPU-accelerated hybrid metaheuristics for landscape harvest scheduling
 
-Status: first evidence-constrained draft
+Status: **NOT SUBMISSION-READY — no matched optimized landscape baseline**
 Date: 2026-11-01
 
 ## Abstract
