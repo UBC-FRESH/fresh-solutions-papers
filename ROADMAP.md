@@ -228,7 +228,7 @@ Goal: move from architecture/smoke evidence to competitive, converged, independe
 
 - [x] P10.1 Workflow conformance audit (#32)
 - [x] P10.2 QAP competitive neighborhood (#33)
-- [ ] P10.3 TSP 3-opt/Lin–Kernighan evaluation (#34) — deferred; Or-opt only
+- [x] P10.3 TSP 3-opt/Lin–Kernighan evaluation (#34)
 - [x] P10.4 Serious-budget convergence protocol (#35)
 - [x] P10.5 Matched landscape baseline (#36)
 - [ ] P10.6 Applied case selection (#37) — active; permission pending

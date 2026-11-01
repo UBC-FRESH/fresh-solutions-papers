@@ -11,8 +11,8 @@ Branch: `feature/p10-competitive-benchmark`
 Queue the P10 PR for maintainer review. Do **not** publish either paper yet, and do **not** convert the
 QAP result into a solver-leadership claim.
 
-Phase disposition: **partial evidence, documented blockers**. P10.6 remains permission-blocked, and
-P10.3 is deferred.
+Phase disposition: **partial evidence, documented blockers**. P10.3 is now complete with a
+quality-at-additional-cost caveat. P10.6 remains permission-blocked.
 
 ## Evidence freeze
 
@@ -21,7 +21,7 @@ P10.3 is deferred.
 | QAP certified tabu | tai12a 0.000%, tai20a 0.403%, tai25a 0.685%, tai30a 0.407% | 20/20 exact |
 | QAP independent baseline | SciPy FAQ 9.026%, 4.642%, 4.474%, 2.289% | 20/20 exact; not budget-matched |
 | Paper 1 landscape baseline | 10× same-engine: 76,540.740733 | exact; not independent |
-| TSP neighborhood | Or-opt only, ~3.7–8.2% mean gap | P10.3 deferred; 3-opt negative |
+| TSP neighborhood | Iterated LK: 0.000/0.000/0.000/0.383% mean gap; 20/20 exact | P10.3 complete; extra-budget caveat |
 | Applied case | TSA24/Prince George selected | permission unresolved |
 
 ## Acceptance
@@ -36,6 +36,7 @@ P10.3 is deferred.
 - `python3 scripts/check_workflow.py`: **0 errors**, 3 recommended-file warnings.
 - Four benchmark records: **VALID**.
 - QAP certified records: **20/20 exact**; SciPy baseline: **20/20 exact**.
+- LK records: **20/20 exact**.
 - Evidence table regenerated: `paper/tables/evidence.md`.
 - Sphinx/docs and workflow validator run on the phase branch.
 - **CI correction:** the first PR run failed on `ruff format` for `paper2/replay_qap_tabu.py` and a
@@ -45,13 +46,13 @@ P10.3 is deferred.
 
 - Parent #31; child issues #32–#38.
 - Phase branch `feature/p10-competitive-benchmark`.
-- P10.1/P10.2/P10.4/P10.5/P10.7 complete; P10.3 deferred; P10.6 active and blocked.
+- P10.1/P10.2/P10.3/P10.4/P10.5/P10.7 complete; P10.6 active and blocked.
 - No direct `main` commits for P10 work.
 - No new tag or release in P10.
 
 ## Deviations and blockers
 
-1. **TSP is not competitive.** Randomized 3-opt did not improve Or-opt; LK is not implemented.
+1. **TSP uses additional LK budget.** Iterated LK improves materially, but the comparison is not an equal-budget ablation.
 2. **Paper 1 baseline is same-engine.** It is a budget-scaling baseline, not an independent solver.
 3. **Applied-case permission is missing.** TSA24 is a real TSA decision problem, but the local fixture
    has no established publication licence or partner permission.
@@ -62,12 +63,12 @@ P10.3 is deferred.
 - Paper 1: **not submission-ready**; same-engine scaling evidence only.
 - Paper 2: internal engineering evidence; not publication-grade.
 - QAP: competitive tabu result with a certified budget and a time-quality baseline; not state of the art.
-- TSP: Or-opt only; no 3-opt/LK claim.
+- TSP: iterated LK improves materially; no state-of-the-art or equal-budget claim.
 - Applied impact: none claimed until P10.6 permission and case evidence are complete.
 
 ## Next
 
 1. Maintainer review of this phase PR.
 2. Resolve TSA24 licence/permission or replace the fixture.
-3. Decide whether TSP Lin–Kernighan deserves a dedicated phase.
+3. Approve the LK release/merge path and decide whether to expand the TSP campaign.
 4. Keep both papers internal until the remaining gates pass.

@@ -147,3 +147,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Formatted `paper2/replay_qap_tabu.py`.
 - Added `types-jsonschema` to the CI dev requirements.
 - Disclosed the first failed PR run; rerun is the gate of record.
+
+### P10.3 Lin–Kernighan evidence
+
+- Pinned solver LK commit `0b87746`.
+- Added five-seed LK campaign from converged Or-opt tours.
+- Three instances reach the known optimum; ch150 mean gap 0.383%; 20/20 exact replays.
+- P10.3 complete with an extra-budget caveat.
