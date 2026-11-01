@@ -3,7 +3,7 @@
 Status: complete
 Date: 2026-11-01
 Issue: #34
-Solver pin: Fresh Solutions `0b87746` (P10.1)
+Solver pin: Fresh Solutions `24dc60c` (P10.1)
 Implementation: `fresh_solutions/adapters/tsp_lk.py`
 
 ## Recommendation

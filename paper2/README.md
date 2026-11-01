@@ -3,7 +3,7 @@
 **DO NOT SUBMIT as publication evidence.** This directory contains smoke tests and benchmark-harness
 checks. The QAP/TSP results are not a publication-grade benchmark campaign.
 
-Evidence release: Fresh Solutions **v0.4.0**, plus LK commit **`0b87746`**.
+Evidence release: Fresh Solutions **v0.4.0**, plus LK commit **`24dc60c`**.
 
 Convergence-controlled public-library evidence using Fresh Solutions v0.3.0, the v0.4.0 QAP
 robust-tabu campaign, and the P10.1 iterated Lin–Kernighan campaign.
