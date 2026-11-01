@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ws4-tsa24-gpu-ga-1000-r7",
+  "source": {
+    "citation": "UBC FRESH Lab. Wood Supply Simulation System (WS4).",
+    "doi": null,
+    "url": "https://github.com/UBC-FRESH/ws4"
+  },
+  "instance": {
+    "id": "tsa24-evenflow-w100",
+    "availability": "reconstructable",
+    "license": null,
+    "variables": 208255,
+    "periods": 20,
+    "options": 50096749,
+    "notes": "TSA24 compiled landscape instance; current even-flow target file (flow +/-1%, level weight 100 normalized). Local fixture, not a public dataset."
+  },
+  "problem": {
+    "objective": "minimize WS4 weighted goal-programming objective",
+    "constraints": [
+      "valid block/treatment schedule",
+      "weighted flow and level targets; no hard spatial constraints in this run"
+    ],
+    "feasibility": "valid schedule; target residuals are soft"
+  },
+  "algorithm": {
+    "name": "ws4-gpu-ga",
+    "version": "ws4-gpu@f60ce64",
+    "config": {
+      "population": 64,
+      "generations": 1000,
+      "seed": 7,
+      "targets": "evenflow_tsa24.yaml"
+    },
+    "deterministic": true
+  },
+  "run": {
+    "seed": 7,
+    "hardware": "GPU NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB; CPU Intel(R) Xeon(R) Gold 6254 CPU @ 3.10GHz",
+    "software": "Python 3.12.3; torch; WS4 f60ce64",
+    "time_to_first_feasible_s": 9.381489494815469,
+    "time_to_best_s": 9.381489494815469,
+    "wall_s": 23.13,
+    "memory_mb": 3517.44921875
+  },
+  "result": {
+    "objective": 8588725.370498415,
+    "feasible": true,
+    "schedule_sha256": "8cb4cf9dad4f7333ce9c4a9622d3f3860dc392309c71a3395de609c36b7665b3",
+    "schedule_path": "schedule.csv",
+    "exact_replay": true,
+    "target_penalties": {
+      "total": 8588725.370498415,
+      "initial_seed_objective": 1722144291.336651
+    },
+    "notes": "Exact CPU IncrementalObjective replay: 8588725.370498514; GPU table objective 8588725.370498415. Initial oldest-first seed objective: 1722144291.336651. Timing first-feasible not separately instrumented; search elapsed used."
+  }
+}

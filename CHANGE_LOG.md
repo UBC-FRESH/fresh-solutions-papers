@@ -53,3 +53,11 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Recorded FHOPS small21 SA baseline: objective 15508.884819999994, exact replay, hard violations 0.
 - Added `evidence/fhops-small21-sa-200-r42/`.
 - P3.7 remains open for the first WS4 architecture benchmark.
+
+### P3 close-out
+
+- Recorded three replayable records: FHOPS tiny7, FHOPS small21, and WS4 TSA24 GPU-GA.
+- WS4 TSA24 GPU objective 8,588,725.370498415; exact replay 8,588,725.370498514; initial seed 1,722,144,291.336651.
+- Added the TSA24 schedule, record, seed-baseline evidence, and replay script.
+- Direct FHOPS/WS4 comparison rejected as a contract mismatch.
+- P3 is complete; P4 remains planned.

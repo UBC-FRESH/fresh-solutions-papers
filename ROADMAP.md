@@ -20,7 +20,7 @@ exists and the maintainer approves it.
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | complete |
 | P2 Architecture and benchmark contracts | #8 | `feature/p2-architecture-contracts` | complete |
-| P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | active |
+| P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | complete |
 | P4 Paper 1 writing and verification | TBD | `feature/p4-paper1-writing` | planned |
 | P5 Fresh Solutions and Paper 2 evidence | TBD | `feature/p5-fresh-solutions` | planned |
 | P6 Release, reproducibility, and operation | TBD | `feature/p6-release` | planned |
@@ -105,7 +105,7 @@ Acceptance criteria:
 
 Parent issue: #10
 Branch: `feature/p3-paper1-evidence`
-Status: active
+Status: complete
 
 Goal: produce the forestry evidence: reproduced baselines, hybrid runs, and exact schedules.
 
@@ -115,7 +115,7 @@ Goal: produce the forestry evidence: reproduced baselines, hybrid runs, and exac
 - [x] P3.4 Record hardware and software provenance for every run
 - [x] P3.5 Implement or reject the WS4/FHOPS comparison adapter
 - [x] P3.6 Run the next public benchmark evidence pass
-- [ ] P3.7 Record the first WS4 architecture benchmark
+- [x] P3.7 Record the first WS4 architecture benchmark
 
 Acceptance criteria:
 
