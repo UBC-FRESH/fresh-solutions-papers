@@ -60,3 +60,8 @@ For every reported instance:
 3. report the budget used;
 4. add stronger neighborhoods where the plateau is unacceptable (QAP robust tabu / TSP Or-opt or 3-opt);
 5. only then populate a final results table.
+
+## Resolution
+
+The P9 converged campaign replaces the pilot table. All 40 runs stopped on patience and replay exactly;
+see `paper2/evidence/converged-summary.json`.

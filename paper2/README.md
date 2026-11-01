@@ -1,6 +1,6 @@
 # Paper 2 public evidence
 
-Pilot public-library transfer smoke test using Fresh Solutions v0.2.0. **Not a converged benchmark.**
+Convergence-controlled public-library evidence using Fresh Solutions v0.3.0.
 
 ## Instances
 
@@ -16,30 +16,27 @@ Pilot public-library transfer smoke test using Fresh Solutions v0.2.0. **Not a c
 ## Run
 
 ```bash
-PYTHONPATH=fresh-solutions python paper2/run_multiseed.py
-PYTHONPATH=fresh-solutions python paper2/replay_multiseed.py
+PYTHONPATH=fresh-solutions python paper2/run_converged.py
+PYTHONPATH=fresh-solutions python paper2/replay_converged.py
 ```
 
 Evidence: `paper2/evidence/public.json`.
 
 ## Results
 
-Config: population 32, generations 50, local iterations 10,000, seeds 1–5.
+Config: Fresh Solutions v0.3.0, population 32, generations 50, 10,000 local iterations per round,
+seeds 1–5, patience 3 rounds, 30 rounds / 500,000 evaluation cap.
 
-| Instance | Size | Mean gap | Median gap | Worst gap | Mean wall |
+| Instance | Size | Mean gap | Median gap | Worst gap | Mean evals |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| tai12a | 12 | 8.897% | 8.039% | 11.616% | 0.360 s |
-| tai20a | 20 | 7.185% | 7.102% | 9.394% | 0.734 s |
-| tai25a | 25 | 5.249% | 5.980% | 6.174% | 1.038 s |
-| tai30a | 30 | 5.679% | 5.937% | 6.678% | 1.359 s |
-| berlin52 | 52 | 10.196% | 11.058% | 14.956% | 0.611 s |
-| kroA100 | 100 | 21.490% | 21.958% | 29.997% | 1.095 s |
-| kroB100 | 100 | 17.108% | 17.325% | 20.004% | 1.094 s |
-| ch150 | 150 | 56.259% | 56.173% | 61.612% | 1.591 s |
+| tai12a | 12 | 8.897% | 8.039% | 11.616% | 31,635 |
+| tai20a | 20 | 7.185% | 7.102% | 9.394% | 37,636 |
+| tai25a | 25 | 5.249% | 5.980% | 6.174% | 41,636 |
+| tai30a | 30 | 5.679% | 5.937% | 6.678% | 41,636 |
+| berlin52 | 52 | 6.433% | 5.754% | 11.522% | 71,639 |
+| kroA100 | 100 | 7.323% | 7.293% | 13.847% | 105,642 |
+| kroB100 | 100 | 3.696% | 2.823% | 7.272% | 105,642 |
+| ch150 | 150 | 8.229% | 8.517% | 10.463% | 171,649 |
 
-These are **pilot, under-converged** transfer results, not leadership claims. All 40 assignments replay
-exactly. A budget audit found tai12a stuck at a local optimum and ch150 improving from 61.6% to 12.2%
-with 100k local iterations. See `notes/reports/p8-convergence-audit.md`. Do not use this table as a final
-benchmark result.
-
-Draft: `paper2/paper2-draft.md`.
+All 40 runs stopped on patience and all 40 assignments replay exactly. QAP remains swap-limited;
+TSP Or-opt is the stronger transfer result. This is not a leadership claim.
