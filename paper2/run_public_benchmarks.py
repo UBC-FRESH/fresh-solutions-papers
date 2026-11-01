@@ -17,8 +17,8 @@ from fresh_solutions.benchmark import run_benchmark  # noqa: E402
 
 def main() -> int:
     """Run both public instances and write evidence records."""
-    population = PopulationConfig(population=16, generations=20, seed=3)
-    local = SearchConfig(iterations=200, seed=3)
+    population = PopulationConfig(population=32, generations=50, seed=3)
+    local = SearchConfig(iterations=3000, seed=3)
     cases = [
         (
             QuadraticAssignment.from_qaplib(ROOT / "instances" / "tai12a.dat"),

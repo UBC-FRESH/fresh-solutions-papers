@@ -1,6 +1,6 @@
 # Paper 2 public evidence
 
-First public-library evidence pass using Fresh Solutions v0.1.0.
+Public-library evidence pass using Fresh Solutions v0.2.0.
 
 ## Instances
 
@@ -18,13 +18,18 @@ Evidence: `paper2/evidence/public.json`.
 
 ## Results
 
+Config: population 32, generations 50, local iterations 3,000, seed 3.
+
 | Instance | Objective | Known optimum | Gap |
 | --- | ---: | ---: | ---: |
-| tai12a | 251,340.000000 | 224,416 | **11.997%** |
-| berlin52 | 17,216.000000 | 7,542 | **128.268%** |
+| tai12a | 241,016.000000 | 224,416 | **7.397%** |
+| berlin52 | 9,033.000000 | 7,542 | **19.769%** |
+
+The TSP result uses the v0.2.0 2-opt segment reversal. The previous swap-only result was 17,216
+(128.268% gap).
 
 These are honest first-pass transfer results, not leadership claims:
 
-- The QAP path is within 12% of the known optimum on a 12-facility instance.
-- The TSP path uses swap-only moves, not 2-opt, and is far from the optimum.
-- The population is 16, generations 20, local iterations 200, seed 3; no tuning campaign.
+- QAP is within 7.4% of the known optimum on a 12-facility instance.
+- TSP is within 19.8% on berlin52 with 2-opt, but no multi-seed or tuning campaign.
+- No full QAPLIB/TSPLIB sweep.

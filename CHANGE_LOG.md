@@ -82,3 +82,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Ran Fresh Solutions v0.1.0 hybrid; recorded 11.997% QAP gap and 128.268% TSP gap.
 - Both assignments replay exactly; maintenance cadence recorded.
 - P6 is complete; the result is transfer evidence, not a leadership claim.
+
+### P6 v0.2.0 evidence refresh
+
+- Synced the submodule to fresh-solutions v0.2.0.
+- Refreshed public evidence with population 32 / 50 generations / 3,000 local iterations.
+- tai12a: 241,016 (7.397% gap); berlin52: 9,033 (19.769% gap).
+- Replay passes for both assignments.
