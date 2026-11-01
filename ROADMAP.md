@@ -19,7 +19,7 @@ exists and the maintainer approves it.
 | --- | --- | --- | --- |
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope, literature, and benchmark corpus | #2 | `feature/p1-scope-literature` | complete |
-| P2 Architecture and benchmark contracts | TBD | `feature/p2-architecture-contracts` | planned |
+| P2 Architecture and benchmark contracts | #8 | `feature/p2-architecture-contracts` | complete |
 | P3 Paper 1 benchmark evidence | TBD | `feature/p3-paper1-evidence` | planned |
 | P4 Paper 1 writing and verification | TBD | `feature/p4-paper1-writing` | planned |
 | P5 Fresh Solutions and Paper 2 evidence | TBD | `feature/p5-fresh-solutions` | planned |
@@ -85,16 +85,16 @@ Acceptance criteria:
 
 ## Phase 2: Architecture and benchmark contracts
 
-Parent issue: TBD
+Parent issue: #8
 Branch: `feature/p2-architecture-contracts`
-Status: planned
+Status: complete
 
 Goal: state the architecture claim and define the interfaces that make benchmark reproduction
 auditable.
 
-- [ ] P2.1 Write the compiled-state architecture and hybrid search design note
-- [ ] P2.2 Define the benchmark adapter and evidence schema
-- [ ] P2.3 Define exact replay and feasibility checks
+- [x] P2.1 Write the compiled-state architecture and hybrid search design note
+- [x] P2.2 Define the benchmark adapter and evidence schema
+- [x] P2.3 Define exact replay and feasibility checks
 
 Acceptance criteria:
 
