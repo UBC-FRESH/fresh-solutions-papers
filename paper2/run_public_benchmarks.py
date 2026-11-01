@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Run the public Paper 2 QAP/TSP evidence pass."""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parent / "fresh-solutions"))
+
+from fresh_solutions import PopulationConfig, SearchConfig  # noqa: E402
+from fresh_solutions.adapters import QuadraticAssignment, TravellingSalesman  # noqa: E402
+from fresh_solutions.benchmark import run_benchmark  # noqa: E402
+
+
+def main() -> int:
+    """Run both public instances and write evidence records."""
+    population = PopulationConfig(population=16, generations=20, seed=3)
+    local = SearchConfig(iterations=200, seed=3)
+    cases = [
+        (
+            QuadraticAssignment.from_qaplib(ROOT / "instances" / "tai12a.dat"),
+            "tai12a",
+            224416.0,
+            {"family": "qap", "source": "QAPLIB", "known_optimum": 224416.0},
+        ),
+        (
+            TravellingSalesman.from_tsplib(ROOT / "instances" / "berlin52.tsp"),
+            "berlin52",
+            7542.0,
+            {"family": "tsp", "source": "TSPLIB", "known_optimum": 7542.0},
+        ),
+    ]
+    records = []
+    for adapter, name, optimum, metadata in cases:
+        record = run_benchmark(adapter, name, population, local, metadata)
+        gap = 100.0 * (record.result.objective - optimum) / optimum
+        enriched = record.to_dict()
+        enriched["metadata"]["optimality_gap_percent"] = gap
+        records.append(enriched)
+        print(f"{name}: objective={record.result.objective:.6f} gap={gap:.3f}%")
+    destination = ROOT / "evidence" / "public.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

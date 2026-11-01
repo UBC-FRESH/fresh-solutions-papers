@@ -75,3 +75,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added release notes, manifest, clean-checkout log, and close-out report.
 - Clean clone: 154 tests, Sphinx -W, workflow validator 0 errors, all records valid.
 - P5 is complete; P6 remains planned for maintenance and Paper 2.
+
+### P6 close-out
+
+- Pinned QAPLIB tai12a and TSPLIB berlin52 with provenance.
+- Ran Fresh Solutions v0.1.0 hybrid; recorded 11.997% QAP gap and 128.268% TSP gap.
+- Both assignments replay exactly; maintenance cadence recorded.
+- P6 is complete; the result is transfer evidence, not a leadership claim.
