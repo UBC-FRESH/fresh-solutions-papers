@@ -22,9 +22,7 @@ def main() -> int:
     records = json.loads((ROOT / "evidence" / args.input).read_text(encoding="utf-8"))
     failures = 0
     for record in records:
-        problem = QuadraticAssignment.from_qaplib(
-            ROOT / "instances" / f"{record['instance']}.dat"
-        )
+        problem = QuadraticAssignment.from_qaplib(ROOT / "instances" / f"{record['instance']}.dat")
         assignment = {int(key): value for key, value in record["assignment"].items()}
         objective = problem.evaluate(assignment).objective
         if objective != record["objective"]:

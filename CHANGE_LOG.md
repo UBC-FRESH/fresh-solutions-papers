@@ -141,3 +141,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Froze QAP, Paper 1 scaling, TSP, and applied-case status.
 - Verified four benchmark records and 40/40 QAP/baseline replays.
 - Queued the phase PR; publication blocked on P10.6 permission and TSP limits.
+
+### P10.7 CI correction
+
+- Formatted `paper2/replay_qap_tabu.py`.
+- Added `types-jsonschema` to the CI dev requirements.
+- Disclosed the first failed PR run; rerun is the gate of record.

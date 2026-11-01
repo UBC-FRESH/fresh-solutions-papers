@@ -38,6 +38,8 @@ P10.3 is deferred.
 - QAP certified records: **20/20 exact**; SciPy baseline: **20/20 exact**.
 - Evidence table regenerated: `paper/tables/evidence.md`.
 - Sphinx/docs and workflow validator run on the phase branch.
+- **CI correction:** the first PR run failed on `ruff format` for `paper2/replay_qap_tabu.py` and a
+  missing `types-jsonschema` stub in the CI environment. Both are fixed; the rerun is the gate of record.
 
 ## Workflow compliance
 
