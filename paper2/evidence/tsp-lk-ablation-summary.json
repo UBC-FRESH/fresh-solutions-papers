@@ -1,0 +1,98 @@
+[
+  {
+    "instance": "berlin52",
+    "config": "lk-only",
+    "runs": 5,
+    "mean_gap_percent": 2.5802174489525322,
+    "worst_gap_percent": 4.5478652877220895,
+    "mean_wall_seconds": 0.5430631552007981
+  },
+  {
+    "instance": "berlin52",
+    "config": "ilk-5",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 3.3503823614002615
+  },
+  {
+    "instance": "berlin52",
+    "config": "ilk-20",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 12.09646674260075
+  },
+  {
+    "instance": "kroA100",
+    "config": "lk-only",
+    "runs": 5,
+    "mean_gap_percent": 1.0750869279203081,
+    "worst_gap_percent": 5.187482379475613,
+    "mean_wall_seconds": 0.316770412200276
+  },
+  {
+    "instance": "kroA100",
+    "config": "ilk-5",
+    "runs": 5,
+    "mean_gap_percent": 0.06202424584155625,
+    "worst_gap_percent": 0.12216896908185321,
+    "mean_wall_seconds": 2.4331677435991876
+  },
+  {
+    "instance": "kroA100",
+    "config": "ilk-20",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 8.56509425760014
+  },
+  {
+    "instance": "kroB100",
+    "config": "lk-only",
+    "runs": 5,
+    "mean_gap_percent": 0.7804525540851813,
+    "worst_gap_percent": 1.6259428210107945,
+    "mean_wall_seconds": 0.1663730950000172
+  },
+  {
+    "instance": "kroB100",
+    "config": "ilk-5",
+    "runs": 5,
+    "mean_gap_percent": 0.17162729777336164,
+    "worst_gap_percent": 0.5961790343706246,
+    "mean_wall_seconds": 3.004992395599402
+  },
+  {
+    "instance": "kroB100",
+    "config": "ilk-20",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 11.70707921919966
+  },
+  {
+    "instance": "ch150",
+    "config": "lk-only",
+    "runs": 5,
+    "mean_gap_percent": 2.2028186274509802,
+    "worst_gap_percent": 4.518995098039215,
+    "mean_wall_seconds": 0.585639806999825
+  },
+  {
+    "instance": "ch150",
+    "config": "ilk-5",
+    "runs": 5,
+    "mean_gap_percent": 0.5575980392156863,
+    "worst_gap_percent": 0.9803921568627451,
+    "mean_wall_seconds": 4.4974243769989695
+  },
+  {
+    "instance": "ch150",
+    "config": "ilk-20",
+    "runs": 5,
+    "mean_gap_percent": 0.3829656862745098,
+    "worst_gap_percent": 0.47487745098039214,
+    "mean_wall_seconds": 11.579291302000637
+  }
+]
