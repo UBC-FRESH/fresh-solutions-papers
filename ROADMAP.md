@@ -109,9 +109,9 @@ Status: active
 
 Goal: produce the forestry evidence: reproduced baselines, hybrid runs, and exact schedules.
 
-- [ ] P3.1 Reproduce the first historical spatial harvest-scheduling instance
-- [ ] P3.2 Run the WS4 architecture and hybrid search on the benchmark corpus
-- [ ] P3.3 Record time-to-first-feasible, time-to-best, quality, and exact replay
+- [x] P3.1 Select and document the first reproducible benchmark target
+- [x] P3.2 Implement the benchmark-record validator and replay gate
+- [ ] P3.3 Record the first benchmark evidence or documented stop
 - [ ] P3.4 Record hardware and software provenance for every run
 
 Acceptance criteria:

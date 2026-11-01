@@ -31,3 +31,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Froze the compiled-state architecture, benchmark adapter contract, and exact replay/feasibility rules.
 - Recorded cache identity and invalidation rules, including the distinction between pricing changes and table rebuilds.
 - P2 is complete; P3 remains planned.
+
+### P3 progress
+
+- Selected FHOPS as the first public target; Lockwood remains reconstructable and deferred.
+- Implemented the benchmark-record validator with schema, exact-replay, and schedule-hash gates.
+- Added the first replay-harness tests and API documentation.
+- P3 remains active: no benchmark result is claimed yet.
