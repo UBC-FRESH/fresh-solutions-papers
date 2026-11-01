@@ -24,7 +24,7 @@ exists and the maintainer approves it.
 | P4 Paper 1 writing and verification | #19 | `feature/p4-paper1-writing` | complete |
 | P5 Release and reproducibility | #21 | `feature/p5-release` | complete |
 | P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | complete |
-| P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | active |
+| P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | complete |
 
 ## Lifecycle Map
 
@@ -180,11 +180,11 @@ Acceptance criteria:
 
 Parent issue: #25
 Branch: `feature/p7-paper2-writing`
-Status: active
+Status: complete
 
 Goal: expand Paper 2 public evidence and write the first transfer-paper draft.
 
-- [ ] P7.1 Add two larger public instances
-- [ ] P7.2 Refresh four-instance evidence
-- [ ] P7.3 Write Paper 2 draft
-- [ ] P7.4 Archive and verify
+- [x] P7.1 Add two larger public instances
+- [x] P7.2 Refresh four-instance evidence
+- [x] P7.3 Write Paper 2 draft
+- [x] P7.4 Archive and verify

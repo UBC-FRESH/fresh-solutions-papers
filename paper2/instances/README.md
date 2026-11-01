@@ -19,3 +19,15 @@ Pinned 2026-11-01.
 - Format: TSPLIB EUC_2D
 
 These are public benchmark instances. Preserve source attribution in any redistribution.
+
+## tai20a
+
+- Source: QAPLIB mirror `https://github.com/didoudiaz/QAP-instances/blob/main/QAPLIB/tai20a.dat`
+- Size: 20
+- Known optimum: **703482**
+
+## kroA100
+
+- Source: TSPLIB `https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/kroA100.tsp.gz`
+- Size: 100
+- Optimum: **21282**

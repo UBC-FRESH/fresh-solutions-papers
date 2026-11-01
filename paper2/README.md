@@ -4,8 +4,10 @@ Public-library evidence pass using Fresh Solutions v0.2.0.
 
 ## Instances
 
-- `tai12a` — QAPLIB, size 12, known optimum **224416**.
-- `berlin52` — TSPLIB EUC_2D, size 52, optimum **7542**.
+- `tai12a` — QAPLIB, size 12, known optimum **224416**
+- `tai20a` — QAPLIB, size 20, known optimum **703482**
+- `berlin52` — TSPLIB EUC_2D, size 52, optimum **7542**
+- `kroA100` — TSPLIB EUC_2D, size 100, optimum **21282**
 
 ## Run
 
@@ -18,18 +20,17 @@ Evidence: `paper2/evidence/public.json`.
 
 ## Results
 
-Config: population 32, generations 50, local iterations 3,000, seed 3.
+Config: population 32, generations 50, local iterations 10,000, seed 3.
 
-| Instance | Objective | Known optimum | Gap |
-| --- | ---: | ---: | ---: |
-| tai12a | 241,016.000000 | 224,416 | **7.397%** |
-| berlin52 | 9,033.000000 | 7,542 | **19.769%** |
+| Instance | Size | Objective | Optimum | Gap | Wall |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| tai12a | 12 | 241,016 | 224,416 | **7.397%** | 0.351 s |
+| tai20a | 20 | 757,090 | 703,482 | **7.620%** | 0.746 s |
+| berlin52 | 52 | 8,670 | 7,542 | **14.956%** | 0.571 s |
+| kroA100 | 100 | 26,180 | 21,282 | **23.015%** | 1.126 s |
 
-The TSP result uses the v0.2.0 2-opt segment reversal. The previous swap-only result was 17,216
-(128.268% gap).
+These are honest first-pass transfer results, not leadership claims. The QAP path is consistently
+within 8%, and the TSP 2-opt path is within 23% on the 100-city instance. No multi-seed distribution
+or full QAPLIB/TSPLIB sweep has been run.
 
-These are honest first-pass transfer results, not leadership claims:
-
-- QAP is within 7.4% of the known optimum on a 12-facility instance.
-- TSP is within 19.8% on berlin52 with 2-opt, but no multi-seed or tuning campaign.
-- No full QAPLIB/TSPLIB sweep.
+Draft: `paper2/paper2-draft.md`.
