@@ -22,8 +22,8 @@ exists and the maintainer approves it.
 | P2 Architecture and benchmark contracts | #8 | `feature/p2-architecture-contracts` | complete |
 | P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | complete |
 | P4 Paper 1 writing and verification | #19 | `feature/p4-paper1-writing` | complete |
-| P5 Fresh Solutions and Paper 2 evidence | TBD | `feature/p5-fresh-solutions` | planned |
-| P6 Release, reproducibility, and operation | TBD | `feature/p6-release` | planned |
+| P5 Release and reproducibility | #21 | `feature/p5-release` | complete |
+| P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | active |
 
 ## Lifecycle Map
 
@@ -140,37 +140,37 @@ Acceptance criteria:
 - Every claim points to a benchmark record.
 - The benchmark wins are presented as evidence, not as the thesis.
 
-## Phase 5: Fresh Solutions and Paper 2 evidence
+## Phase 5: Release and reproducibility
 
-Parent issue: TBD
-Branch: `feature/p5-fresh-solutions`
-Status: planned
+Parent issue: #21
+Branch: `feature/p5-release`
+Status: complete
 
-Goal: extract the generic engine and test whether the architecture transfers.
+Goal: freeze and verify the Paper 1 evidence artifact, then publish the release.
 
-- [ ] P5.1 Freeze the `fresh-solutions` adapter API
-- [ ] P5.2 Implement the non-forestry adapters
-- [ ] P5.3 Run the public combinatorial benchmark suite
-- [ ] P5.4 Write the Paper 2 evidence table
-
-Acceptance criteria:
-
-- The generic engine has at least three non-forestry adapters.
-- Every Paper 2 claim has a reproducible benchmark record.
-
-## Phase 6: Release, reproducibility, and operation
-
-Parent issue: TBD
-Branch: `feature/p6-release`
-Status: planned
-
-Goal: publish the artifacts and keep the programme maintainable.
-
-- [ ] P6.1 Tag the paper artifacts and publish the benchmark archive
-- [ ] P6.2 Verify from a clean checkout
-- [ ] P6.3 Set the review cadence and archive the final evidence
+- [x] P5.1 Write release notes and known gaps
+- [x] P5.2 Verify from a clean checkout
+- [x] P5.3 Build and publish the benchmark artifact
 
 Acceptance criteria:
 
-- Both repositories have release tags and archival records.
-- A clean checkout reproduces the published evidence.
+- The evidence release is tagged and verified from a clean checkout.
+- Every published record passes the replay gate.
+
+## Phase 6: Paper 2 evidence and operation
+
+Parent issue: #23
+Branch: `feature/p6-paper2-evidence`
+Status: complete
+
+Goal: produce the first public-library Paper 2 evidence and set the maintenance cadence.
+
+- [x] P6.1 Pin tai12a and berlin52 with provenance
+- [x] P6.2 Run public QAP/TSP evidence
+- [x] P6.3 Record optimality gaps and replay
+- [x] P6.4 Set maintenance cadence
+
+Acceptance criteria:
+
+- Public QAP/TSP assignments replay exactly.
+- Gaps to known optima are recorded without leadership claims.
