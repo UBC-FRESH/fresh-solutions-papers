@@ -21,3 +21,8 @@ Keep private material out of this directory.
 - `design/p3-benchmark-selection.md`: FHOPS selected as the first public target; Lockwood deferred as reconstructable.
 
 - `design/fhops-ws4-comparison-decision.md`: P3.5 rejection of a direct FHOPS/WS4 comparison; FHOPS is baseline/reproducibility, not architecture peer.
+
+- `design/paper1-thesis.md`: P4 frozen thesis, contributions, permissible claims, and limitation language.
+
+- `design/paper1-archive.md`: P4 archive/reproduction procedure and known gaps.
+- `reports/p4-review.md`: P4 claim audit and internal review.

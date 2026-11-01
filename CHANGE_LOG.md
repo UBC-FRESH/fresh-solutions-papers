@@ -61,3 +61,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added the TSA24 schedule, record, seed-baseline evidence, and replay script.
 - Direct FHOPS/WS4 comparison rejected as a contract mismatch.
 - P3 is complete; P4 remains planned.
+
+### P4 close-out
+
+- Froze the Paper 1 thesis and contribution list.
+- Added evidence-table generation, Paper 1 draft, reproduction procedure, and claim audit.
+- Draft explicitly labels the TSA24 seed comparison as non-controlled and withholds unsupported claims.
+- P4 is complete; P5 remains planned for artifact freeze, clean-checkout verification, and release.
