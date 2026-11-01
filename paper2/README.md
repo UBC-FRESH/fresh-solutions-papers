@@ -1,6 +1,6 @@
 # Paper 2 public evidence
 
-Public-library multi-seed evidence pass using Fresh Solutions v0.2.0.
+Pilot public-library transfer smoke test using Fresh Solutions v0.2.0. **Not a converged benchmark.**
 
 ## Instances
 
@@ -37,7 +37,9 @@ Config: population 32, generations 50, local iterations 10,000, seeds 1–5.
 | kroB100 | 100 | 17.108% | 17.325% | 20.004% | 1.094 s |
 | ch150 | 150 | 56.259% | 56.173% | 61.612% | 1.591 s |
 
-These are honest transfer results, not leadership claims. All 40 assignments replay exactly. The QAP lane
-is the stronger transfer result; TSP 2-opt degrades on ch150.
+These are **pilot, under-converged** transfer results, not leadership claims. All 40 assignments replay
+exactly. A budget audit found tai12a stuck at a local optimum and ch150 improving from 61.6% to 12.2%
+with 100k local iterations. See `notes/reports/p8-convergence-audit.md`. Do not use this table as a final
+benchmark result.
 
 Draft: `paper2/paper2-draft.md`.

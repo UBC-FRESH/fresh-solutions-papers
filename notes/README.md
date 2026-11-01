@@ -26,3 +26,5 @@ Keep private material out of this directory.
 
 - `design/paper1-archive.md`: P4 archive/reproduction procedure and known gaps.
 - `reports/p4-review.md`: P4 claim audit and internal review.
+
+- `reports/p8-convergence-audit.md`: Paper 2 pilot results are under-converged; final tables require a stopping rule and stronger neighborhoods.

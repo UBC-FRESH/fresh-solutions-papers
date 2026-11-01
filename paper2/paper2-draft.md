@@ -9,10 +9,11 @@ Fresh Solutions is a general hybrid metaheuristic engine extracted from a compil
 optimisation architecture. A problem adapter supplies discrete variables, options, exact and batched
 evaluation, feasibility, and reversible moves. The engine supplies exact resident state, exact CPU local
 search, batched population search, a population-to-local handoff, and replayable checkpoints. We test the
-transfer claim on eight public QAPLIB/TSPLIB instances with five seeds each. Mean QAP gaps range from
-5.2% to 8.9% of the known optima on 12–30-facility instances. Mean TSP gaps range from 10.2% on the
-52-city instance to 56.3% on the 150-city instance. All 40 reported assignments replay exactly. These are
-transfer results, not claims of benchmark leadership.
+transfer claim on eight public QAPLIB/TSPLIB instances with five seeds each. These are pilot runs under a
+10,000-local-iteration budget, not converged benchmark results. The QAP runs plateau at a local optimum
+under the swap neighborhood; the TSP 2-opt runs improve substantially with larger budgets. All 40 reported
+assignments replay exactly. These are transfer smoke tests, not claims of benchmark leadership or
+converged quality.
 
 ## 1. Introduction
 
@@ -76,9 +77,11 @@ seeds: 1, 2, 3, 4, 5
 
 Every reported assignment is replayed through its adapter and checked against the recorded objective.
 
-## 5. Results
+## 5. Pilot transfer smoke test
 
-Five-seed distributions; gaps are relative to QAPLIB/TSPLIB known values.
+**Not a converged benchmark.** Five-seed distributions at a 10,000-local-iteration budget; gaps are
+relative to QAPLIB/TSPLIB known values. A convergence audit shows tai12a is stuck at a local optimum and
+ch150 improves from 61.6% to 12.2% with 100k iterations.
 
 | Instance | Library | Size | Mean gap | Median gap | Worst gap | Mean wall |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -91,14 +94,15 @@ Five-seed distributions; gaps are relative to QAPLIB/TSPLIB known values.
 | kroB100 | TSPLIB | 100 | 17.108% | 17.325% | 20.004% | 1.094 s |
 | ch150 | TSPLIB | 150 | 56.259% | 56.173% | 61.612% | 1.591 s |
 
-All 40 assignments replay exactly. The 2-opt change improved berlin52 from the v0.1.0 swap-only result
-(17,216; 128.268% gap) to the v0.2.0 range reported above. QAP is the stronger transfer lane; TSP 2-opt
-falls off on the 150-city instance.
+All 40 assignments replay exactly. These numbers are not convergence evidence; see
+`notes/reports/p8-convergence-audit.md`. The 2-opt change improved berlin52 over the v0.1.0 swap-only
+result, but the 10k budget is insufficient for the TSP instances.
 
 ## 6. Limitations
 
-- Eight instances and five seeds, still not a full QAPLIB/TSPLIB campaign.
-- One configuration; no per-instance tuning.
+- Eight instances and five seeds, but the runs are not converged.
+- One configuration; no per-instance tuning or convergence stopping rule.
+- tai12a is trapped at a local optimum; ch150 needs at least ~100k local iterations before its plateau.
 - TSP 2-opt is basic; ch150 shows the weakness. No Lin–Kernighan or advanced local search.
 - QAP moves are swaps; no robust tabu or specialised QAP neighbourhood.
 - `CpuBatchBackend` is exact but CPU-only; no production GPU kernel.
