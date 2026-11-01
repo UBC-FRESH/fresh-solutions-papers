@@ -72,10 +72,10 @@ Status: complete
 Goal: define the research questions and build a reproducible benchmark corpus, not a list of
 aspirational citations.
 
-- [ ] P1.1 Verify the Lockwood and Moore (1993) citation and locate or reconstruct an instance
-- [ ] P1.2 Build the spatially explicit harvest-scheduling benchmark matrix
-- [ ] P1.3 Build the conservation-planning and general combinatorial benchmark matrix
-- [ ] P1.4 Define the benchmark record schema (problem, objective, hardware, time-to-quality, replay)
+- [x] P1.1 Verify the Lockwood and Moore (1993) citation and locate or reconstruct an instance
+- [x] P1.2 Build the spatially explicit harvest-scheduling benchmark matrix
+- [x] P1.3 Build the conservation-planning and general combinatorial benchmark matrix
+- [x] P1.4 Define the benchmark record schema (problem, objective, hardware, time-to-quality, replay)
 
 Acceptance criteria:
 
