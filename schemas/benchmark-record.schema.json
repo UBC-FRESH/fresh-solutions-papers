@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/UBC-FRESH/fresh-solutions-papers/schemas/benchmark-record.schema.json",
+  "title": "Fresh Solutions benchmark record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_id", "source", "instance", "problem", "algorithm", "run", "result"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_id": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "required": ["citation", "doi", "url"],
+      "properties": {
+        "citation": {"type": "string"},
+        "doi": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]}
+      }
+    },
+    "instance": {
+      "type": "object",
+      "required": ["id", "availability", "license", "variables", "periods", "options"],
+      "properties": {
+        "id": {"type": "string"},
+        "availability": {"enum": ["public", "reconstructable", "abstract-only", "unusable"]},
+        "license": {"type": ["string", "null"]},
+        "variables": {"type": "integer", "minimum": 1},
+        "periods": {"type": "integer", "minimum": 1},
+        "options": {"type": "integer", "minimum": 1},
+        "notes": {"type": "string"}
+      }
+    },
+    "problem": {
+      "type": "object",
+      "required": ["objective", "constraints", "feasibility"],
+      "properties": {
+        "objective": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "feasibility": {"type": "string"}
+      }
+    },
+    "algorithm": {
+      "type": "object",
+      "required": ["name", "version", "config", "deterministic"],
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "config": {"type": "object"},
+        "deterministic": {"type": "boolean"}
+      }
+    },
+    "run": {
+      "type": "object",
+      "required": ["seed", "hardware", "software", "time_to_first_feasible_s", "time_to_best_s", "wall_s", "memory_mb"],
+      "properties": {
+        "seed": {"type": "integer"},
+        "hardware": {"type": "string"},
+        "software": {"type": "string"},
+        "time_to_first_feasible_s": {"type": "number", "minimum": 0},
+        "time_to_best_s": {"type": "number", "minimum": 0},
+        "wall_s": {"type": "number", "minimum": 0},
+        "memory_mb": {"type": "number", "minimum": 0}
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": ["objective", "feasible", "schedule_sha256", "schedule_path", "exact_replay", "target_penalties"],
+      "properties": {
+        "objective": {"type": "number"},
+        "feasible": {"type": "boolean"},
+        "schedule_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "schedule_path": {"type": "string"},
+        "exact_replay": {"type": "boolean"},
+        "target_penalties": {"type": "object", "additionalProperties": {"type": "number"}},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
