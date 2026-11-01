@@ -1,0 +1,47 @@
+{
+  "version": "paper1-evidence-v0.1.0",
+  "date": "2026-11-01",
+  "submodule_commit": "58695d350fa5998a0e069e96e669cd3fa6870a9b",
+  "files": {
+    "paper/paper1-draft.md": "b8601d47e9d1b7f01294a41f60f63bae3c7511a0af4e37ed9ce69d16b4b50d0b",
+    "paper/tables/evidence.md": "44d06ccc4fed516ab319ecc538af69cd985efc48ac3d958da50589c40fe9d4e2",
+    "schemas/benchmark-record.schema.json": "ae8a81fb13b5fded5c02a1974e5c818ae35405023a78347b28bac8b4b8f8d527",
+    "scripts/check_benchmark_record.py": "346882dc53acb9effcbea9d302c5711b21c9888507606e79807df920d335d3f8",
+    "scripts/build_evidence_tables.py": "35a829f864e7eb9309237dcbb4e8815fb7d50476ca869bc6e4f10f957c644700"
+  },
+  "records": [
+    {
+      "record_id": "fhops-small21-sa-200-r42",
+      "record": "evidence/fhops-small21-sa-200-r42/record.json",
+      "record_sha256": "32fe6ef0a6d6eb6256273b12bffcbd7b2d3d36d0d295179c77f260ddabdcc718",
+      "objective": 15508.884819999994,
+      "exact_replay": true,
+      "schedule": "assignments.csv",
+      "schedule_sha256": "b3b0aabe1e27cb107fd0eb5d6ceccd0a1f53ede06827ceaa6b7b83dedf2864a0"
+    },
+    {
+      "record_id": "fhops-tiny7-sa-200-r42",
+      "record": "evidence/fhops-tiny7-sa-200-r42/record.json",
+      "record_sha256": "28dc4c6e534b10ccc2b65c68b58854e42d25e361befc67bd06cae33233d61c80",
+      "objective": 4295.774752,
+      "exact_replay": true,
+      "schedule": "assignments.csv",
+      "schedule_sha256": "c5664677bb9137de7b91754e95fa1fd49217cc2e87103d02628c8a73e9ea4b58"
+    },
+    {
+      "record_id": "ws4-tsa24-gpu-ga-1000-r7",
+      "record": "evidence/ws4-tsa24-gpu-ga-1000-r7/record.json",
+      "record_sha256": "5e0f1de7f1c677232f5be5584c41fdd260ed65ebb317f3b8141a72a232affc0b",
+      "objective": 8588725.370498415,
+      "exact_replay": true,
+      "schedule": "schedule.csv",
+      "schedule_sha256": "8cb4cf9dad4f7333ce9c4a9622d3f3860dc392309c71a3395de609c36b7665b3"
+    }
+  ],
+  "known_limits": [
+    "tsa24 is reconstructable, not public",
+    "no matched optimized landscape baseline",
+    "time-to-first-feasible not separately instrumented",
+    "FHOPS is operational planning, not a direct architecture peer"
+  ]
+}
