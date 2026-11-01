@@ -31,6 +31,19 @@ solver win.
 - Tests and Sphinx build pass.
 - Clean-checkout verification is recorded in the P5 close-out.
 
+## Clean-checkout verification
+
+A clean clone with submodules passed:
+
+- 154 tests
+- Sphinx `-W`
+- workflow validator: 0 errors
+- all three evidence records valid
+- evidence table regenerated
+- submodule pinned to `58695d350fa5998a0e069e96e669cd3fa6870a9b`
+
+Log: `paper/release/clean-checkout.log`
+
 ## Known gaps
 
 1. No matched optimized landscape baseline.
