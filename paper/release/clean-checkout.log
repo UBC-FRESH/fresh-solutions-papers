@@ -1,0 +1,21 @@
+=== python ===
+Python 3.12.3
+=== pytest ===
+........................................................................ [ 46%]
+........................................................................ [ 93%]
+..........                                                               [100%]
+154 passed in 5.69s
+=== sphinx ===
+=== workflow ===
+warning FILE-RECOMMENDED      LICENSE  recommended file is missing
+warning FILE-RECOMMENDED      CODE_OF_CONDUCT.md  recommended file is missing
+warning FILE-RECOMMENDED      CITATION.cff  recommended file is missing
+0 error(s), 3 warning(s)
+=== records ===
+VALID: fhops-small21-sa-200-r42 (fhops-small21)
+VALID: fhops-tiny7-sa-200-r42 (fhops-tiny7)
+VALID: ws4-tsa24-gpu-ga-1000-r7 (tsa24-evenflow-w100)
+=== table ===
+wrote paper/tables/evidence.md (3 records)
+=== submodule ===
+ 58695d350fa5998a0e069e96e669cd3fa6870a9b fresh-solutions (heads/main)
