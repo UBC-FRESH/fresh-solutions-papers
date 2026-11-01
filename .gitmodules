@@ -1,0 +1,3 @@
+[submodule "fresh-solutions"]
+	path = fresh-solutions
+	url = https://github.com/UBC-FRESH/fresh-solutions.git
