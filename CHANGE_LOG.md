@@ -123,3 +123,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `ws4-tsa24-gpu-ga-10000-r7` record: 10,000 generations, objective 76,540.740733.
 - Exact replay and duplicate schedule hash verified.
 - Paper 1 now reports a same-engine scaling baseline, not an independent solver baseline.
+
+### P10.3 TSP decision
+
+- Randomized 3-opt retained as a negative result; not adopted.
+- TSP remains Or-opt-only at roughly 3.7–8.2% mean gap.
+- P10.3 marked deferred, not complete; no LK claim.
