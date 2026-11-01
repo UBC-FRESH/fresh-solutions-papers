@@ -1,6 +1,6 @@
 # Compiled spatial optimisation: GPU-accelerated hybrid metaheuristics for landscape harvest scheduling
 
-Status: **NOT SUBMISSION-READY — no matched optimized landscape baseline**
+Status: **NOT SUBMISSION-READY — same-engine scaling baseline only; no independent landscape baseline**
 Date: 2026-11-01
 
 ## Abstract
@@ -12,10 +12,10 @@ candidate and sparse effect indexes, exact resident accounting, and batched GPU 
 with exact CPU local refinement. We report a first replayable architecture record on a 208,255-block
 TSA24 landscape: a 1,000-generation GPU search reduced the objective from an initial
 1,722,144,291.336651 to 8,588,725.370498415 in 9.381 s of search time (23.13 s wall), with an exact CPU
-replay of 8,588,725.370498514. We also report two replayable public FHOPS baseline records. The
-comparison is deliberately limited: the TSA24 instance is reconstructable, not public, and the seed
-comparison is not a matched optimized baseline. The contribution is the architecture and its evidence
-contract, not a universal speed claim.
+replay of 8,588,725.370498514. We also report two replayable public FHOPS baseline records. A 10,000-generation run of the same
+engine reaches 76,540.740733 with an exact replay, but it is a same-engine budget-scaling baseline, not
+an independent solver. The TSA24 instance is reconstructable, not public. The contribution is the
+architecture and its evidence contract, not a universal speed claim.
 
 ## 1. Introduction
 
@@ -33,8 +33,9 @@ has five layers:
 4. exact resident accounting state;
 5. a hybrid search loop.
 
-The paper reports an initial evidence record and a reproducibility contract. It does not claim a
-controlled benchmark win; that requires a matched optimized baseline that this phase did not produce.
+The paper reports an initial evidence record, a same-engine scaling baseline, and a reproducibility
+contract. It does not claim a controlled win against an independent solver; that still requires an
+independent optimized landscape baseline.
 
 ## 2. Architecture
 
@@ -114,18 +115,22 @@ The current records are generated from `evidence/*/record.json`:
 | fhops-tiny7-sa-200-r42 | fhops-tiny7 | fhops-sa 1.1.0@135321b1f5a7 | 4295.774752 | True | 0.269 | 0.269 |
 | ws4-tsa24-gpu-ga-1000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 8588725.370498 | True | 23.130 | 9.381 |
 
-### 4.2 WS4 TSA24 architecture record
+### 4.2 WS4 TSA24 architecture record and scaling baseline
 
 - 208,255 blocks; 20 accounting periods.
-- GPU-GA population 64, 1,000 generations, seed 7.
+- GPU-GA population 64, seed 7.
+- 1,000 generations: objective **8,588,725.370498415**; exact CPU replay
+  **8,588,725.370498514**; search 9.381 s; wall 23.13 s.
+- 10,000 generations: objective **76,540.74073269201**; exact CPU replay
+  **76,540.74073269201**; search 89.78 s; wall 157.34 s; max RSS 8,256 MB.
+- Both schedules are schema-valid, hash-verified, and exactly replayed.
+- Two independent 10,000-generation processes produced the identical schedule SHA-256.
 - Initial oldest-first seed objective: 1,722,144,291.336651.
-- GPU objective: 8,588,725.370498415.
-- Exact CPU replay: 8,588,725.370498514.
-- Search: 9.381 s. Wall: 23.13 s.
-- Schedule SHA-256 verified; record schema-valid.
 
-The seed-to-result improvement is large, but the seed is not an optimized control. It is a starting
-point. The result is therefore an architecture record, not a comparative win.
+The 10× budget run is **112×** lower in objective than the 1,000-generation run. This is a
+same-engine scaling baseline, not an independent algorithm baseline. It rules out the weakest
+interpretation that the 1,000-generation result is a converged ceiling, but it does not establish a win
+against another solver.
 
 ### 4.3 FHOPS public baselines
 
@@ -142,7 +147,7 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 1. The TSA24 instance is a local reconstructable fixture, not a public benchmark.
 2. The 1,000-generation GPU run is not a converged even-flow solution.
 3. Time-to-first-feasible was not separately instrumented; search elapsed is used conservatively.
-4. There is no matched optimized landscape baseline.
+4. The 10,000-generation baseline is same-engine; there is no independent optimized landscape baseline.
 5. FHOPS baselines are not architecture comparisons.
 6. The architecture is strongest for sparse local effects; dense global coupling is untested.
 7. The effect-table cache invalidation contract is a design requirement, not yet a production service.
