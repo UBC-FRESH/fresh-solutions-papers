@@ -30,3 +30,5 @@ Keep private material out of this directory.
 - `reports/p8-convergence-audit.md`: Paper 2 pilot results are under-converged; final tables require a stopping rule and stronger neighborhoods.
 
 - `reports/paper2-smoke-notes.md`: **DO NOT SUBMIT**; engineering smoke tests for Paper 2, not publication evidence.
+
+- `reports/workflow-conformance-audit.md`: P10.1 audit of workflow deviations and forward rules.
