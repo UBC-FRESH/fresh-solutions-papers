@@ -129,3 +129,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Randomized 3-opt retained as a negative result; not adopted.
 - TSP remains Or-opt-only at roughly 3.7–8.2% mean gap.
 - P10.3 marked deferred, not complete; no LK claim.
+
+### P10.6 applied case selection
+
+- Selected TSA24/Prince George even-flow harvest scheduling as the candidate case.
+- Defined decision metrics, same-engine baseline, and provenance.
+- Blocked on data licence/partner publication permission; no applied-impact claim.
