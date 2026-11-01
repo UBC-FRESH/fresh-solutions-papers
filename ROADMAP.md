@@ -23,7 +23,7 @@ exists and the maintainer approves it.
 | P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | complete |
 | P4 Paper 1 writing and verification | #19 | `feature/p4-paper1-writing` | complete |
 | P5 Fresh Solutions and Paper 2 evidence | TBD | `feature/p5-fresh-solutions` | planned |
-| P6 Release, reproducibility, and operation | TBD | `feature/p6-release` | planned |
+| P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | active |
 
 ## Lifecycle Map
 
@@ -158,9 +158,9 @@ Acceptance criteria:
 - The generic engine has at least three non-forestry adapters.
 - Every Paper 2 claim has a reproducible benchmark record.
 
-## Phase 6: Release, reproducibility, and operation
+## Phase 6: Paper 2 evidence and operation
 
-Parent issue: TBD
+Parent issue: #23
 Branch: `feature/p6-release`
 Status: planned
 
