@@ -13,7 +13,7 @@
     "variables": 208255,
     "periods": 20,
     "options": 50096749,
-    "notes": "TSA24 compiled landscape instance; even-flow target file (flow +/-1%, level weight 100 normalized). Local fixture, not a public dataset."
+    "notes": "TSA24 compiled landscape instance; even-flow target file (flow +/-1%, level weight 100 normalized). Local fixture, not a public dataset. Public source and instance: https://github.com/UBC-FRESH/femic-tsa24-instance (UBC-FRESH); built from public BC VRI/FADM/SiteProd data. The local compiled build is derived; the repository has no explicit LICENSE file, while source data retains BC government licences."
   },
   "problem": {
     "objective": "minimize WS4 weighted goal-programming objective",
