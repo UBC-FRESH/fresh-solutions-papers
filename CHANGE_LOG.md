@@ -68,3 +68,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added evidence-table generation, Paper 1 draft, reproduction procedure, and claim audit.
 - Draft explicitly labels the TSA24 seed comparison as non-controlled and withholds unsupported claims.
 - P4 is complete; P5 remains planned for artifact freeze, clean-checkout verification, and release.
+
+### P5 close-out
+
+- Froze Paper 1 evidence release `paper1-evidence-v0.1.0`.
+- Added release notes, manifest, clean-checkout log, and close-out report.
+- Clean clone: 154 tests, Sphinx -W, workflow validator 0 errors, all records valid.
+- P5 is complete; P6 remains planned for maintenance and Paper 2.
