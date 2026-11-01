@@ -161,3 +161,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Confirmed public BC data sources and public Arbutus storage.
 - Removed the erroneous external-permission blocker; retained the no-partner-endorsement and
   no-independent-baseline limits.
+
+### P10 LK kicks ablation
+
+- Added LK-only, ILK-5, and ILK-20 five-seed ablation.
+- LK-only means 0.780–2.580%; ILK-20 means 0.000–0.383%.
+- All 60 ablation tours replay exactly.

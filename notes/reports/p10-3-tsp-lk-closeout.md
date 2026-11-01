@@ -41,8 +41,21 @@ Five seeds per instance, starting from the converged Or-opt assignment:
 - Same budget rules: **not equal-budget**. The LK path receives additional local-search time; wall
   times are reported. The claim is time-quality, not equal-budget dominance.
 
+## Kicks ablation
+
+| Instance | LK-only mean gap | ILK-5 mean gap | ILK-20 mean gap |
+| --- | ---: | ---: | ---: |
+| berlin52 | 2.580% | 0.000% | 0.000% |
+| kroA100 | 1.075% | 0.062% | 0.000% |
+| kroB100 | 0.780% | 0.172% | 0.000% |
+| ch150 | 2.203% | 0.558% | 0.383% |
+
+The double-bridge kicks are a material part of the result, not a cosmetic restart.
+
 ## Evidence
 
+- `paper2/evidence/tsp-lk-ablation.json`
+- `paper2/evidence/tsp-lk-ablation-summary.json`
 - `paper2/evidence/tsp-lk.json`
 - `paper2/evidence/tsp-lk-summary.json`
 - `paper2/run_tsp_lk.py`

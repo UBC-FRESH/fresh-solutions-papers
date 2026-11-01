@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -15,7 +16,10 @@ from fresh_solutions.adapters import TravellingSalesman  # noqa: E402
 
 def main() -> int:
     """Re-evaluate every recorded assignment."""
-    records = json.loads((ROOT / "evidence" / "tsp-lk.json").read_text(encoding="utf-8"))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", default="tsp-lk.json")
+    args = parser.parse_args()
+    records = json.loads((ROOT / "evidence" / args.input).read_text(encoding="utf-8"))
     failures = 0
     for record in records:
         problem = TravellingSalesman.from_tsplib(ROOT / "instances" / f"{record['instance']}.tsp")
