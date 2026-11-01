@@ -17,3 +17,7 @@ Keep private material out of this directory.
 - `design/compiled-state-architecture.md`: P2 architecture claim, cache identity, and hybrid search contracts.
 - `design/benchmark-adapter-contract.md`: P2 adapter surface and evidence rules.
 - `design/replay-and-feasibility.md`: P2 exact-replay and hard-feasibility gate.
+
+- `design/p3-benchmark-selection.md`: FHOPS selected as the first public target; Lockwood deferred as reconstructable.
+
+- `design/fhops-ws4-comparison-decision.md`: P3.5 rejection of a direct FHOPS/WS4 comparison; FHOPS is baseline/reproducibility, not architecture peer.
