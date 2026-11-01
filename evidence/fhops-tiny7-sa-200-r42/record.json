@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "fhops-tiny7-sa-200-r42",
+  "source": {
+    "citation": "Paradis, G. (2026). FHOPS: a reproducible optimisation and benchmarking stack for forest harvest operations. SoftwareX 36.",
+    "doi": null,
+    "url": "https://github.com/UBC-FRESH/fhops"
+  },
+  "instance": {
+    "id": "fhops-tiny7",
+    "availability": "public",
+    "license": "MIT",
+    "variables": 63,
+    "periods": 7,
+    "options": 3,
+    "notes": "FHOPS examples/tiny7 scenario; 9 machines, 2 blocks, 7 days, 2 shifts."
+  },
+  "problem": {
+    "objective": "minimize FHOPS harvesting objective",
+    "constraints": [
+      "machine-block assignment",
+      "shift calendar",
+      "harvest-system sequencing",
+      "landing capacity"
+    ],
+    "feasibility": "hard_violation_count == 0"
+  },
+  "algorithm": {
+    "name": "fhops-sa",
+    "version": "1.1.0@135321b1f5a7",
+    "config": {
+      "iters": 200,
+      "seed": 42,
+      "batch_size": 4
+    },
+    "deterministic": true
+  },
+  "run": {
+    "seed": 42,
+    "hardware": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39 | Intel(R) Xeon(R) Gold 6254 CPU @ 3.10GHz",
+    "software": "Python 3.12.3; FHOPS 135321b1f5a7a557823ea6241650a6431b4f121b",
+    "time_to_first_feasible_s": 0.2687841532751918,
+    "time_to_best_s": 0.2687841532751918,
+    "wall_s": 0.2687841532751918,
+    "memory_mb": 126.23046875
+  },
+  "result": {
+    "objective": 4295.774752,
+    "feasible": true,
+    "schedule_sha256": "c5664677bb9137de7b91754e95fa1fd49217cc2e87103d02628c8a73e9ea4b58",
+    "schedule_path": "assignments.csv",
+    "exact_replay": true,
+    "target_penalties": {
+      "total": 4295.774752,
+      "mobilisation": 585.64,
+      "hard_violation_count": 0.0
+    },
+    "notes": "Replayed through evaluate_assignments with the solver objective weights; hard_violation_count=0."
+  }
+}

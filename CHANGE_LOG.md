@@ -38,3 +38,11 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Implemented the benchmark-record validator with schema, exact-replay, and schedule-hash gates.
 - Added the first replay-harness tests and API documentation.
 - P3 remains active: no benchmark result is claimed yet.
+
+### P3 first evidence
+
+- Recorded the first replayable public baseline: FHOPS tiny7 SA, 200 iterations, seed 42.
+- Objective 4295.774752; exact replay 4295.774752; hard violations 0.
+- Added `evidence/fhops-tiny7-sa-200-r42/` with schedule, record, hash, and replay script.
+- Validator accepted the record: exact-replay gate and SHA-256 hash pass.
+- P3 remains active; P3.5/P3.6 are the next comparison tasks.
