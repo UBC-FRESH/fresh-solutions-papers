@@ -53,9 +53,9 @@ Status: complete
 Goal: adapt the seed to the paper programme, add `fresh-solutions` as a submodule, and make the first
 pull request reviewable.
 
-- [ ] P0.1 Adapt `AGENTS.md`, `README.md`, `LICENSE`, and the roadmap to this programme
-- [ ] P0.2 Add `fresh-solutions` as a git submodule
-- [ ] P0.3 Confirm the validator and the docs build pass
+- [x] P0.1 Adapt `AGENTS.md`, `README.md`, `LICENSE`, and the roadmap to this programme
+- [x] P0.2 Add `fresh-solutions` as a git submodule
+- [x] P0.3 Confirm the validator and the docs build pass
 
 Acceptance criteria:
 
