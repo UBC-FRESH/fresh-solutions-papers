@@ -1,0 +1,9 @@
+[
+  {
+    "instance": "tai30a",
+    "mean_gap_40k": 0.4070960197915899,
+    "mean_gap_80k": 0.3484868651912443,
+    "improvement_40k_to_80k_points": 0.0586091546003456,
+    "converged_for_reporting": true
+  }
+]

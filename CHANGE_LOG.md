@@ -110,3 +110,54 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - All 40 stopped on patience and replay exactly.
 - TSP Or-opt: mean gaps 3.696–8.229%; QAP swap lane: 5.249–8.897%.
 - Updated draft and README to report converged results.
+
+### P10.2/P10.4 QAP tabu and serious budget
+
+- Pinned `fresh-solutions` v0.4.0.
+- Added QAP tabu runner, replay check, and budget ladder.
+- Certified QAP means: tai12a 0.000%, tai20a 0.403%, tai25a 0.685%, tai30a 0.407%.
+- Added the serious-budget policy; 20/20 certified assignments replay exactly.
+
+### P10.5 same-engine landscape baseline
+
+- Added `ws4-tsa24-gpu-ga-10000-r7` record: 10,000 generations, objective 76,540.740733.
+- Exact replay and duplicate schedule hash verified.
+- Paper 1 now reports a same-engine scaling baseline, not an independent solver baseline.
+
+### P10.3 TSP decision
+
+- Randomized 3-opt retained as a negative result; not adopted.
+- TSP remains Or-opt-only at roughly 3.7–8.2% mean gap.
+- P10.3 marked deferred, not complete; no LK claim.
+
+### P10.6 applied case selection
+
+- Selected TSA24/Prince George even-flow harvest scheduling as the candidate case.
+- Defined decision metrics, same-engine baseline, and provenance.
+- Blocked on data licence/partner publication permission; no applied-impact claim.
+
+### P10.7 competitive close-out
+
+- Froze QAP, Paper 1 scaling, TSP, and applied-case status.
+- Verified four benchmark records and 40/40 QAP/baseline replays.
+- Queued the phase PR; publication blocked on P10.6 permission and TSP limits.
+
+### P10.7 CI correction
+
+- Formatted `paper2/replay_qap_tabu.py`.
+- Added `types-jsonschema` to the CI dev requirements.
+- Disclosed the first failed PR run; rerun is the gate of record.
+
+### P10.3 Lin–Kernighan evidence
+
+- Pinned solver LK commit `0b87746`.
+- Added five-seed LK campaign from converged Or-opt tours.
+- Three instances reach the known optimum; ch150 mean gap 0.383%; 20/20 exact replays.
+- P10.3 complete with an extra-budget caveat.
+
+### P10.6 correct TSA24 provenance
+
+- Confirmed TSA24 is a UBC-FRESH-owned public instance at github.com/UBC-FRESH/femic-tsa24-instance.
+- Confirmed public BC data sources and public Arbutus storage.
+- Removed the erroneous external-permission blocker; retained the no-partner-endorsement and
+  no-independent-baseline limits.

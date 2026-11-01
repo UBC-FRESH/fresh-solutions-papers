@@ -1,0 +1,16 @@
+[
+  {
+    "instance": "tai25a",
+    "mean_gap_20k": 0.6847169772526336,
+    "mean_gap_40k": 0.5923636288868936,
+    "improvement_20k_to_40k_points": 0.09235334836573994,
+    "converged_for_reporting": true
+  },
+  {
+    "instance": "tai30a",
+    "mean_gap_20k": 0.6996137823915131,
+    "mean_gap_40k": 0.4070960197915899,
+    "improvement_20k_to_40k_points": 0.2925177625999232,
+    "converged_for_reporting": false
+  }
+]

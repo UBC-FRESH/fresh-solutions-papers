@@ -1,0 +1,26 @@
+{
+  "cache_dir": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-cache",
+  "dataset": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/build/compiled",
+  "generations": 10000,
+  "out_dir": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-10000g-repeat",
+  "population": 64,
+  "runs": [
+    {
+      "best_generation": 9975,
+      "device_objective": 76540.74073269358,
+      "evaluations": 640064,
+      "exact_match": false,
+      "initial_objective": 1722144291.336653,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-10000g-repeat/seed-7.csv",
+      "search_s": 89.78163067599962,
+      "seed": 7,
+      "verified_objective": 76540.74073269201,
+      "verify_s": 9.696406569999453
+    }
+  ],
+  "session_build_s": 57.86009571300019,
+  "table": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt",
+  "targets": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml",
+  "total_s": 157.338402976,
+  "years": 200
+}

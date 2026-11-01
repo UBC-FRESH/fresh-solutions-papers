@@ -1,0 +1,50 @@
+[
+  {
+    "instance": "tai12a",
+    "runs": 5,
+    "mean_gap_percent": 9.026094396121488,
+    "median_gap_percent": 9.026094396121488,
+    "worst_gap_percent": 9.026094396121488,
+    "best_gap_percent": 9.026094396121488,
+    "mean_wall_seconds": 0.000930147799954284,
+    "optimum_kind": "optimum",
+    "method": "scipy.optimize.quadratic_assignment:faq",
+    "maxiter": 10000
+  },
+  {
+    "instance": "tai20a",
+    "runs": 5,
+    "mean_gap_percent": 4.642336264467321,
+    "median_gap_percent": 4.642336264467321,
+    "worst_gap_percent": 4.642336264467321,
+    "best_gap_percent": 4.642336264467321,
+    "mean_wall_seconds": 0.0021636851997755002,
+    "optimum_kind": "optimum",
+    "method": "scipy.optimize.quadratic_assignment:faq",
+    "maxiter": 10000
+  },
+  {
+    "instance": "tai25a",
+    "runs": 5,
+    "mean_gap_percent": 4.474425490209517,
+    "median_gap_percent": 4.474425490209517,
+    "worst_gap_percent": 4.474425490209517,
+    "best_gap_percent": 4.474425490209517,
+    "mean_wall_seconds": 0.0030584384003304876,
+    "optimum_kind": "optimum",
+    "method": "scipy.optimize.quadratic_assignment:faq",
+    "maxiter": 10000
+  },
+  {
+    "instance": "tai30a",
+    "runs": 5,
+    "mean_gap_percent": 2.2887050874902237,
+    "median_gap_percent": 2.2887050874902237,
+    "worst_gap_percent": 2.2887050874902237,
+    "best_gap_percent": 2.2887050874902237,
+    "mean_wall_seconds": 0.005057849399236147,
+    "optimum_kind": "best known",
+    "method": "scipy.optimize.quadratic_assignment:faq",
+    "maxiter": 10000
+  }
+]
