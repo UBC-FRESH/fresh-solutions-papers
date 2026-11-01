@@ -23,7 +23,7 @@ exists and the maintainer approves it.
 | P3 Paper 1 benchmark evidence | #10 | `feature/p3-paper1-evidence` | complete |
 | P4 Paper 1 writing and verification | #19 | `feature/p4-paper1-writing` | complete |
 | P5 Release and reproducibility | #21 | `feature/p5-release` | complete |
-| P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | active |
+| P6 Paper 2 evidence and operation | #23 | `feature/p6-paper2-evidence` | complete |
 
 ## Lifecycle Map
 
