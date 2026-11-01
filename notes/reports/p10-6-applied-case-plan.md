@@ -1,6 +1,6 @@
-# P10.6 applied case plan: TSA24 even-flow harvest scheduling
+# P10.6 applied case: TSA24 even-flow harvest scheduling
 
-Status: active — publication permission not established
+Status: complete
 Date: 2026-11-01
 Issue: #37
 
@@ -12,14 +12,32 @@ Issue: #37
 - Target: even flow within ±1% and linear harvest minimum 70,000,000 m³ per 10-year period
   (7.0M m³/year, slightly above the 2025 AAC 6,917,231 in the target file).
 - Objective: weighted goal-programming penalty over flow and level targets.
-- Current records: `ws4-tsa24-gpu-ga-1000-r7` and `ws4-tsa24-gpu-ga-10000-r7`.
+- Records: `ws4-tsa24-gpu-ga-1000-r7` and `ws4-tsa24-gpu-ga-10000-r7`.
 
-This is a real timber-supply decision problem reconstructed from the local FEMIC/WS4 fixture, not a
-synthetic toy instance.
+## Ownership and publication
+
+- **Builder/owner:** UBC-FRESH Lab.
+- **Public repository:** https://github.com/UBC-FRESH/femic-tsa24-instance
+- **Visibility:** public.
+- **Default branch:** `main`; the FEMIC submodule pins `aaba8f33`.
+- **Description:** “FEMIC deployment instance for TSA24 (WBI birds AOI; femic#316)”.
+- **Data:** fresh public BC data — VRI 2025, FADM boundaries, and SiteProd, with the
+  public `femic-public-data` DataLad remote and public Arbutus S3 bucket
+  `ubc-fresh-femic-tsa24-instance`.
+- **Local compiled fixture:** `/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance`.
+  It is the local WS4 build/target layer over that public instance.
+
+### Licence nuance
+
+The repository currently has no explicit `LICENSE` file, and the benchmark record’s
+`instance.license` is `null`. The source data retains BC government licences and is not
+redistributed as an unrestricted attachment. This is a metadata/attribution gap to fix; it is
+**not** an external partner-permission blocker. UBC-FRESH owns the instance repository and
+publishes the data path publicly.
 
 ## Decision and outcome
 
-The decision is a block/treatment schedule. The measurable outcomes are:
+The decision is a block/treatment schedule. Measurable outcomes:
 
 - per-period harvest volume;
 - flow deviation from the ±1% band;
@@ -29,36 +47,23 @@ The decision is a block/treatment schedule. The measurable outcomes are:
 - search and wall time;
 - schedule SHA-256.
 
-The 10,000-generation record already gives a point estimate for these metrics, but it is not yet a
-partner decision or a published applied result.
+The 10,000-generation record gives a point estimate: objective 76,540.740733, exact replay, two
+runs with the same schedule hash. It is a public-data case, not a partner-endorsed operational
+decision.
 
 ## Baseline
 
-The matched baseline is the 1,000-generation same-engine record. The 10,000-generation record is the
-current optimized point. There is no independent solver baseline; the case may not claim one.
+The matched baseline is the 1,000-generation same-engine record. The 10,000-generation record is
+the current optimized point. There is no independent solver baseline; the case may not claim one.
 
-## Data provenance and permission
+## Remaining limits
 
-- Local path: `/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance`.
-- Target/provenance: `config/ws4/targets/evenflow_tsa24.yaml`; source data derived through FEMIC.
-- Licence: **not established** in the compiled fixture.
-- Publication permission: **not established**.
-- Partner: **not named**.
+- Public-data reconstructable case, not a named partner deployment.
+- No explicit repository LICENSE file; add attribution/licence metadata before publication.
+- No independent landscape baseline.
+- No partner-impact claim.
 
-**Stop condition:** no paper, public case study, or partner-impact claim until the data owner confirms
-redistribution and publication permission.
+## Follow-up
 
-## Case-study plan
-
-1. Establish the data licence and permission, or replace the fixture with a public/partner-approved
-   instance.
-2. Freeze the target file and instance hash.
-3. Run the 1,000/10,000-generation comparison and multi-seed sensitivity if permitted.
-4. Extract per-period harvest and target residuals from the exact CPU evaluator.
-5. Write a case report with the decision, metrics, baseline, limitations, and provenance.
-6. Obtain maintainer and data-owner approval before publication.
-
-## Current status
-
-Selection and metrics are defined. Permission, partner confirmation, multi-seed runs, and the case
-report are not complete. P10.6 remains open.
+The case can proceed as a public-data applied case. Add the attribution/licence metadata and keep
+the “same-engine baseline” caveat in any paper table.

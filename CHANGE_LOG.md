@@ -154,3 +154,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added five-seed LK campaign from converged Or-opt tours.
 - Three instances reach the known optimum; ch150 mean gap 0.383%; 20/20 exact replays.
 - P10.3 complete with an extra-budget caveat.
+
+### P10.6 correct TSA24 provenance
+
+- Confirmed TSA24 is a UBC-FRESH-owned public instance at github.com/UBC-FRESH/femic-tsa24-instance.
+- Confirmed public BC data sources and public Arbutus storage.
+- Removed the erroneous external-permission blocker; retained the no-partner-endorsement and
+  no-independent-baseline limits.

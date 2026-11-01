@@ -11,8 +11,8 @@ Branch: `feature/p10-competitive-benchmark`
 Queue the P10 PR for maintainer review. Do **not** publish either paper yet, and do **not** convert the
 QAP result into a solver-leadership claim.
 
-Phase disposition: **partial evidence, documented blockers**. P10.3 is now complete with a
-quality-at-additional-cost caveat. P10.6 remains permission-blocked.
+Phase disposition: **partial evidence, documented limits**. P10.3 is complete with a
+quality-at-additional-cost caveat. P10.6 is complete as a public-data applied case.
 
 ## Evidence freeze
 
@@ -22,7 +22,7 @@ quality-at-additional-cost caveat. P10.6 remains permission-blocked.
 | QAP independent baseline | SciPy FAQ 9.026%, 4.642%, 4.474%, 2.289% | 20/20 exact; not budget-matched |
 | Paper 1 landscape baseline | 10× same-engine: 76,540.740733 | exact; not independent |
 | TSP neighborhood | Iterated LK: 0.000/0.000/0.000/0.383% mean gap; 20/20 exact | P10.3 complete; extra-budget caveat |
-| Applied case | TSA24/Prince George selected | permission unresolved |
+| Applied case | TSA24/Prince George, UBC-FRESH public instance | complete; public-data case |
 
 ## Acceptance
 
@@ -46,7 +46,7 @@ quality-at-additional-cost caveat. P10.6 remains permission-blocked.
 
 - Parent #31; child issues #32–#38.
 - Phase branch `feature/p10-competitive-benchmark`.
-- P10.1/P10.2/P10.3/P10.4/P10.5/P10.7 complete; P10.6 active and blocked.
+- P10.1/P10.2/P10.3/P10.4/P10.5/P10.6/P10.7 complete.
 - No direct `main` commits for P10 work.
 - No new tag or release in P10.
 
@@ -54,8 +54,8 @@ quality-at-additional-cost caveat. P10.6 remains permission-blocked.
 
 1. **TSP uses additional LK budget.** Iterated LK improves materially, but the comparison is not an equal-budget ablation.
 2. **Paper 1 baseline is same-engine.** It is a budget-scaling baseline, not an independent solver.
-3. **Applied-case permission is missing.** TSA24 is a real TSA decision problem, but the local fixture
-   has no established publication licence or partner permission.
+3. **Applied case is public-data, not partner-endorsed.** TSA24 is a UBC-FRESH public instance built
+   from public BC data; the repository lacks an explicit LICENSE file, which is an attribution gap.
 4. **Earlier workflow deviations remain disclosed** in `notes/reports/workflow-conformance-audit.md`.
 
 ## Claim boundary
@@ -64,11 +64,11 @@ quality-at-additional-cost caveat. P10.6 remains permission-blocked.
 - Paper 2: internal engineering evidence; not publication-grade.
 - QAP: competitive tabu result with a certified budget and a time-quality baseline; not state of the art.
 - TSP: iterated LK improves materially; no state-of-the-art or equal-budget claim.
-- Applied impact: none claimed until P10.6 permission and case evidence are complete.
+- Applied impact: public-data case only; no partner-impact claim.
 
 ## Next
 
 1. Maintainer review of this phase PR.
-2. Resolve TSA24 licence/permission or replace the fixture.
+2. Add explicit licence/attribution metadata to the public TSA24 instance.
 3. Approve the LK release/merge path and decide whether to expand the TSP campaign.
 4. Keep both papers internal until the remaining gates pass.

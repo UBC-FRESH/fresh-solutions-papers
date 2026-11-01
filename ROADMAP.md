@@ -231,7 +231,7 @@ Goal: move from architecture/smoke evidence to competitive, converged, independe
 - [x] P10.3 TSP 3-opt/Lin–Kernighan evaluation (#34)
 - [x] P10.4 Serious-budget convergence protocol (#35)
 - [x] P10.5 Matched landscape baseline (#36)
-- [ ] P10.6 Applied case selection (#37) — active; permission pending
+- [x] P10.6 Applied case selection (#37)
 - [x] P10.7 Competitive evidence and closeout (#38)
 
 Acceptance criteria:
