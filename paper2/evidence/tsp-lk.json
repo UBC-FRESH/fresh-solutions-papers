@@ -8,7 +8,7 @@
     "initial_gap_percent": 11.522142667727394,
     "objective": 7542.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 14.607904251999571,
+    "wall_seconds": 14.241546003999247,
     "assignment": {
       "0": 0,
       "1": 21,
@@ -69,7 +69,7 @@
     "exchange_tests": 8259595,
     "improvements": 458,
     "stop_reason": "max_kicks",
-    "search_seconds": 14.607692251000117,
+    "search_seconds": 14.24148585399962,
     "history": [
       8411.0,
       7885.0,
@@ -93,7 +93,7 @@
     "initial_gap_percent": 6.7223548130469375,
     "objective": 7542.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 13.667896767998172,
+    "wall_seconds": 13.512303776002227,
     "assignment": {
       "0": 0,
       "1": 21,
@@ -154,7 +154,7 @@
     "exchange_tests": 7444698,
     "improvements": 410,
     "stop_reason": "max_kicks",
-    "search_seconds": 13.66767703500227,
+    "search_seconds": 13.512246671998582,
     "history": [
       8049.0,
       7542.0
@@ -176,7 +176,7 @@
     "initial_gap_percent": 3.6197295147175814,
     "objective": 7542.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 11.47606788900157,
+    "wall_seconds": 11.340649362999102,
     "assignment": {
       "0": 0,
       "1": 21,
@@ -237,7 +237,7 @@
     "exchange_tests": 6964907,
     "improvements": 408,
     "stop_reason": "max_kicks",
-    "search_seconds": 11.476011421000294,
+    "search_seconds": 11.340596717000153,
     "history": [
       7815.0,
       7775.0,
@@ -261,7 +261,7 @@
     "initial_gap_percent": 5.75444179262795,
     "objective": 7542.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 9.550120495998272,
+    "wall_seconds": 9.548820300999068,
     "assignment": {
       "0": 0,
       "1": 21,
@@ -322,7 +322,7 @@
     "exchange_tests": 5596931,
     "improvements": 361,
     "stop_reason": "max_kicks",
-    "search_seconds": 9.550065289000486,
+    "search_seconds": 9.548761680001917,
     "history": [
       7976.0,
       7596.0,
@@ -345,7 +345,7 @@
     "initial_gap_percent": 4.5478652877220895,
     "objective": 7542.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 11.597854853000172,
+    "wall_seconds": 11.651478243999009,
     "assignment": {
       "0": 0,
       "1": 21,
@@ -406,7 +406,7 @@
     "exchange_tests": 6249391,
     "improvements": 435,
     "stop_reason": "max_kicks",
-    "search_seconds": 11.59779720699953,
+    "search_seconds": 11.651414427997224,
     "history": [
       7885.0,
       7885.0,
@@ -429,7 +429,7 @@
     "initial_gap_percent": 7.057607367728597,
     "objective": 21282.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 10.40909449800165,
+    "wall_seconds": 10.429410229000496,
     "assignment": {
       "0": 0,
       "1": 46,
@@ -538,7 +538,7 @@
     "exchange_tests": 1808472,
     "improvements": 610,
     "stop_reason": "max_kicks",
-    "search_seconds": 10.40900388099908,
+    "search_seconds": 10.429202381001232,
     "history": [
       22784.0,
       22386.0,
@@ -562,7 +562,7 @@
     "initial_gap_percent": 13.847382764777747,
     "objective": 21282.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 5.860308268998779,
+    "wall_seconds": 5.772529903999384,
     "assignment": {
       "0": 0,
       "1": 46,
@@ -671,7 +671,7 @@
     "exchange_tests": 1375826,
     "improvements": 573,
     "stop_reason": "max_kicks",
-    "search_seconds": 5.86019880800086,
+    "search_seconds": 5.772353132000717,
     "history": [
       24229.0,
       21296.0,
@@ -694,7 +694,7 @@
     "initial_gap_percent": 0.0,
     "objective": 21282.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 7.2233005900016,
+    "wall_seconds": 7.281546980000712,
     "assignment": {
       "0": 97,
       "1": 22,
@@ -803,7 +803,7 @@
     "exchange_tests": 1436401,
     "improvements": 596,
     "stop_reason": "max_kicks",
-    "search_seconds": 7.222971661998599,
+    "search_seconds": 7.281471874997806,
     "history": [
       21282.0,
       21282.0
@@ -825,7 +825,7 @@
     "initial_gap_percent": 8.415562447138427,
     "objective": 21282.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 10.348523380998813,
+    "wall_seconds": 10.431828057997336,
     "assignment": {
       "0": 0,
       "1": 46,
@@ -934,7 +934,7 @@
     "exchange_tests": 1915960,
     "improvements": 627,
     "stop_reason": "max_kicks",
-    "search_seconds": 10.348445902000094,
+    "search_seconds": 10.431737398997939,
     "history": [
       23073.0,
       21282.0
@@ -956,7 +956,7 @@
     "initial_gap_percent": 7.292547692886007,
     "objective": 21282.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 8.474565058997541,
+    "wall_seconds": 8.366377923000982,
     "assignment": {
       "0": 0,
       "1": 46,
@@ -1065,7 +1065,7 @@
     "exchange_tests": 1719013,
     "improvements": 689,
     "stop_reason": "max_kicks",
-    "search_seconds": 8.474482916997658,
+    "search_seconds": 8.366297892000148,
     "history": [
       22834.0,
       21308.0,
@@ -1088,7 +1088,7 @@
     "initial_gap_percent": 2.8228173975881847,
     "objective": 22141.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 7.700744188998215,
+    "wall_seconds": 7.748741757000971,
     "assignment": {
       "0": 0,
       "1": 11,
@@ -1197,7 +1197,7 @@
     "exchange_tests": 1692665,
     "improvements": 645,
     "stop_reason": "max_kicks",
-    "search_seconds": 7.700655480002752,
+    "search_seconds": 7.748652225000114,
     "history": [
       22766.0,
       22273.0,
@@ -1221,7 +1221,7 @@
     "initial_gap_percent": 2.0053294792466465,
     "objective": 22141.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 11.318340152000019,
+    "wall_seconds": 11.281009433998406,
     "assignment": {
       "0": 0,
       "1": 11,
@@ -1330,7 +1330,7 @@
     "exchange_tests": 2180322,
     "improvements": 650,
     "stop_reason": "max_kicks",
-    "search_seconds": 11.318263080000179,
+    "search_seconds": 11.280931539000449,
     "history": [
       22585.0,
       22501.0,
@@ -1353,7 +1353,7 @@
     "initial_gap_percent": 7.271577616187164,
     "objective": 22141.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 10.195562521999818,
+    "wall_seconds": 10.108313005999662,
     "assignment": {
       "0": 0,
       "1": 11,
@@ -1462,7 +1462,7 @@
     "exchange_tests": 2141785,
     "improvements": 671,
     "stop_reason": "max_kicks",
-    "search_seconds": 10.195478096000443,
+    "search_seconds": 10.108224895000603,
     "history": [
       23751.0,
       22338.0,
@@ -1486,7 +1486,7 @@
     "initial_gap_percent": 4.114538638724539,
     "objective": 22141.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 15.61487240399947,
+    "wall_seconds": 15.745022019997123,
     "assignment": {
       "0": 0,
       "1": 11,
@@ -1595,7 +1595,7 @@
     "exchange_tests": 2434164,
     "improvements": 782,
     "stop_reason": "max_kicks",
-    "search_seconds": 15.614539949998289,
+    "search_seconds": 15.744919214997935,
     "history": [
       23052.0,
       22258.0,
@@ -1618,7 +1618,7 @@
     "initial_gap_percent": 2.26728693374283,
     "objective": 22141.0,
     "optimality_gap_percent": 0.0,
-    "wall_seconds": 13.523328057999606,
+    "wall_seconds": 13.519947706001403,
     "assignment": {
       "0": 0,
       "1": 11,
@@ -1727,7 +1727,7 @@
     "exchange_tests": 2369133,
     "improvements": 670,
     "stop_reason": "max_kicks",
-    "search_seconds": 13.523233058996993,
+    "search_seconds": 13.519617955000285,
     "history": [
       22643.0,
       22199.0,
@@ -1751,7 +1751,7 @@
     "initial_gap_percent": 9.129901960784315,
     "objective": 6543.0,
     "optimality_gap_percent": 0.22977941176470587,
-    "wall_seconds": 10.921623111000372,
+    "wall_seconds": 10.95471168199947,
     "assignment": {
       "0": 0,
       "1": 86,
@@ -1910,7 +1910,7 @@
     "exchange_tests": 1879552,
     "improvements": 594,
     "stop_reason": "max_kicks",
-    "search_seconds": 10.921474538998154,
+    "search_seconds": 10.954603196001699,
     "history": [
       7124.0,
       6662.0,
@@ -1934,7 +1934,7 @@
     "initial_gap_percent": 10.462622549019608,
     "objective": 6553.0,
     "optimality_gap_percent": 0.38296568627450983,
-    "wall_seconds": 11.035941340000136,
+    "wall_seconds": 11.001761628001987,
     "assignment": {
       "0": 0,
       "1": 86,
@@ -2093,7 +2093,7 @@
     "exchange_tests": 1870337,
     "improvements": 585,
     "stop_reason": "max_kicks",
-    "search_seconds": 11.035828127001878,
+    "search_seconds": 11.001657889999478,
     "history": [
       7211.0,
       6559.0,
@@ -2116,7 +2116,7 @@
     "initial_gap_percent": 6.495098039215686,
     "objective": 6553.0,
     "optimality_gap_percent": 0.38296568627450983,
-    "wall_seconds": 10.957023719001882,
+    "wall_seconds": 10.95191381100085,
     "assignment": {
       "0": 0,
       "1": 86,
@@ -2275,7 +2275,7 @@
     "exchange_tests": 1790684,
     "improvements": 631,
     "stop_reason": "max_kicks",
-    "search_seconds": 10.956917848001467,
+    "search_seconds": 10.95181881499957,
     "history": [
       6952.0,
       6600.0,
@@ -2300,7 +2300,7 @@
     "initial_gap_percent": 8.517156862745098,
     "objective": 6559.0,
     "optimality_gap_percent": 0.47487745098039214,
-    "wall_seconds": 15.774287470001582,
+    "wall_seconds": 15.820038737998402,
     "assignment": {
       "0": 0,
       "1": 86,
@@ -2459,7 +2459,7 @@
     "exchange_tests": 1994445,
     "improvements": 695,
     "stop_reason": "max_kicks",
-    "search_seconds": 15.774188292998588,
+    "search_seconds": 15.819943037000485,
     "history": [
       7084.0,
       6823.0,
@@ -2486,7 +2486,7 @@
     "initial_gap_percent": 6.541053921568627,
     "objective": 6557.0,
     "optimality_gap_percent": 0.44424019607843135,
-    "wall_seconds": 9.241052932000457,
+    "wall_seconds": 9.299960132000706,
     "assignment": {
       "0": 0,
       "1": 86,
@@ -2645,7 +2645,7 @@
     "exchange_tests": 1465300,
     "improvements": 625,
     "stop_reason": "max_kicks",
-    "search_seconds": 9.240955650002434,
+    "search_seconds": 9.299863218002429,
     "history": [
       6955.0,
       6715.0,

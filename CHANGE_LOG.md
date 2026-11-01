@@ -150,7 +150,7 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 
 ### P10.3 Lin–Kernighan evidence
 
-- Pinned solver LK commit `0b87746`.
+- Pinned solver LK commit `24dc60c`.
 - Added five-seed LK campaign from converged Or-opt tours.
 - Three instances reach the known optimum; ch150 mean gap 0.383%; 20/20 exact replays.
 - P10.3 complete with an extra-budget caveat.
