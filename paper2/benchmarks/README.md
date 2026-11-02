@@ -18,11 +18,14 @@ carry an extra header token and are recorded as parser gaps.
 
 - Five seeds (`1..5`).
 - TSP: nearest-neighbour initial tour, then iterated Lin–Kernighan with 16
-  candidates, depth 4, 20 kicks, 30-second cap.
-- QAP: robust tabu, 100,000 iteration ceiling, 30-second cap.
+  candidates, depth 4, 100-kick patience.
+- QAP: robust tabu, 10,000-iteration patience.
+- A 600-second safety cap is used only for oversized runs; cap hits are
+  reported as non-converged, not counted as patience stops.
 - Every run records objective, known optimum/best-known value, gap, wall time,
   stop reason, and assignment.
 - Full records: `paper2/evidence/broad-suite-v051.json.gz`.
 - Summary: `paper2/evidence/broad-suite-v051-summary.json`.
 
-The 30-second cap is a declared pilot budget, not a converged-evidence claim.
+The 600-second cap is a safety limit, not a convergence claim. See
+`notes/reports/broad-converged-v060.md`.

@@ -1,0 +1,93 @@
+[
+  {
+    "family": "tsp",
+    "band": "all",
+    "instances": 78,
+    "runs": 390,
+    "patience_runs": 236,
+    "cap_runs": 154,
+    "optimum_runs": 183,
+    "all_mean_gap_percent": 1.3267667782551866,
+    "converged_mean_gap_percent": 0.10029024633920082,
+    "converged_median_gap_percent": 0.0,
+    "converged_worst_gap_percent": 2.110366462284329
+  },
+  {
+    "family": "tsp",
+    "band": "n<=100",
+    "instances": 28,
+    "runs": 140,
+    "patience_runs": 135,
+    "cap_runs": 5,
+    "optimum_runs": 121,
+    "all_mean_gap_percent": 0.09758039905984611,
+    "converged_mean_gap_percent": 0.10119448791391449,
+    "converged_median_gap_percent": 0.0,
+    "converged_worst_gap_percent": 2.110366462284329
+  },
+  {
+    "family": "tsp",
+    "band": "100<n<=300",
+    "instances": 30,
+    "runs": 150,
+    "patience_runs": 98,
+    "cap_runs": 52,
+    "optimum_runs": 61,
+    "all_mean_gap_percent": 0.5788375829080322,
+    "converged_mean_gap_percent": 0.0867416766275722,
+    "converged_median_gap_percent": 0.0,
+    "converged_worst_gap_percent": 1.0214504596527068
+  },
+  {
+    "family": "tsp",
+    "band": "n>300",
+    "instances": 20,
+    "runs": 100,
+    "patience_runs": 3,
+    "cap_runs": 97,
+    "optimum_runs": 1,
+    "all_mean_gap_percent": 4.1695215021493945,
+    "converged_mean_gap_percent": 0.5021859860569537,
+    "converged_median_gap_percent": 0.4608294930875576,
+    "converged_worst_gap_percent": 0.6045925400764111
+  },
+  {
+    "family": "qap",
+    "band": "all",
+    "instances": 134,
+    "runs": 670,
+    "patience_runs": 552,
+    "cap_runs": 118,
+    "optimum_runs": 318,
+    "all_mean_gap_percent": 1.7230739555447998,
+    "converged_mean_gap_percent": 1.8232783708099467,
+    "converged_median_gap_percent": 0.0,
+    "converged_worst_gap_percent": 36.444633008061096
+  },
+  {
+    "family": "qap",
+    "band": "n<=100",
+    "instances": 130,
+    "runs": 650,
+    "patience_runs": 552,
+    "cap_runs": 98,
+    "optimum_runs": 314,
+    "all_mean_gap_percent": 1.7330553657351802,
+    "converged_mean_gap_percent": 1.8232783708099467,
+    "converged_median_gap_percent": 0.0,
+    "converged_worst_gap_percent": 36.444633008061096
+  },
+  {
+    "family": "qap",
+    "band": "100<n<=300",
+    "instances": 4,
+    "runs": 20,
+    "patience_runs": 0,
+    "cap_runs": 20,
+    "optimum_runs": 4,
+    "all_mean_gap_percent": 1.3986781243574433,
+    "converged_mean_gap_percent": null,
+    "converged_median_gap_percent": null,
+    "converged_worst_gap_percent": null
+  }
+]
