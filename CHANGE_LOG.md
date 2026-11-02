@@ -180,3 +180,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - 236/390 TSP and 552/670 QAP runs stopped on patience; cap hits are reported separately.
 - Small/medium TSP converged mean 0.100%; large TSP remains unresolved.
 - Evidence: `paper2/evidence/broad-converged.json.gz` and summary.
+
+### LKH large-TSP tail
+
+- Added external LKH evidence for 20 TSPLIB instances with 300<n<=1000.
+- 71/100 runs hit the known optimum; mean gap 0.092%; worst 1.930%.
+- LKH is optional external research software, not bundled.
