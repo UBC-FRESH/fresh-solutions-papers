@@ -48,7 +48,7 @@ def markdown_table(records: Iterable[dict[str, Any]]) -> str:
         Markdown table.
     """
     lines = [
-        "| Record | Instance | Algorithm | Objective | Replay | Wall s | Best s |",
+        "| Record | Instance | Algorithm | Objective | Replay | Wall s | Best s (est.) |",
         "| --- | --- | --- | ---: | ---: | ---: | ---: |",
     ]
     for record in records:
