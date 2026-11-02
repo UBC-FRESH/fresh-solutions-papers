@@ -1,37 +1,39 @@
-# QAP multi-start tabu — large tail
+# Large-QAP multi-start tabu — patience-converged
 
-Status: pilot evidence, not converged
+Status: converged under the declared patience rule
 Date: 2026-11-02
-Solver: Fresh Solutions main `ba3e3b7` (multi-start tabu support)
+Solver: Fresh Solutions branch `v0.8.0` (delta-matrix tabu)
 
 ## Protocol
 
 - Four QAPLIB instances with `n > 100`: `esc128`, `tai150b`, `tai256c`, `tho150`.
-- Five random starts per instance, tabu patience 10,000, 600-second safety cap.
-- No 30-second cap. Every run hit the safety cap, so none is called converged.
+- Five random starts per instance.
+- Robust tabu with delta-matrix updates, 10,000-iteration patience.
+- **No time cap.** Every run stopped on patience.
+- Exact replay through the Fresh Solutions QAP adapter.
 
 ## Results
 
-| Instance | Identity-start gap | Best multi-start gap | Mean multi-start gap |
+| Instance | Best gap | Mean gap | Patience stops |
 | --- | ---: | ---: | ---: |
-| esc128 | 15.62% | 0.000% | 1.250% |
-| tai150b | 5.94% | 2.549% | 3.498% |
-| tai256c | 66.76% | 0.350% | 0.413% |
-| tho150 | 6.23% | 1.264% | 1.789% |
+| esc128 | **0.000%** | 1.250% | 5/5 |
+| tai150b | **2.008%** | 2.976% | 5/5 |
+| tai256c | **0.350%** | 0.413% | 5/5 |
+| tho150 | **0.166%** | 0.507% | 5/5 |
 
-Identity-start values are the converged-panel cap hits from
-`broad-converged-summary.json`. Multi-start improves every large instance, but
-all five starts hit the 600-second cap. This is a portfolio-improvement result,
-not a large-QAP convergence claim.
+All **20/20** assignments replay exactly. The campaign completed in 8m39s wall
+with 20 runs across 8 workers. The previous identity-start runs were cap hits;
+these are true patience stops.
+
+## Interpretation
+
+Multi-start plus the O(n²) delta-matrix update changed the large-QAP result from
+cap-limited to converged under the declared patience. `tai256c` is still the
+weakest large instance at 0.350% best gap; that is a real remaining gap, not a
+timeout artifact.
 
 ## Boundary
 
-- Multi-start tabu is still robust tabu; no new heuristic.
-- 600-second cap hits are not converged.
-- The next requirement is either a longer convergence budget or a stronger
-  large-QAP refinement; do not claim resolved large QAP.
-
-## Files
-
-- `paper2/evidence/qap-multistart.json`
-- `paper2/run_qap_multistart.py`
+- Robust tabu remains the heuristic; multi-start is a portfolio.
+- Patience is a plateau rule, not a proof of global optimality.
+- No independent QAP solver baseline is included here.

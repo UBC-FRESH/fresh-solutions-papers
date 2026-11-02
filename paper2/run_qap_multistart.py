@@ -19,8 +19,8 @@ from fresh_solutions.adapters import QuadraticAssignment  # noqa: E402
 from fresh_solutions.adapters.qap_tabu import QapTabuConfig, run_qap_tabu  # noqa: E402
 
 QAP_ROOT = Path(os.environ.get("QAPLIB_ROOT", "benchmarks/qaplib/QAPLIB"))
-OUT = ROOT / "evidence" / "qap-multistart.jsonl"
-CAP = 600.0
+OUT = ROOT / "evidence" / "qap-multistart-converged.jsonl"
+CAP = None
 STARTS = 5
 
 

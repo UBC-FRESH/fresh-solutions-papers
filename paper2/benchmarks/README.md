@@ -39,6 +39,6 @@ median 0%, worst 1.930%. See `notes/reports/lkh-tail-v070.md`.
 ## QAP multi-start tail
 
 `paper2/run_qap_multistart.py` runs five random starts on the four QAPLIB
-instances with `n>100`. Every run hit the 600-second cap; best gaps improve from
-15.62/5.94/66.76/6.23% to 0.00/2.55/0.35/1.26%. See
+instances with `n>100`. With delta-matrix tabu updates and no time cap, all 20
+runs stopped on patience; best gaps are 0.00/2.008/0.350/0.166%. See
 `notes/reports/qap-multistart-v080.md`.
