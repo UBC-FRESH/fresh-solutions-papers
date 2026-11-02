@@ -122,9 +122,9 @@ runs stopped on patience):
 | tho150 | 0.166% | 0.507% |
 
 This is a portfolio improvement over identity-start tabu. SciPy FAQ is an
-independent external baseline on the same instances: it wins on `tai150b`
-(1.861% vs 2.008%) and `tho150` (1.523% vs 0.166% Fresh), but is far worse on
-`esc128` (12.500% vs 0.000%) and `tai256c` (120.481% vs 0.350%). The result is
+independent external baseline on the same instances. It wins on `tai150b`
+(1.861% vs 2.008%), but Fresh tabu wins on `esc128` (0.000% vs 12.500%),
+`tai256c` (0.350% vs 120.481%), and `tho150` (0.166% vs 1.523%). The result is
 mixed, not universal dominance.
 
 ## 4. TSP evidence
@@ -165,22 +165,22 @@ large-TSP quality currently depends on LKH.
 
 ## 5. Applied case
 
-TSA24/Prince George is used as a public-data applied case. The instance is owned
-and published by UBC-FRESH at
-`https://github.com/UBC-FRESH/femic-tsa24-instance`, built from public BC VRI,
+TSA24/Prince George is a public-data applied case. The frozen build, target, and
+seed are published as `ws4-tsa24-evenflow-v1` in
+`https://github.com/UBC-FRESH/femic-tsa24-instance`, derived from public BC VRI,
 FADM, and SiteProd data. The even-flow target is a WS4 scenario configuration,
 not an official TSA decision.
 
 The 1,000-generation GPU-GA record has objective 8,588,725.370498; the
-10,000-generation same-engine baseline has objective 76,540.740733, with exact
-replay and identical schedule hashes across two runs. This is a same-engine
-scaling baseline, not an independent landscape solver. No partner-impact claim
-is made.
+10,000-generation same-engine baseline has 76,540.740733; the 100,000-generation
+five-seed campaign spans **512.574–518.621** (mean 515.682), with exact replay.
+The CPU-SA independent-search baseline is 335,044,976.675435 and is
+time-limited, not converged. No partner-impact claim is made.
 
 ## 6. Limitations
 
 1. The internal TSP path does not scale to the large TSPLIB tail.
-2. Large-QAP results lack an independent solver baseline.
+2. Large-QAP has only a mixed SciPy FAQ independent baseline; it does not establish state-of-the-art performance.
 3. The QAP converged mean is pulled by a heavy tail; median alone is insufficient.
 4. The applied case is public-data, not partner-endorsed operational impact.
 5. Population/hybrid search is implemented but not the source of the strongest

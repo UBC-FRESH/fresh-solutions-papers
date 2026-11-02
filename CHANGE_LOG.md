@@ -235,3 +235,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Published `ws4-tsa24-evenflow-v1` in UBC-FRESH/femic-tsa24-instance.
 - Bundle: compiled dataset, even-flow target, seed, README, SHA-256 manifest (4.5 MB).
 - Updated TSA24 records to `availability: public`; Paper 1 now cites a public artifact.
+
+### Paper claims audit and Paper 1 scope
+
+- Added `notes/reports/paper2-claims-audit.md` with claim-to-evidence map.
+- Fixed the SciPy large-QAP comparison and TSA24 applied-case text.
+- Recorded Paper 1 as an architecture/reproducibility paper; no competitive model claim without independent evidence.
