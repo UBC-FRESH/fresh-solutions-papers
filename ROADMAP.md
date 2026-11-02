@@ -27,7 +27,8 @@ exists and the maintainer approves it.
 | P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | complete |
 | P8 Paper 2 multi-seed campaign | #27 | `feature/p8-multiseed` | complete |
 | P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | complete |
-| P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | pr-open |
+| P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | complete |
+| P11 Audit remediation | #56 | `feature/p11-broad-runner` | pr-open |
 
 ## Lifecycle Map
 
@@ -222,7 +223,7 @@ Goal: replace pilot Paper 2 evidence with convergence-controlled multi-seed resu
 
 Parent issue: #31
 Branch: `feature/p10-competitive-benchmark`
-Status: pr-open
+Status: complete
 
 Goal: move from architecture/smoke evidence to competitive, converged, independently baselined applied OR results under the required workflow.
 
@@ -239,3 +240,20 @@ Acceptance criteria:
 - Every task is a linked child issue with closeout evidence.
 - Benchmark results are converged, multi-seed, independently baselined, and replayable.
 - Paper/software claims are limited to what the evidence supports.
+
+## Phase 11: Audit remediation
+
+Parent issue: #56
+Branch: `feature/p11-broad-runner`
+Status: pr-open
+
+Goal: reconcile post-P10 work with the workflow and fix reproducibility and claim defects found by the 2026-11-02 audit.
+
+- [x] P11.1 Reproducible broad benchmark runner (#57)
+
+Acceptance criteria:
+
+- Broad evidence has a committed runner and provenance.
+- Roadmap and GitHub state agree.
+- Claims match evidence.
+- No unreviewed release action.
