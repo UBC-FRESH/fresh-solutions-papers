@@ -1,6 +1,6 @@
 # Broad QAP/TSP benchmark panel
 
-Status: pilot campaign, not publication evidence.
+Status: convergence panel, not publication evidence.
 
 ## Sources
 
@@ -11,8 +11,8 @@ Status: pilot campaign, not publication evidence.
 
 TSPLIB has 111 symmetric TSP files. This panel includes the 78 with `n <= 1000`;
 the 33 larger instances are excluded because the adapter stores dense matrices.
-QAPLIB has 139 canonical `.dat` files; 134 parse with v0.5.1. Five `esc8` variants
-carry an extra header token and are recorded as parser gaps.
+QAPLIB has 139 canonical `.dat` files; 134 parse with Fresh Solutions v0.8.0.
+Five `esc8` variants carry an extra header token and are recorded as parser gaps.
 
 ## Protocol
 
@@ -24,11 +24,30 @@ carry an extra header token and are recorded as parser gaps.
   reported as non-converged, not counted as patience stops.
 - Every run records objective, known optimum/best-known value, gap, wall time,
   stop reason, and assignment.
-- Full records: `paper2/evidence/broad-suite-v051.json.gz`.
-- Summary: `paper2/evidence/broad-suite-v051-summary.json`.
+- Full records: `paper2/evidence/broad-converged.json.gz`.
+- Summary: `paper2/evidence/broad-converged-summary.json`.
+- Successful runs: 1,060; parse-error records: 25 (`esc8b`–`esc8f`).
 
 The 600-second cap is a safety limit, not a convergence claim. See
 `notes/reports/broad-converged-v060.md`.
+
+## Reproduce
+
+Clone the two mirrors at the pinned commits, then point the runner at them:
+
+```bash
+export TSPLIB_ROOT=/path/to/tsplib
+export QAPLIB_ROOT=/path/to/QAP-instances/QAPLIB
+export TSPLIB_COMMIT=775541365dc3f7f3cd6faa8d0e206036d2c45e0e
+export QAPLIB_COMMIT=3cfd4f2bf82782e6c02fe4a79397e02f8ef54b14
+export FRESH_SOLUTIONS_VERSION=v0.8.0
+export FRESH_SOLUTIONS_COMMIT=1affc14
+python paper2/run_broad_converged.py --workers 24
+```
+
+The runner writes solver/corpus provenance, successful records, and parse errors
+separately in the summary. It requires `numpy`, `scipy`, and the optional
+`numba` extra for the accelerated QAP path.
 
 ## External LKH tail
 
