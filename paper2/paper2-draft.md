@@ -121,8 +121,11 @@ runs stopped on patience):
 | tai256c | 0.350% | 0.413% |
 | tho150 | 0.166% | 0.507% |
 
-This is a portfolio improvement over identity-start tabu, not an independent
-solver baseline.
+This is a portfolio improvement over identity-start tabu. SciPy FAQ is an
+independent external baseline on the same instances: it wins on `tai150b`
+(1.861% vs 2.008%) and `tho150` (1.523% vs 0.166% Fresh), but is far worse on
+`esc128` (12.500% vs 0.000%) and `tai256c` (120.481% vs 0.350%). The result is
+mixed, not universal dominance.
 
 ## 4. TSP evidence
 
