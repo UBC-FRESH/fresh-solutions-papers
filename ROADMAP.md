@@ -223,7 +223,7 @@ Goal: replace pilot Paper 2 evidence with convergence-controlled multi-seed resu
 
 Parent issue: #31
 Branch: `feature/p10-competitive-benchmark`
-Status: pr-open
+Status: complete
 
 Goal: move from architecture/smoke evidence to competitive, converged, independently baselined applied OR results under the required workflow.
 
