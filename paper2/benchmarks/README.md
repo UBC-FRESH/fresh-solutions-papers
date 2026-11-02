@@ -29,3 +29,9 @@ carry an extra header token and are recorded as parser gaps.
 
 The 600-second cap is a safety limit, not a convergence claim. See
 `notes/reports/broad-converged-v060.md`.
+
+## External LKH tail
+
+`paper2/run_lkh_large.py` runs a user-supplied LKH binary on the `300<n<=1000`
+tail. LKH is not bundled. Results: 100 runs, 71 optimum, mean gap 0.092%,
+median 0%, worst 1.930%. See `notes/reports/lkh-tail-v070.md`.

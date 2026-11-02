@@ -45,3 +45,9 @@ convergence solver. QAP tabu is strong on median but has a tail. The next
 algorithmic work is large-TSP scaling — candidate lists alone are not enough;
 this is the case for a proper LK/LKH-scale implementation or a better
 large-instance construction/refinement path.
+
+## LKH target
+
+The external LKH backend is recorded separately in `lkh-tail-v070.md`: on the
+same large-TSP band it reaches 71/100 optimum runs and a 0.092% mean gap. That
+is the capability gap the internal ILK still has to close.
