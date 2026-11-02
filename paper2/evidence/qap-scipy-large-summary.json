@@ -1,0 +1,34 @@
+[
+  {
+    "instance": "esc128",
+    "runs": 5,
+    "mean_gap_percent": 12.5,
+    "median_gap_percent": 12.5,
+    "worst_gap_percent": 12.5,
+    "mean_wall_seconds": 0.05020864980033366
+  },
+  {
+    "instance": "tai150b",
+    "runs": 5,
+    "mean_gap_percent": 1.8609062879583256,
+    "median_gap_percent": 1.8609062879583256,
+    "worst_gap_percent": 1.8609062879583256,
+    "mean_wall_seconds": 0.17235284180060262
+  },
+  {
+    "instance": "tai256c",
+    "runs": 5,
+    "mean_gap_percent": 120.48086370620591,
+    "median_gap_percent": 120.48086370620591,
+    "worst_gap_percent": 120.48086370620591,
+    "mean_wall_seconds": 0.009765928602428175
+  },
+  {
+    "instance": "tho150",
+    "runs": 5,
+    "mean_gap_percent": 1.5228813344680785,
+    "median_gap_percent": 1.5228813344680785,
+    "worst_gap_percent": 1.5228813344680785,
+    "mean_wall_seconds": 0.22251046360033797
+  }
+]

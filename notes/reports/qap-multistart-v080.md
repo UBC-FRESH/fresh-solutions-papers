@@ -37,3 +37,20 @@ timeout artifact.
 - Robust tabu remains the heuristic; multi-start is a portfolio.
 - Patience is a plateau rule, not a proof of global optimality.
 - No independent QAP solver baseline is included here.
+
+## Independent baseline
+
+SciPy FAQ (`quadratic_assignment`, `maxiter=10000`, SciPy 1.18.1) is an
+independent external baseline on the same four large instances. It is fast but
+mixed in quality:
+
+| Instance | SciPy FAQ mean gap | Fresh tabu best gap |
+| --- | ---: | ---: |
+| esc128 | 12.500% | 0.000% |
+| tai150b | 1.861% | 2.008% |
+| tai256c | 120.481% | 0.350% |
+| tho150 | 1.523% | 0.166% |
+
+SciPy wins on `tai150b` and `tho150`; Fresh tabu wins decisively on `esc128`
+and `tai256c`. This is a mixed time-quality result, not a universal dominance
+claim. All 20 SciPy assignments replay exactly.

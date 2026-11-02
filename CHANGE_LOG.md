@@ -205,3 +205,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `paper2/paper2-draft.md` with architecture, QAP/TSP evidence, LKH boundary,
   and limitations.
 - Marked internal and not submission-ready; no publication claim.
+
+### Large-QAP independent baseline
+
+- Added SciPy FAQ large-tail baseline for esc128, tai150b, tai256c, tho150.
+- Mixed result: SciPy wins tai150b/tho150; Fresh tabu wins esc128/tai256c.
+- 20/20 SciPy assignments replay exactly.
