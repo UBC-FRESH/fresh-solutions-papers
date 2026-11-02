@@ -44,7 +44,9 @@
     "time_to_first_feasible_s": 0.0,
     "time_to_best_s": 1875.12,
     "wall_s": 1875.12,
-    "memory_mb": 8969.0
+    "memory_mb": 8969.0,
+    "initial_schedule_feasible": true,
+    "time_to_best_note": "time_to_best_s is an upper bound from search time; best generation is recorded when available."
   },
   "result": {
     "objective": 335044976.67543507,
@@ -54,7 +56,12 @@
     "exact_replay": true,
     "target_penalties": {
       "total": 335044976.67543507,
-      "initial_seed_objective": 1722144291.336651
+      "initial_seed_objective": 1722144291.336651,
+      "flow": 335044373.5239016,
+      "level": 603.1515334884126,
+      "realized_level_min_m3": 26426914.669000003,
+      "realized_level_max_m3": 87793424.96811119,
+      "realized_level_mean_m3": 50386225.08906112
     },
     "notes": "30-minute, 100,000-iteration CPU simulated-annealing baseline. Time limit reached; this is not a converged result. Exact CPU IncrementalObjective replay: 335044976.67543507; optimizer summary: 335044976.67539066. Initial seed objective: 1722144291.336651. Independent search, same WS4 model/target; not an independent model."
   }

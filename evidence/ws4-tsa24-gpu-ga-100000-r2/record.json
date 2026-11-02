@@ -39,10 +39,16 @@
     "seed": 2,
     "hardware": "GPU NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB; CPU Intel(R) Xeon(R) Gold 6254 CPU @ 3.10GHz",
     "software": "Python 3.12.3; torch; WS4 f60ce64",
-    "time_to_first_feasible_s": 775.6798209030021,
-    "time_to_best_s": 775.6798209030021,
+    "time_to_first_feasible_s": 0.0,
+    "time_to_best_s": 697.2896182025447,
     "wall_s": 799.6459792953989,
-    "memory_mb": 9008.31640625
+    "memory_mb": 9008.31640625,
+    "initial_schedule_feasible": true,
+    "time_to_best_note": "time_to_best_s is an upper bound from search time; best generation is recorded when available.",
+    "best_generation": 89894,
+    "generations": 100000,
+    "search_seconds": 775.6798209030021,
+    "time_to_best_is_estimate": true
   },
   "result": {
     "objective": 512.5741386544443,
@@ -52,7 +58,12 @@
     "exact_replay": true,
     "target_penalties": {
       "total": 512.5741386544443,
-      "initial_seed_objective": 1722144291.336651
+      "initial_seed_objective": 1722144291.336651,
+      "flow": 0.0,
+      "level": 512.5741386544443,
+      "realized_level_min_m3": 51460095.68066667,
+      "realized_level_max_m3": 52489678.46677778,
+      "realized_level_mean_m3": 52059905.14709445
     },
     "notes": "100,000-generation GPU-GA run, seed 2. Device objective 512.5741386544445; exact CPU replay 512.5741386544443. Search 775.68 s; verify 11.56 s; campaign wall 4004.77 s for five seeds."
   }
