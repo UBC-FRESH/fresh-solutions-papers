@@ -1,6 +1,6 @@
 # Compiled spatial optimisation: GPU-accelerated hybrid metaheuristics for landscape harvest scheduling
 
-Status: **NOT SUBMISSION-READY — no independent model or public landscape baseline**
+Status: **NOT SUBMISSION-READY — no independent model baseline**
 Date: 2026-11-01
 
 ## Abstract
@@ -16,8 +16,8 @@ replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733, an
 100,000-generation run reaches **517.8619818205188**, and a five-seed 100k campaign spans
 **512.574–518.621** (mean 515.682, median 515.938), all with exact CPU replay. An independent
 CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the same model,
-reaches 335,044,976.675 and is still time-limited. The TSA24 instance is reconstructable, not a
-public benchmark. The contribution is the architecture and its evidence contract, not a universal
+reaches 335,044,976.675 and is still time-limited. The frozen TSA24 build, target, and seed are published as a public benchmark artifact
+(`ws4-tsa24-evenflow-v1`). The contribution is the architecture and its evidence contract, not a universal
 speed claim.
 
 ## 1. Introduction
@@ -178,7 +178,7 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 
 ## 5. Limitations
 
-1. The TSA24 instance is a local reconstructable fixture, not a public benchmark.
+1. TSA24 is a public frozen artifact derived from public data, not an official benchmark with an independent model.
 2. The 100,000-generation GPU run is near-zero objective but is not proven globally optimal.
 3. Time-to-first-feasible was not separately instrumented; search elapsed is used conservatively.
 4. The CPU-SA baseline is time-limited, not converged; there is no independent optimized model baseline.
@@ -199,8 +199,8 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 
 A compiled-state architecture can make a 208,255-block landscape search exact and replayable while
 keeping the GPU path fast: 100,000 generations reach 517.86 on the full instance in 941.51 s wall.
-The CPU-SA baseline is much worse despite a larger wall budget. The next milestone is a public or
-fully specified landscape instance with an independent model comparison.
+The CPU-SA baseline is much worse despite a larger wall budget. The next milestone is an independent model comparison on the public frozen
+artifact.
 
 ## References to verify before submission
 

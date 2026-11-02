@@ -229,3 +229,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Ran seeds 1-5 at 100,000 GPU-GA generations on full TSA24.
 - Objectives 512.574-518.621; mean 515.682; median 515.938; exact replay all.
 - Campaign wall 4,004.77 s for five seeds.
+
+### TSA24 public artifact
+
+- Published `ws4-tsa24-evenflow-v1` in UBC-FRESH/femic-tsa24-instance.
+- Bundle: compiled dataset, even-flow target, seed, README, SHA-256 manifest (4.5 MB).
+- Updated TSA24 records to `availability: public`; Paper 1 now cites a public artifact.
