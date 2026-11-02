@@ -27,7 +27,8 @@ exists and the maintainer approves it.
 | P7 Paper 2 writing and evidence | #25 | `feature/p7-paper2-writing` | complete |
 | P8 Paper 2 multi-seed campaign | #27 | `feature/p8-multiseed` | complete |
 | P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | complete |
-| P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | pr-open |
+| P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | complete |
+| P11 Audit remediation | #56 | `feature/p11-broad-runner` | pr-open |
 
 ## Lifecycle Map
 
