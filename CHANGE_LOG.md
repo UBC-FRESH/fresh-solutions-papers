@@ -173,3 +173,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added a 212-instance, 1,085-run pilot over TSPLIB/QAPLIB at solver v0.5.1.
 - Small/medium results are strong; large TSP and large QAP tails are weak and disclosed.
 - Evidence: `paper2/evidence/broad-suite-v051.json.gz` and summary.
+
+### Broad convergence panel v0.6.0
+
+- Replaced the 30-second pilot with patience-stopped runs.
+- 236/390 TSP and 552/670 QAP runs stopped on patience; cap hits are reported separately.
+- Small/medium TSP converged mean 0.100%; large TSP remains unresolved.
+- Evidence: `paper2/evidence/broad-converged.json.gz` and summary.
