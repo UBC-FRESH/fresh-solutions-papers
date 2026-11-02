@@ -192,3 +192,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added five-start robust-tabu evidence for esc128, tai150b, tai256c, tho150.
 - Best gaps improve substantially, but all runs hit the 600-second cap.
 - No large-QAP convergence claim.
+
+### Large-QAP patience convergence
+
+- Added Taillard delta-matrix updates and optional Numba acceleration.
+- Ran five random starts on esc128, tai150b, tai256c, tho150 with no time cap.
+- All 20 runs stopped on patience; best gaps 0.00/2.008/0.350/0.166%.
+- 20/20 exact replays; campaign wall 8m39s on 8 workers.
