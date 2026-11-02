@@ -186,3 +186,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added external LKH evidence for 20 TSPLIB instances with 300<n<=1000.
 - 71/100 runs hit the known optimum; mean gap 0.092%; worst 1.930%.
 - LKH is optional external research software, not bundled.
+
+### QAP multi-start tail
+
+- Added five-start robust-tabu evidence for esc128, tai150b, tai256c, tho150.
+- Best gaps improve substantially, but all runs hit the 600-second cap.
+- No large-QAP convergence claim.

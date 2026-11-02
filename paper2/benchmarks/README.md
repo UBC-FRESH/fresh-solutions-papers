@@ -35,3 +35,10 @@ The 600-second cap is a safety limit, not a convergence claim. See
 `paper2/run_lkh_large.py` runs a user-supplied LKH binary on the `300<n<=1000`
 tail. LKH is not bundled. Results: 100 runs, 71 optimum, mean gap 0.092%,
 median 0%, worst 1.930%. See `notes/reports/lkh-tail-v070.md`.
+
+## QAP multi-start tail
+
+`paper2/run_qap_multistart.py` runs five random starts on the four QAPLIB
+instances with `n>100`. Every run hit the 600-second cap; best gaps improve from
+15.62/5.94/66.76/6.23% to 0.00/2.55/0.35/1.26%. See
+`notes/reports/qap-multistart-v080.md`.
