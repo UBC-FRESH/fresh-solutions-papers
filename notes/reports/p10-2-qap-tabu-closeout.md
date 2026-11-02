@@ -26,14 +26,14 @@ The selected budget is the smallest budget whose next doubling improves the five
 | tai12a | 10,000 | 0.000% | 0.000% | 0.000% | optimum on all seeds | — |
 | tai20a | 10,000 | 0.403% | 0.470% | 0.470% | 20,000 | 0.370% |
 | tai25a | 20,000 | 0.685% | 0.850% | 0.850% | 40,000 | 0.592% |
-| tai30a | 40,000 | 0.407% | 0.407% | 0.678% | 80,000 | 0.348% |
+| tai30a | 10,000 | 0.792% | 0.792% | 1.139% | 20,000 | 0.700% |
 
 Budget-ladder details:
 
 - `tai25a`: 10k→20k improved by 0.102 points, so 10k was not certified; 20k→40k improved by
   0.092 points, so 20k is certified.
-- `tai30a`: 20k→40k improved by 0.293 points, so 20k was not certified; 40k→80k improved by
-  0.059 points, so 40k is certified.
+- `tai30a`: 10k→20k improved by 0.092 points, so 10k is certified; the 40k/80k
+  runs are retained only as larger-budget checks.
 
 The larger-budget values are retained in evidence but are not substituted into the headline table.
 
@@ -48,7 +48,7 @@ tabu iterations.
 | tai12a | 9.026% | 0.000% | 0.001 | 2.21 |
 | tai20a | 4.642% | 0.403% | 0.002 | 10.21 |
 | tai25a | 4.474% | 0.685% | 0.003 | 39.98 |
-| tai30a | 2.289% | 0.407% | 0.005 | 138.84 |
+| tai30a | 2.289% | 0.792% | 0.005 | 35.0 |
 
 The baseline is much faster and much worse in quality. The comparison supports a quality claim at a
 stated time cost, not a claim of dominating every solver on every budget. SciPy FAQ returned the same

@@ -12,13 +12,13 @@ candidate and sparse effect indexes, exact resident accounting, and batched GPU 
 with exact CPU local refinement. We report a first replayable architecture record on a 208,255-block
 TSA24 landscape: a 1,000-generation GPU search reduced the objective from an initial
 1,722,144,291.336651 to 8,588,725.370498415 in 9.381 s of search time (23.13 s wall), with an exact CPU
-replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733, and a
-100,000-generation run reaches **517.8619818205188**, and a five-seed 100k campaign spans
-**512.574–518.621** (mean 515.682, median 515.938), all with exact CPU replay. An independent
-CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the same model,
-reaches 335,044,976.675 and is still time-limited. The frozen TSA24 build, target, and seed are published as a public benchmark artifact
-(`ws4-tsa24-evenflow-v1`). The contribution is the architecture and its evidence contract, not a universal
-speed claim.
+replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733; a five-seed
+100,000-generation campaign spans **512.574–518.621** (mean 515.682, median 515.938), with an exact
+CPU replay. The 100k objective is dominated by the deliberately unattainable 70M m³/period level
+aspirations (level term 515.14; flow term 2.72), so it is a **maximum even-flow compromise**, not a
+near-zero target solution. The realized level is about 51.3–52.4M m³/period. The frozen TSA24 build,
+target, and seed are published as a public benchmark artifact (`ws4-tsa24-evenflow-v1`). The
+contribution is the architecture and its evidence contract, not a universal speed claim.
 
 ## 1. Introduction
 
@@ -143,10 +143,12 @@ The current records are generated from `evidence/*/record.json`:
 - Two independent 10,000-generation processes produced the identical schedule SHA-256.
 - Initial oldest-first seed objective: 1,722,144,291.336651.
 
-The 100,000-generation run is **3.3 million times** lower in objective than the initial seed and
-**16,600 times** lower than the 1,000-generation run. The 10,000-generation result was a
-same-engine scaling baseline; the 100,000-generation result is the accelerated-solver headline. This
-is still not an independent model or public-landscape baseline.
+The 100,000-generation run is the maximum even-flow headline: the flow term falls from
+8,588,225.55 at 1k generations to 2.72 at 100k, while the deliberate level-aspiration term remains
+flat (499.82 → 515.14). The realized profile is approximately 51.3–52.4M m³ per 10-year period
+against the 70M aspiration. This is the intended self-adjusting maximum even-flow construction
+documented in the WS4/TSA24 notes; it is not a near-zero objective and not a proof that 52M is the
+exact maximum. An exact MIP proof is out of reach at this scale.
 
 ### 4.3 Independent CPU-SA search baseline
 
@@ -159,12 +161,10 @@ seed 7, with 100,000 iterations and a 30-minute cap.
 - Wall: 1,875.12 s; memory: 8,969 MB.
 - Stop: 30-minute time limit reached; **not converged**.
 
-This is an independent search on the same model. It is not an independent model, and it is not an
-equal-time comparison: the GPU-GA 100,000-generation run took 941.51 s and reached 517.86, while
-the CPU-SA baseline spent 1,875 s and reached 335,044,976.68. The GPU path is orders of magnitude
-stronger despite a shorter wall budget. That is evidence for the architecture, but the CPU-SA
-parameters and convergence were not tuned to the same standard; it is not a universal dominance
-proof.
+This is an independent search path on the same model, not an independent model. The CPU-SA run is
+untuned, single-seed, and non-equal-work (100k single proposals versus 6.4M GPU genome evaluations);
+it is a weak secondary comparator, not a controlled baseline. No “orders of magnitude” claim should
+be made from it.
 
 ### 4.4 FHOPS public baselines
 
@@ -178,8 +178,8 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 
 ## 5. Limitations
 
-1. TSA24 is a public frozen artifact derived from public data, not an official benchmark with an independent model.
-2. The 100,000-generation GPU run is near-zero objective but is not proven globally optimal.
+1. TSA24 is a public frozen artifact derived from public data, but it has no independent model baseline and no explicit LICENSE.
+2. The 100,000-generation GPU run is a maximum even-flow compromise; the 70M level aspiration is deliberately unattainable and the exact maximum is not proven.
 3. Time-to-first-feasible was not separately instrumented; search elapsed is used conservatively.
 4. The CPU-SA baseline is time-limited, not converged; there is no independent optimized model baseline.
 5. FHOPS baselines are not architecture comparisons.
@@ -198,8 +198,9 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 ## 7. Conclusion
 
 A compiled-state architecture can make a 208,255-block landscape search exact and replayable while
-keeping the GPU path fast: 100,000 generations reach 517.86 on the full instance in 941.51 s wall.
-The CPU-SA baseline is much worse despite a larger wall budget. The next milestone is an independent model comparison on the public frozen
+keeping the GPU path fast: 100,000 generations reach the maximum even-flow regime in 941.51 s wall.
+The result is a 51.3–52.4M m³/period flat profile against a deliberate 70M aspiration; the exact
+maximum is not proven. The next milestone is an independent model comparison on the public frozen
 artifact.
 
 ## References to verify before submission

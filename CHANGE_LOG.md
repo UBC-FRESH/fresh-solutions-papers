@@ -241,3 +241,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `notes/reports/paper2-claims-audit.md` with claim-to-evidence map.
 - Fixed the SciPy large-QAP comparison and TSA24 applied-case text.
 - Recorded Paper 1 as an architecture/reproducibility paper; no competitive model claim without independent evidence.
+
+### Audit remediation: C1 and QAP certification
+
+- Withdrew audit C1; the 70M level targets are deliberate maximum-even-flow aspirations.
+- Corrected Paper 1 to report the level/flow split and 51.3-52.4M m3/period realized level; removed near-zero/3.3M framing.
+- Corrected tai30a certified budget to 10k under the 0.10-point policy; 40k/80k retained as larger checks.
