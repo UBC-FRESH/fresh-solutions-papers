@@ -1,0 +1,33 @@
+# Paper 1 100k-generation GPU-GA record
+
+Status: headline accelerated result; not a public/independent-model baseline
+Date: 2026-11-02
+Record: `evidence/ws4-tsa24-gpu-ga-100000-r7/record.json`
+
+## Result
+
+- Solver: WS4 GPU-GA, population 64, **100,000 generations**, seed 7.
+- Instance: full TSA24 landscape, 208,255 blocks, 20 periods.
+- Objective: **517.8619818205188**.
+- Exact CPU replay: **517.8619818205188**.
+- Search 856.10 s; wall 941.51 s; max RSS 8,260 MB.
+- Initial seed: 1,722,144,291.336651.
+
+## Scaling
+
+| Generations | Objective | Wall |
+| ---: | ---: | ---: |
+| 1,000 | 8,588,725.370498 | 23.13 s |
+| 10,000 | 76,540.740733 | 157.34 s |
+| 100,000 | 517.861982 | 941.51 s |
+| CPU-SA 100k (independent search) | 335,044,976.675435 | 1,875.12 s |
+
+The GPU-GA path is the headline: it reaches a near-zero objective on the full 208k-block instance
+in about 16 minutes. The CPU-SA baseline is an independent search on the same model, not an
+independent model, and it is much worse.
+
+## Boundary
+
+- TSA24 is reconstructable, not a public benchmark.
+- No independent model comparison.
+- The 100k result is not a global-optimality proof.

@@ -1,6 +1,6 @@
 # Compiled spatial optimisation: GPU-accelerated hybrid metaheuristics for landscape harvest scheduling
 
-Status: **NOT SUBMISSION-READY — CPU-SA baseline is time-limited, not converged; no independent model baseline**
+Status: **NOT SUBMISSION-READY — no independent model or public landscape baseline**
 Date: 2026-11-01
 
 ## Abstract
@@ -12,11 +12,12 @@ candidate and sparse effect indexes, exact resident accounting, and batched GPU 
 with exact CPU local refinement. We report a first replayable architecture record on a 208,255-block
 TSA24 landscape: a 1,000-generation GPU search reduced the objective from an initial
 1,722,144,291.336651 to 8,588,725.370498415 in 9.381 s of search time (23.13 s wall), with an exact CPU
-replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733 with an exact replay.
-An independent CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the
-same model, reaches 335,044,976.675 and is still time-limited. The TSA24 instance is reconstructable,
-not a public benchmark. The contribution is the architecture and its evidence contract, not a
-universal speed claim.
+replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733, and a
+100,000-generation run reaches **517.8619818205188**, all with exact CPU replay. An independent
+CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the same model,
+reaches 335,044,976.675 and is still time-limited. The TSA24 instance is reconstructable, not a
+public benchmark. The contribution is the architecture and its evidence contract, not a universal
+speed claim.
 
 ## 1. Introduction
 
@@ -117,6 +118,7 @@ The current records are generated from `evidence/*/record.json`:
 | ws4-tsa24-cpu-sa-100000-r7 | tsa24-evenflow-w100 | ws4-cpu-sa ws4@f23d450 | 335044976.675435 | True | 1875.120 | 1875.120 |
 | ws4-tsa24-gpu-ga-1000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 8588725.370498 | True | 23.130 | 9.381 |
 | ws4-tsa24-gpu-ga-10000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 76540.740733 | True | 157.338 | 89.782 |
+| ws4-tsa24-gpu-ga-100000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 517.861982 | True | 941.510 | 856.096 |
 
 ### 4.2 WS4 TSA24 architecture record and scaling baseline
 
@@ -126,14 +128,16 @@ The current records are generated from `evidence/*/record.json`:
   **8,588,725.370498514**; search 9.381 s; wall 23.13 s.
 - 10,000 generations: objective **76,540.74073269201**; exact CPU replay
   **76,540.74073269201**; search 89.78 s; wall 157.34 s; max RSS 8,256 MB.
-- Both schedules are schema-valid, hash-verified, and exactly replayed.
+- 100,000 generations: objective **517.8619818205188**; exact CPU replay
+  **517.8619818205188**; search 856.10 s; wall 941.51 s; max RSS 8,260 MB.
+- All schedules are schema-valid, hash-verified, and exactly replayed.
 - Two independent 10,000-generation processes produced the identical schedule SHA-256.
 - Initial oldest-first seed objective: 1,722,144,291.336651.
 
-The 10× budget run is **112×** lower in objective than the 1,000-generation run. This is a
-same-engine scaling baseline, not an independent algorithm baseline. It rules out the weakest
-interpretation that the 1,000-generation result is a converged ceiling, but it does not establish a win
-against another solver.
+The 100,000-generation run is **3.3 million times** lower in objective than the initial seed and
+**16,600 times** lower than the 1,000-generation run. The 10,000-generation result was a
+same-engine scaling baseline; the 100,000-generation result is the accelerated-solver headline. This
+is still not an independent model or public-landscape baseline.
 
 ### 4.3 Independent CPU-SA search baseline
 
@@ -147,10 +151,11 @@ seed 7, with 100,000 iterations and a 30-minute cap.
 - Stop: 30-minute time limit reached; **not converged**.
 
 This is an independent search on the same model. It is not an independent model, and it is not an
-equal-time comparison: the GPU-GA 1,000-generation run took 23.13 s. The CPU-SA baseline is much
-worse despite a much larger wall budget. That is evidence for the architecture, but it is not a
-controlled proof that GPU-GA is universally better; the CPU-SA parameters and convergence were not
-tuned to the same standard.
+equal-time comparison: the GPU-GA 100,000-generation run took 941.51 s and reached 517.86, while
+the CPU-SA baseline spent 1,875 s and reached 335,044,976.68. The GPU path is orders of magnitude
+stronger despite a shorter wall budget. That is evidence for the architecture, but the CPU-SA
+parameters and convergence were not tuned to the same standard; it is not a universal dominance
+proof.
 
 ### 4.4 FHOPS public baselines
 
@@ -165,7 +170,7 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 ## 5. Limitations
 
 1. The TSA24 instance is a local reconstructable fixture, not a public benchmark.
-2. The 1,000-generation GPU run is not a converged even-flow solution.
+2. The 100,000-generation GPU run is near-zero objective but is not proven globally optimal.
 3. Time-to-first-feasible was not separately instrumented; search elapsed is used conservatively.
 4. The CPU-SA baseline is time-limited, not converged; there is no independent optimized model baseline.
 5. FHOPS baselines are not architecture comparisons.
@@ -184,9 +189,9 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 ## 7. Conclusion
 
 A compiled-state architecture can make a 208,255-block landscape search exact and replayable while
-keeping the GPU path fast enough to be interesting. The CPU-SA baseline strengthens the evidence but
-is still time-limited. The next milestone is a converged independent baseline on a public or fully
-specified landscape instance.
+keeping the GPU path fast: 100,000 generations reach 517.86 on the full instance in 941.51 s wall.
+The CPU-SA baseline is much worse despite a larger wall budget. The next milestone is a public or
+fully specified landscape instance with an independent model comparison.
 
 ## References to verify before submission
 
