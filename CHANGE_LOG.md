@@ -199,3 +199,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Ran five random starts on esc128, tai150b, tai256c, tho150 with no time cap.
 - All 20 runs stopped on patience; best gaps 0.00/2.008/0.350/0.166%.
 - 20/20 exact replays; campaign wall 8m39s on 8 workers.
+
+### Paper 2 internal draft
+
+- Added `paper2/paper2-draft.md` with architecture, QAP/TSP evidence, LKH boundary,
+  and limitations.
+- Marked internal and not submission-ready; no publication claim.
