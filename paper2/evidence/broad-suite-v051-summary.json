@@ -1,0 +1,79 @@
+[
+  {
+    "family": "tsp",
+    "band": "all",
+    "instances": 78,
+    "runs": 390,
+    "optimum": 108,
+    "mean_gap_percent": 4.662829113743959,
+    "median_gap_percent": 0.4968944099378882,
+    "p90_gap_percent": 17.01112877583466,
+    "worst_gap_percent": 32.08729036168923
+  },
+  {
+    "family": "tsp",
+    "band": "n<=100",
+    "instances": 28,
+    "runs": 140,
+    "optimum": 88,
+    "mean_gap_percent": 0.15626023214791343,
+    "median_gap_percent": 0.0,
+    "p90_gap_percent": 0.4968944099378882,
+    "worst_gap_percent": 2.110366462284329
+  },
+  {
+    "family": "tsp",
+    "band": "100<n<=300",
+    "instances": 30,
+    "runs": 150,
+    "optimum": 20,
+    "mean_gap_percent": 3.0384484100917906,
+    "median_gap_percent": 0.6478906902927981,
+    "p90_gap_percent": 12.55727091633466,
+    "worst_gap_percent": 20.820189274447948
+  },
+  {
+    "family": "tsp",
+    "band": "n>300",
+    "instances": 20,
+    "runs": 100,
+    "optimum": 0,
+    "mean_gap_percent": 13.408596603456672,
+    "median_gap_percent": 14.526678961812308,
+    "p90_gap_percent": 21.078444655195774,
+    "worst_gap_percent": 32.08729036168923
+  },
+  {
+    "family": "qap",
+    "band": "all",
+    "instances": 134,
+    "runs": 670,
+    "optimum": 311,
+    "mean_gap_percent": 2.4465298172167036,
+    "median_gap_percent": 0.06669119529368736,
+    "p90_gap_percent": 7.468421037529906,
+    "worst_gap_percent": 66.76436406704717
+  },
+  {
+    "family": "qap",
+    "band": "n<=100",
+    "instances": 130,
+    "runs": 650,
+    "optimum": 311,
+    "mean_gap_percent": 1.7942241533040073,
+    "median_gap_percent": 0.02229684699157364,
+    "p90_gap_percent": 6.614447345517841,
+    "worst_gap_percent": 30.476594541083298
+  },
+  {
+    "family": "qap",
+    "band": "100<n<=300",
+    "instances": 4,
+    "runs": 20,
+    "optimum": 0,
+    "mean_gap_percent": 23.646463894379327,
+    "median_gap_percent": 10.988970646094042,
+    "p90_gap_percent": 66.76436406704717,
+    "worst_gap_percent": 66.76436406704717
+  }
+]

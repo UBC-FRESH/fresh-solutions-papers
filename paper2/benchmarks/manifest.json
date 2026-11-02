@@ -1,0 +1,1290 @@
+{
+  "tsplib": {
+    "source": "https://github.com/mastqe/tsplib",
+    "commit": "775541365dc3f7f3cd6faa8d0e206036d2c45e0e",
+    "included": "symmetric TSP, n <= 1000",
+    "excluded": "33 instances with n > 1000",
+    "count": 78
+  },
+  "qaplib": {
+    "source": "https://github.com/didoudiaz/QAP-instances",
+    "commit": "3cfd4f2bf82782e6c02fe4a79397e02f8ef54b14",
+    "included": "QAPLIB .dat instances parseable by Fresh Solutions v0.5.1",
+    "excluded": "5 esc8 variants with extra header token",
+    "count": 134
+  },
+  "instances": [
+    {
+      "name": "bur26a",
+      "family": "qap",
+      "size": 26,
+      "known": 5426670.0
+    },
+    {
+      "name": "bur26b",
+      "family": "qap",
+      "size": 26,
+      "known": 3817852.0
+    },
+    {
+      "name": "bur26c",
+      "family": "qap",
+      "size": 26,
+      "known": 5426795.0
+    },
+    {
+      "name": "bur26d",
+      "family": "qap",
+      "size": 26,
+      "known": 3821225.0
+    },
+    {
+      "name": "bur26e",
+      "family": "qap",
+      "size": 26,
+      "known": 5386879.0
+    },
+    {
+      "name": "bur26f",
+      "family": "qap",
+      "size": 26,
+      "known": 3782044.0
+    },
+    {
+      "name": "bur26g",
+      "family": "qap",
+      "size": 26,
+      "known": 10117172.0
+    },
+    {
+      "name": "bur26h",
+      "family": "qap",
+      "size": 26,
+      "known": 7098658.0
+    },
+    {
+      "name": "chr12a",
+      "family": "qap",
+      "size": 12,
+      "known": 9552.0
+    },
+    {
+      "name": "chr12b",
+      "family": "qap",
+      "size": 12,
+      "known": 9742.0
+    },
+    {
+      "name": "chr12c",
+      "family": "qap",
+      "size": 12,
+      "known": 11156.0
+    },
+    {
+      "name": "chr15a",
+      "family": "qap",
+      "size": 15,
+      "known": 9896.0
+    },
+    {
+      "name": "chr15b",
+      "family": "qap",
+      "size": 15,
+      "known": 7990.0
+    },
+    {
+      "name": "chr15c",
+      "family": "qap",
+      "size": 15,
+      "known": 9504.0
+    },
+    {
+      "name": "chr18a",
+      "family": "qap",
+      "size": 18,
+      "known": 11098.0
+    },
+    {
+      "name": "chr18b",
+      "family": "qap",
+      "size": 18,
+      "known": 1534.0
+    },
+    {
+      "name": "chr20a",
+      "family": "qap",
+      "size": 20,
+      "known": 2192.0
+    },
+    {
+      "name": "chr20b",
+      "family": "qap",
+      "size": 20,
+      "known": 2298.0
+    },
+    {
+      "name": "chr20c",
+      "family": "qap",
+      "size": 20,
+      "known": 14142.0
+    },
+    {
+      "name": "chr22a",
+      "family": "qap",
+      "size": 22,
+      "known": 6156.0
+    },
+    {
+      "name": "chr22b",
+      "family": "qap",
+      "size": 22,
+      "known": 6194.0
+    },
+    {
+      "name": "chr25a",
+      "family": "qap",
+      "size": 25,
+      "known": 3796.0
+    },
+    {
+      "name": "els19",
+      "family": "qap",
+      "size": 19,
+      "known": 17212548.0
+    },
+    {
+      "name": "esc128",
+      "family": "qap",
+      "size": 128,
+      "known": 64.0
+    },
+    {
+      "name": "esc16a",
+      "family": "qap",
+      "size": 16,
+      "known": 68.0
+    },
+    {
+      "name": "esc16b",
+      "family": "qap",
+      "size": 16,
+      "known": 292.0
+    },
+    {
+      "name": "esc16c",
+      "family": "qap",
+      "size": 16,
+      "known": 160.0
+    },
+    {
+      "name": "esc16d",
+      "family": "qap",
+      "size": 16,
+      "known": 16.0
+    },
+    {
+      "name": "esc16e",
+      "family": "qap",
+      "size": 16,
+      "known": 28.0
+    },
+    {
+      "name": "esc16f",
+      "family": "qap",
+      "size": 16,
+      "known": 0.0
+    },
+    {
+      "name": "esc16g",
+      "family": "qap",
+      "size": 16,
+      "known": 26.0
+    },
+    {
+      "name": "esc16h",
+      "family": "qap",
+      "size": 16,
+      "known": 996.0
+    },
+    {
+      "name": "esc16i",
+      "family": "qap",
+      "size": 16,
+      "known": 14.0
+    },
+    {
+      "name": "esc16j",
+      "family": "qap",
+      "size": 16,
+      "known": 8.0
+    },
+    {
+      "name": "esc32a",
+      "family": "qap",
+      "size": 32,
+      "known": 130.0
+    },
+    {
+      "name": "esc32b",
+      "family": "qap",
+      "size": 32,
+      "known": 168.0
+    },
+    {
+      "name": "esc32c",
+      "family": "qap",
+      "size": 32,
+      "known": 642.0
+    },
+    {
+      "name": "esc32d",
+      "family": "qap",
+      "size": 32,
+      "known": 200.0
+    },
+    {
+      "name": "esc32e",
+      "family": "qap",
+      "size": 32,
+      "known": 2.0
+    },
+    {
+      "name": "esc32g",
+      "family": "qap",
+      "size": 32,
+      "known": 6.0
+    },
+    {
+      "name": "esc32h",
+      "family": "qap",
+      "size": 32,
+      "known": 438.0
+    },
+    {
+      "name": "esc64a",
+      "family": "qap",
+      "size": 64,
+      "known": 116.0
+    },
+    {
+      "name": "had12",
+      "family": "qap",
+      "size": 12,
+      "known": 1652.0
+    },
+    {
+      "name": "had14",
+      "family": "qap",
+      "size": 14,
+      "known": 2724.0
+    },
+    {
+      "name": "had16",
+      "family": "qap",
+      "size": 16,
+      "known": 3720.0
+    },
+    {
+      "name": "had18",
+      "family": "qap",
+      "size": 18,
+      "known": 5358.0
+    },
+    {
+      "name": "had20",
+      "family": "qap",
+      "size": 20,
+      "known": 6922.0
+    },
+    {
+      "name": "kra30a",
+      "family": "qap",
+      "size": 30,
+      "known": 88900.0
+    },
+    {
+      "name": "kra30b",
+      "family": "qap",
+      "size": 30,
+      "known": 91420.0
+    },
+    {
+      "name": "kra32",
+      "family": "qap",
+      "size": 32,
+      "known": 88700.0
+    },
+    {
+      "name": "lipa20a",
+      "family": "qap",
+      "size": 20,
+      "known": 3683.0
+    },
+    {
+      "name": "lipa20b",
+      "family": "qap",
+      "size": 20,
+      "known": 27076.0
+    },
+    {
+      "name": "lipa30a",
+      "family": "qap",
+      "size": 30,
+      "known": 13178.0
+    },
+    {
+      "name": "lipa30b",
+      "family": "qap",
+      "size": 30,
+      "known": 151426.0
+    },
+    {
+      "name": "lipa40a",
+      "family": "qap",
+      "size": 40,
+      "known": 31538.0
+    },
+    {
+      "name": "lipa40b",
+      "family": "qap",
+      "size": 40,
+      "known": 476581.0
+    },
+    {
+      "name": "lipa50a",
+      "family": "qap",
+      "size": 50,
+      "known": 62093.0
+    },
+    {
+      "name": "lipa50b",
+      "family": "qap",
+      "size": 50,
+      "known": 1210244.0
+    },
+    {
+      "name": "lipa60a",
+      "family": "qap",
+      "size": 60,
+      "known": 107218.0
+    },
+    {
+      "name": "lipa60b",
+      "family": "qap",
+      "size": 60,
+      "known": 2520135.0
+    },
+    {
+      "name": "lipa70a",
+      "family": "qap",
+      "size": 70,
+      "known": 169755.0
+    },
+    {
+      "name": "lipa70b",
+      "family": "qap",
+      "size": 70,
+      "known": 4603200.0
+    },
+    {
+      "name": "lipa80a",
+      "family": "qap",
+      "size": 80,
+      "known": 253195.0
+    },
+    {
+      "name": "lipa80b",
+      "family": "qap",
+      "size": 80,
+      "known": 7763962.0
+    },
+    {
+      "name": "lipa90a",
+      "family": "qap",
+      "size": 90,
+      "known": 360630.0
+    },
+    {
+      "name": "lipa90b",
+      "family": "qap",
+      "size": 90,
+      "known": 12490441.0
+    },
+    {
+      "name": "nug12",
+      "family": "qap",
+      "size": 12,
+      "known": 578.0
+    },
+    {
+      "name": "nug14",
+      "family": "qap",
+      "size": 14,
+      "known": 1014.0
+    },
+    {
+      "name": "nug15",
+      "family": "qap",
+      "size": 15,
+      "known": 1150.0
+    },
+    {
+      "name": "nug16a",
+      "family": "qap",
+      "size": 16,
+      "known": 1610.0
+    },
+    {
+      "name": "nug16b",
+      "family": "qap",
+      "size": 16,
+      "known": 1240.0
+    },
+    {
+      "name": "nug17",
+      "family": "qap",
+      "size": 17,
+      "known": 1732.0
+    },
+    {
+      "name": "nug18",
+      "family": "qap",
+      "size": 18,
+      "known": 1930.0
+    },
+    {
+      "name": "nug20",
+      "family": "qap",
+      "size": 20,
+      "known": 2570.0
+    },
+    {
+      "name": "nug21",
+      "family": "qap",
+      "size": 21,
+      "known": 2438.0
+    },
+    {
+      "name": "nug22",
+      "family": "qap",
+      "size": 22,
+      "known": 3596.0
+    },
+    {
+      "name": "nug24",
+      "family": "qap",
+      "size": 24,
+      "known": 3488.0
+    },
+    {
+      "name": "nug25",
+      "family": "qap",
+      "size": 25,
+      "known": 3744.0
+    },
+    {
+      "name": "nug27",
+      "family": "qap",
+      "size": 27,
+      "known": 5234.0
+    },
+    {
+      "name": "nug28",
+      "family": "qap",
+      "size": 28,
+      "known": 5166.0
+    },
+    {
+      "name": "nug30",
+      "family": "qap",
+      "size": 30,
+      "known": 6124.0
+    },
+    {
+      "name": "rou12",
+      "family": "qap",
+      "size": 12,
+      "known": 235528.0
+    },
+    {
+      "name": "rou15",
+      "family": "qap",
+      "size": 15,
+      "known": 354210.0
+    },
+    {
+      "name": "rou20",
+      "family": "qap",
+      "size": 20,
+      "known": 725522.0
+    },
+    {
+      "name": "scr12",
+      "family": "qap",
+      "size": 12,
+      "known": 31410.0
+    },
+    {
+      "name": "scr15",
+      "family": "qap",
+      "size": 15,
+      "known": 51140.0
+    },
+    {
+      "name": "scr20",
+      "family": "qap",
+      "size": 20,
+      "known": 110030.0
+    },
+    {
+      "name": "sko100a",
+      "family": "qap",
+      "size": 100,
+      "known": 152002.0
+    },
+    {
+      "name": "sko100b",
+      "family": "qap",
+      "size": 100,
+      "known": 153890.0
+    },
+    {
+      "name": "sko100c",
+      "family": "qap",
+      "size": 100,
+      "known": 147862.0
+    },
+    {
+      "name": "sko100d",
+      "family": "qap",
+      "size": 100,
+      "known": 149576.0
+    },
+    {
+      "name": "sko100e",
+      "family": "qap",
+      "size": 100,
+      "known": 149150.0
+    },
+    {
+      "name": "sko100f",
+      "family": "qap",
+      "size": 100,
+      "known": 149036.0
+    },
+    {
+      "name": "sko42",
+      "family": "qap",
+      "size": 42,
+      "known": 15812.0
+    },
+    {
+      "name": "sko49",
+      "family": "qap",
+      "size": 49,
+      "known": 23386.0
+    },
+    {
+      "name": "sko56",
+      "family": "qap",
+      "size": 56,
+      "known": 34458.0
+    },
+    {
+      "name": "sko64",
+      "family": "qap",
+      "size": 64,
+      "known": 48498.0
+    },
+    {
+      "name": "sko72",
+      "family": "qap",
+      "size": 72,
+      "known": 66256.0
+    },
+    {
+      "name": "sko81",
+      "family": "qap",
+      "size": 81,
+      "known": 90998.0
+    },
+    {
+      "name": "sko90",
+      "family": "qap",
+      "size": 90,
+      "known": 115534.0
+    },
+    {
+      "name": "ste36a",
+      "family": "qap",
+      "size": 36,
+      "known": 9526.0
+    },
+    {
+      "name": "ste36b",
+      "family": "qap",
+      "size": 36,
+      "known": 15852.0
+    },
+    {
+      "name": "ste36c",
+      "family": "qap",
+      "size": 36,
+      "known": 8239110.0
+    },
+    {
+      "name": "tai100a",
+      "family": "qap",
+      "size": 100,
+      "known": 21044752.0
+    },
+    {
+      "name": "tai100b",
+      "family": "qap",
+      "size": 100,
+      "known": 1185996137.0
+    },
+    {
+      "name": "tai12a",
+      "family": "qap",
+      "size": 12,
+      "known": 224416.0
+    },
+    {
+      "name": "tai12b",
+      "family": "qap",
+      "size": 12,
+      "known": 39464925.0
+    },
+    {
+      "name": "tai150b",
+      "family": "qap",
+      "size": 150,
+      "known": 498896643.0
+    },
+    {
+      "name": "tai15a",
+      "family": "qap",
+      "size": 15,
+      "known": 388214.0
+    },
+    {
+      "name": "tai15b",
+      "family": "qap",
+      "size": 15,
+      "known": 51765268.0
+    },
+    {
+      "name": "tai17a",
+      "family": "qap",
+      "size": 17,
+      "known": 491812.0
+    },
+    {
+      "name": "tai20a",
+      "family": "qap",
+      "size": 20,
+      "known": 703482.0
+    },
+    {
+      "name": "tai20b",
+      "family": "qap",
+      "size": 20,
+      "known": 122455319.0
+    },
+    {
+      "name": "tai256c",
+      "family": "qap",
+      "size": 256,
+      "known": 44759294.0
+    },
+    {
+      "name": "tai25a",
+      "family": "qap",
+      "size": 25,
+      "known": 1167256.0
+    },
+    {
+      "name": "tai25b",
+      "family": "qap",
+      "size": 25,
+      "known": 344355646.0
+    },
+    {
+      "name": "tai30a",
+      "family": "qap",
+      "size": 30,
+      "known": 1818146.0
+    },
+    {
+      "name": "tai30b",
+      "family": "qap",
+      "size": 30,
+      "known": 637117113.0
+    },
+    {
+      "name": "tai35a",
+      "family": "qap",
+      "size": 35,
+      "known": 2422002.0
+    },
+    {
+      "name": "tai35b",
+      "family": "qap",
+      "size": 35,
+      "known": 283315445.0
+    },
+    {
+      "name": "tai40a",
+      "family": "qap",
+      "size": 40,
+      "known": 3139370.0
+    },
+    {
+      "name": "tai40b",
+      "family": "qap",
+      "size": 40,
+      "known": 637250948.0
+    },
+    {
+      "name": "tai50a",
+      "family": "qap",
+      "size": 50,
+      "known": 4938796.0
+    },
+    {
+      "name": "tai50b",
+      "family": "qap",
+      "size": 50,
+      "known": 458821517.0
+    },
+    {
+      "name": "tai60a",
+      "family": "qap",
+      "size": 60,
+      "known": 7205962.0
+    },
+    {
+      "name": "tai60b",
+      "family": "qap",
+      "size": 60,
+      "known": 608215054.0
+    },
+    {
+      "name": "tai64c",
+      "family": "qap",
+      "size": 64,
+      "known": 1855928.0
+    },
+    {
+      "name": "tai80a",
+      "family": "qap",
+      "size": 80,
+      "known": 13499184.0
+    },
+    {
+      "name": "tai80b",
+      "family": "qap",
+      "size": 80,
+      "known": 818415043.0
+    },
+    {
+      "name": "tho150",
+      "family": "qap",
+      "size": 150,
+      "known": 8133398.0
+    },
+    {
+      "name": "tho30",
+      "family": "qap",
+      "size": 30,
+      "known": 149936.0
+    },
+    {
+      "name": "tho40",
+      "family": "qap",
+      "size": 40,
+      "known": 240516.0
+    },
+    {
+      "name": "wil100",
+      "family": "qap",
+      "size": 100,
+      "known": 273038.0
+    },
+    {
+      "name": "wil50",
+      "family": "qap",
+      "size": 50,
+      "known": 48816.0
+    },
+    {
+      "name": "a280",
+      "family": "tsp",
+      "size": 280,
+      "known": 2579.0
+    },
+    {
+      "name": "ali535",
+      "family": "tsp",
+      "size": 535,
+      "known": 202339.0
+    },
+    {
+      "name": "att48",
+      "family": "tsp",
+      "size": 48,
+      "known": 10628.0
+    },
+    {
+      "name": "att532",
+      "family": "tsp",
+      "size": 532,
+      "known": 27686.0
+    },
+    {
+      "name": "bayg29",
+      "family": "tsp",
+      "size": 29,
+      "known": 1610.0
+    },
+    {
+      "name": "bays29",
+      "family": "tsp",
+      "size": 29,
+      "known": 2020.0
+    },
+    {
+      "name": "berlin52",
+      "family": "tsp",
+      "size": 52,
+      "known": 7542.0
+    },
+    {
+      "name": "bier127",
+      "family": "tsp",
+      "size": 127,
+      "known": 118282.0
+    },
+    {
+      "name": "brazil58",
+      "family": "tsp",
+      "size": 58,
+      "known": 25395.0
+    },
+    {
+      "name": "brg180",
+      "family": "tsp",
+      "size": 180,
+      "known": 1950.0
+    },
+    {
+      "name": "burma14",
+      "family": "tsp",
+      "size": 14,
+      "known": 3323.0
+    },
+    {
+      "name": "ch130",
+      "family": "tsp",
+      "size": 130,
+      "known": 6110.0
+    },
+    {
+      "name": "ch150",
+      "family": "tsp",
+      "size": 150,
+      "known": 6528.0
+    },
+    {
+      "name": "d198",
+      "family": "tsp",
+      "size": 198,
+      "known": 15780.0
+    },
+    {
+      "name": "d493",
+      "family": "tsp",
+      "size": 493,
+      "known": 35002.0
+    },
+    {
+      "name": "d657",
+      "family": "tsp",
+      "size": 657,
+      "known": 48912.0
+    },
+    {
+      "name": "dantzig42",
+      "family": "tsp",
+      "size": 42,
+      "known": 699.0
+    },
+    {
+      "name": "dsj1000",
+      "family": "tsp",
+      "size": 1000,
+      "known": 18660188.0
+    },
+    {
+      "name": "eil101",
+      "family": "tsp",
+      "size": 101,
+      "known": 629.0
+    },
+    {
+      "name": "eil51",
+      "family": "tsp",
+      "size": 51,
+      "known": 426.0
+    },
+    {
+      "name": "eil76",
+      "family": "tsp",
+      "size": 76,
+      "known": 538.0
+    },
+    {
+      "name": "fl417",
+      "family": "tsp",
+      "size": 417,
+      "known": 11861.0
+    },
+    {
+      "name": "fri26",
+      "family": "tsp",
+      "size": 26,
+      "known": 937.0
+    },
+    {
+      "name": "gil262",
+      "family": "tsp",
+      "size": 262,
+      "known": 2378.0
+    },
+    {
+      "name": "gr120",
+      "family": "tsp",
+      "size": 120,
+      "known": 6942.0
+    },
+    {
+      "name": "gr137",
+      "family": "tsp",
+      "size": 137,
+      "known": 69853.0
+    },
+    {
+      "name": "gr17",
+      "family": "tsp",
+      "size": 17,
+      "known": 2085.0
+    },
+    {
+      "name": "gr202",
+      "family": "tsp",
+      "size": 202,
+      "known": 40160.0
+    },
+    {
+      "name": "gr21",
+      "family": "tsp",
+      "size": 21,
+      "known": 2707.0
+    },
+    {
+      "name": "gr229",
+      "family": "tsp",
+      "size": 229,
+      "known": 134602.0
+    },
+    {
+      "name": "gr24",
+      "family": "tsp",
+      "size": 24,
+      "known": 1272.0
+    },
+    {
+      "name": "gr431",
+      "family": "tsp",
+      "size": 431,
+      "known": 171414.0
+    },
+    {
+      "name": "gr48",
+      "family": "tsp",
+      "size": 48,
+      "known": 5046.0
+    },
+    {
+      "name": "gr666",
+      "family": "tsp",
+      "size": 666,
+      "known": 294358.0
+    },
+    {
+      "name": "gr96",
+      "family": "tsp",
+      "size": 96,
+      "known": 55209.0
+    },
+    {
+      "name": "hk48",
+      "family": "tsp",
+      "size": 48,
+      "known": 11461.0
+    },
+    {
+      "name": "kroA100",
+      "family": "tsp",
+      "size": 100,
+      "known": 21282.0
+    },
+    {
+      "name": "kroA150",
+      "family": "tsp",
+      "size": 150,
+      "known": 26524.0
+    },
+    {
+      "name": "kroA200",
+      "family": "tsp",
+      "size": 200,
+      "known": 29368.0
+    },
+    {
+      "name": "kroB100",
+      "family": "tsp",
+      "size": 100,
+      "known": 22141.0
+    },
+    {
+      "name": "kroB150",
+      "family": "tsp",
+      "size": 150,
+      "known": 26130.0
+    },
+    {
+      "name": "kroB200",
+      "family": "tsp",
+      "size": 200,
+      "known": 29437.0
+    },
+    {
+      "name": "kroC100",
+      "family": "tsp",
+      "size": 100,
+      "known": 20749.0
+    },
+    {
+      "name": "kroD100",
+      "family": "tsp",
+      "size": 100,
+      "known": 21294.0
+    },
+    {
+      "name": "kroE100",
+      "family": "tsp",
+      "size": 100,
+      "known": 22068.0
+    },
+    {
+      "name": "lin105",
+      "family": "tsp",
+      "size": 105,
+      "known": 14379.0
+    },
+    {
+      "name": "lin318",
+      "family": "tsp",
+      "size": 318,
+      "known": 42029.0
+    },
+    {
+      "name": "linhp318",
+      "family": "tsp",
+      "size": 318,
+      "known": 41345.0
+    },
+    {
+      "name": "p654",
+      "family": "tsp",
+      "size": 654,
+      "known": 34643.0
+    },
+    {
+      "name": "pa561",
+      "family": "tsp",
+      "size": 561,
+      "known": 2763.0
+    },
+    {
+      "name": "pcb442",
+      "family": "tsp",
+      "size": 442,
+      "known": 50778.0
+    },
+    {
+      "name": "pr107",
+      "family": "tsp",
+      "size": 107,
+      "known": 44303.0
+    },
+    {
+      "name": "pr124",
+      "family": "tsp",
+      "size": 124,
+      "known": 59030.0
+    },
+    {
+      "name": "pr136",
+      "family": "tsp",
+      "size": 136,
+      "known": 96772.0
+    },
+    {
+      "name": "pr144",
+      "family": "tsp",
+      "size": 144,
+      "known": 58537.0
+    },
+    {
+      "name": "pr152",
+      "family": "tsp",
+      "size": 152,
+      "known": 73682.0
+    },
+    {
+      "name": "pr226",
+      "family": "tsp",
+      "size": 226,
+      "known": 80369.0
+    },
+    {
+      "name": "pr264",
+      "family": "tsp",
+      "size": 264,
+      "known": 49135.0
+    },
+    {
+      "name": "pr299",
+      "family": "tsp",
+      "size": 299,
+      "known": 48191.0
+    },
+    {
+      "name": "pr439",
+      "family": "tsp",
+      "size": 439,
+      "known": 107217.0
+    },
+    {
+      "name": "pr76",
+      "family": "tsp",
+      "size": 76,
+      "known": 108159.0
+    },
+    {
+      "name": "rat195",
+      "family": "tsp",
+      "size": 195,
+      "known": 2323.0
+    },
+    {
+      "name": "rat575",
+      "family": "tsp",
+      "size": 575,
+      "known": 6773.0
+    },
+    {
+      "name": "rat783",
+      "family": "tsp",
+      "size": 783,
+      "known": 8806.0
+    },
+    {
+      "name": "rat99",
+      "family": "tsp",
+      "size": 99,
+      "known": 1211.0
+    },
+    {
+      "name": "rd100",
+      "family": "tsp",
+      "size": 100,
+      "known": 7910.0
+    },
+    {
+      "name": "rd400",
+      "family": "tsp",
+      "size": 400,
+      "known": 15281.0
+    },
+    {
+      "name": "si175",
+      "family": "tsp",
+      "size": 175,
+      "known": 21407.0
+    },
+    {
+      "name": "si535",
+      "family": "tsp",
+      "size": 535,
+      "known": 48450.0
+    },
+    {
+      "name": "st70",
+      "family": "tsp",
+      "size": 70,
+      "known": 675.0
+    },
+    {
+      "name": "swiss42",
+      "family": "tsp",
+      "size": 42,
+      "known": 1273.0
+    },
+    {
+      "name": "ts225",
+      "family": "tsp",
+      "size": 225,
+      "known": 126643.0
+    },
+    {
+      "name": "tsp225",
+      "family": "tsp",
+      "size": 225,
+      "known": 3916.0
+    },
+    {
+      "name": "u159",
+      "family": "tsp",
+      "size": 159,
+      "known": 42080.0
+    },
+    {
+      "name": "u574",
+      "family": "tsp",
+      "size": 574,
+      "known": 36905.0
+    },
+    {
+      "name": "u724",
+      "family": "tsp",
+      "size": 724,
+      "known": 41910.0
+    },
+    {
+      "name": "ulysses16",
+      "family": "tsp",
+      "size": 16,
+      "known": 6859.0
+    },
+    {
+      "name": "ulysses22",
+      "family": "tsp",
+      "size": 22,
+      "known": 7013.0
+    }
+  ]
+}
