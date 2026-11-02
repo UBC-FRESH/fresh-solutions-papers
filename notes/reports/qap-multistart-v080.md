@@ -2,7 +2,7 @@
 
 Status: converged under the declared patience rule
 Date: 2026-11-02
-Solver: Fresh Solutions branch `021ff90` (delta-matrix tabu)
+Solver: Fresh Solutions branch `v0.8.0` (delta-matrix tabu)
 
 ## Protocol
 
