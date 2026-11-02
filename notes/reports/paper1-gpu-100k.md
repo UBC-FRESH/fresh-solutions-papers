@@ -12,6 +12,8 @@ Record: `evidence/ws4-tsa24-gpu-ga-100000-r7/record.json`
 - Exact CPU replay: **517.8619818205188**.
 - Search 856.10 s; wall 941.51 s; max RSS 8,260 MB.
 - Initial seed: 1,722,144,291.336651.
+- Five-seed 100k campaign: 512.574–518.621; mean 515.682; median 515.938; worst 518.621;
+  all exact replay; 4,004.77 s wall for five runs.
 
 ## Scaling
 

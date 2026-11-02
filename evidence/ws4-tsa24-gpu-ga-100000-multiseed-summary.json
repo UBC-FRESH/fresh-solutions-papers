@@ -1,0 +1,74 @@
+{
+  "cache_dir": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-cache",
+  "dataset": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/build/compiled",
+  "generations": 100000,
+  "out_dir": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds",
+  "population": 64,
+  "runs": [
+    {
+      "best_generation": 78145,
+      "device_objective": 518.6214523292266,
+      "evaluations": 6400064,
+      "exact_match": false,
+      "initial_objective": 1722144291.3366535,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds/seed-1.csv",
+      "search_s": 781.5645451890014,
+      "seed": 1,
+      "verified_objective": 518.6214523292301,
+      "verify_s": 10.034918081997603
+    },
+    {
+      "best_generation": 89894,
+      "device_objective": 512.5741386544445,
+      "evaluations": 6400064,
+      "exact_match": false,
+      "initial_objective": 1722144291.3366535,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds/seed-2.csv",
+      "search_s": 775.6798209030021,
+      "seed": 2,
+      "verified_objective": 512.5741386544443,
+      "verify_s": 11.561602707995917
+    },
+    {
+      "best_generation": 99007,
+      "device_objective": 515.937717496508,
+      "evaluations": 6400064,
+      "exact_match": false,
+      "initial_objective": 1722144291.336654,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds/seed-3.csv",
+      "search_s": 776.7391163229986,
+      "seed": 3,
+      "verified_objective": 515.9377174965076,
+      "verify_s": 8.682230883001466
+    },
+    {
+      "best_generation": 91482,
+      "device_objective": 514.7459645617464,
+      "evaluations": 6400064,
+      "exact_match": false,
+      "initial_objective": 1722144291.3366525,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds/seed-4.csv",
+      "search_s": 775.0817501120036,
+      "seed": 4,
+      "verified_objective": 514.7459645617461,
+      "verify_s": 8.828065964997222
+    },
+    {
+      "best_generation": 48379,
+      "device_objective": 516.5301055356007,
+      "evaluations": 6400064,
+      "exact_match": false,
+      "initial_objective": 1722144291.336653,
+      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g-seeds/seed-5.csv",
+      "search_s": 776.4683608790001,
+      "seed": 5,
+      "verified_objective": 516.5301055356035,
+      "verify_s": 9.24269322300097
+    }
+  ],
+  "session_build_s": 62.022778422004194,
+  "table": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt",
+  "targets": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml",
+  "total_s": 3995.906121701999,
+  "years": 200
+}

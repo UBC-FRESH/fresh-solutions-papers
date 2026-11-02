@@ -13,7 +13,8 @@ with exact CPU local refinement. We report a first replayable architecture recor
 TSA24 landscape: a 1,000-generation GPU search reduced the objective from an initial
 1,722,144,291.336651 to 8,588,725.370498415 in 9.381 s of search time (23.13 s wall), with an exact CPU
 replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733, and a
-100,000-generation run reaches **517.8619818205188**, all with exact CPU replay. An independent
+100,000-generation run reaches **517.8619818205188**, and a five-seed 100k campaign spans
+**512.574–518.621** (mean 515.682, median 515.938), all with exact CPU replay. An independent
 CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the same model,
 reaches 335,044,976.675 and is still time-limited. The TSA24 instance is reconstructable, not a
 public benchmark. The contribution is the architecture and its evidence contract, not a universal
@@ -118,6 +119,11 @@ The current records are generated from `evidence/*/record.json`:
 | ws4-tsa24-cpu-sa-100000-r7 | tsa24-evenflow-w100 | ws4-cpu-sa ws4@f23d450 | 335044976.675435 | True | 1875.120 | 1875.120 |
 | ws4-tsa24-gpu-ga-1000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 8588725.370498 | True | 23.130 | 9.381 |
 | ws4-tsa24-gpu-ga-10000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 76540.740733 | True | 157.338 | 89.782 |
+| ws4-tsa24-gpu-ga-100000-r1 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 518.621452 | True | 804.004 | 781.565 |
+| ws4-tsa24-gpu-ga-100000-r2 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 512.574139 | True | 799.646 | 775.680 |
+| ws4-tsa24-gpu-ga-100000-r3 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 515.937717 | True | 797.826 | 776.739 |
+| ws4-tsa24-gpu-ga-100000-r4 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 514.745965 | True | 796.314 | 775.082 |
+| ws4-tsa24-gpu-ga-100000-r5 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 516.530106 | True | 798.116 | 776.468 |
 | ws4-tsa24-gpu-ga-100000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 517.861982 | True | 941.510 | 856.096 |
 
 ### 4.2 WS4 TSA24 architecture record and scaling baseline
@@ -128,8 +134,11 @@ The current records are generated from `evidence/*/record.json`:
   **8,588,725.370498514**; search 9.381 s; wall 23.13 s.
 - 10,000 generations: objective **76,540.74073269201**; exact CPU replay
   **76,540.74073269201**; search 89.78 s; wall 157.34 s; max RSS 8,256 MB.
-- 100,000 generations: objective **517.8619818205188**; exact CPU replay
+- 100,000 generations, seed 7: objective **517.8619818205188**; exact CPU replay
   **517.8619818205188**; search 856.10 s; wall 941.51 s; max RSS 8,260 MB.
+- 100,000 generations, seeds 1–5: objectives **512.574, 515.938, 514.746, 516.530, 518.621**;
+  mean **515.682**, median **515.938**, worst **518.621**; all exact replay.
+- The five-seed campaign took **4,004.77 s** wall for all five runs.
 - All schedules are schema-valid, hash-verified, and exactly replayed.
 - Two independent 10,000-generation processes produced the identical schedule SHA-256.
 - Initial oldest-first seed objective: 1,722,144,291.336651.
