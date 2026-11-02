@@ -217,3 +217,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added 100k-iteration, 30-minute CPU-SA baseline on TSA24.
 - Objective 335,044,976.675435; exact replay; time-limited, not converged.
 - Paper 1 draft now includes the independent-search baseline and explicit limits.
+
+### Paper 1 100k GPU-GA record
+
+- Ran 100,000 GPU-GA generations on 208,255-block TSA24.
+- Objective 517.8619818205188; exact replay; wall 941.51 s.
+- Paper 1 now leads with the accelerated solver result and keeps the independent CPU-SA baseline separate.

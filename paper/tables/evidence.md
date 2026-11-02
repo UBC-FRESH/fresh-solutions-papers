@@ -5,3 +5,4 @@
 | ws4-tsa24-cpu-sa-100000-r7 | tsa24-evenflow-w100 | ws4-cpu-sa ws4@f23d450 | 335044976.675435 | True | 1875.120 | 1875.120 |
 | ws4-tsa24-gpu-ga-1000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 8588725.370498 | True | 23.130 | 9.381 |
 | ws4-tsa24-gpu-ga-10000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 76540.740733 | True | 157.338 | 89.782 |
+| ws4-tsa24-gpu-ga-100000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 517.861982 | True | 941.510 | 856.096 |
