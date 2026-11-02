@@ -1,0 +1,25 @@
+"""Replay the WS4 TSA24 CPU-SA baseline with the exact CPU evaluator."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from ws4.opt.engine import OptimizeConfig, Optimizer, load_schedule_csv
+from ws4.opt.incremental import IncrementalObjective
+from ws4.opt.objective import load_targets
+
+HERE = Path(__file__).resolve().parent
+INSTANCE = Path("/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance")
+RECORD = json.loads((HERE / "record.json").read_text(encoding="utf-8"))
+TARGETS = INSTANCE / "config/ws4/targets/evenflow_tsa24.yaml"
+OPTIMIZER = Optimizer.from_dataset(
+    INSTANCE / "build/compiled",
+    OptimizeConfig(years=200, targets_path=str(TARGETS), iterations=1, threads=1),
+)
+EVALUATOR = IncrementalObjective(OPTIMIZER, load_targets(TARGETS))
+EVALUATOR.reset(load_schedule_csv(HERE / RECORD["result"]["schedule_path"]))
+expected = RECORD["result"]["objective"]
+print(json.dumps({"objective": EVALUATOR.objective, "expected": expected}, indent=2))
+if abs(EVALUATOR.objective - expected) > 1e-6:
+    raise SystemExit(1)
