@@ -47,7 +47,7 @@ Five seeds. The certified budget is the smallest budget whose next doubling impr
 | tai12a | 10,000 | 0.000% | 0.000% | 0.000% | optimum on all seeds |
 | tai20a | 10,000 | 0.403% | 0.470% | 0.470% | 20k: 0.370% |
 | tai25a | 20,000 | 0.685% | 0.850% | 0.850% | 40k: 0.592% |
-| tai30a | 40,000 | 0.407% | 0.407% | 0.678% | 80k: 0.348% |
+| tai30a | 10,000 | 0.792% | 0.792% | 1.139% | 20k: 0.700% |
 
 All 20 selected assignments replay exactly. The larger-budget values are retained for transparency but
 are not substituted into the headline table. This is a competitive-neighborhood result, not a
@@ -62,7 +62,7 @@ SciPy `quadratic_assignment` (`faq`, `maxiter=10000`, SciPy 1.18.1), five seeds:
 | tai12a | 9.026% | 0.000% | 0.001 |
 | tai20a | 4.642% | 0.403% | 0.002 |
 | tai25a | 4.474% | 0.685% | 0.003 |
-| tai30a | 2.289% | 0.407% | 0.005 |
+| tai30a | 2.289% | 0.792% | 0.005 |
 
 The baseline is much faster and much worse. This is a time-quality comparison, not an equal-budget
 comparison, and not a claim of universal dominance.

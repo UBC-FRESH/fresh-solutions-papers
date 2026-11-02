@@ -98,7 +98,7 @@ Five-seed certified results on the initial QAPLIB panel:
 | tai12a | 10,000 | 0.000% | 0.000% |
 | tai20a | 10,000 | 0.403% | 0.470% |
 | tai25a | 20,000 | 0.685% | 0.850% |
-| tai30a | 40,000 | 0.407% | 0.678% |
+| tai30a | 10,000 | 0.792% | 1.139% |
 
 The certified budget is the smallest budget whose next doubling improves the
 five-seed mean by no more than 0.10 percentage points. This is a stability rule,

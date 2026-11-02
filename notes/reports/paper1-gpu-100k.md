@@ -24,12 +24,14 @@ Record: `evidence/ws4-tsa24-gpu-ga-100000-r7/record.json`
 | 100,000 | 517.861982 | 941.51 s |
 | CPU-SA 100k (independent search) | 335,044,976.675435 | 1,875.12 s |
 
-The GPU-GA path is the headline: it reaches a near-zero objective on the full 208k-block instance
-in about 16 minutes. The CPU-SA baseline is an independent search on the same model, not an
-independent model, and it is much worse.
+The GPU-GA path is the headline: it reaches the maximum even-flow regime on the 208k operable-block
+instance in about 16 minutes. The 517.86 total is dominated by the deliberate level aspiration
+(515.14); the flow term is 2.72. The realized level is about 51.3–52.4M m³/period against a 70M
+aspiration. The CPU-SA baseline is a separate search path on the same model, not an independent
+model, and it is untuned.
 
 ## Boundary
 
-- TSA24 is reconstructable, not a public benchmark.
+- TSA24 is a public frozen artifact, but it has no explicit LICENSE and no independent model baseline.
 - No independent model comparison.
 - The 100k result is not a global-optimality proof.

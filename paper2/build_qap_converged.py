@@ -11,13 +11,13 @@ SELECTION = {
     "tai12a": "qap-tabu.json",
     "tai20a": "qap-tabu.json",
     "tai25a": "qap-tabu-20k.json",
-    "tai30a": "qap-tabu-40k.json",
+    "tai30a": "qap-tabu.json",
 }
 SUMMARY = {
     "tai12a": "qap-tabu-summary.json",
     "tai20a": "qap-tabu-summary.json",
     "tai25a": "qap-tabu-20k-summary.json",
-    "tai30a": "qap-tabu-40k-summary.json",
+    "tai30a": "qap-tabu-summary.json",
 }
 
 
