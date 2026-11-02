@@ -8,12 +8,12 @@
   },
   "instance": {
     "id": "tsa24-evenflow-w100",
-    "availability": "reconstructable",
+    "availability": "public",
     "license": null,
     "variables": 208255,
     "periods": 20,
     "options": 50096749,
-    "notes": "TSA24 compiled landscape instance; even-flow target file. Public source/instance: https://github.com/UBC-FRESH/femic-tsa24-instance (UBC-FRESH); built from public BC VRI/FADM/SiteProd data. The local compiled build is derived."
+    "notes": "TSA24 compiled landscape instance; even-flow target file. Public source/instance: https://github.com/UBC-FRESH/femic-tsa24-instance (UBC-FRESH); built from public BC VRI/FADM/SiteProd data. The local compiled build is derived. Frozen public artifact: https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1."
   },
   "problem": {
     "objective": "minimize WS4 weighted goal-programming objective",
