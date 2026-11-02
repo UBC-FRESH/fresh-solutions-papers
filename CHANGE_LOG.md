@@ -167,3 +167,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added LK-only, ILK-5, and ILK-20 five-seed ablation.
 - LK-only means 0.780–2.580%; ILK-20 means 0.000–0.383%.
 - All 60 ablation tours replay exactly.
+
+### Broad QAP/TSP panel pilot
+
+- Added a 212-instance, 1,085-run pilot over TSPLIB/QAPLIB at solver v0.5.1.
+- Small/medium results are strong; large TSP and large QAP tails are weak and disclosed.
+- Evidence: `paper2/evidence/broad-suite-v051.json.gz` and summary.
