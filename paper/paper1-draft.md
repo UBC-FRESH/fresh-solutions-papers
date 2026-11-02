@@ -1,6 +1,6 @@
 # Compiled spatial optimisation: GPU-accelerated hybrid metaheuristics for landscape harvest scheduling
 
-Status: **NOT SUBMISSION-READY — same-engine scaling baseline only; no independent landscape baseline**
+Status: **NOT SUBMISSION-READY — CPU-SA baseline is time-limited, not converged; no independent model baseline**
 Date: 2026-11-01
 
 ## Abstract
@@ -12,10 +12,11 @@ candidate and sparse effect indexes, exact resident accounting, and batched GPU 
 with exact CPU local refinement. We report a first replayable architecture record on a 208,255-block
 TSA24 landscape: a 1,000-generation GPU search reduced the objective from an initial
 1,722,144,291.336651 to 8,588,725.370498415 in 9.381 s of search time (23.13 s wall), with an exact CPU
-replay of 8,588,725.370498514. We also report two replayable public FHOPS baseline records. A 10,000-generation run of the same
-engine reaches 76,540.740733 with an exact replay, but it is a same-engine budget-scaling baseline, not
-an independent solver. The TSA24 instance is reconstructable, not public. The contribution is the
-architecture and its evidence contract, not a universal speed claim.
+replay of 8,588,725.370498514. A 10,000-generation run reaches 76,540.740733 with an exact replay.
+An independent CPU simulated-annealing search, given a 30-minute and 100,000-iteration budget on the
+same model, reaches 335,044,976.675 and is still time-limited. The TSA24 instance is reconstructable,
+not a public benchmark. The contribution is the architecture and its evidence contract, not a
+universal speed claim.
 
 ## 1. Introduction
 
@@ -33,9 +34,9 @@ has five layers:
 4. exact resident accounting state;
 5. a hybrid search loop.
 
-The paper reports an initial evidence record, a same-engine scaling baseline, and a reproducibility
-contract. It does not claim a controlled win against an independent solver; that still requires an
-independent optimized landscape baseline.
+The paper reports an initial evidence record, a same-engine scaling baseline, an independent CPU-SA
+search baseline, and a reproducibility contract. The CPU-SA baseline is time-limited, not converged;
+the paper does not claim equal-time dominance.
 
 ## 2. Architecture
 
@@ -113,7 +114,9 @@ The current records are generated from `evidence/*/record.json`:
 | --- | --- | --- | ---: | ---: | ---: | ---: |
 | fhops-small21-sa-200-r42 | fhops-small21 | fhops-sa 1.1.0@135321b1f5a7 | 15508.884820 | True | 0.787 | 0.787 |
 | fhops-tiny7-sa-200-r42 | fhops-tiny7 | fhops-sa 1.1.0@135321b1f5a7 | 4295.774752 | True | 0.269 | 0.269 |
+| ws4-tsa24-cpu-sa-100000-r7 | tsa24-evenflow-w100 | ws4-cpu-sa ws4@f23d450 | 335044976.675435 | True | 1875.120 | 1875.120 |
 | ws4-tsa24-gpu-ga-1000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 8588725.370498 | True | 23.130 | 9.381 |
+| ws4-tsa24-gpu-ga-10000-r7 | tsa24-evenflow-w100 | ws4-gpu-ga ws4-gpu@f60ce64 | 76540.740733 | True | 157.338 | 89.782 |
 
 ### 4.2 WS4 TSA24 architecture record and scaling baseline
 
@@ -132,7 +135,24 @@ same-engine scaling baseline, not an independent algorithm baseline. It rules ou
 interpretation that the 1,000-generation result is a converged ceiling, but it does not establish a win
 against another solver.
 
-### 4.3 FHOPS public baselines
+### 4.3 Independent CPU-SA search baseline
+
+The CPU simulated-annealing engine was run on the same frozen TSA24 model, target, initial seed, and
+seed 7, with 100,000 iterations and a 30-minute cap.
+
+- Algorithm: WS4 CPU-SA (`ws4@f23d450`), 32 threads.
+- Objective: **335,044,976.675435**.
+- Exact replay: **335,044,976.675435**.
+- Wall: 1,875.12 s; memory: 8,969 MB.
+- Stop: 30-minute time limit reached; **not converged**.
+
+This is an independent search on the same model. It is not an independent model, and it is not an
+equal-time comparison: the GPU-GA 1,000-generation run took 23.13 s. The CPU-SA baseline is much
+worse despite a much larger wall budget. That is evidence for the architecture, but it is not a
+controlled proof that GPU-GA is universally better; the CPU-SA parameters and convergence were not
+tuned to the same standard.
+
+### 4.4 FHOPS public baselines
 
 Two FHOPS operational-planning baselines are replayable:
 
@@ -147,7 +167,7 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 1. The TSA24 instance is a local reconstructable fixture, not a public benchmark.
 2. The 1,000-generation GPU run is not a converged even-flow solution.
 3. Time-to-first-feasible was not separately instrumented; search elapsed is used conservatively.
-4. The 10,000-generation baseline is same-engine; there is no independent optimized landscape baseline.
+4. The CPU-SA baseline is time-limited, not converged; there is no independent optimized model baseline.
 5. FHOPS baselines are not architecture comparisons.
 6. The architecture is strongest for sparse local effects; dense global coupling is untested.
 7. The effect-table cache invalidation contract is a design requirement, not yet a production service.
@@ -164,9 +184,9 @@ WS4/FHOPS comparison is rejected as a problem-contract mismatch.
 ## 7. Conclusion
 
 A compiled-state architecture can make a 208,255-block landscape search exact and replayable while
-keeping the GPU path fast enough to be interesting. The first record is strong enough to justify a
-controlled benchmark programme, but not strong enough to claim a win. The next paper milestone is a
-matched optimized baseline on a public or fully specified landscape instance.
+keeping the GPU path fast enough to be interesting. The CPU-SA baseline strengthens the evidence but
+is still time-limited. The next milestone is a converged independent baseline on a public or fully
+specified landscape instance.
 
 ## References to verify before submission
 

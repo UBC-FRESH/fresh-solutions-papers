@@ -211,3 +211,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added SciPy FAQ large-tail baseline for esc128, tai150b, tai256c, tho150.
 - Mixed result: SciPy wins tai150b/tho150; Fresh tabu wins esc128/tai256c.
 - 20/20 SciPy assignments replay exactly.
+
+### Paper 1 CPU-SA baseline
+
+- Added 100k-iteration, 30-minute CPU-SA baseline on TSA24.
+- Objective 335,044,976.675435; exact replay; time-limited, not converged.
+- Paper 1 draft now includes the independent-search baseline and explicit limits.

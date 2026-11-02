@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "path": "forestmodel.xml",
+      "sha256": "527f8f387fa126b71631301616cafb15e485ff1e04a4039678fe80391a92d349"
+    },
+    {
+      "path": "fragments.csv",
+      "sha256": "b0f895d135c48e87fff83f8d3a8171aca6327085ef269fcc06de69100172bff9"
+    }
+  ],
+  "manifest_sha256": "c1304ed993814b1e4c049e98b53d197fc5218cda32d29d1cc01d2b8eda7a53eb"
+}

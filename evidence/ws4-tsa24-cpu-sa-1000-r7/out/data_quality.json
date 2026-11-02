@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "detail": "no dataset data-quality metadata was supplied",
+      "name": "metadata",
+      "status": "unknown"
+    },
+    {
+      "detail": "12 tables have rows",
+      "name": "tables",
+      "status": "ok"
+    },
+    {
+      "detail": "no data_quality sidecar was supplied",
+      "name": "provenance",
+      "status": "unknown"
+    },
+    {
+      "detail": "1 matrix accounts checked; 0 derived",
+      "name": "target_coverage",
+      "status": "ok"
+    }
+  ],
+  "dataset": "femic/external/femic-tsa24-instance/build/compiled",
+  "limitations": [
+    "Account values are model outputs; the dataset does not carry a field audit.",
+    "A harvest schedule is not a guarantee of operability, markets, fire, or access.",
+    "No inventory vintage, imputation share, or coverage metadata was supplied."
+  ],
+  "manifest_sha256": "c1304ed993814b1e4c049e98b53d197fc5218cda32d29d1cc01d2b8eda7a53eb",
+  "metadata": {},
+  "provenance": null,
+  "provenance_path": null,
+  "summary": {
+    "metadata_supplied": false,
+    "provenance_supplied": false,
+    "status": "unknown",
+    "table_count": 12,
+    "warnings": [
+      "data-quality metadata is not supplied",
+      "dataset provenance is not supplied"
+    ]
+  },
+  "tables": {
+    "accounts": 99,
+    "blocks": 458708,
+    "curves": 10326,
+    "features": 738,
+    "fragments": 458708,
+    "groups": 458708,
+    "messages": 1,
+    "products": 450,
+    "protoaccounts": 99,
+    "strata": 72,
+    "tracks": 72,
+    "treatments": 48
+  },
+  "target_accounts": {
+    "checked": [
+      "product.HarvestedVolume.managed.Total.CC"
+    ],
+    "derived": [],
+    "missing": []
+  }
+}

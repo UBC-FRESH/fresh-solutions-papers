@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ws4-tsa24-cpu-sa-100000-r7",
+  "source": {
+    "citation": "UBC FRESH Lab. Wood Supply Simulation System (WS4).",
+    "doi": null,
+    "url": "https://github.com/UBC-FRESH/ws4"
+  },
+  "instance": {
+    "id": "tsa24-evenflow-w100",
+    "availability": "reconstructable",
+    "license": null,
+    "variables": 208255,
+    "periods": 20,
+    "options": 50096749,
+    "notes": "TSA24 compiled landscape instance; even-flow target file. Public source/instance: https://github.com/UBC-FRESH/femic-tsa24-instance (UBC-FRESH); built from public BC VRI/FADM/SiteProd data. The local compiled build is derived."
+  },
+  "problem": {
+    "objective": "minimize WS4 weighted goal-programming objective",
+    "constraints": [
+      "valid block/treatment schedule",
+      "weighted flow and level targets; no hard spatial constraints in this run"
+    ],
+    "feasibility": "valid schedule; target residuals are soft"
+  },
+  "algorithm": {
+    "name": "ws4-cpu-sa",
+    "version": "ws4@f23d450",
+    "config": {
+      "iterations": 100000,
+      "time_limit": "00:30:00",
+      "threads": 32,
+      "seed": 7,
+      "metaheuristic": "sa",
+      "initial_schedule": "seed_oldest_first_tsa24.csv",
+      "budget_relation": "independent CPU-SA search, same model and target"
+    },
+    "deterministic": true
+  },
+  "run": {
+    "seed": 7,
+    "hardware": "CPU Intel(R) Xeon(R) Gold 6254 CPU @ 3.10GHz; 32 threads",
+    "software": "Python 3.12.3; WS4 f23d450",
+    "time_to_first_feasible_s": 0.0,
+    "time_to_best_s": 1875.12,
+    "wall_s": 1875.12,
+    "memory_mb": 8969.0
+  },
+  "result": {
+    "objective": 335044976.67543507,
+    "feasible": true,
+    "schedule_sha256": "c7a4336acb3e18994659ba6a2a03b0989f0c2d7ddaf696ec042e614c709a7223",
+    "schedule_path": "schedule.csv",
+    "exact_replay": true,
+    "target_penalties": {
+      "total": 335044976.67543507,
+      "initial_seed_objective": 1722144291.336651
+    },
+    "notes": "30-minute, 100,000-iteration CPU simulated-annealing baseline. Time limit reached; this is not a converged result. Exact CPU IncrementalObjective replay: 335044976.67543507; optimizer summary: 335044976.67539066. Initial seed objective: 1722144291.336651. Independent search, same WS4 model/target; not an independent model."
+  }
+}
