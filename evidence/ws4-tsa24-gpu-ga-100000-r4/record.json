@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ws4-tsa24-gpu-ga-100000-r4",
+  "source": {
+    "citation": "UBC FRESH Lab. Wood Supply Simulation System (WS4).",
+    "doi": null,
+    "url": "https://github.com/UBC-FRESH/ws4"
+  },
+  "instance": {
+    "id": "tsa24-evenflow-w100",
+    "availability": "reconstructable",
+    "license": null,
+    "variables": 208255,
+    "periods": 20,
+    "options": 50096749,
+    "notes": "TSA24 compiled landscape instance; even-flow target file. Public source/instance: https://github.com/UBC-FRESH/femic-tsa24-instance (UBC-FRESH); built from public BC VRI/FADM/SiteProd data. Local compiled build is derived."
+  },
+  "problem": {
+    "objective": "minimize WS4 weighted goal-programming objective",
+    "constraints": [
+      "valid block/treatment schedule",
+      "weighted flow and level targets; no hard spatial constraints in this run"
+    ],
+    "feasibility": "valid schedule; target residuals are soft"
+  },
+  "algorithm": {
+    "name": "ws4-gpu-ga",
+    "version": "ws4-gpu@f60ce64",
+    "config": {
+      "population": 64,
+      "generations": 100000,
+      "seed": 4,
+      "targets": "evenflow_tsa24.yaml",
+      "multiseed": "seeds 1-5"
+    },
+    "deterministic": true
+  },
+  "run": {
+    "seed": 4,
+    "hardware": "GPU NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB; CPU Intel(R) Xeon(R) Gold 6254 CPU @ 3.10GHz",
+    "software": "Python 3.12.3; torch; WS4 f60ce64",
+    "time_to_first_feasible_s": 775.0817501120036,
+    "time_to_best_s": 775.0817501120036,
+    "wall_s": 796.3143717614017,
+    "memory_mb": 9008.31640625
+  },
+  "result": {
+    "objective": 514.7459645617461,
+    "feasible": true,
+    "schedule_sha256": "91e65b2ae392fff648aef5c853b5cce6ff5bdc5cee4e774f70c2500b672eeaeb",
+    "schedule_path": "schedule.csv",
+    "exact_replay": true,
+    "target_penalties": {
+      "total": 514.7459645617461,
+      "initial_seed_objective": 1722144291.336651
+    },
+    "notes": "100,000-generation GPU-GA run, seed 4. Device objective 514.7459645617464; exact CPU replay 514.7459645617461. Search 775.08 s; verify 8.83 s; campaign wall 4004.77 s for five seeds."
+  }
+}

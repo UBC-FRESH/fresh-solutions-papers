@@ -223,3 +223,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Ran 100,000 GPU-GA generations on 208,255-block TSA24.
 - Objective 517.8619818205188; exact replay; wall 941.51 s.
 - Paper 1 now leads with the accelerated solver result and keeps the independent CPU-SA baseline separate.
+
+### Paper 1 100k multi-seed
+
+- Ran seeds 1-5 at 100,000 GPU-GA generations on full TSA24.
+- Objectives 512.574-518.621; mean 515.682; median 515.938; exact replay all.
+- Campaign wall 4,004.77 s for five seeds.
