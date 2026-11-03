@@ -46,6 +46,6 @@
   },
   "replay": {
     "all_records": "paper/replay_all.sh",
-    "sha256": "43d97f04d1cb0a8cd7480f920889a4fc0c4d81610c3ad532b18ffef3c37a6fca"
+    "sha256": "a09f3da3ba58e2e9e8a3ae1c9cf0b4432cc30528af9430c6fa648a4919e8b71e"
   }
 }

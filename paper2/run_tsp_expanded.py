@@ -47,8 +47,10 @@ INSTANCES = (
 KICKS = int(os.environ.get("TSP_EXPANDED_KICKS", "10000"))
 PATIENCE = int(os.environ.get("TSP_EXPANDED_PATIENCE", "1000"))
 WORKERS = int(os.environ.get("TSP_EXPANDED_WORKERS", str(min(20, os.cpu_count() or 1))))
-OUT = ROOT / "evidence" / "tsp-expanded-10k.json"
-SUMMARY = ROOT / "evidence" / "tsp-expanded-10k-summary.json"
+OUT = ROOT / "evidence" / os.environ.get("TSP_EXPANDED_OUTPUT", "tsp-expanded-10k.json")
+SUMMARY = (
+    ROOT / "evidence" / os.environ.get("TSP_EXPANDED_SUMMARY", "tsp-expanded-10k-summary.json")
+)
 
 
 def optima() -> dict[str, float]:

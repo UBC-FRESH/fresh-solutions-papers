@@ -131,11 +131,11 @@
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "7ee0bf6eded8bdac884a6148e361f02e45085fae76a72943376e5666dc16e532"
+    "sha256": "fc324cf47f633d5b9630ccb2218391b652ef3c58c6385162ee852eb834710892"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "6a78ddf189adf320c9205932a19bc9862022872a1972bc51b7317102ad9fa0f8"
+    "sha256": "c4cacd3e0b2b5221fb8533013ebcae786968d2a8972c332d44cb93974837a42e"
   },
   "references": {
     "path": "paper2/references.bib",
