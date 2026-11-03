@@ -6,7 +6,7 @@ Markdown working copy: `paper1-manuscript.md`
 
 Bibliography: `paper/references.bib`
 
-Compile with `pdflatex`/`bibtex` twice; the target journal class is not yet applied.
+Compile with `make` in `paper/` or `latexmk -pdf paper1-manuscript.tex`; the target journal class is not yet applied.
 
 Draft: `paper1-draft.md`
 

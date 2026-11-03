@@ -266,3 +266,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `notes/reports/manuscript-plan-2026-11-03.md` with journal targets, evidence gates, outlines, and reviewer risks.
 - Added `paper/paper1-manuscript.md` with a full Introduction and Related Work, verified citations, and section/evidence plan.
 - Draft remains a working manuscript; results sections are pending.
+
+### Paper 1 LaTeX build
+
+- Added `paper/Makefile` and ignored transient LaTeX build files.
+- Compiled `paper1-manuscript.pdf` (7 pages) with TeX Live.
+- Added `lmodern` and `xurl` to remove font/URL layout warnings.
