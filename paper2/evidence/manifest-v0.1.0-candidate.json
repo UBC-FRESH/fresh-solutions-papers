@@ -38,7 +38,7 @@
       "sha256": "ff57e5764064bb5f74e043ed28c7f2d4b538b4525fc68fdb62bf0ff1f235a6a9"
     },
     "paper2/evidence/framework-use.json": {
-      "sha256": "f6214f51fc267d412459602d12c3a76958e2c44af25b37bda436ef28122587ad"
+      "sha256": "4889379ed7e82b9ea0cf3449268c249d59f43af27b338c455f0231673d58b882"
     },
     "paper2/evidence/framework-use-summary.json": {
       "sha256": "adca6f60e3c653924ab1f50188fea110d8c5da6e57c45ee96d4bd94ba34f7d2a"
@@ -56,7 +56,7 @@
       "sha256": "31ec898b54e05fc5f6f5391f36254e001d23445d2412b77974cf07424c1335c8"
     },
     "paper2/evidence/tsp-convergence-10k.json": {
-      "sha256": "e18d134d87b5a6ac8ad78707807ef566e3b93a9b3f0a39104d6584c862556ada"
+      "sha256": "f0dc71ae2d42c9f6f8ac71aa554fe587e98cce2cc26945eb65062efa19cfd832"
     },
     "paper2/evidence/tsp-convergence-10k-summary.json": {
       "sha256": "bfafc11caef0f867d0cf042433afd56505abdaa604f116a1273cd3761ef08d3e"
@@ -92,14 +92,48 @@
       "sha256": "8a36414e797d35d7225b23b3a56b444ca14113fd752144d60adc5f2dd0033439"
     },
     "paper2/check_evidence.py": {
-      "sha256": "598003aa98ed895760da5509f5e42679f33b6e000962f988646fc8349863606e"
+      "sha256": "57876e5831bacf4a4be454dfc32ad1299d713f64a5f37c7cd3a9159f3eb6ee39"
     },
     "paper2/broad_summary.py": {
       "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
     },
     "paper2/run_broad_converged.py": {
       "sha256": "fad69332f6e90a09c8071ee067845505a9c222dcbfe45eba8092c7a6e8d44325"
+    },
+    "paper2/stamp_evidence.py": {
+      "sha256": "d97237757254946a8df4b65a51273c2963e0fce2e8b99065232fd65b0b0f7a07"
+    },
+    "paper2/run_qap_expanded.py": {
+      "sha256": "5954c879547e4210e21d3f7ccc56925c400d84d1e7025881cd8a32f41e1e04b0"
+    },
+    "paper2/run_tsp_expanded.py": {
+      "sha256": "9335c2f9f436287f5bfe772d20ee5efe65814dffa7edd620aa7ea26acdd61506"
+    },
+    "paper2/make_figures.py": {
+      "sha256": "70f12b844686b9a95a1aa0884528d519aa81fda1be3cc68b848088a9f2150b22"
     }
   },
-  "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added"
+  "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
+  "manuscript": {
+    "path": "paper2/paper2-manuscript.tex",
+    "sha256": "7ee0bf6eded8bdac884a6148e361f02e45085fae76a72943376e5666dc16e532"
+  },
+  "pdf": {
+    "path": "paper2/paper2-manuscript.pdf",
+    "sha256": "6a78ddf189adf320c9205932a19bc9862022872a1972bc51b7317102ad9fa0f8"
+  },
+  "references": {
+    "path": "paper2/references.bib",
+    "sha256": "fb8a770ee0765eb79d56cf3c163f50cde9a4decbf6803d24bf9c6decbf457ff3"
+  },
+  "figures": {
+    "paper2/figures/broad-gaps.pdf": "c73deb1c5ce3dc0c1c66c358d5677c01f032872e3b97d5019e65bb6aed2b7f0c",
+    "paper2/figures/framework-overhead.pdf": "390917965235bd65e17d0dc7471536484767310bb30b69d4aa331193e9faafad",
+    "paper2/figures/qap-expanded.pdf": "3646531969901ad9f5fe63f21f17347e0a1adc42334505f8019065638ac9a790",
+    "paper2/figures/tsp-budget.pdf": "fb9cd47d54ea49508a867ae5462318fb7a51b2c274cf087a48d9ffa0e0c367e9"
+  },
+  "replay": {
+    "all_checks": "paper2/replay_all.sh",
+    "sha256": "cdc8b45ff2b930ea2e8d6a9f790c22aeba3e686ace7819eabade2c5691413d05"
+  }
 }

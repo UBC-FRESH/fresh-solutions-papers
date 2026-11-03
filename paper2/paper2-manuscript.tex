@@ -2,6 +2,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 \usepackage{natbib}
 \usepackage{xurl}
 \usepackage{hyperref}
@@ -12,7 +15,7 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \title{Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
-\author{UBC FRESH Lab}
+\author{UBC FRESH Lab\\University of British Columbia}
 \date{\today}
 
 \begin{document}
@@ -34,6 +37,8 @@ all incumbents replayed exactly. The framework path cost 1.24 times the CPU time
 the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
 \end{abstract}
+
+\noindent\textbf{Keywords: metaheuristics, benchmark harness, quadratic assignment, travelling salesman, reproducibility}
 
 \section{Introduction}
 
@@ -173,6 +178,22 @@ These goals are deliberately modest. The harness does not attempt to infer a pro
 choose a neighbourhood automatically, or prove optimality. Those are research contributions in their
 own right. The harness is the scaffolding that makes such contributions comparable and replayable.
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[node distance=0.7cm, every node/.style={font=\small}]
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center] (model) {Compiled model};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of model] (adapter) {Adapter contract};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of adapter] (engine) {Search layer};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of engine] (evidence) {Evidence + replay};
+\draw[->] (model) -- (adapter);
+\draw[->] (adapter) -- (engine);
+\draw[->] (engine) -- (evidence);
+\draw[->, dashed] (evidence.south) -- ++(0,-0.55) -| (model.south);
+\end{tikzpicture}
+\caption{The evidence boundary. The search layer sees only the adapter; every incumbent crosses the replay gate before it becomes a result.}
+\label{fig:architecture}
+\end{figure}
+
 \subsection{Adapter contract}
 
 An adapter supplies discrete variables, their options, a complete initial and random assignment,
@@ -264,8 +285,8 @@ The target per-run schema contains the instance name, adapter name, seed, budget
 objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
 with the solver commit and hardware. The current publication-facing files implement this schema
 unevenly: the framework-use file carries hardware and worker count, while the TSP and broad files
-carry seed, budget, stop reason, assignment, and wall time but not solver commit, CPU time, or a
-replay field. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
+carry seed, budget, stop reason, assignment, wall time, solver commit, and exact-replay status, but
+not CPU time or per-record hardware. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
 This is a release blocker, not a completed per-record schema. The committed validator replays the 40 QAP and 20 TSP incumbents and checks the broad-panel fields; it does not fill missing per-record metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
@@ -534,6 +555,13 @@ CI 1.168--1.310); per-instance ratios range from 1.170 to 1.327. The largest ove
 smallest instance, where fixed per-iteration state bookkeeping is a larger share of a short run; the
 larger instances also pay for the exact evaluation but amortise the setup cost over more work.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/framework-overhead.pdf}
+\caption{Paired framework CPU overhead by QAP instance. Points are means; bars are percentile bootstrap 95\% intervals over ten seeds.}
+\label{fig:framework-overhead}
+\end{figure}
+
 \subsection{Broad panel and large instances}
 
 The broad panel below is a separate fixed-budget screen, not the convergence panel above. Across 134
@@ -572,6 +600,59 @@ The large-instance table is a mixed result, not a portfolio win. Fresh tabu is b
 the best and mean. All twenty large-instance incumbents replay exactly. The honest summary is that
 the reference tabu implementation is competitive on some large instances and not on others, and that
 the harness reports both outcomes.
+
+\subsection{Expanded QAP convergence panel}
+
+The four-instance framework panel is deliberately controlled; it is not a broad quality panel. To
+reduce the panel-size risk, we ran the production tabu path on 20 QAPLIB instances, five seeds each,
+with the same 100,000-iteration patience and 1,000,000-iteration cap. All 100 runs stopped on
+\texttt{patience}, all 100 replayed exactly, and 37 of 100 runs reached the known optimum. The mean
+gap is 0.274\%, the median is 0.027\%, and the worst is 1.583\%.
+
+\begin{table}[t]
+\centering
+\caption{Expanded QAPLIB convergence panel: 20 instances, five seeds, 100,000-iteration patience.
+All 100 runs plateau-stopped and replayed exactly.}
+\label{tab:qap-expanded}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Instance & n & Mean gap & Worst gap & Patience & Optima \\
+\midrule
+\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{tai20a} & 20 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{tai25a} & 25 & 0.073\% & 0.366\% & 5/5 & 4/5 \\
+\texttt{tai30a} & 30 & 0.313\% & 0.391\% & 5/5 & 1/5 \\
+\texttt{tai35a} & 35 & 0.664\% & 1.051\% & 5/5 & 0/5 \\
+\texttt{tai40a} & 40 & 0.831\% & 1.045\% & 5/5 & 0/5 \\
+\texttt{tai50a} & 50 & 1.264\% & 1.583\% & 5/5 & 0/5 \\
+\texttt{bur26a} & 26 & 0.135\% & 0.147\% & 5/5 & 0/5 \\
+\texttt{bur26b} & 26 & 0.565\% & 0.565\% & 5/5 & 0/5 \\
+\texttt{bur26c} & 26 & 0.004\% & 0.004\% & 5/5 & 0/5 \\
+\texttt{bur26d} & 26 & 0.042\% & 0.043\% & 5/5 & 0/5 \\
+\texttt{bur26e} & 26 & 0.009\% & 0.009\% & 5/5 & 0/5 \\
+\texttt{bur26f} & 26 & 0.225\% & 0.542\% & 5/5 & 0/5 \\
+\texttt{bur26g} & 26 & 0.376\% & 0.376\% & 5/5 & 0/5 \\
+\texttt{bur26h} & 26 & 0.368\% & 0.368\% & 5/5 & 0/5 \\
+\texttt{chr12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{chr20a} & 20 & 0.602\% & 1.460\% & 5/5 & 2/5 \\
+\texttt{chr22a} & 22 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The expanded panel is still not QAPLIB. It is a 20-instance convergence test, not a state-of-the-art
+benchmark. Its value is that it fixes the denominator and shows the same instruction as the
+four-instance panel: plateau stopping changes the reported gaps, and the hard tail remains visible.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\linewidth]{figures/qap-expanded.pdf}
+\caption{Expanded QAP panel: mean gap and worst gap by instance size. The hard tail is visible; the panel is not a state-of-the-art comparison.}
+\label{fig:qap-expanded}
+\end{figure}
 
 \section{TSP evidence}
 \label{sec:tsp}
@@ -639,6 +720,13 @@ under 20-worker parallel load. That cost is part of the result. A 20-kick table 
 successful on three instances and hidden the \texttt{ch150} gap; the convergence campaign closes that
 gap and shows that the perturbation needs a longer plateau than the pilot suggested.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.68\linewidth]{figures/tsp-budget.pdf}
+\caption{The \texttt{ch150} short-budget comparison. The 20-kick mean gap is 0.383\%; the 2,000-kick mean is 0.015\%; the 10,000-kick-cap campaign reaches the optimum on all five seeds.}
+\label{fig:tsp-budget}
+\end{figure}
+
 \subsection{Broad panel and the LKH boundary}
 
 Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 183 hit the known
@@ -655,6 +743,13 @@ The broad TSP panel also exposes the difference between a plateau stop and a saf
 that hits the 600-second cap is not evidence that the method converged; it is evidence that the
 method was still working when the budget ended. The table keeps those runs in the denominator and
 reports the converged subset separately. This is the same rule used in the QAP broad panel.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/broad-gaps.pdf}
+\caption{Empirical gap distributions on the broad QAP and TSP panels. The long tails are retained; the curves are not a state-of-the-art ranking.}
+\label{fig:broad-gaps}
+\end{figure}
 
 \section{Applied case}
 \label{sec:applied}

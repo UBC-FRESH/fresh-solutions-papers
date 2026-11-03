@@ -3875,5 +3875,7 @@
       "exact_replay": true
     }
   ],
-  "tsp_replay_all_exact": true
+  "tsp_replay_all_exact": true,
+  "solver_commit": "7d3c831",
+  "provenance_file": "paper2/evidence/provenance-2026-11-03.json"
 }

@@ -78,7 +78,11 @@
       "50": 31,
       "51": 48
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "berlin52",
@@ -157,7 +161,11 @@
       "50": 31,
       "51": 48
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "berlin52",
@@ -238,7 +246,11 @@
       "50": 31,
       "51": 48
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "berlin52",
@@ -318,7 +330,11 @@
       "50": 31,
       "51": 48
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "berlin52",
@@ -398,7 +414,11 @@
       "50": 31,
       "51": 48
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "ch150",
@@ -579,7 +599,11 @@
       "148": 102,
       "149": 97
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "ch150",
@@ -760,7 +784,11 @@
       "148": 102,
       "149": 97
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "ch150",
@@ -942,7 +970,11 @@
       "148": 102,
       "149": 97
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "ch150",
@@ -1128,7 +1160,11 @@
       "148": 102,
       "149": 97
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "ch150",
@@ -1316,7 +1352,11 @@
       "148": 102,
       "149": 97
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroA100",
@@ -1445,7 +1485,11 @@
       "98": 5,
       "99": 62
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroA100",
@@ -1573,7 +1617,11 @@
       "98": 5,
       "99": 62
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroA100",
@@ -1700,7 +1748,11 @@
       "98": 44,
       "99": 90
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroA100",
@@ -1827,7 +1879,11 @@
       "98": 5,
       "99": 62
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroA100",
@@ -1955,7 +2011,11 @@
       "98": 5,
       "99": 62
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroB100",
@@ -2084,7 +2144,11 @@
       "98": 97,
       "99": 94
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroB100",
@@ -2212,7 +2276,11 @@
       "98": 97,
       "99": 94
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroB100",
@@ -2341,7 +2409,11 @@
       "98": 97,
       "99": 94
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroB100",
@@ -2469,7 +2541,11 @@
       "98": 97,
       "99": 94
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   },
   {
     "instance": "kroB100",
@@ -2598,6 +2674,10 @@
       "98": 97,
       "99": 94
     },
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "campaign_workers": 20,
+    "exact_replay": true
   }
 ]

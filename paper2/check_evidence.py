@@ -90,6 +90,7 @@ def replay_tsp(rows: list[dict[str, object]]) -> int:
                 "wall_seconds",
                 "assignment",
                 "converged_on_patience",
+                "exact_replay",
             ),
             "tsp",
         )
@@ -100,6 +101,8 @@ def replay_tsp(rows: list[dict[str, object]]) -> int:
             raise SystemExit(f"TSP replay mismatch: {row['instance']} seed {row['seed']}")
         if row["stop_reason"] != "patience" or not bool(row["converged_on_patience"]):
             raise SystemExit(f"TSP run not plateau-stopped: {row['instance']}")
+        if not bool(row["exact_replay"]):
+            raise SystemExit(f"TSP record not marked exact: {row['instance']}")
         if int(row["kicks"]) > int(row["kicks_budget"]):
             raise SystemExit(f"TSP kick count exceeds cap: {row['instance']}")
         checked += 1

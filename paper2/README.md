@@ -5,7 +5,7 @@ evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`
 
-Compiled PDF: `paper2-manuscript.pdf` — 19 pages, 8,176 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 22 pages, 8,441 source words.
 
 Evidence release: Fresh Solutions **v0.8.0**.
 
@@ -62,6 +62,10 @@ python3 paper2/broad_summary.py
 
 ## QAP robust tabu
 
+Expanded convergence panel: 20 QAPLIB instances, five seeds, 100,000-iteration patience. All 100
+runs plateau-stopped and replayed exactly; mean gap 0.274%, worst 1.583%, 37/100 optima. See
+`evidence/qap-expanded-100k.json`.
+
 Final convergence panel: ten seeds, 100,000-iteration patience, 1,000,000-iteration cap. All 40 runs
 plateau-stopped and replayed exactly. The CPU ratio is the framework-managed path divided by the
 private-array delta path.
@@ -94,6 +98,9 @@ The baseline is much faster and much worse. This is a time-quality comparison, n
 comparison, and not a claim of universal dominance.
 
 ## TSP iterated Lin–Kernighan
+
+An expanded 20-instance TSPLIB panel from nearest-neighbour starts is in progress; the four-instance
+generic-local-search-start panel remains the controlled framework evidence.
 
 Final convergence campaign: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs
 plateau-stopped, reached the known optimum, and replayed exactly.
