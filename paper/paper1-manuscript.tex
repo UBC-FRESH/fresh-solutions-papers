@@ -241,11 +241,11 @@ exact CPU \texttt{IncrementalObjective}; the recorded objective is the replay
 objective, not the device objective. A record with a mismatched schedule hash or
 replay objective is not evidence.
 
-We do not report an architecture ablation in this version. In particular, the
-current records do not isolate the effect-table path from a direct evaluator, or
-GPU batched evaluation from CPU batched evaluation at the same population and
-generation count. Those measurements are required before the architecture claim
-can be separated from a straightforward implementation-speed claim.
+A full-instance whole-schedule ablation is impractical: a single full evaluation
+of the 208,255-operable-block schedule is the motivating cost. We therefore
+report a disclosed diagnostic ablation on the first 5,000 blocks of the recorded
+100k schedule. The subset is not a substitute for a full-instance ablation, but
+it isolates the evaluation path from the GPU population search.
 
 \section{Results}\label{results}
 
@@ -322,6 +322,17 @@ win: the CPU run is untuned, single-seed, and performs much less work than the
 GPU population. It is reported to keep the comparison honest and to show that
 the CPU-SA path is not a substitute for the accelerated search in this setting.
 
+\subsection{Evaluation-path ablation}
+
+On the 5,000-block diagnostic subset, a cold whole-schedule evaluation took
+54.85~s; after warm-up, a whole-schedule move evaluation took 1.086~s. Exact
+incremental delta plus apply took 0.542~ms per move, a factor of 2,005. The final
+incremental objective matched the whole-schedule objective to
+$3.7\times10^{-9}$. The subset scope is recorded in
+\texttt{evidence/ws4-tsa24-eval-ablation.json}. This establishes the local
+evaluation-path effect; it does not measure GPU batched evaluation against a
+matched CPU batch, and it does not establish full-instance scaling.
+
 \subsection{What the results establish}
 
 The results establish four things. First, the compiled-state pipeline can run a
@@ -378,11 +389,10 @@ realized level is approximately 51.3--52.4M~m\textsuperscript{3} per period. An
 exact MIP proof is not practical at this scale with the available resources.
 
 The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
-It is not a controlled baseline. The architecture ablation is not yet reported:
-we have not isolated the effect table, candidate index, resident state, or GPU
-batch from a direct implementation at matched work. Those ablations are required
-before the architecture claim can be separated from an implementation-speed
-claim.
+It is not a controlled baseline. The evaluation-path ablation is diagnostic rather than full-instance:
+it uses a 5,000-block subset and does not measure GPU batched evaluation against
+a matched CPU batch. Those measurements are required before the architecture
+claim can be separated from a local implementation-speed claim.
 
 Within those limits, the paper supports a narrower conclusion: a compiled-state
 architecture can make a 208,255-block landscape search exact, replayable, and
