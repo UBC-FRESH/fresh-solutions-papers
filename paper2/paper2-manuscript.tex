@@ -30,8 +30,8 @@ is reproduced with the incumbent held in the engine's resident-state contract. O
 QAPLIB instances, all runs stopped on the same 100,000-iteration plateau rule under a 1,000,000
 iteration cap, all framework objectives matched the standalone and production objectives exactly, and
 all incumbents replayed exactly. The framework path cost 1.24 times the CPU time of the private-array delta path (95\% CI
-1.17--1.31). A 10,000-kick TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs and
-reached all 20 known optima. The contribution is the harness, exact replay contract, reference
+1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
+the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
 \end{abstract}
 
@@ -81,13 +81,13 @@ limitations and the claim boundary.
 \subsection{Quadratic assignment}
 
 The quadratic assignment problem assigns facilities to locations while minimising a flow--distance
-product \citep{koopmans1957}. It is NP-hard \citep{sahni1976} and remains a standard test bed for
+product \citep{koopmans1957}. It is NP-hard \citep{sahni1976,garey1979} and remains a standard test bed for
 metaheuristics because small changes in the flow and distance matrices can produce very different
 search landscapes \citep{loiola2007}. QAPLIB is the common public benchmark library
 \citep{burkard1997}. Exact methods are limited to modest sizes or special structure, so the literature
 is dominated by local search and hybrid methods.
 
-Robust tabu search is a long-standing baseline \citep{taillard1991}. It scans facility swaps, keeps a
+Tabu search is a long-standing metaheuristic \citep{glover1989}; robust tabu search is a standard QAP baseline \citep{taillard1991}. It scans facility swaps, keeps a
 tabu tenure for recently changed pairs, and accepts the best non-tabu move even when it worsens the
 objective. The reactive variant adapts the tenure to the search history \citep{battiti1994}. More
 recent breakout local search and memetic methods combine tabu or descent with perturbation and
@@ -99,7 +99,7 @@ state-of-the-art QAP performance.
 
 \subsection{Traveling salesman}
 
-The traveling salesman problem has an equally long heuristic literature. The Lin--Kernighan
+The traveling salesman problem has an equally long heuristic literature. The 2-opt exchange \citep{croes1958}, the Lin--Kernighan
 variable-depth exchange \citep{lin1973} remains the foundation of the strongest local-search methods.
 Iterated local search adds perturbation to a local optimum and is effective when the perturbation is
 matched to the neighbourhood \citep{lourenco2003}. Helsgaun's LKH implementation
@@ -118,7 +118,7 @@ algorithm comparisons should test hypotheses about why a method works, not just 
 \citep{barr1995}, and McGeoch developed an experimental method for algorithm simulation
 \citep{mcgeoch1996}. Beiranvand et al.\ collect best practices for comparing optimization algorithms,
 including budget accounting, multiple seeds, and distributional reporting \citep{beiranvand2017}.
-COCO provides a platform for comparing continuous optimizers \citep{hansen2020}, and irace provides
+COCO provides a platform for comparing continuous optimizers \citep{hansen2020}, and recent benchmarking guidance emphasizes reproducible protocols and distributional reporting \citep{bartz2020}, and irace provides
 automatic algorithm configuration with racing \citep{lopez2016}. These systems are stronger than our
 harness in their statistical machinery; our focus is the problem-adapter and exact-replay boundary for
 discrete, domain-specific models.
@@ -232,10 +232,11 @@ time are recorded.
 
 \subsection{Search layers}
 
-The generic local layer is a simulated annealing search over adapter proposals. It evaluates a
+The generic local layer is a simulated annealing search over adapter proposals \citep{kirkpatrick1983}. It evaluates a
 proposed move through the resident state, accepts improving moves, and accepts worsening moves with a
 temperature-dependent probability. The generic population layer supplies mutation, crossover, and
-elitism. The hybrid layer hands a population elite to exact local refinement. These layers are useful
+elitism; the generic layers follow standard metaheuristic designs \citep{talbi2009,pisinger2010}. The
+hybrid layer hands a population elite to exact local refinement. These layers are useful
 for smoke tests and for new problems that do not yet have a specialised neighbourhood, but they are
 not the source of the strongest results in this paper.
 
@@ -259,12 +260,13 @@ the runner, the replay script, the instance files or their provenance, and the e
 can therefore rerun the campaign, replay the stored incumbents, or compare the reported distribution
 without reading the paper prose.
 
-A minimal record contains the instance name, adapter name, seed, budget, stop reason, objective,
-feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block with the
-solver commit and hardware. The record does not contain a confidence interval or a performance
-profile; those are summary statistics. The summary contains the per-instance distribution and the
-converged/cap-hit counts. The separation is deliberate: a per-run record is evidence, while a summary
-is an interpretation of evidence.
+The target per-run schema contains the instance name, adapter name, seed, budget, stop reason,
+objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
+with the solver commit and hardware. The current publication-facing files implement this schema
+unevenly: the framework-use file carries hardware and worker count, while the TSP and broad files
+carry seed, budget, stop reason, assignment, and wall time but not solver commit, CPU time, or a
+replay field. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
+This is a release blocker, not a completed per-record schema.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
 constructs a fresh adapter, evaluates the stored assignment, and compares the objective and
@@ -274,15 +276,16 @@ looks plausible.
 
 \subsection{Implementation and provenance}
 
-The harness is implemented in Python and uses NumPy \citep{harris2020} for array operations and SciPy
+The harness is implemented in Python \citep{freshsolutions} and uses NumPy \citep{harris2020} for array operations and SciPy
 \citep{virtanen2020} for an independent QAP baseline. The optional accelerated QAP path uses Numba
 \citep{lam2015}; the reference path remains available without it. The public instances are QAPLIB
 \citep{burkard1997} and TSPLIB \citep{reinelt1991}. The TSA24 applied case is a public UBC-FRESH
 artifact \citep{tsa24artifact}. External LKH is a separate research-use binary \citep{lkh3}; it is not
 bundled and its results are reported as a capability boundary, not as part of the package.
 
-The campaigns record the hardware and software environment with the evidence. The published tables
-use the pinned public solver version and the public instance files. The evidence release itself is a
+The campaign-level provenance sidecar records the hardware and software environment, solver commit,
+worker counts, and runner commands. The per-run files do not yet uniformly repeat those fields. The
+published tables use the pinned public solver version and the public instance files. The evidence release itself is a
 candidate until the maintainer approves a tag; the paper does not treat an unapproved candidate as a
 published artifact.
 
@@ -302,9 +305,10 @@ maintainer approves the candidate.
 
 The public QAPLIB and TSPLIB instances are not redistributed in a modified form. The TSA24 artifact is
 published separately with its compiled data and licence statement. External LKH is not bundled; the
-provenance sidecar records its version and command, and the paper treats it as an external capability
-reference. This separation matters for licensing: the Fresh Solutions code and documentation are
-MIT-licensed, derived artifacts use CC BY 4.0, and the BC source data carries OGL-BC attribution.
+provenance sidecar records its version and binary hash; the exact command is not yet recorded, and the paper treats it as an external capability
+reference. This separation matters for licensing: Fresh Solutions code is Apache-2.0, derived artifacts use
+CC BY 4.0, and the BC source data carries OGL-BC attribution. The paper-specific evidence repository
+is not yet public, so this is an intended release policy, not a claim that the evidence is archived.
 
 \subsection{Failure accounting}
 
@@ -339,8 +343,7 @@ with the convergence panels.}
 \toprule
 Campaign & Panel & Seeds & Budget & Stop rule \\
 \midrule
-QAP convergence & 4 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
-QAP framework & 4 QAPLIB & 10 & same as above & same as above \\
+QAP convergence/framework & 4 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
 Large QAP & 4 QAPLIB & 5 starts & 1,000,000 it. & 10,000 patience \\
 Broad QAP & 134 QAPLIB & 5 & 600 s cap & 10,000 patience \\
 TSP convergence & 4 TSPLIB & 5 & 10,000 kicks & 1,000 patience \\
@@ -374,11 +377,11 @@ recorded because it affects wall time; the CPU ratio is less sensitive to the nu
 
 The TSP campaign uses the same process-pool design, one seed per worker. The wall time in the TSP
 table includes the candidate-list construction and the LK passes; it is not a pure kick count. The
-2,000-kick and 10,000-kick campaigns use the same starts and seeds, so the longer campaign is a budget
+2,000-kick and 10,000-kick-cap campaigns use the same starts and seeds, so the longer campaign is a budget
 extension of the same experiment, not a different instance set.
 
 The TSP convergence panel uses \texttt{berlin52}, \texttt{kroA100}, \texttt{kroB100}, and
-\texttt{ch150}. Each run starts from the corresponding converged Or-opt tour and uses 10,000
+\texttt{ch150}. Each run starts from the corresponding converged generic local-search tour and uses 10,000
 double-bridge kicks with a 1,000-kick patience rule. Five seeds are used. The 2,000-kick/200-patience
 and 20-kick campaigns are retained as shorter-budget checks and are not pooled with the final table.
 
@@ -397,11 +400,11 @@ trajectory level, and a larger QAP would make the paired comparison a measuremen
 rather than state-management cost. The large-QAP table is run separately with the accelerated path.
 
 The TSP panel spans $n=52$ to $n=150$ and uses four TSPLIB instances with known optima. The starts are
-the converged Or-opt tours recorded in the evidence, so the comparison measures the LK and kick layers
+the converged generic local-search tours recorded in the evidence, so the comparison measures the LK and kick layers
 from a common starting point. The broad TSP panel covers 78 instances with $n\le1000$; it uses a
 different start generator and a fixed budget, so it is reported separately.
 
-The broad QAP panel parses 134 QAPLIB instances; 25 \texttt{esc8} files are excluded because the
+The broad QAP panel parses 134 QAPLIB instances; 25 \texttt{esc8} parse-error records (five variants and five seeds) are excluded because the
 parser rejects their incomplete format. The parser errors are recorded as parse errors, not as solver
 failures. This is a small example of the provenance discipline: a missing benchmark is not a loss.
 
@@ -425,10 +428,11 @@ look more reliable than it is; a best-of-five without a mean can make a lucky ru
 portfolio.
 
 The final QAP and TSP campaigns run on a Linux container with 72 logical CPUs and 256 GB of RAM. The
-QAP final campaign uses 40 worker processes; the TSP final campaign uses 20. The evidence records the
-platform, processor string, Python version, worker count, solver commit, instance files, and stopping
-configuration. The worker count is part of the provenance because wall times under parallel load are
-descriptive, not a single-thread benchmark.
+QAP final campaign uses 40 worker processes; the TSP final campaign uses 20. The campaign-level
+provenance sidecar records the platform, processor string, Python version, worker counts, solver
+commit, and runner commands; the per-run files carry the seed, budget, stop reason, and assignment.
+The worker count is part of the provenance because wall times under parallel load are descriptive,
+not a single-thread benchmark.
 
 \subsection{Threats to validity}
 
@@ -523,7 +527,7 @@ not a claim of uniform success: it is the average of a distribution with a persi
 hardest instance.
 
 The fixed-budget table used in the earlier draft was not a per-run convergence table. At 10,000 fixed
-iterations its means were 0.000\%, 0.403\%, 0.685\%, and 0.792\%; the plateau-stopped panel improves
+iterations its means were 0.000\%, 0.403\%, 0.786\%, and 0.792\%; the plateau-stopped panel improves
 the last three to 0.030\%, 0.077\%, and 0.245\%. The difference is a budget effect, not a claim that
 the longer runs prove global optimality. The overall framework CPU overhead is 1.239 (95\% bootstrap
 CI 1.168--1.310); per-instance ratios range from 1.170 to 1.327. The largest overhead is on the
@@ -572,15 +576,16 @@ the harness reports both outcomes.
 \section{TSP evidence}
 \label{sec:tsp}
 
-The TSP reference implementation uses two layers: Or-opt/2-opt for construction and a bounded
-candidate-list Lin--Kernighan-style exchange with deterministic double-bridge kicks. For a tour
+The TSP reference implementation is a bounded candidate-list Lin--Kernighan-style exchange with
+deterministic double-bridge kicks. The starts are converged generic local-search tours; the LK
+module does not include a construction layer. For a tour
 $\pi$, the objective is
 \begin{equation}
 L(\pi)=\sum_{i=1}^{n} d_{\pi(i),\pi(i+1)},\qquad \pi(n+1)=\pi(1).
 \end{equation}
 
-The construction layer uses nearest-neighbour starts plus 2-opt and Or-opt exchanges. The
-Lin--Kernighan layer keeps a candidate list of the 16 nearest neighbours per city, grows a sequential
+The generic local-search path that produced the starts uses nearest-neighbour starts plus 2-opt and
+Or-opt exchanges. The Lin--Kernighan layer keeps a candidate list of the 16 nearest neighbours per city, grows a sequential
 exchange to depth four, and accepts a tour only when the complete exchange is improving. The
 candidate list bounds the branching factor; the depth bound keeps the bookkeeping finite. A
 double-bridge perturbation chooses cuts $a<b<c<d$ and reconnects the segments in the order
@@ -588,9 +593,9 @@ $[0,a)\cup[c,d)\cup[b,c)\cup[a,b)\cup[d,n)$, which changes four edges without re
 segment. The perturbed tour is passed back to the LK exchange. The process continues until a kick
 budget or a patience rule stops it.
 
-The Or-opt/2-opt construction is deterministic for a fixed start. The initial tours are the
-converged Or-opt tours from the earlier campaign, so the TSP table measures the LK and kick layers
-rather than the construction layer. This is a controlled comparison, not a claim that the
+The start tours are deterministic for a fixed seed. They are the converged generic local-search
+tours from the earlier campaign, so the TSP table measures the LK and kick layers rather than the
+construction path. This is a controlled comparison, not a claim that the
 construction is irrelevant. A different start would change the absolute gap and the number of kicks
 needed to reach the optimum.
 
@@ -602,19 +607,19 @@ chosen to test the evidence protocol and the perturbation schedule, not to claim
 \subsection{Convergence-controlled iterated Lin--Kernighan}
 
 Table~\ref{tab:tsp-ilk} reports the final convergence campaign: 10,000 double-bridge kicks with a
-1,000-kick plateau rule, five seeds, starting from the converged Or-opt tours. All 20 runs stopped on
+1,000-kick plateau rule, five seeds, starting from the converged generic local-search tours. All 20 runs stopped on
 \texttt{patience}, all 20 tours replayed exactly, and all 20 reached the known optimum. The 2,000-kick
 and 20-kick runs are retained as shorter-budget checks; they are not the convergence table.
 
 \begin{table}[t]
 \centering
-\caption{TSP iterated Lin--Kernighan from converged Or-opt tours: five seeds, 10,000-kick cap,
+\caption{TSP iterated Lin--Kernighan from converged generic local-search tours: five seeds, 10,000-kick cap,
 1,000-kick patience. All 20 runs plateau-stopped, reached the known optimum, and replayed exactly.}
 \label{tab:tsp-ilk}
 \small
 \begin{tabular}{lrrrrr}
 \toprule
-Instance & Or-opt mean gap & ILK mean gap & ILK worst gap & Plateau & Mean wall \\
+Instance & Start mean gap & ILK mean gap & ILK worst gap & Plateau & Mean wall \\
 \midrule
 \texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% & 5/5 & 754.3 s \\
 \texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% & 5/5 & 605.0 s \\
@@ -625,11 +630,11 @@ Instance & Or-opt mean gap & ILK mean gap & ILK worst gap & Plateau & Mean wall 
 \end{table}
 
 A 2,000-kick/200-patience pilot reached 19 of 20 optima and a 0.077\% worst gap; the 20-kick pilot
-reached three optima and a 0.383\% mean gap on \texttt{ch150}. The kicks ablation still separates the
+reached the optimum on three of four instances (15/20 runs) and a 0.383\% mean gap on \texttt{ch150}. The kicks ablation still separates the
 effect of the perturbation: LK-only means 0.780--2.580\%, ILK-5 means 0.000--0.558\%, and ILK-20 means
 0.000--0.383\%. The double-bridge kicks are material, not a cosmetic restart.
 
-The 10,000-kick campaign is deliberately expensive: mean wall time per seed is roughly 10--13 minutes
+The 10,000-kick-cap campaign is deliberately expensive: mean wall time per seed is roughly 10--13 minutes
 under 20-worker parallel load. That cost is part of the result. A 20-kick table would have looked
 successful on three instances and hidden the \texttt{ch150} gap; the convergence campaign closes that
 gap and shows that the perturbation needs a longer plateau than the pilot suggested.
@@ -667,8 +672,9 @@ target weights, the seed, and the schedule. A change to any of those invalidates
 the point of freezing the artifact rather than regenerating it from a mutable database.
 
 The source data are public BC data with OGL-BC attribution. The compiled artifact is distributed
-under the terms recorded in the instance repository; the code and documentation in the papers
-repository are MIT and CC BY 4.0 as recorded in the licence files. The distinction matters because a
+under the terms recorded in the instance repository. The Fresh Solutions solver is Apache-2.0; the
+paper-specific evidence release is pending. This is an intended release policy, not a claim that the
+evidence is already archived. The distinction matters because a
 public source dataset and a derived compiled model are not the same artifact.
 
 The case has 208,255 operable blocks over a 200-year horizon. The even-flow target is a scenario
@@ -722,14 +728,14 @@ replayable evidence across problems can pay the measured cost and use the reside
 \subsection{Stopping rules and benchmark methodology}
 
 The QAP budget comparison is the clearest methodological result. The fixed 10,000-iteration table
-reported means of 0.000\%, 0.403\%, 0.685\%, and 0.792\%. The 100,000-patience panel reported 0.000\%,
+reported means of 0.000\%, 0.403\%, 0.786\%, and 0.792\%. The 100,000-patience panel reported 0.000\%,
 0.030\%, 0.077\%, and 0.245\%. The difference is not a new algorithm; it is a longer plateau. A paper
 that reports only the short budget would understate the method on three instances, while a paper that
 reports only the long budget would hide how much work the result required. The harness reports both.
 
-The TSP result makes the same point in a different form. The 20-kick pilot reached three optima and a
+The TSP result makes the same point in a different form. The 20-kick pilot reached the optimum on three of four instances and a
 0.383\% mean gap on \texttt{ch150}. The 2,000-kick/200-patience campaign reached 19 of 20 optima. The
-10,000-kick/1,000-patience campaign reached all 20. A short-budget table would have been publishable
+10,000-kick-cap/1,000-patience campaign reached all 20. A short-budget table would have been publishable
 looking and wrong about the method's ceiling. The convergence table is longer and more expensive, but
 it is the honest one.
 
@@ -796,12 +802,12 @@ confidence bound of 1.310.
 
 The claim would also fail if a new adapter required changes to the engine's search loop. The adapter
 for a new problem would then not be a boundary; it would be a patch. The current QAP and TSP adapters
-do not require such changes, but two adapters are not proof of generality. The applied spatial case
-is a third adapter in the programme, but it is not part of the QAP/TSP convergence panel and is not
-used to claim universal portability.
+do not require such changes, but two adapters are not proof of generality. The applied TSA24 case is a separate WS4 codebase, not a Fresh Solutions adapter. It is not part of
+the QAP/TSP convergence panel and is not used to claim universal portability.
 
 The TSP convergence claim would fail if the plateau-stopped runs were not reproducible, if the starts
-were not the stated Or-opt tours, or if the 10,000-kick run did not improve on the 2,000-kick run.
+were not the stated local-search tours, or if the 10,000-kick-cap run did not improve on the
+2,000-kick run.
 The 2k pilot had a 0.077\% worst gap on \texttt{ch150}; the 10k run reached the optimum on all five
 seeds. The improvement is evidence that the shorter budget was not converged, and the longer run is
 the one reported.
@@ -825,8 +831,8 @@ matched-time comparison against LKH, not only a capability boundary. The applied
 independent spatial baseline before it can support an operational claim.
 
 The next framework step is a portability experiment with a third problem family and an adapter
-written by someone other than the reference author. The current QAP, TSP, and spatial adapters share
-the contract, but a third-party adapter is a stronger test of whether the boundary is real. A
+written by someone other than the reference author. The current QAP and TSP adapters share the contract; the applied TSA24 case is separate. A
+third-party adapter is a stronger test of whether the boundary is real. A
 containerized artifact and a one-command replay are also needed before the evidence release can be
 called archival.
 
@@ -841,7 +847,7 @@ Fresh Solutions provides a reproducible benchmark harness and adapter boundary, 
 metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
 QAP state. The QAP convergence panel shows that a 100,000-iteration plateau changes the reported gaps
 relative to a short fixed budget, while the framework path preserves the search trajectory at a
-measured 1.239 CPU ratio. The TSP 10,000-kick campaign closes the gap left by the 20-kick pilot and
+measured 1.239 CPU ratio. The TSP 10,000-kick-cap campaign closes the gap left by the 20-kick pilot and
 reaches all 20 known optima in the convergence panel.
 
 The result is deliberately bounded. The panels are small, the QAP baseline is standard rather than

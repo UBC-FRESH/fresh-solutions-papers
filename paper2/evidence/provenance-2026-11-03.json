@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-03",
+  "solver_repo": "https://github.com/UBC-FRESH/fresh-solutions",
+  "solver_commit": "7d3c831",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "cpu_count": 72,
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "numba": "0.68.0",
+  "qap_framework_workers": 40,
+  "tsp_workers": 20,
+  "qap_framework_command": "FRAMEWORK_SEEDS=10 FRAMEWORK_PATIENCE=100000 FRAMEWORK_MAX_ITERATIONS=1000000 FRAMEWORK_WORKERS=40 python3 -u paper2/run_framework_use.py",
+  "tsp_convergence_command": "python3 -u paper2/run_tsp_convergence.py --kicks 10000 --patience 1000 --seeds 1,2,3,4,5 --workers 20",
+  "note": "Campaign-level provenance sidecar. Per-run records do not yet uniformly repeat solver commit, hardware, and CPU time; this is a release blocker, not a completed per-record schema."
+}

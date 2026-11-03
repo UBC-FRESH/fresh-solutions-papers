@@ -75,7 +75,7 @@ Overall framework CPU overhead: **1.239** (95% bootstrap CI 1.168–1.310). The 
 alternated by seed.
 
 The earlier fixed-budget table (10,000/20,000 iterations) is retained in the evidence but is not the
-convergence table. At 10,000 fixed iterations the means were 0.000%, 0.403%, 0.685%, and 0.792%.
+convergence table. At 10,000 fixed iterations the means were 0.000%, 0.403%, 0.786%, and 0.792%.
 
 ### Independent baseline
 
@@ -106,7 +106,7 @@ plateau-stopped, reached the known optimum, and replayed exactly.
 Short-budget checks:
 
 - 2,000 kicks / 200 patience: 19/20 optima, ch150 mean 0.015%, worst 0.077%.
-- 20 kicks: three optima, ch150 mean 0.383%.
+- 20 kicks: the optimum on three of four instances (15/20 runs), ch150 mean 0.383%.
 
 ### Kicks ablation
 

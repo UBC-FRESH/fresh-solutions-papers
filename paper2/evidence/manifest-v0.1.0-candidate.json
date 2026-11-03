@@ -87,6 +87,9 @@
     },
     "paper2/make_tables.py": {
       "sha256": "a358356bceea23b03f83e5b235c7d3948aab4138c798578b50a355155f85e98c"
+    },
+    "paper2/evidence/provenance-2026-11-03.json": {
+      "sha256": "8a36414e797d35d7225b23b3a56b444ca14113fd752144d60adc5f2dd0033439"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added"

@@ -294,3 +294,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added replay, sensitivity, table-generation, and manifest entries; no tag or release created.
 - Dashboard: lint, format, strict types, tests, validator, and docs all green.
 - P12.1 PR #77 opened with all checks green; no merge, tag, or release without approval.
+
+### P12.2 P0 claim and evidence corrections
+
+- Paper 1: replaced the false cell-separable delta with the target-level/period-vector identity; corrected the GPU-only 100k evidence wording; fixed wall time, realized level, level-term range, CPU commit/limit, and artifact-size claims; marked the schedules/replay release as pending.
+- Paper 2: corrected the 10k tai25a mean (0.786), esc8 record count, 20-kick pilot wording, TSP kick-cap label, Or-opt start labels, spatial-adapter claims, QAP double count, and license/availability statements.
+- Added a campaign-level provenance sidecar and a manuscript statement that the per-record schema is not yet uniformly populated.
+- Remaining blockers: public evidence/license release, per-record schema, broad-runner reconciliation, architecture ablation, and third-party adapter.

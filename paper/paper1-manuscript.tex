@@ -23,13 +23,14 @@ Spatially explicit forest planning models are difficult not because the objectiv
 because the model, the exact accounting state, and the search move are usually rebuilt together. This
 paper describes a compiled-state architecture that separates four concerns: a stable compiled model,
 compact candidate and sparse effect indexes, exact resident accounting, and batched GPU population
-search paired with exact CPU refinement. We evaluate the architecture on a public frozen TSA24
+search with exact CPU replay. A CPU-refinement handoff is designed but is not part of the measured
+campaign. We evaluate the architecture on a public frozen TSA24
 landscape with 208,255 operable blocks. A 1,000-generation GPU search reduces the weighted penalty
 from 1,722,144,291.336651 to 8,588,725.370498 in 9.381 s of search time; a 100,000-generation,
 five-seed campaign reaches 512.574–518.621 (mean 515.682) with exact CPU replay. The target uses
 deliberately unattainable harvest-level aspirations to pull the solution toward the maximum even-flow
-level; the final level is approximately 51.3–52.4M m\textsuperscript{3} per 10-year period against a 70M aspiration.
-The frozen dataset, target, seed, and replay contract are public. We do not claim an independent model
+level; the final level is approximately 51.21–52.49M m\textsuperscript{3} per 10-year period against a 70M aspiration.
+The frozen dataset, target, and seed are public; the paper-specific schedules and replay scripts are retained in the project evidence repository and are not yet publicly released. We do not claim an independent model
 comparison or a state-of-the-art landscape result; the contribution is the architecture and its
 reproducibility contract.
 \end{abstract}
@@ -54,10 +55,10 @@ This paper asks a narrower question than ``which metaheuristic is best for fores
 \item
   exact resident accounting state;
 \item
-  a hybrid search loop that combines batched GPU population search with exact CPU refinement.
+  a GPU population search with exact CPU replay; a CPU-refinement handoff is designed but not measured here.
 \end{enumerate}
 
-The first two layers make the model cheap to query. The sparse table makes an evaluation proportional to the cells a move touches rather than to the whole schedule. The resident state makes the objective authoritative and reversible. The hybrid loop uses the GPU for breadth and the CPU for exact accounting and local refinement.
+The first two layers make the model cheap to query. The sparse table makes an evaluation proportional to the cells a move touches rather than to the whole schedule. The resident state makes the objective authoritative and reversible. The design loop uses the GPU for breadth and the CPU for exact accounting and local refinement; the measured campaign uses GPU search with exact replay and does not include the refinement arm.
 
 We evaluate the architecture on a frozen TSA24/Prince George even-flow instance. The instance has 208,255 operable blocks out of 458,708 compiled blocks and a 20-period horizon. The target is a weighted goal-programming construction: a dominant even-flow target defines the shape, while deliberately unattainable harvest-level aspirations provide a persistent pull toward more volume. The realized level is an outcome, not a declared feasible floor. This construction is intentional; the 70M m\textsuperscript{3} per-period aspiration is not a hard constraint and the reported residual is not evidence that the model is infeasible.
 
@@ -163,33 +164,29 @@ The representation makes evaluation local. A move on one block is priced by the 
 
 The optimizer maintains a resident state of realized totals per \texttt{(year,\ account)}, together with the current chain assigned to each block. Applying a move adds the new chain's contribution and subtracts the old chain's contribution. Undo restores the previous state exactly. The state is authoritative: the search uses it for the objective, and the replay path reconstructs it from the schedule through the same evaluator.
 
-For a move on block \texttt{b} from chain \texttt{old} to chain \texttt{new}, the objective delta is
+For a move on block \texttt{b} from chain \texttt{old} to chain \texttt{new}, let $p$ be the sparse
+pending change to the realized account totals and let $\mathcal{T}$ be the targets it affects. The
+objective delta is
 
 \begin{equation}
 \Delta Z_b(c_{\mathrm{old}}\!\to c_{\mathrm{new}})
-= \sum_{(y,a)\in C_b}
-\left[\pi_{y,a}(T_{y,a}-o_{y,a}+n_{y,a})-\pi_{y,a}(T_{y,a})\right].
+= \sum_{t\in\mathcal{T}}\left[\pi_t(T+p)-\pi_t(T)\right],
 \end{equation}
 
-Because the penalty is separable across cells, this delta is exact. The cost is proportional to the number of cells the block touches, not to the number of blocks in the schedule. The implementation uses this identity in the local-search paths and retains a whole-schedule evaluator as a reference.
+where $\pi_t$ is the target's penalty function. For a linear level target, $\pi_t$ is a per-cell
+penalty. For the even-flow target, $\pi_t$ is a penalty over the period vector, so the delta
+re-evaluates the affected flow target rather than summing independent cell penalties. The cost is
+proportional to the pending cells plus the flow target's period vector, not to the number of blocks
+in the schedule. The implementation uses this identity in the local-search paths and retains a
+whole-schedule evaluator as a reference.
 
-\subsection{GPU population search and CPU refinement}\label{gpu-population-search-and-cpu-refinement}
+\subsection{GPU population search and exact replay}\label{gpu-population-search-and-cpu-refinement}
 
-The architecture separates breadth from exactness. A batched GPU population evaluates candidate-index genomes against the sparse effect table. The GPU path is used for population-scale exploration; it does not replace the exact accounting state. The CPU path loads an elite schedule into the exact resident state, applies local refinement moves, updates the objective by exact deltas, and writes the incumbent back as a GPU seed.
+The architecture separates breadth from exactness. A batched GPU population evaluates candidate-index genomes against the sparse effect table. The GPU path is used for population-scale exploration; it does not replace the exact accounting state.
 
-The handoff is therefore:
+The design also supports a CPU-refinement handoff: load an elite schedule into the exact resident state, apply local moves, and write the incumbent back as a GPU seed. That handoff is a design path, not a measured contribution in this paper. The 100,000-generation campaign reported below is a \texttt{ws4-gpu-ga} run with exact CPU replay; it does not contain a CPU-refinement arm or CPU-refinement counters. The handoff is therefore shown as a possible extension, not as evidence for the scaling result.
 
-\[
-\begin{array}{rcl}
-\text{GPU population} & \longrightarrow & \text{elite schedule}\\
- & \longrightarrow & \text{exact CPU state load}\\
- & \longrightarrow & \text{exact local refinement}\\
- & \longrightarrow & \text{exact replay}\\
- & \longrightarrow & \text{refined elite as GPU seed}
-\end{array}
-\]
-
-This division is an engineering choice, not a claim that GPU search is universally better than CPU search. It allows the population to explore many candidate schedules while the exact evaluator remains the authority for the objective and the final schedule.
+The measured division is narrower: GPU population search produces the incumbents, and the exact CPU evaluator is the replay authority. This is an engineering choice, not a claim that GPU search is universally better than CPU search.
 
 \subsection{Replay and provenance}\label{replay-and-provenance}
 
@@ -211,10 +208,10 @@ unattainable. It is a pull-up gradient, not a feasibility constraint.
 The GPU runs used an NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
 (97,887~MiB) with an Intel Xeon Gold 6254 CPU at 3.10~GHz. The software was
 Python~3.12.3, PyTorch, and WS4 at commit \texttt{f60ce64} on the
-\texttt{feature/gpu-acceleration} branch. The CPU baseline used WS4 main at
-\texttt{f23d450} with 32 threads. The public artifact and its rebuild recipe are
+\texttt{feature/gpu-acceleration} branch. The CPU baseline used WS4 at commit
+\texttt{f23d450} with 32 threads; the record does not claim that commit is on main. The public artifact and its rebuild recipe are
 released separately; the large GPU effect table and caches are not part of the
-4.5~MB artifact.
+4.66~MB artifact.
 
 \subsection{Search configurations}
 
@@ -282,7 +279,7 @@ Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations.
 The objectives are tightly clustered: the best seed is 512.574, the worst is
 518.621, the mean is 515.682, and the median is 515.938. Seed~7, at 517.862, lies
 inside the same range. All five schedules replay exactly. The campaign took
-4,004.77~s wall for all five runs.
+3,995.906~s wall for all five runs.
 
 \begin{table}[t]
 \centering
@@ -304,18 +301,18 @@ Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{
 \end{tabular}
 \end{table}
 
-The realized level is approximately 51.3--52.4M~m\textsuperscript{3} per
+The realized level is approximately 51.21--52.49M~m\textsuperscript{3} per
 10-year period against the 70M aspiration. The level term is therefore the
 dominant part of the final objective, not a residual that the search failed to
 remove. The even-flow term falls from 8.59M at 1,000 generations to 2.72 at
-100,000 generations; the level term remains near 500--515 because the target is
+100,000 generations; the level term remains near 499.8--517.3 because the target is
 deliberately above the achievable level. This is the expected maximum-even-flow
 behaviour of the target construction.
 
 \subsection{CPU simulated-annealing comparator}
 
 The CPU simulated-annealing run reached 335,044,976.675435 in 1,875.12~s wall
-and stopped at the time limit after 100,000 iterations. It is not converged and
+(31.25 min) and stopped at the nominal 30-minute limit after 100,000 iterations. It is not converged and
 not a controlled baseline. Its objective is far above the GPU-GA results in
 Table~\ref{tab:scaling}. We do not interpret this as a universal architecture
 win: the CPU run is untuned, single-seed, and performs much less work than the
@@ -385,7 +382,7 @@ quality, or partner-endorsed operational impact.
 
 The 100,000-generation result is a maximum-even-flow compromise, not a proof of
 the exact maximum. The 70M level aspiration is deliberately unattainable; the
-realized level is approximately 51.3--52.4M~m\textsuperscript{3} per period. An
+realized level is approximately 51.21--52.49M~m\textsuperscript{3} per period. An
 exact MIP proof is not practical at this scale with the available resources.
 
 The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
@@ -403,7 +400,7 @@ landscape claim remains open.
 \section*{Data and code availability}
 The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}.
-The build and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository.
+The build and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific schedules and replay scripts are retained in the project evidence repository; a public evidence release remains pending maintainer approval.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

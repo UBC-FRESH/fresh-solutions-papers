@@ -39,7 +39,7 @@ stopped on patience. The final evidence therefore uses 100k patience and ten see
 | --- | ---: | ---: | ---: |
 | tai12a | 0.000% | 0.000% | 10/10 |
 | tai20a | 0.403% | 0.030% | 9/10 |
-| tai25a | 0.685% | 0.077% | 8/10 |
+| tai25a | 0.786% | 0.077% | 8/10 |
 | tai30a | 0.792% | 0.245% | 4/10 |
 
 The comparison is descriptive: the runs use different stopping rules and seed counts. It supports the
@@ -59,7 +59,7 @@ The final campaign uses 10,000 kicks with 1,000-kick patience, five seeds:
 All 20/20 incumbents replay exactly.
 
 The 2,000-kick/200-patience check reached 19/20 optima and a 0.077% worst gap on `ch150`. The
-20-kick pilot reached three optima and a 0.383% mean gap on `ch150`. Neither is the convergence table.
+20-kick pilot reached the optimum on three of four instances (15/20 runs) and a 0.383% mean gap on `ch150`. Neither is the convergence table.
 
 The TSP resident-state check replays the 20 existing ILK incumbents exactly. It is a contract check,
 not the TSP convergence campaign above.

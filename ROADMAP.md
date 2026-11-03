@@ -269,6 +269,7 @@ Goal: determine whether Paper 2 can support a Q1 computational OR contribution b
 QAP path through the generic adapter/engine contract under convergence-controlled budgets.
 
 - [x] P12.1 Framework-managed QAP tabu evidence (#76)
+- [x] P12.2 P0 claim and evidence corrections (#78)
 
 Acceptance criteria:
 
