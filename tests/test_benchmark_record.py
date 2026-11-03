@@ -94,6 +94,27 @@ def test_missing_schedule_is_rejected(tmp_path: Path) -> None:
         validate_record(path)
 
 
+def test_replay_objective_matches(tmp_path: Path) -> None:
+    """The optional replay gate accepts a matching objective."""
+    path = _record(tmp_path)
+    (tmp_path / "replay.py").write_text("print('{\"objective\": 0.0}')\n", encoding="utf-8")
+    assert validate_record(path, replay=True)["record_id"] == "test-1"
+
+
+def test_replay_objective_mismatch_fails(tmp_path: Path) -> None:
+    """The replay gate rejects a hash-valid record with a wrong objective."""
+    path = _record(tmp_path)
+    (tmp_path / "replay.py").write_text("print('{\"objective\": 1.0}')\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="does not match"):
+        validate_record(path, replay=True)
+
+
+def test_replay_entrypoint_required(tmp_path: Path) -> None:
+    """The replay gate requires an adjacent replay.py."""
+    with pytest.raises(ValueError, match=r"replay\.py"):
+        validate_record(_record(tmp_path), replay=True)
+
+
 def test_cli_success_and_failure(tmp_path: Path) -> None:
     """The command-line entry point reports valid and invalid records."""
     valid = _record(tmp_path)
