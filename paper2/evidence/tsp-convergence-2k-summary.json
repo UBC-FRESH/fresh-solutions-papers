@@ -1,0 +1,54 @@
+[
+  {
+    "instance": "berlin52",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "median_gap_percent": 0.0,
+    "best_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 136.4865203916037,
+    "converged_runs": 5,
+    "kicks_budget": 2000,
+    "patience": 200,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "kroA100",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "median_gap_percent": 0.0,
+    "best_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 109.03055404759944,
+    "converged_runs": 5,
+    "kicks_budget": 2000,
+    "patience": 200,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "kroB100",
+    "runs": 5,
+    "mean_gap_percent": 0.0,
+    "median_gap_percent": 0.0,
+    "best_gap_percent": 0.0,
+    "worst_gap_percent": 0.0,
+    "mean_wall_seconds": 125.18031157081131,
+    "converged_runs": 5,
+    "kicks_budget": 2000,
+    "patience": 200,
+    "optimum_kind": "optimum"
+  },
+  {
+    "instance": "ch150",
+    "runs": 5,
+    "mean_gap_percent": 0.015318627450980393,
+    "median_gap_percent": 0.0,
+    "best_gap_percent": 0.0,
+    "worst_gap_percent": 0.07659313725490197,
+    "mean_wall_seconds": 145.77699332980555,
+    "converged_runs": 5,
+    "kicks_budget": 2000,
+    "patience": 200,
+    "optimum_kind": "optimum"
+  }
+]

@@ -36,7 +36,58 @@
     },
     "paper2/evidence/lkh-provenance.json": {
       "sha256": "ff57e5764064bb5f74e043ed28c7f2d4b538b4525fc68fdb62bf0ff1f235a6a9"
+    },
+    "paper2/evidence/framework-use.json": {
+      "sha256": "f6214f51fc267d412459602d12c3a76958e2c44af25b37bda436ef28122587ad"
+    },
+    "paper2/evidence/framework-use-summary.json": {
+      "sha256": "adca6f60e3c653924ab1f50188fea110d8c5da6e57c45ee96d4bd94ba34f7d2a"
+    },
+    "paper2/evidence/framework-use-analysis.json": {
+      "sha256": "7ce612cc197c5db629d7933b75c92516467d4cc3f81dafea72be34c19218743e"
+    },
+    "paper2/evidence/framework-use-patience50k.json": {
+      "sha256": "209daeb4ae5f616e4614de22a6ad69f8db809a719148110e2b19c73709752061"
+    },
+    "paper2/evidence/framework-use-patience100k.json": {
+      "sha256": "4e5abfa28a7a2350de58d24a9cac39c02c207b8f4a453158f7c80c42b16e63fd"
+    },
+    "paper2/evidence/framework-use-sensitivity.json": {
+      "sha256": "31ec898b54e05fc5f6f5391f36254e001d23445d2412b77974cf07424c1335c8"
+    },
+    "paper2/evidence/tsp-convergence-10k.json": {
+      "sha256": "e18d134d87b5a6ac8ad78707807ef566e3b93a9b3f0a39104d6584c862556ada"
+    },
+    "paper2/evidence/tsp-convergence-10k-summary.json": {
+      "sha256": "bfafc11caef0f867d0cf042433afd56505abdaa604f116a1273cd3761ef08d3e"
+    },
+    "paper2/evidence/tsp-convergence-2k.json": {
+      "sha256": "24489273ed7b495eb3b5e242e8ac33dc7272eed38ab1abba7f03c62c381ca28d"
+    },
+    "paper2/evidence/tsp-convergence-2k-summary.json": {
+      "sha256": "46ceeb28e4f50405c6bebbe6f19d5f1fbddfa985cab152c1cd774cfa3839dea5"
+    },
+    "paper2/run_framework_use.py": {
+      "sha256": "b1cf1b88e2f42ed1ec5dc841f96598ac1ad98770997bb8d62ef5f6166a5b51b7"
+    },
+    "paper2/analyze_framework_use.py": {
+      "sha256": "7cc2f57a84b486967eb216ccdc1835e567a50a1fb48299bd20bc7aa0e7f5b753"
+    },
+    "paper2/replay_framework_use.py": {
+      "sha256": "e1948b4fa9675d24b0992533ac069a3925df14fc23ff90d43f9c3ea93126319d"
+    },
+    "paper2/compare_framework_sensitivity.py": {
+      "sha256": "1802cdc893e770f005e5ee00ef67fc20340264ff1b555d5e0527cc7bbc1b76a3"
+    },
+    "paper2/run_tsp_convergence.py": {
+      "sha256": "75a5866e29e19a8b8b8f002c03dd7e2088813399963d7785a9af817044d3c9dd"
+    },
+    "paper2/replay_tsp_convergence.py": {
+      "sha256": "3ded6a7271d03f21afe1b87a48db5cc59c51ddc9d0cc36db9586f94b29521b23"
+    },
+    "paper2/make_tables.py": {
+      "sha256": "a358356bceea23b03f83e5b235c7d3948aab4138c798578b50a355155f85e98c"
     }
   },
-  "status": "candidate; no tag/release created"
+  "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added"
 }

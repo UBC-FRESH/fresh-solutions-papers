@@ -29,6 +29,7 @@ exists and the maintainer approves it.
 | P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | complete |
 | P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | complete |
 | P11 Audit remediation | #56 | `feature/p11-broad-runner` | pr-open |
+| P12 Paper 2 Q1 framework-use evidence | #75 | `feature/p12-paper2-q1` | active |
 
 ## Lifecycle Map
 
@@ -257,3 +258,22 @@ Acceptance criteria:
 - Roadmap and GitHub state agree.
 - Claims match evidence.
 - No unreviewed release action.
+
+## Phase 12: Paper 2 Q1 framework-use evidence
+
+Parent issue: #75
+Branch: `feature/p12-paper2-q1`
+Status: active
+
+Goal: determine whether Paper 2 can support a Q1 computational OR contribution by running a headline
+QAP path through the generic adapter/engine contract under convergence-controlled budgets.
+
+- [x] P12.1 Framework-managed QAP tabu evidence (#76)
+
+Acceptance criteria:
+
+- Every framework run stops on a declared patience rule, or a cap hit is reported as non-converged.
+- Framework and standalone paths use the same instances, seeds, and stopping rule.
+- Every incumbent replays exactly through the adapter/resident-state contract.
+- Paper 2 gains a defensible framework-use section or is explicitly reframed as a tool paper.
+- No tag, release, or submission without maintainer approval.

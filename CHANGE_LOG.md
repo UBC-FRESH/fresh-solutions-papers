@@ -283,3 +283,13 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added a 5,000-block diagnostic ablation script and evidence.
 - Exact incremental delta+apply is 2,005x faster than warm whole-schedule evaluation; final objectives match to 3.7e-9.
 - Paper 1 reports the subset scope and the remaining GPU/CPU-batch gap.
+
+### P12.1 framework-use and TSP convergence evidence
+
+- Added a ten-seed QAP framework-use comparison with engine-managed resident state.
+- Final QAP run: 100k patience, 1M cap, 40/40 patience stops, 40/40 exact replays, 40/40 objective matches.
+- Framework CPU overhead 1.239x (95% CI 1.168-1.310) with alternating execution order.
+- Added convergence-controlled TSP evidence: 10k kicks, 1k patience, 20/20 patience stops, 20/20 optima, 20/20 exact replays.
+- Expanded Paper 2 to 18 pages and 8,000 source words; added framework-use, convergence, artifact, and limitation sections.
+- Added replay, sensitivity, table-generation, and manifest entries; no tag or release created.
+- Dashboard: lint, format, strict types, tests, validator, and docs all green.
