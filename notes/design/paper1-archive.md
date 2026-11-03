@@ -27,16 +27,16 @@ for record in evidence/*/record.json; do python scripts/check_benchmark_record.p
 FHOPS replay needs the pinned FHOPS checkout:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/fhops/src \
+PYTHONPATH=$FHOPS_ROOT/src \
   python evidence/fhops-tiny7-sa-200-r42/replay.py
-PYTHONPATH=/srv/shared-data/gep/ws4/fhops/src \
+PYTHONPATH=$FHOPS_ROOT/src \
   python evidence/fhops-small21-sa-200-r42/replay.py
 ```
 
 WS4 replay needs the WS4 GPU checkout:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/ws4-gpu \
+PYTHONPATH=$WS4_GPU_ROOT \
   python evidence/ws4-tsa24-gpu-ga-1000-r7/replay.py
 ```
 

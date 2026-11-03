@@ -14,7 +14,7 @@ Same-engine scaling baseline for `ws4-tsa24-gpu-ga-1000-r7`, not an independent 
 Replay:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/ws4 python evidence/ws4-tsa24-gpu-ga-10000-r7/replay.py
+PYTHONPATH="$WS4_ROOT" python evidence/ws4-tsa24-gpu-ga-10000-r7/replay.py
 ```
 
 The comparison is a same-engine budget scaling, not an independent algorithm baseline.

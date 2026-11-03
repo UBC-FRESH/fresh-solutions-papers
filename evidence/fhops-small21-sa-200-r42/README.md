@@ -14,7 +14,7 @@ Second P3 public baseline.
 Replay:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/fhops/src python evidence/fhops-small21-sa-200-r42/replay.py
+PYTHONPATH="$FHOPS_ROOT/src" python evidence/fhops-small21-sa-200-r42/replay.py
 ```
 
 This is a baseline reproduction, not a WS4/FHOPS architecture comparison.

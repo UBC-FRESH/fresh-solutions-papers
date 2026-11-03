@@ -85,9 +85,12 @@ def _replay_objective(record_path: Path, record: dict[str, Any]) -> float:
         raise ValueError(f"replay.py does not exist: {replay}")
     environment = os.environ.copy()
     paths = [environment.get("PYTHONPATH", "")]
-    ws4_root = environment.get("WS4_ROOT", "/srv/shared-data/gep/ws4/ws4")
-    fhops_root = environment.get("FHOPS_ROOT", "/srv/shared-data/gep/ws4/fhops")
-    paths.extend([ws4_root, str(Path(fhops_root) / "src")])
+    ws4_root = environment.get("WS4_ROOT")
+    fhops_root = environment.get("FHOPS_ROOT")
+    if ws4_root:
+        paths.append(ws4_root)
+    if fhops_root:
+        paths.append(str(Path(fhops_root) / "src"))
     environment["PYTHONPATH"] = os.pathsep.join(path for path in paths if path)
     try:
         completed = subprocess.run(

@@ -17,5 +17,5 @@ that CPU-SA is competitive.
 Replay:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/ws4 python evidence/ws4-tsa24-cpu-sa-100000-r7/replay.py
+PYTHONPATH="$WS4_ROOT" python evidence/ws4-tsa24-cpu-sa-100000-r7/replay.py
 ```

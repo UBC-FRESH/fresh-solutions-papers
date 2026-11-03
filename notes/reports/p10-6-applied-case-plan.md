@@ -24,7 +24,7 @@ Issue: #37
 - **Data:** fresh public BC data — VRI 2025, FADM boundaries, and SiteProd, with the
   public `femic-public-data` DataLad remote and public Arbutus S3 bucket
   `ubc-fresh-femic-tsa24-instance`.
-- **Local compiled fixture:** `/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance`.
+- **Local compiled fixture:** `$FEMIC_ROOT/external/femic-tsa24-instance`.
   It is the local WS4 build/target layer over that public instance.
 
 ### Licence nuance
