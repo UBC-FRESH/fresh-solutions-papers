@@ -247,3 +247,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Withdrew audit C1; the 70M level targets are deliberate maximum-even-flow aspirations.
 - Corrected Paper 1 to report the level/flow split and 51.3-52.4M m3/period realized level; removed near-zero/3.3M framing.
 - Corrected tai30a certified budget to 10k under the 0.10-point policy; 40k/80k retained as larger checks.
+
+### Paper 2 reframe
+
+- Reframed the draft from a general framework paper to a benchmark-harness and reference-adapters paper.
+- Removed the graph-colouring public-adapter claim.
+- Split the four-instance ILK evidence from the 78-instance broad panel.
+- Corrected the large-QAP portfolio and SciPy comparisons to consistent mean statistics.
