@@ -9,12 +9,12 @@ Source: `notes/reports/antagonistic-review-2026-11-03` (subagent review) and PR 
 
 - [x] P12.2 correct false/stale P0 claims in both manuscripts.
 - [x] P12.3 add Paper 2 evidence validator, canonical broad summary, and Lockwood correction.
-- [ ] P12.4 Paper 1 expansion: references, figures, EMS-style sections, public-release statement.
-- [ ] P12.5 Paper 2 expansion: publication figures, venue framing, per-record provenance migration.
-- [ ] P12.6 Container/one-command replay and evidence-manifest completion.
-- [ ] P12.7 Paper 1 architecture evidence: full-instance/GPU-CPU ablation or explicit removal of speed claim.
-- [ ] P12.8 Paper 2 stronger QAP baseline and/or expanded convergence panel.
-- [ ] P12.9 Final claim-to-evidence sweep and rebuilt PDFs.
+- [x] P12.4 Paper 1 expansion: references, figures, EMS-style sections, public-release statement.
+- [x] P12.5 Paper 2 expansion: figures, 20-instance QAP panel, SciPy baseline, provenance migration, venue framing.
+- [x] P12.6 Container/one-command replay and evidence-manifest completion (Dockerfile untested).
+- [x] P12.7 Paper 1 speed claim removed/reframed; architecture experiment remains open.
+- [x] P12.8 expanded QAP panel + SciPy baseline; expanded TSP panel abandoned after 90/100 pathological tasks.
+- [x] P12.9 claim-to-evidence sweep and rebuilt PDFs.
 
 ## Approval-gated only
 
