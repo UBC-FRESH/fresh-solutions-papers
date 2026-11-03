@@ -270,6 +270,7 @@ QAP path through the generic adapter/engine contract under convergence-controlle
 
 - [x] P12.1 Framework-managed QAP tabu evidence (#76)
 - [x] P12.2 P0 claim and evidence corrections (#78)
+- [x] P12.3 Paper 2 evidence gate and broad-summary reconciliation (#79)
 
 Acceptance criteria:
 

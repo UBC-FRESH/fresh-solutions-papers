@@ -301,3 +301,11 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Paper 2: corrected the 10k tai25a mean (0.786), esc8 record count, 20-kick pilot wording, TSP kick-cap label, Or-opt start labels, spatial-adapter claims, QAP double count, and license/availability statements.
 - Added a campaign-level provenance sidecar and a manuscript statement that the per-record schema is not yet uniformly populated.
 - Remaining blockers: public evidence/license release, per-record schema, broad-runner reconciliation, architecture ablation, and third-party adapter.
+
+### P12.3 Paper 2 evidence gate and broad-summary reconciliation
+
+- Added `paper2/check_evidence.py`: validates campaign provenance, replays 40 QAP and 20 TSP incumbents, and checks broad-panel fields.
+- Added `paper2/broad_summary.py`; regenerated the committed broad summary and verified byte-equivalent values.
+- Refactored `run_broad_converged.py` to use the canonical summarizer and write the list schema plus a provenance sidecar; converged counts now require `patience` only.
+- Corrected the Lockwood citation to Carey Lockwood and Tom Moore.
+- Added the evidence validator to the Paper 2 run instructions.

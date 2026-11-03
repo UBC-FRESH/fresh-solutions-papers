@@ -266,7 +266,7 @@ with the solver commit and hardware. The current publication-facing files implem
 unevenly: the framework-use file carries hardware and worker count, while the TSP and broad files
 carry seed, budget, stop reason, assignment, and wall time but not solver commit, CPU time, or a
 replay field. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
-This is a release blocker, not a completed per-record schema.
+This is a release blocker, not a completed per-record schema. The committed validator replays the 40 QAP and 20 TSP incumbents and checks the broad-panel fields; it does not fill missing per-record metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
 constructs a fresh adapter, evaluates the stored assignment, and compares the objective and

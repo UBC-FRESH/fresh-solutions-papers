@@ -90,6 +90,15 @@
     },
     "paper2/evidence/provenance-2026-11-03.json": {
       "sha256": "8a36414e797d35d7225b23b3a56b444ca14113fd752144d60adc5f2dd0033439"
+    },
+    "paper2/check_evidence.py": {
+      "sha256": "598003aa98ed895760da5509f5e42679f33b6e000962f988646fc8349863606e"
+    },
+    "paper2/broad_summary.py": {
+      "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
+    },
+    "paper2/run_broad_converged.py": {
+      "sha256": "fad69332f6e90a09c8071ee067845505a9c222dcbfe45eba8092c7a6e8d44325"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added"

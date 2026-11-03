@@ -5,7 +5,7 @@ evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`
 
-Compiled PDF: `paper2-manuscript.pdf` — 19 pages, 8,153 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 19 pages, 8,176 source words.
 
 Evidence release: Fresh Solutions **v0.8.0**.
 
@@ -56,6 +56,8 @@ Final TSP convergence campaign:
 python3 paper2/run_tsp_convergence.py --kicks 10000 --patience 1000 \
   --seeds 1,2,3,4,5 --workers 20
 python3 paper2/replay_tsp_convergence.py
+python3 paper2/check_evidence.py
+python3 paper2/broad_summary.py
 ```
 
 ## QAP robust tabu
@@ -145,6 +147,7 @@ The kicks are material; all 60 ablation tours replay exactly.
 - `evidence/tsp-lk.json`
 - `evidence/qap-tabu*.json`
 - `evidence/broad-converged.json.gz`
+- `evidence/provenance-2026-11-03.json`
 - `evidence/lkh-provenance.json`
 
 No tag or release has been created. The evidence release remains a candidate until maintainer

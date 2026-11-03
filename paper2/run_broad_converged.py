@@ -9,7 +9,6 @@ import json
 import os
 import platform
 import re
-import statistics
 import sys
 import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -20,7 +19,9 @@ import scipy
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "fresh-solutions"))
+sys.path.insert(0, str(ROOT))
 
+from broad_summary import summarise as summarise_rows  # noqa: E402
 from fresh_solutions.adapters import QuadraticAssignment, TravellingSalesman  # noqa: E402
 from fresh_solutions.adapters.qap_tabu import QapTabuConfig, run_qap_tabu  # noqa: E402
 from fresh_solutions.adapters.tsp_lk import TspLkConfig, run_tsp_lk  # noqa: E402
@@ -174,60 +175,6 @@ def run_qap(task: tuple[str, int, float, int]) -> dict[str, object]:
     }
 
 
-def summarise(
-    records: list[dict[str, object]], provenance_data: dict[str, object]
-) -> dict[str, object]:
-    """Summarise successful runs and retain parse errors separately."""
-    successful = [record for record in records if "gap" in record]
-    errors = [record for record in records if "error" in record]
-    rows = []
-    for family in ("tsp", "qap"):
-        family_rows = [record for record in successful if record["family"] == family]
-        for band, low, high in (
-            ("all", 0, 10000),
-            ("n<=100", 0, 100),
-            ("100<n<=300", 101, 300),
-            ("n>300", 301, 10000),
-        ):
-            band_rows = [record for record in family_rows if low <= int(record["size"]) <= high]
-            if not band_rows:
-                continue
-            gaps = [float(record["gap"]) for record in band_rows]
-            converged = [
-                record
-                for record in band_rows
-                if record["stop"] in {"patience", "max_kicks", "max_iterations"}
-            ]
-            converged_gaps = [float(record["gap"]) for record in converged]
-            rows.append(
-                {
-                    "family": family,
-                    "band": band,
-                    "instances": len({record["instance"] for record in band_rows}),
-                    "runs": len(band_rows),
-                    "converged": len(converged),
-                    "cap_hits": sum(record["stop"] == "max_seconds" for record in band_rows),
-                    "optimum_runs": sum(gap < 1e-9 for gap in gaps),
-                    "mean_gap_percent": statistics.mean(gaps),
-                    "median_gap_percent": statistics.median(gaps),
-                    "worst_gap_percent": max(gaps),
-                    "converged_mean_gap_percent": statistics.mean(converged_gaps)
-                    if converged_gaps
-                    else None,
-                    "converged_median_gap_percent": statistics.median(converged_gaps)
-                    if converged_gaps
-                    else None,
-                }
-            )
-    return {
-        "provenance": provenance_data,
-        "scheduled_runs": len(records),
-        "successful_runs": len(successful),
-        "parse_errors": len(errors),
-        "summary": rows,
-    }
-
-
 def main() -> int:
     """Run the campaign and write compressed records plus summary."""
     parser = argparse.ArgumentParser()
@@ -298,10 +245,18 @@ def main() -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(output, "wt", encoding="utf-8") as handle:
         json.dump(records, handle)
-    summary = summarise(records, provenance_data)
-    summary["skipped"] = skipped
-    (ROOT / args.summary).write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    summary_rows = summarise_rows(records)
+    successful = [record for record in records if "gap" in record]
+    errors = [record for record in records if "error" in record]
+    provenance_data["scheduled_runs"] = len(records)
+    provenance_data["successful_runs"] = len(successful)
+    provenance_data["parse_errors"] = len(errors)
+    provenance_data["skipped"] = skipped
+    (ROOT / args.summary).write_text(json.dumps(summary_rows, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "evidence" / "broad-converged-provenance.json").write_text(
+        json.dumps(provenance_data, indent=2) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(summary_rows, indent=2))
     return 0
 
 
