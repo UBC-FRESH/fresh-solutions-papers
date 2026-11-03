@@ -29,7 +29,7 @@ exists and the maintainer approves it.
 | P9 Converged Paper 2 campaign | #29 | `feature/p9-converged` | complete |
 | P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | complete |
 | P11 Audit remediation | #56 | `feature/p11-broad-runner` | pr-open |
-| P12 Paper 2 Q1 framework-use evidence | #75 | `feature/p12-paper2-q1` | active |
+| P12 Paper 2 Q1 framework-use evidence | #75 | `feature/p12-paper2-q1` | pr-open |
 
 ## Lifecycle Map
 
@@ -263,7 +263,7 @@ Acceptance criteria:
 
 Parent issue: #75
 Branch: `feature/p12-paper2-q1`
-Status: active
+Status: pr-open
 
 Goal: determine whether Paper 2 can support a Q1 computational OR contribution by running a headline
 QAP path through the generic adapter/engine contract under convergence-controlled budgets.

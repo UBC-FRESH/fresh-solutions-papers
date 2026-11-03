@@ -293,3 +293,4 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Expanded Paper 2 to 18 pages and 8,000 source words; added framework-use, convergence, artifact, and limitation sections.
 - Added replay, sensitivity, table-generation, and manifest entries; no tag or release created.
 - Dashboard: lint, format, strict types, tests, validator, and docs all green.
+- P12.1 PR #77 opened with all checks green; no merge, tag, or release without approval.
