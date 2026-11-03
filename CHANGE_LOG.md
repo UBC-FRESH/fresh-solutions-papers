@@ -272,3 +272,8 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added `paper/Makefile` and ignored transient LaTeX build files.
 - Compiled `paper1-manuscript.pdf` (7 pages) with TeX Live.
 - Added `lmodern` and `xurl` to remove font/URL layout warnings.
+
+### Paper 2 LaTeX manuscript
+
+- Added `paper2/paper2-manuscript.tex`, `paper2/references.bib`, and a build target.
+- Compiled a 5-page working PDF with QAP/TSP tables and the LKH boundary.
