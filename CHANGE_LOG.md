@@ -277,3 +277,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 
 - Added `paper2/paper2-manuscript.tex`, `paper2/references.bib`, and a build target.
 - Compiled a 5-page working PDF with QAP/TSP tables and the LKH boundary.
+
+### Paper 1 evaluation-path ablation
+
+- Added a 5,000-block diagnostic ablation script and evidence.
+- Exact incremental delta+apply is 2,005x faster than warm whole-schedule evaluation; final objectives match to 3.7e-9.
+- Paper 1 reports the subset scope and the remaining GPU/CPU-batch gap.

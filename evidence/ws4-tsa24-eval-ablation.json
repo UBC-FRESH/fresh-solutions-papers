@@ -1,0 +1,14 @@
+{
+  "scope": "5000-block subset of TSA24 100k seed-7 schedule",
+  "moves": 50,
+  "full_baseline_s": 54.846558906981954,
+  "full_final_s": 1.2536039359983988,
+  "reset_s": 0.43329122400609776,
+  "full_move_mean_s": 1.0863924849953037,
+  "delta_apply_mean_s": 0.0005419086012989283,
+  "speedup": 2004.7522449196679,
+  "full_objective": 10942260.801869223,
+  "incremental_objective": 10942260.80186922,
+  "absolute_error": 3.725290298461914e-09,
+  "exact": true
+}
