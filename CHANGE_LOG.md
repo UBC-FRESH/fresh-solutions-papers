@@ -254,3 +254,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Removed the graph-colouring public-adapter claim.
 - Split the four-instance ILK evidence from the 78-instance broad panel.
 - Corrected the large-QAP portfolio and SciPy comparisons to consistent mean statistics.
+
+### Evidence provenance and release candidates
+
+- Added LKH version/commit/binary hash provenance sidecar.
+- Added Paper 1/Paper 2 evidence release candidate notes; no tags created.
+- TSA24 public artifact now has a benchmark artifact and GPU rebuild recipe in the instance repo.

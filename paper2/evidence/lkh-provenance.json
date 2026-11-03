@@ -1,0 +1,20 @@
+{
+  "backend": "LKH-3 external",
+  "source": "https://github.com/cerebis/LKH3",
+  "commit": "9a51de3161f2746e969f7a2e33220f637da64e54",
+  "version": "3.0.6",
+  "binary_sha256": "cb9fc7de7c917a614927cf710840fc0458d856279f33be879304200ea6c87af7",
+  "runner": "paper2/run_lkh_large.py",
+  "environment": {
+    "LKH_BINARY": "user-supplied path to the built LKH executable",
+    "LKH_VERSION": "3.0.6",
+    "LKH_COMMIT": "9a51de3161f2746e969f7a2e33220f637da64e54"
+  },
+  "parameters": {
+    "RUNS": 1,
+    "SEED": "1-5",
+    "TRACE_LEVEL": 0,
+    "timeout_seconds": 600
+  },
+  "note": "The binary is not bundled. The provenance sidecar applies to lkh-large.json. The binary was built from the pinned mirror commit."
+}

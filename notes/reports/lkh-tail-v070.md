@@ -41,3 +41,14 @@ point is capability, not an equal-time win.
   Apache-licensed, and not part of the Fresh Solutions heuristic claim.
 - This establishes the large-TSP target and shows why the internal LK must be
   improved or clearly presented as a small/medium-instance method.
+
+## Provenance
+
+- LKH source: `https://github.com/cerebis/LKH3`
+- Commit: `9a51de3161f2746e969f7a2e33220f637da64e54`
+- Version: 3.0.6
+- Binary SHA-256: `cb9fc7de7c917a614927cf710840fc0458d856279f33be879304200ea6c87af7`
+- Parameters: runs=1, seeds 1–5, trace level 0, 600 s timeout.
+- Provenance sidecar: `paper2/evidence/lkh-provenance.json`.
+
+LKH is not bundled; a user must supply the pinned binary.
