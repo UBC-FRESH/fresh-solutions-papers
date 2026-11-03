@@ -1,0 +1,252 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
+\author{UBC FRESH Lab}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Applying metaheuristics to hard combinatorial problems is often slowed less by the choice of
+metaheuristic than by the engineering around it: problem-specific move representations, exact
+incremental state, replayable evidence, stopping rules, and benchmark bookkeeping are usually rebuilt
+for each project. Fresh Solutions provides an adapter contract and a reproducible benchmark harness,
+together with two reference implementations: quadratic-assignment robust tabu search and
+travelling-salesman iterated Lin--Kernighan. We evaluate the references on QAPLIB and TSPLIB and report
+the full distribution, including failures. Small and medium QAP instances are strong; the broad QAP
+panel has a heavy tail. Four TSP instances reach the known optimum or a 0.383\% gap with iterated
+Lin--Kernighan; the internal method does not scale to the largest TSPLIB tail. An optional external
+LKH backend is reported separately. The contribution is the harness, exact replay contract, and
+reference adapters, not a general-framework experiment or a state-of-the-art solver claim.
+\end{abstract}
+
+\section{Introduction}
+
+Operations-research practitioners rarely need a new metaheuristic. They need a reliable way to apply
+known methods to a new problem, preserve exact feasibility and objective accounting, and produce
+evidence that another person can replay. That work is repetitive and easy to get subtly wrong.
+Problem-specific move representations, incremental state, stopping rules, benchmark harnesses, seed
+handling, and evidence records are rebuilt for each project.
+
+Fresh Solutions is a response to that engineering problem. It provides a problem-adapter contract,
+exact resident state and reversible moves, local and population search paths, checkpointing, exact
+replay, convergence records, and public-library reference implementations for QAP and TSP. The paper
+asks a narrow engineering question: can a user add a problem-specific neighbourhood or reference
+implementation and obtain credible, replayable evidence without rebuilding the surrounding machinery?
+It does not claim that the generic engine has been tested as the source of the headline results.
+
+\section{Related work}
+
+The quadratic assignment problem asks for a permutation that minimises a flow--distance product.
+Robust tabu search is a long-standing baseline for QAPLIB \citep{burkard1997}. Taillard's robust tabu
+search remains a standard reference implementation \citep{taillard1991}; our QAP adapter follows the
+same move-and-memory idea, with exact swap deltas and an optional delta-matrix path.
+
+The travelling-salesman problem has an equally long heuristic literature. The Lin--Kernighan
+variable-depth exchange \citep{lin1973} and Helsgaun's LKH implementation \citep{helsgaun2000} are the
+standard strong baselines. We implement a bounded candidate-list LK-style exchange and use external
+LKH only as an optional capability reference, not as part of the package. TSPLIB \citep{reinelt1991}
+provides the public instances.
+
+Reproducibility in applied optimisation depends on more than a seed. It depends on the compiled
+model, candidate order, effect table, objective weights, hardware, and replay procedure. The harness
+stores those elements with each record and replays the stored schedule through the exact evaluator.
+The design is deliberately closer to a benchmark harness than to a new metaheuristic.
+
+\section{Framework}
+
+\subsection{Adapter contract}
+
+An adapter supplies variables, options, exact and batched evaluation, feasibility, mutation and
+crossover, and reversible moves. The engine sees only this interface. A domain-specific method can be
+added as a separate module without changing the core.
+
+\subsection{Exact state and replay}
+
+Every reported incumbent is a complete assignment. Evaluation is exact, and the stored assignment must
+re-evaluate to the stored objective. The benchmark scripts do not trust the optimizer's internal
+counter; they replay the result through the adapter. A record with a mismatched schedule hash or
+replayed objective is not evidence.
+
+\subsection{Search layers}
+
+The harness exposes exact local search, population search with crossover, mutation, and elitism, and a
+hybrid handoff from a population elite to exact local refinement. The experiments in this paper use
+the local layer plus adapter-specific neighbourhoods. The population layer remains available but is
+not the source of the strongest results, and we do not claim a generic-engine framework experiment.
+
+\subsection{Evidence protocol}
+
+A reportable result names the pinned solver version or commit, the public instance and known or
+best-known value, the seed and budget, the stopping reason, the exact-replay result, and the wall time.
+Publication-facing campaigns use a patience rule; safety-cap hits are recorded as non-converged.
+
+\section{QAP evidence}
+
+The QAP reference implementation uses robust tabu search over facility swaps. The objective is
+\begin{equation}
+\min_{\pi\in\Pi_n}\sum_{i=1}^{n}\sum_{j=1}^{n} F_{ij}D_{\pi(i)\pi(j)},
+\end{equation}
+where $F$ is the flow matrix and $D$ the distance matrix. The adapter uses exact swap deltas; the
+accelerated path uses Taillard's delta-matrix update for symmetric zero-diagonal instances and a
+Numba general scan for asymmetric instances.
+
+\subsection{Certified QAP panel}
+
+Table~\ref{tab:qap-certified} reports the certified budget and five-seed gaps for the initial QAPLIB
+panel. The certified budget is the smallest budget whose next doubling improves the five-seed mean by
+no more than 0.10 percentage points. This is a stability rule, not a convergence proof.
+
+\begin{table}[t]
+\centering
+\caption{QAP robust tabu, five seeds. The certified budget is the smallest budget satisfying the
+0.10-point doubling rule.}
+\label{tab:qap-certified}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Instance & Certified budget & Mean gap & Worst gap & Next doubling \\
+\midrule
+\texttt{tai12a} & 10,000 & 0.000\% & 0.000\% & optimum on all seeds \\
+\texttt{tai20a} & 10,000 & 0.403\% & 0.470\% & 20k: 0.370\% \\
+\texttt{tai25a} & 20,000 & 0.685\% & 0.850\% & 40k: 0.592\% \\
+\texttt{tai30a} & 10,000 & 0.792\% & 1.139\% & 20k: 0.700\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Broad panel and large instances}
+
+Across 134 parseable QAPLIB instances and five seeds, 552 of 670 runs stopped on patience and 318 hit
+the known optimum. The converged subset has median gap 0.000\% and mean 1.823\%, with a worst case of
+36.4\%. The mean is pulled by a small number of hard outliers; the median is not evidence that the
+tail is solved.
+
+Table~\ref{tab:qap-large} reports the large-instance multi-start results. The best-of-five values are
+not a portfolio-improvement claim; the mean values show that the multi-start result is better on
+\texttt{tai256c} and \texttt{tho150} but worse on \texttt{esc128} and \texttt{tai150b}. SciPy FAQ is a
+weak, fast external baseline; it wins \texttt{tai150b} and loses the other three on mean gap.
+
+\begin{table}[t]
+\centering
+\caption{Large QAPLIB instances, five random starts, all stopping on patience. SciPy FAQ is an
+independent external baseline with the same five-seed protocol.}
+\label{tab:qap-large}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Instance & Fresh best & Fresh mean & SciPy mean & Fresh worst \\
+\midrule
+\texttt{esc128} & 0.000\% & 1.250\% & 12.500\% & 3.125\% \\
+\texttt{tai150b} & 2.008\% & 2.976\% & 1.861\% & 3.699\% \\
+\texttt{tai256c} & 0.350\% & 0.413\% & 120.481\% & 0.509\% \\
+\texttt{tho150} & 0.166\% & 0.507\% & 1.523\% & 0.902\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{TSP evidence}
+
+The TSP reference implementation uses two layers: Or-opt/2-opt for construction and a bounded
+candidate-list Lin--Kernighan-style exchange with deterministic double-bridge kicks. For a tour
+$\pi$, the objective is
+\begin{equation}
+L(\pi)=\sum_{i=1}^{n} d_{\pi(i),\pi(i+1)},\qquad \pi(n+1)=\pi(1).
+\end{equation}
+
+\subsection{Iterated Lin--Kernighan}
+
+Table~\ref{tab:tsp-ilk} reports a four-instance experiment starting from converged Or-opt tours. The
+100,000-kick patience budget is extra work relative to Or-opt; the comparison is
+quality-at-additional-cost, not an equal-budget ablation.
+
+\begin{table}[t]
+\centering
+\caption{TSP iterated Lin--Kernighan from converged Or-opt tours, five seeds.}
+\label{tab:tsp-ilk}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Instance & Or-opt mean gap & ILK mean gap & ILK worst gap \\
+\midrule
+\texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% \\
+\texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% \\
+\texttt{kroB100} & 3.696\% & 0.000\% & 0.000\% \\
+\texttt{ch150} & 8.229\% & 0.383\% & 0.475\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A kicks ablation separates the effect: LK-only means 0.780--2.580\%, ILK-5 means 0.000--0.558\%, and
+ILK-20 means 0.000--0.383\%. The double-bridge kicks are a material part of the result, not a cosmetic
+restart.
+
+\subsection{Broad panel and the LKH boundary}
+
+Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 183 hit the known
+optimum. The converged subset has median gap 0.000\% and mean 0.100\%. The large tail is weak: only
+3 of 100 runs above $n=300$ reached patience, and 97 hit the safety cap. The internal method is
+therefore a small/medium TSP solver.
+
+External LKH, at its stated budget and configuration, reaches 71 of 100 optima on the same large tail,
+mean gap 0.092\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
+bundled and not claimed as Fresh Solutions' own heuristic. The comparison is capability-only, not
+matched-time.
+
+\section{Applied case}
+
+TSA24/Prince George is a public-data applied case. The frozen build, target, and seed are published as
+\texttt{ws4-tsa24-evenflow-v1} in
+\url{https://github.com/UBC-FRESH/femic-tsa24-instance}, derived from public BC VRI, FADM, and
+SiteProd data. The even-flow target is a WS4 scenario configuration, not an official TSA decision.
+
+The 1,000-generation GPU-GA record has objective 8,588,725.370498; the 10,000-generation same-engine
+baseline has 76,540.740733; the 100,000-generation five-seed campaign spans 512.574--518.621 (mean
+515.682), with exact replay. The CPU-SA independent-search baseline is 335,044,976.675435 and is
+time-limited, not converged. No partner-impact claim is made.
+
+\section{Discussion and limitations}
+
+The harness makes several engineering properties explicit: the adapter boundary, exact resident state,
+replay, convergence records, and benchmark provenance. Those are useful even when the underlying
+heuristic is standard. The strongest QAP and TSP results come from adapter-specific modules
+(\texttt{qap\_tabu.py} and \texttt{tsp\_lk.py}), not from the generic engine. A generic-framework
+experiment remains open.
+
+The QAP median of 0\% is dominated by small instances; the mean and tail are the honest summary. The
+large-QAP SciPy baseline is weak and mixed. The TSP ILK result is four instances; the 78-instance
+panel uses nearest-neighbour starts and a different experiment. The internal TSP path does not scale
+to the largest TSPLIB tail; external LKH is the strong path there. The applied case is public-data, not
+partner-endorsed.
+
+Patience is a plateau rule, not global optimality. LKH is external and research-use. The evidence
+release and tag remain pending. No state-of-the-art or universal-dominance claim is made.
+
+\section{Conclusion}
+
+Fresh Solutions provides a reproducible benchmark harness and adapter boundary, with two reference
+metaheuristic implementations and exact replay. It is useful today for small and medium QAP/TSP work
+and for building applied cases. It is not yet a general-framework experiment or a universal
+large-instance solver, and the paper says so.
+
+\section*{Data and code availability}
+QAPLIB and TSPLIB instances are public. The harness, reference implementations, and evidence are in
+the Fresh Solutions papers repository. The TSA24 artifact is available at
+\url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

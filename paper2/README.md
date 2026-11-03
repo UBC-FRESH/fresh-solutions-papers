@@ -5,6 +5,10 @@ evidence and draft. It is not a publication-grade campaign yet.
 
 Evidence release: Fresh Solutions **v0.8.0**.
 
+Working manuscript (LaTeX): `paper2-manuscript.tex`
+
+Compiled PDF: `paper2-manuscript.pdf`
+
 Draft: `paper2-draft.md` — **INTERNAL, NOT SUBMISSION-READY**.
 
 Convergence-controlled public-library evidence using the pinned Fresh Solutions submodule, the QAP
