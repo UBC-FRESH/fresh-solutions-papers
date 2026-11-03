@@ -1,6 +1,6 @@
-dataset=/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/build/compiled
-targets=/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml
-table=/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt
+dataset=<WORKSPACE>/femic/external/femic-tsa24-instance/build/compiled
+targets=<WORKSPACE>/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml
+table=<WORKSPACE>/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt
 generations=1000 population=64 seed=7
 accounts=product.HarvestedVolume.managed.Total.CC
 ╭───────────────────────────────── ws4 watch ──────────────────────────────────╮

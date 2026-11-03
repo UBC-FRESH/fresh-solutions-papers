@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from ws4.opt.engine import OptimizeConfig, Optimizer, load_schedule_csv
@@ -10,7 +11,7 @@ from ws4.opt.incremental import IncrementalObjective
 from ws4.opt.objective import load_targets
 
 HERE = Path(__file__).resolve().parent
-INSTANCE = Path("/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance")
+INSTANCE = Path(os.environ["TSA24_ROOT"])
 RECORD = json.loads((HERE / "record.json").read_text(encoding="utf-8"))
 TARGETS = INSTANCE / "config/ws4/targets/evenflow_tsa24.yaml"
 OPTIMIZER = Optimizer.from_dataset(

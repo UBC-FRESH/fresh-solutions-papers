@@ -23,5 +23,5 @@ reconstructable fixture, not a public dataset.
 Replay:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/ws4-gpu python evidence/ws4-tsa24-gpu-ga-1000-r7/replay.py
+PYTHONPATH="$WS4_GPU_ROOT" python evidence/ws4-tsa24-gpu-ga-1000-r7/replay.py
 ```

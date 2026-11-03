@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import statistics
 import sys
 import time
@@ -18,7 +19,7 @@ sys.path.insert(0, str(ROOT.parent / "fresh-solutions"))
 
 from fresh_solutions.adapters import QuadraticAssignment  # noqa: E402
 
-QAP_ROOT = Path("/srv/shared-data/gep/ws4/tmp/bench-inventory/qaplib/QAPLIB")
+QAP_ROOT = Path(os.environ.get("QAPLIB_ROOT", "benchmarks/qaplib/QAPLIB"))
 CASES = (
     ("esc128", 0.0),
     ("tai150b", 0.0),

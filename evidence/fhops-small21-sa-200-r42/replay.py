@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -18,7 +19,7 @@ from fhops.scenario.contract import Problem
 from fhops.scenario.io import load_scenario
 
 HERE = Path(__file__).resolve().parent
-FHOPS = Path("/srv/shared-data/gep/ws4/fhops")
+FHOPS = Path(os.environ["FHOPS_ROOT"])
 RECORD = json.loads((HERE / "record.json").read_text(encoding="utf-8"))
 SCENARIO = load_scenario(str(FHOPS / "examples" / "small21" / "scenario.yaml"))
 PROBLEM = Problem.from_scenario(SCENARIO)

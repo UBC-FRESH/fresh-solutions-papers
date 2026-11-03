@@ -14,5 +14,5 @@ Scaled accelerated run on the full 208,255-block TSA24 landscape.
 Replay:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/ws4 python evidence/ws4-tsa24-gpu-ga-100000-r7/replay.py
+PYTHONPATH="$WS4_ROOT" python evidence/ws4-tsa24-gpu-ga-100000-r7/replay.py
 ```

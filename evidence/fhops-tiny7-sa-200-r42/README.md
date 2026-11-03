@@ -15,7 +15,7 @@ First P3 replayable benchmark record.
 Replay requires the FHOPS checkout and its dependencies:
 
 ```bash
-PYTHONPATH=/srv/shared-data/gep/ws4/fhops/src python evidence/fhops-tiny7-sa-200-r42/replay.py
+PYTHONPATH="$FHOPS_ROOT/src" python evidence/fhops-tiny7-sa-200-r42/replay.py
 ```
 
 This is a **baseline reproduction**, not a WS4-vs-FHOPS architecture comparison.

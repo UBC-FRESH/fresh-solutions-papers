@@ -1,8 +1,8 @@
 {
-  "cache_dir": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-cache",
-  "dataset": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/build/compiled",
+  "cache_dir": "<WORKSPACE>/femic/external/femic-tsa24-instance/runtime/gpu-cache",
+  "dataset": "<WORKSPACE>/femic/external/femic-tsa24-instance/build/compiled",
   "generations": 100000,
-  "out_dir": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g",
+  "out_dir": "<WORKSPACE>/tmp/ws4-tsa24-100000g",
   "population": 64,
   "runs": [
     {
@@ -11,7 +11,7 @@
       "evaluations": 6400064,
       "exact_match": false,
       "initial_objective": 1722144291.3366525,
-      "schedule": "/srv/shared-data/gep/ws4/tmp/ws4-tsa24-100000g/seed-7.csv",
+      "schedule": "<WORKSPACE>/tmp/ws4-tsa24-100000g/seed-7.csv",
       "search_s": 856.0962917470024,
       "seed": 7,
       "verified_objective": 517.8619818205188,
@@ -19,8 +19,8 @@
     }
   ],
   "session_build_s": 61.84635204199731,
-  "table": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt",
-  "targets": "/srv/shared-data/gep/ws4/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml",
+  "table": "<WORKSPACE>/femic/external/femic-tsa24-instance/runtime/gpu-effects/effects-lean.pt",
+  "targets": "<WORKSPACE>/femic/external/femic-tsa24-instance/config/ws4/targets/evenflow_tsa24.yaml",
   "total_s": 932.2110124940009,
   "years": 200
 }

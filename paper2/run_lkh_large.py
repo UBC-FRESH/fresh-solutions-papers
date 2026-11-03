@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT.parent / "fresh-solutions"))
 from fresh_solutions.adapters import TravellingSalesman  # noqa: E402
 from fresh_solutions.adapters.lkh import LkhConfig, run_lkh  # noqa: E402
 
-TSP_ROOT = Path("/srv/shared-data/gep/ws4/tmp/bench-inventory/tsplib")
+TSP_ROOT = Path(os.environ.get("TSPLIB_ROOT", "benchmarks/tsplib"))
 SEEDS = (1, 2, 3, 4, 5)
 
 
