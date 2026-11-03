@@ -1,4 +1,4 @@
-# Fresh Solutions: a reproducible adapter framework for applied metaheuristics
+# Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks
 
 Status: **INTERNAL DRAFT — NOT SUBMISSION-READY**
 Date: 2026-11-02
@@ -8,16 +8,15 @@ Date: 2026-11-02
 Applying metaheuristics to hard combinatorial problems is often slowed less by the
 choice of metaheuristic than by the engineering around it: problem-specific move
 representations, exact incremental state, replayable evidence, stopping rules, and
-benchmark bookkeeping are usually rebuilt for each project. Fresh Solutions is an
-adapter-based framework that separates those concerns from the search engine. We
-describe the architecture and evaluate it on QAPLIB and TSPLIB. The evidence is
-deliberately mixed: small and medium instances are strong, while large instances
-expose the limits of the current internal neighbourhoods. QAP robust tabu reaches
-a median gap of 0% on the converged subset; iterated Lin–Kernighan reaches a median
-gap of 0% on the converged TSP subset; external LKH remains substantially stronger
-on large TSP. We argue that the framework's contribution is reproducible,
-adapter-level application of known-good methods, not a universal state-of-the-art
-solver claim.
+benchmark bookkeeping are usually rebuilt for each project. Fresh Solutions
+provides an adapter contract and a reproducible benchmark harness for this work,
+together with two reference implementations: QAP robust tabu and TSP iterated
+Lin–Kernighan. We evaluate those references on QAPLIB and TSPLIB. The evidence is
+deliberately mixed: small and medium instances are strong, while large TSP
+exposes the limits of the internal neighbourhood and is handled by an optional
+external LKH backend. We do not claim that the generic engine has been tested as
+the source of the headline results; the contribution is the harness, the exact
+replay contract, and the reference adapters.
 
 ## 1. Introduction
 
@@ -26,14 +25,17 @@ reliable way to apply known methods to a new problem, preserve exact feasibility
 and objective accounting, and produce evidence that another person can replay.
 That work is repetitive and easy to get subtly wrong.
 
-Fresh Solutions is a response to that engineering problem. The framework provides:
+Fresh Solutions is a response to that engineering problem. The harness provides:
 
 - a problem-adapter contract;
 - exact resident state and reversible moves;
 - local, population, and hybrid search paths;
 - checkpointing and exact replay;
 - convergence and benchmark records;
-- public-library adapters for QAP, TSP, and graph colouring.
+- reference QAP and TSP adapters/neighbourhoods.
+
+The graph-colouring code is a contract toy, not a public benchmark adapter; it is
+not claimed as evidence.
 
 The benchmark programme asks a narrow question: can a user add a problem-specific
 neighbourhood and obtain credible, replayable evidence without rebuilding the
@@ -121,11 +123,13 @@ runs stopped on patience):
 | tai256c | 0.350% | 0.413% |
 | tho150 | 0.166% | 0.507% |
 
-This is a portfolio improvement over identity-start tabu. SciPy FAQ is an
-independent external baseline on the same instances. It wins on `tai150b`
-(1.861% vs 2.008%), but Fresh tabu wins on `esc128` (0.000% vs 12.500%),
-`tai256c` (0.350% vs 120.481%), and `tho150` (0.166% vs 1.523%). The result is
-mixed, not universal dominance.
+The best-of-five values are not a portfolio-improvement claim. Compared by mean,
+the multi-start results are worse on `esc128` (1.250% vs 0.000% identity best) and
+`tai150b` (2.976% vs 1.714–2.163% identity), and better on `tai256c` (0.413% vs
+0.452%) and `tho150` (0.507% vs 1.850–2.097%). SciPy FAQ is an independent external
+baseline: its mean is 1.861% on `tai150b` (better than Fresh mean 2.976%) and
+1.523% on `tho150` (worse than Fresh mean 0.507%). The result is mixed; no claim of
+universal dominance is made.
 
 ## 4. TSP evidence
 
@@ -150,18 +154,18 @@ quality-at-additional-cost; it is not an equal-budget ablation.
 
 ### 4.2 Broad TSP panel and the LKH boundary
 
-Across 78 TSPLIB instances with `n <= 1000`, 236/390 runs stopped on patience;
-183 hit the known optimum. The converged subset has median gap 0.000% and mean
-0.100%. The large-instance tail is weak: only 3/100 runs above `n=300` reached
-patience, and 97 hit the safety cap.
+The four-instance ILK experiment is the headline TSP evidence: 0.000% on three
+instances and 0.383% mean on `ch150`. Separately, a broader 78-instance panel with
+nearest-neighbour starts was run; it is summarised from a committed runner and is
+not the ILK experiment. On that panel, 236/390 runs stopped on patience and 183 hit
+the known optimum; the converged subset has median gap 0.000% and mean 0.100%.
+The large tail is weak: only 3/100 runs above `n=300` reached patience, and 97 hit
+the safety cap.
 
-External LKH on the same large tail reaches 71/100 optima, mean gap 0.092%,
-median 0%, worst 1.930%, at 4.88 s mean wall. LKH is optional external
-research-use software, not bundled and not claimed as Fresh Solutions' own
-heuristic.
-
-The honest conclusion is that the internal TSP path is a small/medium solver;
-large-TSP quality currently depends on LKH.
+External LKH, at its stated budget and configuration, reaches 71/100 optima, mean
+gap 0.092%, median 0%, worst 1.930%. LKH is optional external research-use
+software, not bundled and not claimed as Fresh Solutions' own heuristic. The
+comparison is capability-only, not matched-time.
 
 ## 5. Applied case
 
@@ -179,7 +183,7 @@ time-limited, not converged. No partner-impact claim is made.
 
 ## 6. Limitations
 
-1. The internal TSP path does not scale to the large TSPLIB tail.
+1. The internal TSP path does not scale to the large TSPLIB tail; the four-instance ILK result is the primary TSP evidence.
 2. Large-QAP has only a mixed SciPy FAQ independent baseline; it does not establish state-of-the-art performance.
 3. The QAP converged mean is pulled by a heavy tail; median alone is insufficient.
 4. The applied case is public-data, not partner-endorsed operational impact.
@@ -191,8 +195,8 @@ time-limited, not converged. No partner-impact claim is made.
 
 ## 7. Conclusion
 
-Fresh Solutions makes the application of known metaheuristic principles
-reproducible through a stable adapter boundary, exact replay, convergence
-records, and public benchmark evidence. It is useful today for small and medium
-QAP/TSP work and for building applied cases. It is not yet a universal
-large-instance solver, and the paper should say so.
+Fresh Solutions provides a reproducible benchmark harness and adapter boundary,
+with two reference metaheuristic implementations and exact replay. It is useful
+today for small and medium QAP/TSP work and for building applied cases. It is not
+yet a general-framework experiment or a universal large-instance solver, and the
+paper should say so.
