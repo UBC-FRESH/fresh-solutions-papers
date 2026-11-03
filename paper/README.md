@@ -1,6 +1,12 @@
 # Paper 1
 
-Working manuscript: `paper1-manuscript.md`
+Working manuscript (LaTeX): `paper1-manuscript.tex`
+
+Markdown working copy: `paper1-manuscript.md`
+
+Bibliography: `paper/references.bib`
+
+Compile with `pdflatex`/`bibtex` twice; the target journal class is not yet applied.
 
 Draft: `paper1-draft.md`
 
