@@ -1,5 +1,7 @@
 # Paper 1
 
+Working manuscript: `paper1-manuscript.md`
+
 Draft: `paper1-draft.md`
 
 Evidence table: `paper/tables/evidence.md`

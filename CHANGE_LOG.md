@@ -260,3 +260,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added LKH version/commit/binary hash provenance sidecar.
 - Added Paper 1/Paper 2 evidence release candidate notes; no tags created.
 - TSA24 public artifact now has a benchmark artifact and GPU rebuild recipe in the instance repo.
+
+### Paper 1 working manuscript started
+
+- Added `notes/reports/manuscript-plan-2026-11-03.md` with journal targets, evidence gates, outlines, and reviewer risks.
+- Added `paper/paper1-manuscript.md` with a full Introduction and Related Work, verified citations, and section/evidence plan.
+- Draft remains a working manuscript; results sections are pending.
