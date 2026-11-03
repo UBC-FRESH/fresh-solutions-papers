@@ -5,7 +5,7 @@ evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`
 
-Compiled PDF: `paper2-manuscript.pdf` — 18 pages, 8,000 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 19 pages, 8,153 source words.
 
 Evidence release: Fresh Solutions **v0.8.0**.
 
