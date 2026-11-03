@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Validate a benchmark record and its exact-replay schedule hash."""
+"""Validate a benchmark record; optionally execute its objective replay."""
 
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import math
+import os
+import subprocess
+import sys
 from pathlib import Path
 from typing import Any, cast
 
@@ -74,13 +78,50 @@ def resolve_schedule(record_path: Path, schedule_path: str, root: Path | None) -
     return (root if root is not None else record_path.parent) / path
 
 
+def _replay_objective(record_path: Path, record: dict[str, Any]) -> float:
+    """Execute the adjacent replay.py and return its objective."""
+    replay = record_path.parent / "replay.py"
+    if not replay.is_file():
+        raise ValueError(f"replay.py does not exist: {replay}")
+    environment = os.environ.copy()
+    paths = [environment.get("PYTHONPATH", "")]
+    ws4_root = environment.get("WS4_ROOT", "/srv/shared-data/gep/ws4/ws4")
+    fhops_root = environment.get("FHOPS_ROOT", "/srv/shared-data/gep/ws4/fhops")
+    paths.extend([ws4_root, str(Path(fhops_root) / "src")])
+    environment["PYTHONPATH"] = os.pathsep.join(path for path in paths if path)
+    try:
+        completed = subprocess.run(
+            [sys.executable, str(replay.resolve())],
+            cwd=record_path.parent,
+            capture_output=True,
+            text=True,
+            env=environment,
+            timeout=900,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as error:
+        raise ValueError(f"replay execution failed: {error}") from error
+    if completed.returncode != 0:
+        raise ValueError(f"replay exited with {completed.returncode}: {completed.stderr.strip()}")
+    try:
+        replay_payload = json.loads(completed.stdout)
+        objective = replay_payload["objective"]
+    except (json.JSONDecodeError, KeyError, TypeError) as error:
+        raise ValueError("replay did not emit an objective JSON object") from error
+    expected = float(record["result"]["objective"])
+    if not math.isclose(float(objective), expected, rel_tol=1e-9, abs_tol=1e-5):
+        raise ValueError(f"replay objective {objective} does not match recorded {expected}")
+    return float(objective)
+
+
 def validate_record(
     record_path: Path,
     *,
     schedule_root: Path | None = None,
     schema_path: Path = DEFAULT_SCHEMA,
+    replay: bool = False,
 ) -> dict[str, Any]:
-    """Validate one record against the schema and replay hash gate.
+    """Validate one record against the schema and hash; optionally replay it.
 
     Parameters
     ----------
@@ -90,6 +131,9 @@ def validate_record(
         Root for relative schedule paths.
     schema_path : Path, optional
         JSON schema path.
+    replay : bool, optional
+        Execute the adjacent ``replay.py`` and compare its objective. Defaults
+        to False.
 
     Returns
     -------
@@ -115,6 +159,8 @@ def validate_record(
     digest = sha256_file(schedule)
     if digest != result["schedule_sha256"]:
         raise ValueError("schedule hash does not match result.schedule_sha256")
+    if replay:
+        _replay_objective(record_path, payload)
     return payload
 
 
@@ -135,12 +181,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("record", type=Path, help="Benchmark record JSON")
     parser.add_argument("--schedule-root", type=Path, default=None)
     parser.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
+    parser.add_argument(
+        "--replay",
+        action="store_true",
+        help="execute the adjacent replay.py and compare its objective",
+    )
     args = parser.parse_args(argv)
     try:
         record = validate_record(
             args.record,
             schedule_root=args.schedule_root,
             schema_path=args.schema,
+            replay=args.replay,
         )
     except (OSError, ValueError, json.JSONDecodeError) as error:
         print(f"INVALID: {error}")
