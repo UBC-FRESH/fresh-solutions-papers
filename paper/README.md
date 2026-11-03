@@ -2,7 +2,7 @@
 
 Working manuscript (LaTeX): `paper1-manuscript.tex`
 
-Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,000 source words, 40 references, 5 figures.
+Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,014 source words, 40 references, 5 figures.
 
 Bibliography: `paper/references.bib`
 
