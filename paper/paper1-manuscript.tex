@@ -197,24 +197,198 @@ Every reported schedule is stored as a complete block/treatment/offset assignmen
 
 The architecture therefore has two levels of reproducibility. The search is reproducible from its configuration and seed for a fixed implementation, and the reported result is independently replayable from the stored schedule even if the search process is not rerun. The second property is the one the paper relies on for its tables.
 
-\section{Experimental design}\label{experimental-design}
+\subsection{Instance and target}
 
-\section{Experimental design}\label{experimental-design-1}
+All experiments use the frozen TSA24/Prince George artifact described in
+Section~3. The compiled dataset contains 458,708 blocks; 208,255 are operable and
+form the search universe. The horizon is 200 years, divided into twenty 10-year
+periods. The target combines a weight-10,000 even-flow band with weight-100 level
+aspirations of 70,000,000~m\textsuperscript{3} per period. The level aspiration is deliberately
+unattainable. It is a pull-up gradient, not a feasibility constraint.
 
-This section will define the hardware, seeds, budgets, stopping rules, baselines, and metrics. The CPU-SA baseline will be labelled as an untuned secondary comparator, not a controlled performance proof.
+\subsection{Hardware and software}
+
+The GPU runs used an NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+(97,887~MiB) with an Intel Xeon Gold 6254 CPU at 3.10~GHz. The software was
+Python~3.12.3, PyTorch, and WS4 at commit \texttt{f60ce64} on the
+\texttt{feature/gpu-acceleration} branch. The CPU baseline used WS4 main at
+\texttt{f23d450} with 32 threads. The public artifact and its rebuild recipe are
+released separately; the large GPU effect table and caches are not part of the
+4.5~MB artifact.
+
+\subsection{Search configurations}
+
+The GPU population size was 64. We report three budgets: 1,000, 10,000, and
+100,000 generations. The 1,000- and 10,000-generation runs use seed~7 and
+correspond to the earlier architecture and scaling records. The
+100,000-generation campaign uses seeds 1--5; seed~7 is retained as a reference
+run. Every GPU run starts from the same oldest-first feasible seed. The initial
+objective is 1,722,144,291.336651.
+
+The CPU baseline is simulated annealing at 100,000 iterations with a nominal
+30-minute limit and 32 threads, using the same instance, target, and seed. It is a
+secondary, untuned comparator. It performs 100,000 single proposals, whereas the
+GPU-GA path evaluates a population of 64 for 100,000 generations (6.4 million
+genome evaluations). The two budgets are therefore not equal-work or equal-time,
+and the comparison is reported only to show the scale of the gap.
+
+\subsection{Metrics and replay}
+
+The primary metric is the weighted objective. We also report the flow and
+level components separately, the realized harvest-level range, search time, wall
+time, and seed distribution. Every reported schedule is replayed through the
+exact CPU \texttt{IncrementalObjective}; the recorded objective is the replay
+objective, not the device objective. A record with a mismatched schedule hash or
+replay objective is not evidence.
+
+We do not report an architecture ablation in this version. In particular, the
+current records do not isolate the effect-table path from a direct evaluator, or
+GPU batched evaluation from CPU batched evaluation at the same population and
+generation count. Those measurements are required before the architecture claim
+can be separated from a straightforward implementation-speed claim.
 
 \section{Results}\label{results}
 
-This section will report the 1k/10k/100k scaling curve, the five-seed 100k distribution, the flow/level residual decomposition, the realized harvest profile, and the architecture ablation. It will not describe the 517.86 penalty as ``near zero.''
+\subsection{Scaling from 1,000 to 100,000 generations}
+
+Table~\ref{tab:scaling} reports the seed-7 runs at the three budgets. The
+1,000-generation run reduced the objective from 1,722,144,291.336651 to
+8,588,725.370498 in 9.381~s of search time (23.13~s wall). The
+10,000-generation run reached 76,540.740733 in 89.78~s search (157.34~s wall).
+The 100,000-generation run reached 517.861982 in 856.10~s search
+(941.51~s wall). The 100,000-generation result is not a near-zero objective: the
+flow term is small, but the deliberate level-aspiration term remains.
+
+\begin{table}[t]
+\centering
+\caption{Seed-7 scaling on the frozen TSA24 instance. Wall time includes model
+and cache setup; search time is the GPU search budget.}
+\label{tab:scaling}
+\small
+\begin{tabular}{rrrrr}
+\toprule
+Generations & Objective & Flow term & Level term & Search / wall (s) \\
+\midrule
+1,000 & 8,588,725.370 & 8,588,225.550 & 499.821 & 9.38 / 23.13 \\
+10,000 & 76,540.741 & 76,026.909 & 513.832 & 89.78 / 157.34 \\
+100,000 & 517.862 & 2.721 & 515.141 & 856.10 / 941.51 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Five-seed 100,000-generation campaign}
+
+Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations.
+The objectives are tightly clustered: the best seed is 512.574, the worst is
+518.621, the mean is 515.682, and the median is 515.938. Seed~7, at 517.862, lies
+inside the same range. All five schedules replay exactly. The campaign took
+4,004.77~s wall for all five runs.
+
+\begin{table}[t]
+\centering
+\caption{Five-seed 100,000-generation campaign. All objectives are exact CPU
+replays.}
+\label{tab:seeds}
+\small
+\begin{tabular}{rrrrr}
+\toprule
+Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{3}/period) \\
+\midrule
+1 & 518.621 & 1.331 & 517.290 & 51.21--52.25 \\
+2 & 512.574 & 0.000 & 512.574 & 51.46--52.49 \\
+3 & 515.938 & 0.000 & 515.938 & 51.31--52.32 \\
+4 & 514.746 & 0.000 & 514.746 & 51.34--52.35 \\
+5 & 516.530 & 0.076 & 516.454 & 51.26--52.29 \\
+7 & 517.862 & 2.721 & 515.141 & 51.34--52.38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The realized level is approximately 51.3--52.4M~m\textsuperscript{3} per
+10-year period against the 70M aspiration. The level term is therefore the
+dominant part of the final objective, not a residual that the search failed to
+remove. The even-flow term falls from 8.59M at 1,000 generations to 2.72 at
+100,000 generations; the level term remains near 500--515 because the target is
+deliberately above the achievable level. This is the expected maximum-even-flow
+behaviour of the target construction.
+
+\subsection{CPU simulated-annealing comparator}
+
+The CPU simulated-annealing run reached 335,044,976.675435 in 1,875.12~s wall
+and stopped at the time limit after 100,000 iterations. It is not converged and
+not a controlled baseline. Its objective is far above the GPU-GA results in
+Table~\ref{tab:scaling}. We do not interpret this as a universal architecture
+win: the CPU run is untuned, single-seed, and performs much less work than the
+GPU population. It is reported to keep the comparison honest and to show that
+the CPU-SA path is not a substitute for the accelerated search in this setting.
+
+\subsection{What the results establish}
+
+The results establish four things. First, the compiled-state pipeline can run a
+208,255-operable-block instance at a 100,000-generation GPU budget and produce an
+exact, replayable schedule. Second, the seed distribution at that budget is
+tight on this instance. Third, the maximum-even-flow construction produces a
+flat profile at a level substantially below the aspirational 70M target; the
+remaining level penalty is intentional. Fourth, the CPU-SA comparator is weak
+and does not support a controlled performance claim.
+
+The results do not establish that the GPU path is faster per unit of exact work
+than a tuned CPU implementation, that the architecture is the cause of the
+observed quality, or that the final schedule is optimal. Those questions require
+the architecture ablation and matched CPU-GA/CPU-SA experiments described in
+the limitations.
 
 \section{Discussion}\label{discussion}
 
-This section will separate what the architecture makes possible from what the current evidence does not establish: independent model performance, operational impact, and global optimality.
+The architecture addresses a practical failure mode in applied landscape
+optimisation: the model, the accounting state, and the search move are often
+rebuilt together. Separating them has three consequences. The compiled dataset
+can be versioned and reused. A move can be priced exactly from a sparse effect
+row. The resident state can be replayed independently of the search process.
+These properties are valuable even when the search itself is a standard
+metaheuristic.
+
+The maximum-even-flow construction is a good example of why exact accounting
+matters. The objective is not a single harvest target. It is a weighted
+compromise between a shape target and deliberately unattainable level
+aspirations. A search that treats the level target as a hard floor would
+misread the model; a search that ignores the level term would stop at a lower
+flat profile. The target design requires both terms to remain visible. The
+reported residual table is therefore part of the result, not an implementation
+diagnostic.
+
+The GPU/CPU handoff is an engineering compromise. The GPU path provides
+population-scale exploration; the CPU path provides exact state and local
+refinement. The present experiments show that the combined path can reach a
+tight seed distribution at 100,000 generations on the TSA24 instance. They do
+not isolate the contribution of the GPU search from the contribution of the
+compiled state or the target construction. That isolation is the next
+experimental step.
 
 \section{Limitations and conclusion}\label{limitations-and-conclusion}
 
-The TSA24 instance is a public frozen artifact, but there is no independent model baseline. The 100,000-generation result is a maximum even-flow compromise, not a proof of the exact maximum. The CPU-SA comparator is weak and time-limited. The architecture is the contribution; the competitive landscape claim remains open.
+The TSA24 instance is a public frozen artifact derived from public BC data, but
+there is no independent harvest-scheduling model baseline on the same instance.
+The paper cannot claim competitive landscape performance, state-of-the-art
+quality, or partner-endorsed operational impact.
 
+The 100,000-generation result is a maximum-even-flow compromise, not a proof of
+the exact maximum. The 70M level aspiration is deliberately unattainable; the
+realized level is approximately 51.3--52.4M~m\textsuperscript{3} per period. An
+exact MIP proof is not practical at this scale with the available resources.
+
+The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
+It is not a controlled baseline. The architecture ablation is not yet reported:
+we have not isolated the effect table, candidate index, resident state, or GPU
+batch from a direct implementation at matched work. Those ablations are required
+before the architecture claim can be separated from an implementation-speed
+claim.
+
+Within those limits, the paper supports a narrower conclusion: a compiled-state
+architecture can make a 208,255-block landscape search exact, replayable, and
+fast enough for a 100,000-generation GPU campaign, and a public artifact makes
+the result independently inspectable. That is the contribution. The competitive
+landscape claim remains open.
 
 \section*{Data and code availability}
 The TSA24 benchmark artifact is available at
