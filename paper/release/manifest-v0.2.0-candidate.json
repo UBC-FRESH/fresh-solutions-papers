@@ -1,0 +1,25 @@
+{
+  "candidate": "paper1-evidence-v0.2.0",
+  "draft": {
+    "path": "paper/paper1-draft.md",
+    "sha256": "de4ad4263dcc3cd37bf79080316bd08392e4a1cf24072badb9c3c2c811932b93"
+  },
+  "table": {
+    "path": "paper/tables/evidence.md",
+    "sha256": "0994545a380dc23766b392dfb243a35f8edefd6e8cae6afe1d724271689d79ba"
+  },
+  "artifact": "https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1",
+  "artifact_recipe": "https://github.com/UBC-FRESH/femic-tsa24-instance/blob/main/BENCHMARK_ARTIFACT.md",
+  "records": {
+    "ws4-tsa24-cpu-sa-100000-r7": "b0bec0fb23de04ab80448550c88142c13a192486f2f4a4f12895f08a747c041d",
+    "ws4-tsa24-gpu-ga-1000-r7": "1c5ff137d46ea1572ccca6db84970e4fa871ae8fbf249d2c90a11d299aa7504a",
+    "ws4-tsa24-gpu-ga-10000-r7": "181f91771fe09b1906f7a19096d3a9dfb92a5ee989fd42cc9f3825a2e25c8f2c",
+    "ws4-tsa24-gpu-ga-100000-r1": "bb91c83836c1e7c8d832fd553810ed2f50a2ad04c0fd9b3d2594d099f3390616",
+    "ws4-tsa24-gpu-ga-100000-r2": "a40270ea44750881423789b9e08b3751c76d7b2333dd51aff6455d89bd67bc67",
+    "ws4-tsa24-gpu-ga-100000-r3": "248fdbccab112f2a6128fb617616c054b0db6327bbce3193cb2d895291fa6794",
+    "ws4-tsa24-gpu-ga-100000-r4": "141a38606fd933b5dce39fbfe1a972afd81528dc66bb4791e600619637df30bf",
+    "ws4-tsa24-gpu-ga-100000-r5": "b351c4b00506278d1e8f7e3df964d8d64eca46f47710265caa101ee3053ad32c",
+    "ws4-tsa24-gpu-ga-100000-r7": "3bfdab04f44646f5d5551d7ff33b535e0c76985b161b9b2f6c56ddb0491a967b"
+  },
+  "status": "candidate; no tag/release created"
+}

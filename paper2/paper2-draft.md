@@ -1,7 +1,7 @@
 # Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks
 
 Status: **INTERNAL DRAFT — NOT SUBMISSION-READY**
-Date: 2026-11-02
+Date: 2026-11-03
 
 ## Abstract
 
