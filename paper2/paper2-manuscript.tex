@@ -32,8 +32,9 @@ the full distribution, including failures. We also run a framework-use check: th
 is reproduced with the incumbent held in the engine's resident-state contract. On 40 runs across four
 QAPLIB instances, all runs stopped on the same 100,000-iteration plateau rule under a 1,000,000
 iteration cap, all framework objectives matched the standalone and production objectives exactly, and
-all incumbents replayed exactly. The framework path cost 1.24 times the CPU time of the private-array delta path (95\% CI
-1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
+all incumbents replayed exactly. A separate 20-instance QAPLIB panel, ten seeds per instance, also
+stopped on patience and replayed exactly; its mean gap was 0.274\%. The framework path cost 1.24 times
+the CPU time of the private-array delta path (95\% CI 1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
 the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
 \end{abstract}
@@ -646,6 +647,13 @@ Instance & n & Mean gap & Worst gap & Patience & Optima \\
 The expanded panel is still not QAPLIB. It is a 20-instance convergence test, not a state-of-the-art
 benchmark. Its value is that it fixes the denominator and shows the same instruction as the
 four-instance panel: plateau stopping changes the reported gaps, and the hard tail remains visible.
+
+SciPy FAQ is the only independent baseline on this expanded panel. With the same five seeds and
+\texttt{maxiter=10000}, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
+\texttt{chr12a} outlier dominates the mean. The tabu panel is not an equal-time comparison with SciPy:
+SciPy is much faster, and the point is that the convergence protocol and the gap distribution are not
+interchangeable. A stronger published QAP heuristic remains future work, and the paper does not claim
+that robust tabu is state-of-the-art.
 
 \begin{figure}[t]
 \centering

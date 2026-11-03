@@ -111,6 +111,21 @@
     },
     "paper2/make_figures.py": {
       "sha256": "70f12b844686b9a95a1aa0884528d519aa81fda1be3cc68b848088a9f2150b22"
+    },
+    "paper2/evidence/qap-scipy-expanded.json": {
+      "sha256": "719a26d5887e451af1510eb968df46ec4c4ab91f3e33ac86370d32159caacde1"
+    },
+    "paper2/evidence/qap-scipy-expanded-summary.json": {
+      "sha256": "d23e7b6e3735d493db386e8cd2f038f7021039b41407f45d726f2f4b50b203f2"
+    },
+    "paper2/run_qap_scipy_expanded.py": {
+      "sha256": "55568990bf50846d8c02647349ff82be503599eadec63fe9b7a21a3052e589d3"
+    },
+    "paper2/evidence/qap-expanded-100k.json": {
+      "sha256": "e91599f4c0613600aa2dd5fef460bc63e41d57d69f19bcfc37411af9798cba53"
+    },
+    "paper2/evidence/qap-expanded-100k-summary.json": {
+      "sha256": "3de3a7d15c4bb6d96e3641e0c5c5686dabd558463f6526a3a05677a24f7587eb"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",

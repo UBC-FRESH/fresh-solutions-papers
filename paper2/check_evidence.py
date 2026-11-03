@@ -17,6 +17,7 @@ from fresh_solutions.engine import ResidentAssignment  # noqa: E402
 PROVENANCE = ROOT / "evidence" / "provenance-2026-11-03.json"
 FRAMEWORK = ROOT / "evidence" / "framework-use.json"
 TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
+QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
 
@@ -120,6 +121,17 @@ def main() -> int:
     framework = json.loads(FRAMEWORK.read_text(encoding="utf-8"))
     require(framework, ("qap", "qap_summary", "workers", "patience", "max_iterations"), "framework")
     qap_checked = replay_qap(framework["qap"])
+    expanded = json.loads(QAP_EXPANDED.read_text(encoding="utf-8"))
+    if len(expanded) != 100:
+        raise SystemExit(f"expanded QAP panel has {len(expanded)} records, expected 100")
+    for row in expanded:
+        require(
+            row,
+            ("instance", "seed", "objective", "optimality_gap_percent", "exact_replay"),
+            "qap-expanded",
+        )
+        if not bool(row["exact_replay"]):
+            raise SystemExit(f"expanded QAP record not exact: {row['instance']}")
     tsp_rows = json.loads(TSP.read_text(encoding="utf-8"))
     tsp_checked = replay_tsp(tsp_rows)
     with gzip.open(BROAD, "rt", encoding="utf-8") as handle:

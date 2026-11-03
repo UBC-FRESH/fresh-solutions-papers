@@ -28,11 +28,11 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "24415bbd0dcea9663cd92c73b05ae0f6ed1675540ef02460f59efa37b77ffcdb"
+    "sha256": "c88ff00d6f6c99e71ce8a8ac53ba99763c0cac1d56bc7c9aab7c1dbfcfa50c90"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "465f9cf73dccd4ad862f82f61fff5ba914fab59f221e71264c5e6035c0ef89de"
+    "sha256": "6bc2e74186ce6460e64e183cfdfd719df58b5628515d176ea8d68b05fff20180"
   },
   "references": {
     "path": "paper/references.bib",

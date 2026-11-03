@@ -1,0 +1,182 @@
+[
+  {
+    "instance": "tai12a",
+    "runs": 5,
+    "mean_gap_percent": 9.026094396121488,
+    "median_gap_percent": 9.026094396121488,
+    "worst_gap_percent": 9.026094396121488,
+    "best_gap_percent": 9.026094396121488,
+    "mean_wall_seconds": 0.0010175621951930224
+  },
+  {
+    "instance": "tai20a",
+    "runs": 5,
+    "mean_gap_percent": 4.642336264467321,
+    "median_gap_percent": 4.642336264467321,
+    "worst_gap_percent": 4.642336264467321,
+    "best_gap_percent": 4.642336264467321,
+    "mean_wall_seconds": 0.0024352905980776995
+  },
+  {
+    "instance": "tai25a",
+    "runs": 5,
+    "mean_gap_percent": 4.474425490209517,
+    "median_gap_percent": 4.474425490209517,
+    "worst_gap_percent": 4.474425490209517,
+    "best_gap_percent": 4.474425490209517,
+    "mean_wall_seconds": 0.003975764795904979
+  },
+  {
+    "instance": "tai30a",
+    "runs": 5,
+    "mean_gap_percent": 2.2887050874902237,
+    "median_gap_percent": 2.2887050874902237,
+    "worst_gap_percent": 2.2887050874902237,
+    "best_gap_percent": 2.2887050874902237,
+    "mean_wall_seconds": 0.005548913398524746
+  },
+  {
+    "instance": "tai35a",
+    "runs": 5,
+    "mean_gap_percent": 3.8898398927829128,
+    "median_gap_percent": 3.8898398927829128,
+    "worst_gap_percent": 3.8898398927829128,
+    "best_gap_percent": 3.8898398927829128,
+    "mean_wall_seconds": 0.004702721402281895
+  },
+  {
+    "instance": "tai40a",
+    "runs": 5,
+    "mean_gap_percent": 2.810818731146695,
+    "median_gap_percent": 2.810818731146695,
+    "worst_gap_percent": 2.810818731146695,
+    "best_gap_percent": 2.810818731146695,
+    "mean_wall_seconds": 0.004893416806589812
+  },
+  {
+    "instance": "tai50a",
+    "runs": 5,
+    "mean_gap_percent": 2.0634988770542457,
+    "median_gap_percent": 2.0634988770542457,
+    "worst_gap_percent": 2.0634988770542457,
+    "best_gap_percent": 2.0634988770542457,
+    "mean_wall_seconds": 0.011920247203670442
+  },
+  {
+    "instance": "bur26a",
+    "runs": 5,
+    "mean_gap_percent": 0.16076157201377642,
+    "median_gap_percent": 0.16076157201377642,
+    "worst_gap_percent": 0.16076157201377642,
+    "best_gap_percent": 0.16076157201377642,
+    "mean_wall_seconds": 0.002642903005471453
+  },
+  {
+    "instance": "bur26b",
+    "runs": 5,
+    "mean_gap_percent": 0.23285344743588804,
+    "median_gap_percent": 0.23285344743588804,
+    "worst_gap_percent": 0.23285344743588804,
+    "best_gap_percent": 0.23285344743588804,
+    "mean_wall_seconds": 0.0018844045989681035
+  },
+  {
+    "instance": "bur26c",
+    "runs": 5,
+    "mean_gap_percent": 0.44750170220175994,
+    "median_gap_percent": 0.44750170220175994,
+    "worst_gap_percent": 0.44750170220175994,
+    "best_gap_percent": 0.44750170220175994,
+    "mean_wall_seconds": 0.002863057202193886
+  },
+  {
+    "instance": "bur26d",
+    "runs": 5,
+    "mean_gap_percent": 0.04828294591394121,
+    "median_gap_percent": 0.04828294591394121,
+    "worst_gap_percent": 0.04828294591394121,
+    "best_gap_percent": 0.04828294591394121,
+    "mean_wall_seconds": 0.0023848439974244683
+  },
+  {
+    "instance": "bur26e",
+    "runs": 5,
+    "mean_gap_percent": 0.22198382402871866,
+    "median_gap_percent": 0.22198382402871866,
+    "worst_gap_percent": 0.22198382402871866,
+    "best_gap_percent": 0.22198382402871866,
+    "mean_wall_seconds": 0.0022569453925825656
+  },
+  {
+    "instance": "bur26f",
+    "runs": 5,
+    "mean_gap_percent": 0.12636024329701082,
+    "median_gap_percent": 0.12636024329701082,
+    "worst_gap_percent": 0.12636024329701082,
+    "best_gap_percent": 0.12636024329701082,
+    "mean_wall_seconds": 0.001774864608887583
+  },
+  {
+    "instance": "bur26g",
+    "runs": 5,
+    "mean_gap_percent": 0.302574672052625,
+    "median_gap_percent": 0.302574672052625,
+    "worst_gap_percent": 0.302574672052625,
+    "best_gap_percent": 0.302574672052625,
+    "mean_wall_seconds": 0.001912993792211637
+  },
+  {
+    "instance": "bur26h",
+    "runs": 5,
+    "mean_gap_percent": 0.32182139215609484,
+    "median_gap_percent": 0.32182139215609484,
+    "worst_gap_percent": 0.32182139215609484,
+    "best_gap_percent": 0.32182139215609484,
+    "mean_wall_seconds": 0.00226699520717375
+  },
+  {
+    "instance": "chr12a",
+    "runs": 5,
+    "mean_gap_percent": 246.3358458961474,
+    "median_gap_percent": 246.3358458961474,
+    "worst_gap_percent": 246.3358458961474,
+    "best_gap_percent": 246.3358458961474,
+    "mean_wall_seconds": 0.0014669712050817906
+  },
+  {
+    "instance": "chr15a",
+    "runs": 5,
+    "mean_gap_percent": 98.1002425222312,
+    "median_gap_percent": 98.1002425222312,
+    "worst_gap_percent": 98.1002425222312,
+    "best_gap_percent": 98.1002425222312,
+    "mean_wall_seconds": 0.0019332901923917235
+  },
+  {
+    "instance": "chr18a",
+    "runs": 5,
+    "mean_gap_percent": 39.12416651648946,
+    "median_gap_percent": 39.12416651648946,
+    "worst_gap_percent": 39.12416651648946,
+    "best_gap_percent": 39.12416651648946,
+    "mean_wall_seconds": 0.001003640203271061
+  },
+  {
+    "instance": "chr20a",
+    "runs": 5,
+    "mean_gap_percent": 49.36131386861314,
+    "median_gap_percent": 49.36131386861314,
+    "worst_gap_percent": 49.36131386861314,
+    "best_gap_percent": 49.36131386861314,
+    "mean_wall_seconds": 0.0020436645951122045
+  },
+  {
+    "instance": "chr22a",
+    "runs": 5,
+    "mean_gap_percent": 44.89928525016244,
+    "median_gap_percent": 44.89928525016244,
+    "worst_gap_percent": 44.89928525016244,
+    "best_gap_percent": 44.89928525016244,
+    "mean_wall_seconds": 0.0023066597932484
+  }
+]

@@ -5,6 +5,10 @@ evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`
 
+Target: **Journal of Heuristics** for the harness/reference-adapter contribution. Fallback:
+**SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
+current evidence.
+
 Compiled PDF: `paper2-manuscript.pdf` — 22 pages, 8,441 source words.
 
 Evidence release: Fresh Solutions **v0.8.0**.
@@ -64,7 +68,8 @@ python3 paper2/broad_summary.py
 
 Expanded convergence panel: 20 QAPLIB instances, five seeds, 100,000-iteration patience. All 100
 runs plateau-stopped and replayed exactly; mean gap 0.274%, worst 1.583%, 37/100 optima. See
-`evidence/qap-expanded-100k.json`.
+`evidence/qap-expanded-100k.json`. SciPy FAQ on the same panel: mean 25.44%, median 2.55%, worst
+246.34%.
 
 Final convergence panel: ten seeds, 100,000-iteration patience, 1,000,000-iteration cap. All 40 runs
 plateau-stopped and replayed exactly. The CPU ratio is the framework-managed path divided by the
