@@ -128,16 +128,168 @@ a large landscape experiment auditable even when the search itself is stochastic
 
 ## 3 Problem and model
 
-This section will define the TSA24 instance, the block/treatment schedule, the even-flow and
-level-aspiration targets, and the weighted goal-programming objective. It will state explicitly that
-the 70M level target is an aspiration rather than a hard floor, and will document the public artifact
-and its license.
+### 3.1 Instance
+
+The case study uses the TSA24/Prince George landscape compiled for WS4. The compiled dataset contains
+458,708 blocks; 208,255 of them have at least one operable treatment chain and therefore form the
+search universe. The horizon is 200 years, divided into twenty 10-year accounting periods. The model
+includes blocks, fragments, tracks, strata, treatments, growth and yield curves, features, products,
+and account definitions. The schedule assigns a treatment chain to each operable block. An empty
+chain is a valid decision: a block may be left untreated.
+
+The instance is frozen and published as `ws4-tsa24-evenflow-v1` with the compiled dataset, target
+file, initial schedule, license terms, and a checksum manifest. The artifact is a derived benchmark
+bundle; the raw BC source layers retain their own open-government terms.
+
+### 3.2 Even-flow target and level aspirations
+
+The objective is weighted goal programming. Each target contributes a one-sided penalty for falling
+below a minimum or exceeding a maximum:
+
+```text
+shortfall = max(minimum - value, 0)
+excess    = max(value - maximum, 0)
+term      = min_weight * shape(shortfall) + max_weight * shape(excess)
+```
+
+The shape is linear or quadratic. The target set is not a set of hard constraints. The names
+`minimum` and `maximum` name the hinge of the penalty, not a feasible interval.
+
+The TSA24 target has two roles. First, one even-flow target spans periods 1–20, compares each period
+with the reference period, and charges a squared deviation outside a ±1% band with weight 10,000.
+Second, every period carries a linear harvest-level target with aspiration 70,000,000 m³ per
+10-year period and weight 100. The level aspiration is deliberately above the level the estate is
+expected to achieve. It is a pull-up device: every period has a downward gradient toward more
+harvest, including periods that would otherwise be left underused. The even-flow target selects the
+flattest profile at the level where the two roles reach their best weighted compromise. The realized
+level is therefore an outcome, not a declared floor.
+
+This construction is the maximum-even-flow pattern documented for WS4. It is not an infeasibility
+error, and a large residual on the level term is not evidence that the target should be removed. It is
+the expected consequence of an aspirational target that creates a search gradient. The paper reports
+the split between the flow and level terms, the realized harvest level, and the target values so that
+a reader can inspect the compromise rather than infer it from a single total.
+
+### 3.3 Initial schedule and feasibility
+
+The initial schedule is the oldest-first seed from the public artifact. It is a valid block/treatment
+schedule and therefore a feasible starting point for the search, but it is not an optimized control.
+The initial objective is 1,722,144,291.336651. The very large initial penalty is dominated by
+even-flow deviations; the seed is a starting point chosen for reproducibility, not a baseline chosen
+to make the search look effective.
+
+The model has no hard spatial constraints in this run. The target residuals are soft, and the
+reported schedule is a compromise. The paper therefore distinguishes schedule validity from target
+satisfaction: the schedule is feasible, while the targets are aspirations.
+
+### 3.4 Objective and evaluation
+
+For a schedule `S`, let `v(S, p, a)` be the realized value of account `a` in period `p`. The
+objective is
+
+```text
+Z(S) = sum over targets t and periods p of term_t(v(S, p, a_t)).
+```
+
+The implementation evaluates this objective exactly. A search move may use a cached per-block
+contribution to price its effect, but the resident state is updated with the same accounting rules as
+the full evaluator. The reported objective is never an approximation produced by the search loop. This
+distinction is central to the evidence contract: a fast delta is allowed, but the incumbent must
+replay through the exact evaluator.
 
 ## 4 Architecture
 
-This section will describe the compiled model, candidate index, sparse effect table, resident exact
-state, hybrid GPU/CPU search, and the replay contract.
+### 4.1 Compiled model
 
+The compiled dataset is the boundary between ingestion and execution. It is a versioned directory of
+columnar tables plus a manifest. The tables describe fragments, blocks, tracks, strata, treatments,
+curves, features, products, accounts, groups, and compile diagnostics. The manifest records the
+schema version, source identities and hashes, compile options, and table list.
+
+Compilation happens at the fragment level; a block is a runtime aggregate of its fragments. The
+separation matters because fragments carry the inventory attributes, while the search and reporting
+interfaces operate on blocks. The search never reads the raw inventory or recompiles the recipe.
+
+### 4.2 Candidate index
+
+For each block, the candidate index stores the feasible treatment chains in a stable order. A chain is
+an ordered sequence of treatment events `(treatment, year)`. The order is part of the contract:
+candidate indices are referenced by the effect table and by the search, so changing the order changes
+the meaning of a cached effect.
+
+The index is built by walking track transitions from the block's initial state and applying the
+treatment eligibility and operability windows. It includes the empty chain. The index is deliberately
+smaller than the full cross-product of treatments and years, but it remains richer than a single
+“harvest/no harvest” decision. The search can toggle a chain, shift an event, swap chains between
+blocks, or apply a larger destroy-and-repair move.
+
+### 4.3 Sparse effect table
+
+A compiled landscape has many blocks and many target cells, but a single block/chain pair affects only
+a small number of `(year, account)` cells. The effect table stores, for each block and candidate
+chain, a sparse row of those cells and their values relative to the untreated block. The table also
+stores the empty-schedule base totals and block row starts.
+
+The representation makes evaluation local. A move on one block is priced by the cells that block's old
+and new chains touch, not by iterating over the whole schedule. The sparse rows are built once and
+cached; the table identity includes the dataset fingerprint, candidate order, target-cell geometry,
+horizon, period width, and table format version. A change to weights, priorities, or targets is a
+pricing change, not a table rebuild.
+
+### 4.4 Resident exact state
+
+The optimizer maintains a resident state of realized totals per `(year, account)`, together with the
+current chain assigned to each block. Applying a move adds the new chain's contribution and subtracts
+the old chain's contribution. Undo restores the previous state exactly. The state is authoritative:
+the search uses it for the objective, and the replay path reconstructs it from the schedule through
+the same evaluator.
+
+For a move on block `b` from chain `old` to chain `new`, the objective delta is
+
+```text
+dZ = sum over changed cells (year, account):
+       penalty(total[cell] - old[cell] + new[cell]) - penalty(total[cell]).
+```
+
+Because the penalty is separable across cells, this delta is exact. The cost is proportional to the
+number of cells the block touches, not to the number of blocks in the schedule. The implementation
+uses this identity in the local-search paths and retains a whole-schedule evaluator as a reference.
+
+### 4.5 GPU population search and CPU refinement
+
+The architecture separates breadth from exactness. A batched GPU population evaluates candidate-index
+genomes against the sparse effect table. The GPU path is used for population-scale exploration; it
+does not replace the exact accounting state. The CPU path loads an elite schedule into the exact
+resident state, applies local refinement moves, updates the objective by exact deltas, and writes the
+incumbent back as a GPU seed.
+
+The handoff is therefore:
+
+```text
+GPU population -> elite schedule
+               -> exact CPU state load
+               -> exact local refinement
+               -> exact replay
+               -> refined elite as GPU seed
+```
+
+This division is an engineering choice, not a claim that GPU search is universally better than CPU
+search. It allows the population to explore many candidate schedules while the exact evaluator remains
+the authority for the objective and the final schedule.
+
+### 4.6 Replay and provenance
+
+Every reported schedule is stored as a complete block/treatment/offset assignment. The record carries
+the objective, seed, configuration, hardware, software, schedule path, and SHA-256. Replay loads the
+schedule through the compiled model and exact evaluator and compares the resulting objective with the
+record. A record with a mismatched hash or objective is not evidence.
+
+The architecture therefore has two levels of reproducibility. The search is reproducible from its
+configuration and seed for a fixed implementation, and the reported result is independently replayable
+from the stored schedule even if the search process is not rerun. The second property is the one the
+paper relies on for its tables.
+
+## 5 Experimental design
 ## 5 Experimental design
 
 This section will define the hardware, seeds, budgets, stopping rules, baselines, and metrics. The
