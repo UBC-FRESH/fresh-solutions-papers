@@ -8,7 +8,7 @@ Draft: `paper2/paper2-draft.md`
 
 | Claim | Evidence | Status |
 | --- | --- | --- |
-| Adapter/replay framework is the contribution | `paper2/paper2-draft.md` architecture; contract tests | Supported |
+| Adapter/replay harness plus reference adapters is the contribution | `paper2/paper2-draft.md` architecture; contract tests | Supported after P11.3 reframe |
 | QAP certified means 0.000–0.685% | `qap-tabu-converged-summary.json` | Supported |
 | QAP broad median 0%, mean 1.823% | `broad-converged-summary.json` | Supported; heavy tail disclosed |
 | Large-QAP best 0.000–2.008% | `qap-multistart-converged.jsonl` | Supported |
@@ -34,9 +34,16 @@ Draft: `paper2/paper2-draft.md`
 - Replaced “large-QAP lacks an independent baseline” with “mixed SciPy baseline,
   no state-of-the-art claim.”
 
+## Post-reframe status
+
+Paper 2 is now a benchmark-harness and reference-adapters paper, not a general-framework paper. The
+broad runner is committed with provenance and separated parse errors. The four-instance ILK result is
+separate from the 78-instance panel. The large-QAP portfolio/SciPy comparison uses consistent mean
+statistics.
+
 ## Remaining submission blockers
 
-- Paper 2 has no independent model baseline and no TSPLIB/QAPLIB-wide campaign.
+- Paper 2 still needs final table/claim review and an evidence tag.
 - LKH is external and research-use; it cannot be presented as Fresh Solutions.
 - The applied case is public-data, not partner-endorsed.
-- The draft remains internal until the claims table is accepted.
+- No generic-engine framework-use experiment is claimed; the harness is the contribution.

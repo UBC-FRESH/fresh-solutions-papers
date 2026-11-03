@@ -1,14 +1,14 @@
 # Paper 2 internal engineering notes
 
-**DO NOT SUBMIT as publication evidence.** This directory contains smoke tests and benchmark-harness
-checks. The QAP/TSP results are not a publication-grade benchmark campaign.
+**DO NOT SUBMIT as publication evidence.** This directory contains the internal benchmark-harness
+evidence and draft. It is not a publication-grade campaign yet.
 
 Evidence release: Fresh Solutions **v0.8.0**.
 
 Draft: `paper2-draft.md` — **INTERNAL, NOT SUBMISSION-READY**.
 
-Convergence-controlled public-library evidence using Fresh Solutions v0.3.0, the v0.4.0 QAP
-robust-tabu campaign, and the P10.1 iterated Lin–Kernighan campaign.
+Convergence-controlled public-library evidence using the pinned Fresh Solutions submodule, the QAP
+robust-tabu campaign, the iterated Lin–Kernighan campaign, and the optional external LKH boundary.
 
 ## Instances
 
@@ -37,7 +37,7 @@ PYTHONPATH=fresh-solutions python paper2/replay_tsp_lk.py --input tsp-lk-ablatio
 Internal evidence: `paper2/evidence/converged.json`, `paper2/evidence/qap-tabu.json`, and
 `paper2/evidence/tsp-lk.json`.
 
-## QAP robust tabu — v0.4.0
+## QAP robust tabu
 
 Five seeds. The certified budget is the smallest budget whose next doubling improves the mean gap by
 ≤0.10 percentage points, or where every seed reaches the known optimum.
