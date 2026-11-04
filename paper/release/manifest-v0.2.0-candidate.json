@@ -21,9 +21,31 @@
     "ws4-tsa24-gpu-ga-100000-r5": "b351c4b00506278d1e8f7e3df964d8d64eca46f47710265caa101ee3053ad32c",
     "ws4-tsa24-gpu-ga-100000-r7": "3bfdab04f44646f5d5551d7ff33b535e0c76985b161b9b2f6c56ddb0491a967b"
   },
-  "status": "candidate; no tag/release created",
+  "status": "candidate; no tag/release created; public schedules/replay release pending",
   "evaluation_ablation": {
     "path": "evidence/ws4-tsa24-eval-ablation.json",
     "sha256": "242b1a4c9e863bbbdd6cae4911590767aef9ecbb0609fe42953c3bc9d9b4973a"
+  },
+  "manuscript": {
+    "path": "paper/paper1-manuscript.tex",
+    "sha256": "c88ff00d6f6c99e71ce8a8ac53ba99763c0cac1d56bc7c9aab7c1dbfcfa50c90"
+  },
+  "pdf": {
+    "path": "paper/paper1-manuscript.pdf",
+    "sha256": "6bc2e74186ce6460e64e183cfdfd719df58b5628515d176ea8d68b05fff20180"
+  },
+  "references": {
+    "path": "paper/references.bib",
+    "sha256": "50208c88acaf2fe71575e8d55836b1b479c0a50001bbbf40577a3848f46d869b"
+  },
+  "figures": {
+    "paper/figures/ablation.pdf": "a4e3116aac97656acb1628a328ae64e62260340e65afde5a788f5d8f582f24e5",
+    "paper/figures/realized-level.pdf": "abbeb4b84eed8e6b3101b96d8138eefbef7d24a97e47e1d1078f3df0ce264336",
+    "paper/figures/scaling.pdf": "8de298a3091a85bfe62a2de58cd404c68140183444fd12b9210eca0477a56d57",
+    "paper/figures/seed-terms.pdf": "6031ad3c0bd44c921095f2fdc1e181328dbdf6be529d301d2b012c5e491c672a"
+  },
+  "replay": {
+    "all_records": "paper/replay_all.sh",
+    "sha256": "a09f3da3ba58e2e9e8a3ae1c9cf0b4432cc30528af9430c6fa648a4919e8b71e"
   }
 }

@@ -283,3 +283,41 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Added a 5,000-block diagnostic ablation script and evidence.
 - Exact incremental delta+apply is 2,005x faster than warm whole-schedule evaluation; final objectives match to 3.7e-9.
 - Paper 1 reports the subset scope and the remaining GPU/CPU-batch gap.
+
+### P12.1 framework-use and TSP convergence evidence
+
+- Added a ten-seed QAP framework-use comparison with engine-managed resident state.
+- Final QAP run: 100k patience, 1M cap, 40/40 patience stops, 40/40 exact replays, 40/40 objective matches.
+- Framework CPU overhead 1.239x (95% CI 1.168-1.310) with alternating execution order.
+- Added convergence-controlled TSP evidence: 10k kicks, 1k patience, 20/20 patience stops, 20/20 optima, 20/20 exact replays.
+- Expanded Paper 2 to 18 pages and 8,000 source words; added framework-use, convergence, artifact, and limitation sections.
+- Added replay, sensitivity, table-generation, and manifest entries; no tag or release created.
+- Dashboard: lint, format, strict types, tests, validator, and docs all green.
+- P12.1 PR #77 opened with all checks green; no merge, tag, or release without approval.
+
+### P12.2 P0 claim and evidence corrections
+
+- Paper 1: replaced the false cell-separable delta with the target-level/period-vector identity; corrected the GPU-only 100k evidence wording; fixed wall time, realized level, level-term range, CPU commit/limit, and artifact-size claims; marked the schedules/replay release as pending.
+- Paper 2: corrected the 10k tai25a mean (0.786), esc8 record count, 20-kick pilot wording, TSP kick-cap label, Or-opt start labels, spatial-adapter claims, QAP double count, and license/availability statements.
+- Added a campaign-level provenance sidecar and a manuscript statement that the per-record schema is not yet uniformly populated.
+- Remaining blockers: public evidence/license release, per-record schema, broad-runner reconciliation, architecture ablation, and third-party adapter.
+
+### P12.3 Paper 2 evidence gate and broad-summary reconciliation
+
+- Added `paper2/check_evidence.py`: validates campaign provenance, replays 40 QAP and 20 TSP incumbents, and checks broad-panel fields.
+- Added `paper2/broad_summary.py`; regenerated the committed broad summary and verified byte-equivalent values.
+- Refactored `run_broad_converged.py` to use the canonical summarizer and write the list schema plus a provenance sidecar; converged counts now require `patience` only.
+- Corrected the Lockwood citation to Carey Lockwood and Tom Moore.
+- Added the evidence validator to the Paper 2 run instructions.
+
+
+## 2026-11-04
+
+### P12.5 pin the shared-kernel release
+
+- Moved the `fresh-solutions` submodule from `v0.8.0` (`1affc14`) to `v0.9.3` (`3aa241e`).
+- Updated the Paper 2 evidence release, benchmark version, and broad-run default to `v0.9.3`.
+- Replayed the evidence under `v0.9.3`: 40 QAP + 20 TSP incumbents, 60/60 exact; 1,085 broad
+  records and 7 summary rows validated.
+- Provenance now records both the campaign commit (`7d3c831`, v0.8.0) and the replay commit
+  (`3aa241e`, v0.9.3).

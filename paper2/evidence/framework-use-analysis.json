@@ -1,0 +1,118 @@
+{
+  "source": "evidence/framework-use.json",
+  "instances": [
+    {
+      "instance": "tai12a",
+      "runs": 10,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.0,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.0,
+      "mean_iterations": 100185.6,
+      "mean_baseline_wall_seconds": 20.173147612297907,
+      "mean_framework_wall_seconds": 26.60204353290901,
+      "mean_wall_overhead_ratio": 1.32080419415818,
+      "wall_overhead_ratio_ci95": [
+        1.28132541679338,
+        1.3578690444314634
+      ],
+      "mean_cpu_overhead_ratio": 1.3273723405078606,
+      "cpu_overhead_ratio_ci95": [
+        1.2792945516069336,
+        1.3730659213115182
+      ],
+      "all_patience_stops": true,
+      "all_quality_matches": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai20a",
+      "runs": 10,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.030420110251577155,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.30420110251577154,
+      "mean_iterations": 147748.4,
+      "mean_baseline_wall_seconds": 82.25034408049541,
+      "mean_framework_wall_seconds": 95.01418035069946,
+      "mean_wall_overhead_ratio": 1.1701482780843426,
+      "wall_overhead_ratio_ci95": [
+        1.1077649674439687,
+        1.233884297149806
+      ],
+      "mean_cpu_overhead_ratio": 1.1695563066568777,
+      "cpu_overhead_ratio_ci95": [
+        1.1123747537458755,
+        1.2284902070141617
+      ],
+      "all_patience_stops": true,
+      "all_quality_matches": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai25a",
+      "runs": 10,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.07674409041375671,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.4016256930784678,
+      "mean_iterations": 175610.6,
+      "mean_baseline_wall_seconds": 143.08207769090367,
+      "mean_framework_wall_seconds": 162.35576061620958,
+      "mean_wall_overhead_ratio": 1.1576373739009316,
+      "wall_overhead_ratio_ci95": [
+        1.0268606415111077,
+        1.2882755748659063
+      ],
+      "mean_cpu_overhead_ratio": 1.180589960117312,
+      "cpu_overhead_ratio_ci95": [
+        1.036300084412695,
+        1.324957012089556
+      ],
+      "all_patience_stops": true,
+      "all_quality_matches": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai30a",
+      "runs": 10,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.2447878223200997,
+      "median_gap_percent": 0.39138771033789366,
+      "worst_gap_percent": 0.4909396715115288,
+      "mean_iterations": 161045.6,
+      "mean_baseline_wall_seconds": 165.75735961360334,
+      "mean_framework_wall_seconds": 212.45307497190078,
+      "mean_wall_overhead_ratio": 1.2748185856279017,
+      "wall_overhead_ratio_ci95": [
+        1.069220051208327,
+        1.5008866582996259
+      ],
+      "mean_cpu_overhead_ratio": 1.2786583112881347,
+      "cpu_overhead_ratio_ci95": [
+        1.0648463929269094,
+        1.5070890159124213
+      ],
+      "all_patience_stops": true,
+      "all_quality_matches": true,
+      "all_exact_replays": true
+    }
+  ],
+  "overall": {
+    "runs": 40,
+    "mean_wall_overhead_ratio": 1.230852107942839,
+    "wall_overhead_ratio_ci95": [
+      1.1630449941894647,
+      1.3002965215979576
+    ],
+    "mean_cpu_overhead_ratio": 1.2390442296425461,
+    "cpu_overhead_ratio_ci95": [
+      1.1683346654102247,
+      1.3097533455501382
+    ],
+    "all_patience_stops": true,
+    "all_quality_matches": true,
+    "all_exact_replays": true
+  },
+  "tsp_replay_all_exact": true
+}

@@ -1,0 +1,65 @@
+{
+  "qap": [
+    {
+      "instance": "tai12a",
+      "runs": 3,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.0,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.0,
+      "mean_baseline_wall_seconds": 10.49562348733889,
+      "mean_framework_wall_seconds": 13.101827517995844,
+      "mean_wall_overhead_ratio": 1.248313407374119,
+      "mean_iterations": 100171.66666666667,
+      "all_quality_matches": true,
+      "all_patience_stops": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai20a",
+      "runs": 3,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.0,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.0,
+      "mean_baseline_wall_seconds": 46.22203682200052,
+      "mean_framework_wall_seconds": 60.81369217632649,
+      "mean_wall_overhead_ratio": 1.3156861176524508,
+      "mean_iterations": 147158.33333333334,
+      "all_quality_matches": true,
+      "all_patience_stops": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai25a",
+      "runs": 3,
+      "best_gap_percent": 0.0,
+      "mean_gap_percent": 0.0,
+      "median_gap_percent": 0.0,
+      "worst_gap_percent": 0.0,
+      "mean_baseline_wall_seconds": 91.86210083132998,
+      "mean_framework_wall_seconds": 104.92188754966871,
+      "mean_wall_overhead_ratio": 1.1421672985937703,
+      "mean_iterations": 182378.33333333334,
+      "all_quality_matches": true,
+      "all_patience_stops": true,
+      "all_exact_replays": true
+    },
+    {
+      "instance": "tai30a",
+      "runs": 3,
+      "best_gap_percent": 0.39138771033789366,
+      "mean_gap_percent": 0.39138771033789366,
+      "median_gap_percent": 0.39138771033789366,
+      "worst_gap_percent": 0.39138771033789366,
+      "mean_baseline_wall_seconds": 105.40348586533219,
+      "mean_framework_wall_seconds": 111.30553934067332,
+      "mean_wall_overhead_ratio": 1.0559948603870828,
+      "mean_iterations": 137358,
+      "all_quality_matches": true,
+      "all_patience_stops": true,
+      "all_exact_replays": true
+    }
+  ],
+  "tsp_replay_all_exact": true
+}

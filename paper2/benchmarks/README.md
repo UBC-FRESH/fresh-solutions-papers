@@ -11,7 +11,7 @@ Status: convergence panel, not publication evidence.
 
 TSPLIB has 111 symmetric TSP files. This panel includes the 78 with `n <= 1000`;
 the 33 larger instances are excluded because the adapter stores dense matrices.
-QAPLIB has 139 canonical `.dat` files; 134 parse with Fresh Solutions v0.8.0.
+QAPLIB has 139 canonical `.dat` files; 134 parse with Fresh Solutions v0.9.3.
 Five `esc8` variants carry an extra header token and are recorded as parser gaps.
 
 ## Protocol
@@ -40,7 +40,7 @@ export TSPLIB_ROOT=/path/to/tsplib
 export QAPLIB_ROOT=/path/to/QAP-instances/QAPLIB
 export TSPLIB_COMMIT=775541365dc3f7f3cd6faa8d0e206036d2c45e0e
 export QAPLIB_COMMIT=3cfd4f2bf82782e6c02fe4a79397e02f8ef54b14
-export FRESH_SOLUTIONS_VERSION=v0.8.0
+export FRESH_SOLUTIONS_VERSION=v0.9.3
 export FRESH_SOLUTIONS_COMMIT=1affc14
 python paper2/run_broad_converged.py --workers 24
 ```
