@@ -309,3 +309,15 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Refactored `run_broad_converged.py` to use the canonical summarizer and write the list schema plus a provenance sidecar; converged counts now require `patience` only.
 - Corrected the Lockwood citation to Carey Lockwood and Tom Moore.
 - Added the evidence validator to the Paper 2 run instructions.
+
+
+## 2026-11-04
+
+### P12.5 pin the shared-kernel release
+
+- Moved the `fresh-solutions` submodule from `v0.8.0` (`1affc14`) to `v0.9.3` (`3aa241e`).
+- Updated the Paper 2 evidence release, benchmark version, and broad-run default to `v0.9.3`.
+- Replayed the evidence under `v0.9.3`: 40 QAP + 20 TSP incumbents, 60/60 exact; 1,085 broad
+  records and 7 summary rows validated.
+- Provenance now records both the campaign commit (`7d3c831`, v0.8.0) and the replay commit
+  (`3aa241e`, v0.9.3).

@@ -11,7 +11,7 @@ current evidence.
 
 Compiled PDF: `paper2-manuscript.pdf` — 22 pages, 8,544 source words.
 
-Evidence release: Fresh Solutions **v0.8.0**.
+Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
 
 ## What changed in P12
 

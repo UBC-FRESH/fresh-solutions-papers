@@ -45,7 +45,7 @@ def provenance() -> dict[str, object]:
     except ImportError:
         numba_version = None
     return {
-        "solver_version": os.environ.get("FRESH_SOLUTIONS_VERSION", "v0.8.0"),
+        "solver_version": os.environ.get("FRESH_SOLUTIONS_VERSION", "v0.9.3"),
         "solver_commit": os.environ.get("FRESH_SOLUTIONS_COMMIT", "unknown"),
         "python": platform.python_version(),
         "platform": platform.platform(),
