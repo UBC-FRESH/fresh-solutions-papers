@@ -30,6 +30,7 @@ exists and the maintainer approves it.
 | P10 Competitive benchmark programme | #31 | `feature/p10-competitive-benchmark` | complete |
 | P11 Audit remediation | #56 | `feature/p11-broad-runner` | pr-open |
 | P12 Paper 2 Q1 framework-use evidence | #75 | `feature/p12-paper2-q1` | pr-open |
+| P13 Publication hardening for both papers | #81 | `feature/p13-publication-hardening` | active |
 
 ## Lifecycle Map
 
@@ -279,3 +280,33 @@ Acceptance criteria:
 - Every incumbent replays exactly through the adapter/resident-state contract.
 - Paper 2 gains a defensible framework-use section or is explicitly reframed as a tool paper.
 - No tag, release, or submission without maintainer approval.
+
+
+## Phase 13: Publication hardening for both papers
+
+Parent issue: #81
+Branch: `feature/p13-publication-hardening`
+Status: active
+
+Goal: add the missing evidence, independent baselines, ablation, portability, public artifact,
+sensitivity analysis, and a second independent review needed to make both drafts submission-grade.
+
+- [ ] P13.1 TSP runtime fix and 20-instance convergence panel (#82)
+- [ ] P13.2 Independent QAP baseline (#83)
+- [ ] P13.3 Generic engine tabu/LNS layer (#84)
+- [ ] P13.4 Third adapter and portability (#85)
+- [ ] P13.5 Paper 1 architecture ablation (#86)
+- [ ] P13.6 Paper 1 independent search baseline (#87)
+- [ ] P13.7 Public artifact, container, and evidence schema (#88)
+- [ ] P13.8 Sensitivity and statistical analysis (#89)
+- [ ] P13.9 Independent antagonistic review and claim audit (#90)
+- [ ] P13.10 Journal package and submission readiness (#91)
+
+Acceptance criteria:
+
+- Every task is closed with evidence and a dashboard/CI result.
+- Every headline claim maps to a file and regenerates from the committed runner.
+- Both papers have a target-specific package and a clean build.
+- The public artifact resolves and one-command replay works.
+- The independent review has no unresolved high-severity objection.
+- No tag, release, visibility change, or submission without explicit PI approval.
