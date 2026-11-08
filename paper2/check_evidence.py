@@ -21,6 +21,7 @@ TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-2k.json"
 QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
+MULTISTART = ROOT / "evidence" / "qap-multistart-converged.jsonl"
 
 
 def require(record: dict[str, object], keys: tuple[str, ...], label: str) -> None:
@@ -151,15 +152,31 @@ def main() -> int:
         broad = json.load(handle)
     successful = [row for row in broad if "gap" in row]
     require(
-        successful[0], ("instance", "family", "seed", "size", "gap", "stop", "assignment"), "broad"
+        successful[0],
+        ("instance", "family", "seed", "size", "gap", "stop", "assignment", "solver_commit"),
+        "broad",
     )
+    multi = [
+        json.loads(line)
+        for line in MULTISTART.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    for row in multi:
+        require(
+            row,
+            ("instance", "objective", "assignment", "exact_replay", "solver_commit"),
+            "multistart",
+        )
+        if not bool(row["exact_replay"]):
+            raise SystemExit(f"large-QAP record not exact: {row['instance']}")
     summary = json.loads(BROAD_SUMMARY.read_text(encoding="utf-8"))
     if not isinstance(summary, list) or not summary:
         raise SystemExit("broad summary is not a non-empty list")
     require(summary[0], ("family", "band", "runs", "patience_runs", "cap_runs"), "broad.summary")
     print(
         f"validated provenance; replayed {qap_checked} QAP and {tsp_checked} TSP incumbents; "
-        f"broad records {len(broad)} with {len(summary)} summary rows"
+        f"broad records {len(broad)} with {len(summary)} summary rows; "
+        f"large-QAP records {len(multi)} exact"
     )
     return 0
 

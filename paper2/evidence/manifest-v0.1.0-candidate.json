@@ -5,7 +5,7 @@
       "sha256": "0a57757183f56f5e625ec1b2611e4220e9970234ba59748a1326598fdaac6b9b"
     },
     "paper2/evidence/broad-converged.json.gz": {
-      "sha256": "438b65116b5b30450e991166bfc22ec47e586a8207cc6dc7bbd699339d934c31"
+      "sha256": "e494bb76bfb22adf115201ee42e87c1e73d8abc77db9a8395aece477bc63b237"
     },
     "paper2/evidence/broad-converged-summary.json": {
       "sha256": "22c2cf4ec09de9e88ddeaf4bcb6c4e9b5fff9feecde5cfbe127ee6d13417e327"
@@ -26,7 +26,7 @@
       "sha256": "0070b75828e7fcceac6ec938e0eaad03697042aada28f205bf51dff0d980497e"
     },
     "paper2/evidence/qap-multistart-converged.jsonl": {
-      "sha256": "deb62c69b646a479e8016b6ecc19cfbfa636e613af6a160e8181768bdb81e8ae"
+      "sha256": "5e9c61f551dab264c47e28547b81ae32e93f9e56bdb802f2101ce8d3c334d975"
     },
     "paper2/evidence/qap-scipy-large-summary.json": {
       "sha256": "11deab2af5a31d0f3bab5c6c6b6d3523b7f0b7bf6005fdf0f6913a41e2228ebb"
@@ -92,7 +92,7 @@
       "sha256": "8a36414e797d35d7225b23b3a56b444ca14113fd752144d60adc5f2dd0033439"
     },
     "paper2/check_evidence.py": {
-      "sha256": "174d9c3aed882b55280726b65f1a42f203749a1b93976d596d11ad9ffdf1973e"
+      "sha256": "b7180ff5b6597617a8a1104e9a871a06622d30fbb4e99260d221882d52569137"
     },
     "paper2/broad_summary.py": {
       "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
@@ -126,6 +126,9 @@
     },
     "paper2/evidence/qap-expanded-100k-summary.json": {
       "sha256": "3de3a7d15c4bb6d96e3641e0c5c5686dabd558463f6526a3a05677a24f7587eb"
+    },
+    "paper2/stamp_broad_evidence.py": {
+      "sha256": "609861ec5201b9614e851f9bce3ebe2bf1f10cc2d017da1f7f22f66495a3e47d"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
