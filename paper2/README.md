@@ -9,7 +9,7 @@ Target: **Journal of Heuristics** for the harness/reference-adapter contribution
 **SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
 current evidence.
 
-Compiled PDF: `paper2-manuscript.pdf` — 22 pages, 8,544 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 23 pages, 8,755 source words.
 
 Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
 
@@ -68,8 +68,9 @@ python3 paper2/broad_summary.py
 
 Expanded convergence panel: 20 QAPLIB instances, five seeds, 100,000-iteration patience. All 100
 runs plateau-stopped and replayed exactly; mean gap 0.274%, worst 1.583%, 37/100 optima. See
-`evidence/qap-expanded-100k.json`. SciPy FAQ on the same panel: mean 25.44%, median 2.55%, worst
-246.34%.
+`evidence/qap-expanded-100k.json`. Independent BLS baseline on the same panel: mean 0.116%, worst
+1.369%, 76/100 optima; BLS is stronger than tabu on 14 instance means and weaker on `chr22a`. SciPy
+FAQ is a second, weaker external baseline: mean 25.44%, median 2.55%, worst 246.34%.
 
 Final convergence panel: ten seeds, 100,000-iteration patience, 1,000,000-iteration cap. All 40 runs
 plateau-stopped and replayed exactly. The CPU ratio is the framework-managed path divided by the

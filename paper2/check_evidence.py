@@ -18,6 +18,7 @@ PROVENANCE = ROOT / "evidence" / "provenance-2026-11-03.json"
 FRAMEWORK = ROOT / "evidence" / "framework-use.json"
 TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
 TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-2k.json"
+BLS = ROOT / "evidence" / "qap-bls-expanded.json"
 QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
@@ -136,6 +137,26 @@ def main() -> int:
             raise SystemExit(f"expanded QAP record not exact: {row['instance']}")
     tsp_rows = json.loads(TSP.read_text(encoding="utf-8"))
     tsp_checked = replay_tsp(tsp_rows)
+    bls = json.loads(BLS.read_text(encoding="utf-8"))
+    if len(bls) != 100:
+        raise SystemExit(f"BLS panel has {len(bls)} records, expected 100")
+    for row in bls:
+        require(
+            row,
+            (
+                "instance",
+                "seed",
+                "objective",
+                "optimality_gap_percent",
+                "exact_replay",
+                "stop_reason",
+            ),
+            "bls",
+        )
+        if not bool(row["exact_replay"]):
+            raise SystemExit(f"BLS record not exact: {row['instance']}")
+        if row["stop_reason"] != "patience":
+            raise SystemExit(f"BLS record not plateau-stopped: {row['instance']}")
     if TSP_EXPANDED.exists():
         expanded_tsp = json.loads(TSP_EXPANDED.read_text(encoding="utf-8"))
         if len(expanded_tsp) != 100:
@@ -176,7 +197,7 @@ def main() -> int:
     print(
         f"validated provenance; replayed {qap_checked} QAP and {tsp_checked} TSP incumbents; "
         f"broad records {len(broad)} with {len(summary)} summary rows; "
-        f"large-QAP records {len(multi)} exact"
+        f"large-QAP records {len(multi)} exact; BLS records {len(bls)} exact"
     )
     return 0
 
