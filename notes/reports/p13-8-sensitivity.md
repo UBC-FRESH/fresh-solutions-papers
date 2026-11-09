@@ -16,11 +16,10 @@ Issue: #89
 - BLS vs tabu paired difference: mean -0.158 points, bootstrap 95% CI -0.222 to -0.094; BLS lower on
   57 of 64 non-tied seed-level pairs. The instances are not independent, so this is descriptive.
 
-## Not completed
+- TSA24 target-variant screen: five published target files, 1,000 SA iterations, same seed/start.
+  Objectives range from $1.714\times10^9$ to 1,010. This is a target-sensitivity screen, **not** a
+  converged comparison; the main 100k campaign is only for `evenflow_tsa24`.
+- No matched wall-clock sensitivity for BLS vs tabu.
 
-- Target-weight and level-aspiration sensitivity for TSA24.
-- Seed-count sensitivity for the full tabu panel (only 5 seeds; framework panel has 10 on four
-  instances).
-- Matched wall-clock sensitivity for BLS vs tabu.
-
-No claim of full statistical generality is made.
+The screen is evidence that target construction dominates the objective scale, not a ranking of
+targets. A full-budget target sensitivity remains future work.

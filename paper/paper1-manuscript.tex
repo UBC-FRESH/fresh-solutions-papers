@@ -270,6 +270,32 @@ changes the objective and therefore changes which schedule is best. The record s
 and its hash so that a replay cannot silently use a different weighting. This is a modest but
 important form of provenance: a target configuration is data, not a constant.
 
+A 1,000-iteration screen across the five published TSA24 target variants shows how strongly the target
+construction controls the objective scale. The objectives range from 1.71e9 for the main even-flow
+target to 1,010 for the LT-sy stock-90 variant under the same seed, start, and budget. This is not a
+converged ranking; it is a warning that a single target file is not a universal objective. The full
+100,000-generation campaign is reported only for the main target, and target-weight sensitivity at the
+full budget remains future work.
+
+\begin{table}[t]
+\centering
+\caption{TSA24 target-variant screen: 1,000 SA iterations, seed 7, same start; screen only, not a
+converged comparison.}
+\label{tab:target-screen}
+\small
+\begin{tabular}{lr}
+\toprule
+Target file & Objective after 1,000 iterations \\
+\midrule
+\texttt{evenflow\_tsa24} & $1.714\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5} & $1.573\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5\_stock90} & $1.624\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_ltsy} & $5.748\times10^{8}$ \\
+\texttt{evenflow\_tsa24\_ltsy\_stock90} & $1{,}010$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Architecture}\label{architecture}
 
 \begin{figure}[t]
