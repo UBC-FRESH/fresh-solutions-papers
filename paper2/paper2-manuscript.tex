@@ -930,6 +930,22 @@ evaluator. The gap is the price of the evidence boundary. A user who needs the l
 single-run speed can keep a private array inside an adapter-specific module. A user who needs
 replayable evidence across problems can pay the measured cost and use the resident state.
 
+\subsection{Generic adapter layer: a negative result}
+
+We also built a generic tabu/LNS prototype that uses only adapter proposals, apply/undo, and exact
+evaluation. It ran on four QAP and four TSP instances, five seeds, 20,000 iterations, 16 proposals per
+iteration, and a 5,000-iteration patience rule. All 40 runs stopped on patience and replayed exactly.
+It is not competitive. The QAP mean gap is 3.848\% against 0.097\% for the adapter-specific tabu
+reference; the TSP mean gap is 127.978\% against 0.000\% for the adapter-specific LK reference. The
+result survives a matched-budget control: tabu at 20,000 iterations averages 0.439\%, and LK at only
+2,000 kicks averages 0.004\%.
+
+This is a negative result for the generic search layer, and it is the correct one to report. The
+adapter contract is sufficient to run a search; it is not sufficient to replace a problem-specific
+neighbourhood. The paper's framework claim is therefore limited to contract portability and
+resident-state management, not generic search quality. The generic prototype is retained in the
+evidence and is not promoted to a headline result.
+
 \subsection{Stopping rules and benchmark methodology}
 
 The QAP budget comparison is the clearest methodological result. The fixed 10,000-iteration table
@@ -950,12 +966,12 @@ not “proved optimal.” The cap-hit counts are part of the result, not an appe
 
 \subsection{Limitations}
 
-The QAP convergence panel has four instances. It tests the framework path and the stopping rule, but
-it does not estimate performance across QAPLIB. The broad panel covers 134 parseable instances with a
-fixed budget; it is a screen, not a convergence study. The median gap of 0\% on the broad panel is
-dominated by small instances, and the mean is pulled by hard outliers. The large-instance table is
-mixed: Fresh tabu wins some instances and loses \texttt{tai150b} to SciPy. The reference is robust
-tabu, not a state-of-the-art QAP method.
+The controlled framework panel has four QAP instances. The expanded quality panel has 20, with the
+independent BLS baseline; BLS is stronger than robust tabu on that panel, so robust tabu is a
+reference implementation, not a state-of-the-art QAP method. The broad panel covers 134 parseable
+instances with a fixed budget; it is a screen, not a convergence study. The median gap of 0\% on the
+broad panel is dominated by small instances, and the mean is pulled by hard outliers. The
+large-instance table is mixed: Fresh tabu wins some instances and loses \texttt{tai150b} to SciPy.
 
 The TSP convergence panel has four instances. The 78-instance broad panel uses nearest-neighbour
 starts and a different budget; it is not the same experiment. The internal LK path does not scale to
@@ -1030,10 +1046,10 @@ be useful before that approval, not to imply that an unreleased artifact is alre
 
 \subsection{Future work}
 
-The next evidence step is a wider convergence panel. The QAP side needs more sizes and a
-state-of-the-art baseline, not only robust tabu and SciPy. The TSP side needs more instances and a
-matched-time comparison against LKH, not only a capability boundary. The applied case needs an
-independent spatial baseline before it can support an operational claim.
+The next evidence step is a wider, family-balanced panel. The QAP side has BLS but still needs more
+families and a matched-time comparison; the TSP side has a 20-instance breadth panel but needs a
+matched-time comparison against LKH. The applied case needs an independent spatial baseline before
+it can support an operational claim.
 
 The next framework step is a portability experiment with a third problem family and an adapter
 written by someone other than the reference author. The current QAP and TSP adapters share the contract; the applied TSA24 case is separate. A

@@ -19,6 +19,7 @@ FRAMEWORK = ROOT / "evidence" / "framework-use.json"
 TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
 TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-10k.json"
 BLS = ROOT / "evidence" / "qap-bls-expanded.json"
+GENERIC = ROOT / "evidence" / "generic-tabu.json"
 QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
@@ -157,6 +158,24 @@ def main() -> int:
             raise SystemExit(f"BLS record not exact: {row['instance']}")
         if row["stop_reason"] != "patience":
             raise SystemExit(f"BLS record not plateau-stopped: {row['instance']}")
+    generic = json.loads(GENERIC.read_text(encoding="utf-8"))
+    if len(generic) != 40:
+        raise SystemExit(f"generic-tabu panel has {len(generic)} records, expected 40")
+    for row in generic:
+        require(
+            row,
+            (
+                "instance",
+                "seed",
+                "objective",
+                "optimality_gap_percent",
+                "exact_replay",
+                "stop_reason",
+            ),
+            "generic",
+        )
+        if not bool(row["exact_replay"]) or row["stop_reason"] != "patience":
+            raise SystemExit(f"generic-tabu record invalid: {row['instance']}")
     if TSP_EXPANDED.exists():
         expanded_tsp = json.loads(TSP_EXPANDED.read_text(encoding="utf-8"))
         if len(expanded_tsp) != 100:
@@ -210,7 +229,8 @@ def main() -> int:
     print(
         f"validated provenance; replayed {qap_checked} QAP and {tsp_checked} TSP incumbents; "
         f"broad records {len(broad)} with {len(summary)} summary rows; "
-        f"large-QAP records {len(multi)} exact; BLS records {len(bls)} exact"
+        f"large-QAP records {len(multi)} exact; BLS records {len(bls)} exact; "
+        f"generic-tabu records {len(generic)} exact"
     )
     return 0
 
