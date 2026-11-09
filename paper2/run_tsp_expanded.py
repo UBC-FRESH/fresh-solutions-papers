@@ -35,7 +35,7 @@ INSTANCES = (
     "eil101",
     "fri26",
     "gr120",
-    "gr137",
+    "pr152",
     "kroA100",
     "kroB100",
     "kroC100",
@@ -83,7 +83,7 @@ def run_task(task: tuple[str, float, int]) -> dict[str, object]:
     problem = TravellingSalesman.from_tsplib(TSP_ROOT / f"{name}.tsp")
     initial = nearest_neighbour(problem, seed % problem.variable_count)
     initial_objective = problem.evaluate(initial).objective
-    depth = 2 if problem.variable_count >= 180 else 4
+    depth = 2 if problem.variable_count >= 180 else 3 if problem.variable_count >= 100 else 4
     started = time.perf_counter()
     result = run_tsp_lk(
         problem,
@@ -131,7 +131,11 @@ def main() -> int:
     checkpoint = OUT.with_suffix(".jsonl")
     records: list[dict[str, object]] = []
     if checkpoint.exists():
-        records = [json.loads(line) for line in checkpoint.read_text().splitlines() if line.strip()]
+        records = [
+            json.loads(line)
+            for line in checkpoint.read_text().splitlines()
+            if line.strip() and json.loads(line)["instance"] in INSTANCES
+        ]
     done = {(str(row["instance"]), int(row["seed"])) for row in records}
     tasks = [task for task in tasks if (task[0], task[2]) not in done]
     with ProcessPoolExecutor(
