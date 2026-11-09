@@ -28,11 +28,11 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "c88ff00d6f6c99e71ce8a8ac53ba99763c0cac1d56bc7c9aab7c1dbfcfa50c90"
+    "sha256": "71ff2b3361832f304f2ba0d0f0d2a8d18d188a5d9aa6ca297831d0dd9695fda9"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "6bc2e74186ce6460e64e183cfdfd719df58b5628515d176ea8d68b05fff20180"
+    "sha256": "3951656133c1057ad378bdfd26111eee226e28b70c025814068fdbb18e3688f0"
   },
   "references": {
     "path": "paper/references.bib",
@@ -47,5 +47,17 @@
   "replay": {
     "all_records": "paper/replay_all.sh",
     "sha256": "a09f3da3ba58e2e9e8a3ae1c9cf0b4432cc30528af9430c6fa648a4919e8b71e"
+  },
+  "factorized_ablation": {
+    "path": "paper/evidence/tsa24-factorized-ablation.json",
+    "sha256": "9d788e6e828a4ea631ae5af46bb9032322b1dcd310656a4f9096c2658c9bd6c9"
+  },
+  "factorized_cpu": {
+    "path": "paper/evidence/tsa24-factorized-cpu.json",
+    "sha256": "88c2b915dd31dca30ed9a2002d67f267ff5d5cfcaa0b49f96a471dca11c97c0f"
+  },
+  "factorized_gpu": {
+    "path": "paper/evidence/tsa24-factorized-gpu.json",
+    "sha256": "8d1ac27a688e87e765a2ef99bfb79c1922c2edc5cc6429b088b21ddb02bddd94"
   }
 }

@@ -33,6 +33,8 @@ from 1,722,144,291.336651 to 8,588,725.370498 in 9.381 s of search time; a 100,0
 five-seed campaign reaches 512.574–518.621 (mean 515.682) with exact CPU replay. The target uses
 deliberately unattainable harvest-level aspirations to pull the solution toward the maximum even-flow
 level; the final level is approximately 51.21–52.49M m\textsuperscript{3} per 10-year period against a 70M aspiration.
+A factorized 64-genome batch is 248 times faster on CUDA than on CPU with a maximum exact-evaluator
+error of 1.7e-6; this is batch evaluation, not an end-to-end search comparison.
 The frozen dataset, target, and seed are public; the paper-specific schedules and replay scripts are retained in the project evidence repository and are not yet publicly released. We do not claim an independent model
 comparison or a state-of-the-art landscape result; the contribution is the architecture and its
 reproducibility contract.
@@ -634,6 +636,37 @@ objective matches the whole-schedule objective to 3.7e-9. The result supports th
 sparse effect table plus resident state can avoid a full re-simulation without changing the objective.
 It does not support a claim that the GPU population is faster than a matched CPU batch; that
 experiment remains open.
+
+\subsection{Factorized batch ablation}
+
+The factorized-effect benchmark is a second, independent architecture check. It evaluates the same
+64-genome batch against the same four mixed feature/product cells on CPU and CUDA, using the TSA24
+factorized archive. The CPU batch takes 23.124~s; the CUDA batch takes 0.0931~s, a factor of 248.
+The throughput is 2.77 genomes/s on CPU and 687 genomes/s on CUDA. The maximum absolute error
+against the exact evaluator is $1.7\times10^{-6}$ on both paths. The factorized build takes 234.4~s
+and the GPU peak allocation is 9.27~GB.
+
+\begin{table}[t]
+\centering
+\caption{TSA24 factorized mixed feature/product batch ablation. Same 64 genomes and four cells on
+both devices; batch evaluation only, not end-to-end search.}
+\label{tab:factorized}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Device & Batch (s) & Genomes/s & Peak GPU (GB) & Max error \\
+\midrule
+CPU & 23.124 & 2.77 & -- & $1.7\times10^{-6}$ \\
+CUDA & 0.0931 & 687.07 & 9.27 & $1.7\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is a real GPU-versus-CPU batch effect, but it is not an end-to-end search comparison. The CPU
+path is a one-device tensor path, not a tuned multithreaded batch; the result supports the factorized
+evaluation path, not a universal architecture claim. The 234.4~s build cost is also part of the
+result: the batch advantage matters only when the table is reused. The next experiment is a matched
+CPU-GA at the same population/generation count, which remains open.
 
 \begin{figure}[t]
 \centering

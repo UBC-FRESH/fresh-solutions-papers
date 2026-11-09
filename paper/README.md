@@ -2,7 +2,7 @@
 
 Working manuscript (LaTeX): `paper1-manuscript.tex`
 
-Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,014 source words, 40 references, 5 figures.
+Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,228 source words, 40 references, 5 figures.
 
 Bibliography: `paper/references.bib`
 
@@ -36,6 +36,7 @@ for record in evidence/*/record.json; do python scripts/check_benchmark_record.p
 Current status:
 
 - Claim corrections: non-separable even-flow delta, GPU-only 100k evidence wording, and stale numbers.
+- Factorized batch ablation: CPU 23.124 s vs CUDA 0.0931 s (248x) for 64 genomes, max error 1.7e-6; batch only, not end-to-end search.
 - Public TSA24 artifact: available.
 - Paper-specific schedules and replay scripts: retained in the project evidence repository; public
   release remains pending approval.
