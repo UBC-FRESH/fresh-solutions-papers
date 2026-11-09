@@ -9,7 +9,7 @@ Target: **Journal of Heuristics** for the harness/reference-adapter contribution
 **SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
 current evidence.
 
-Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,278 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,292 source words.
 
 Evidence release: Fresh Solutions **v0.9.3 + GEO fix `c7d1507`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 
@@ -152,8 +152,8 @@ The kicks are material; all 60 ablation tours replay exactly.
 
 - QAP broad: 134 parseable QAPLIB instances, five seeds, 552/670 patience stops, 318 optima,
   median 0.000%, mean 1.823%, worst 36.4%.
-- TSP broad: 78 TSPLIB instances, five seeds, 236/390 patience stops, 183 optima, median 0.000%,
-  mean 0.100%. Large tail remains weak.
+- TSP broad: 78 TSPLIB instances, five seeds, 236/390 patience stops, 195 optima, median 0.000%,
+  converged mean 0.046%, all-run mean 1.460%. Large tail remains weak.
 - External LKH large tail after the GEO fix: 75/100 optima, mean 0.098%, median 0%, worst 1.930%; no negative gaps. LKH is external
   research-use software, not bundled, capability-only comparison.
 
