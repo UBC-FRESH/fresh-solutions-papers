@@ -104,13 +104,13 @@
       "sha256": "d97237757254946a8df4b65a51273c2963e0fce2e8b99065232fd65b0b0f7a07"
     },
     "paper2/run_qap_expanded.py": {
-      "sha256": "5954c879547e4210e21d3f7ccc56925c400d84d1e7025881cd8a32f41e1e04b0"
+      "sha256": "7156036ebe714a04bcef7fdb08cc89bd6a82a81ca66ad3bf9ce57eedfb5a3b7b"
     },
     "paper2/run_tsp_expanded.py": {
       "sha256": "e4e1f0e6f0c952bb74704d902e23bf4fc1215bfb1e1f3311daf0f2a81bc61cc1"
     },
     "paper2/make_figures.py": {
-      "sha256": "70f12b844686b9a95a1aa0884528d519aa81fda1be3cc68b848088a9f2150b22"
+      "sha256": "19a38f2b80a1c2369896fe99a653f4aea3da2e78dcb0768bc7a7e597aab72550"
     },
     "paper2/evidence/qap-scipy-expanded.json": {
       "sha256": "719a26d5887e451af1510eb968df46ec4c4ab91f3e33ac86370d32159caacde1"
@@ -179,7 +179,7 @@
       "sha256": "61431fca899dc788903bca69171f2800bcaadfd8683b1ee91f7ac25806781506"
     },
     "paper2/replay_qap_expanded.py": {
-      "sha256": "217e4b2fab1fd301a3355d09889e22979f9fbad5d47caae5bf4e74eaee6fece6"
+      "sha256": "1e2c97214e395499ef88dbdaff2ee22d8a88b8b29777e24eff42174eafa59e78"
     },
     "paper2/replay_tsp_expanded.py": {
       "sha256": "a2f7e961d0535603e3b249a2722e1f7594232bc35e54e9fe47933e9cb1627e34"
