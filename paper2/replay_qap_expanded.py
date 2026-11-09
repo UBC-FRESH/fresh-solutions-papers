@@ -14,7 +14,7 @@ from fresh_solutions.adapters import QuadraticAssignment  # noqa: E402
 from fresh_solutions.engine import ResidentAssignment  # noqa: E402
 
 QAP_ROOT = Path(os.environ.get("QAPLIB_ROOT", "benchmarks/qaplib/QAPLIB"))
-ROWS = ROOT / "evidence" / "qap-expanded-100k.json"
+ROWS = ROOT / "evidence" / os.environ.get("QAP_EXPANDED_EVIDENCE", "qap-expanded-100k-10seed.json")
 
 
 def main() -> int:

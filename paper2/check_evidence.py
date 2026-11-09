@@ -18,10 +18,10 @@ PROVENANCE = ROOT / "evidence" / "provenance-2026-11-03.json"
 FRAMEWORK = ROOT / "evidence" / "framework-use.json"
 TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
 TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-10k.json"
-BLS = ROOT / "evidence" / "qap-bls-expanded.json"
+BLS = ROOT / "evidence" / "qap-bls-10seed.json"
 GENERIC = ROOT / "evidence" / "generic-tabu.json"
 LKH = ROOT / "evidence" / "lkh-large.json"
-QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
+QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k-10seed.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
 MULTISTART = ROOT / "evidence" / "qap-multistart-converged.jsonl"
@@ -127,8 +127,8 @@ def main() -> int:
     require(framework, ("qap", "qap_summary", "workers", "patience", "max_iterations"), "framework")
     qap_checked = replay_qap(framework["qap"])
     expanded = json.loads(QAP_EXPANDED.read_text(encoding="utf-8"))
-    if len(expanded) != 100:
-        raise SystemExit(f"expanded QAP panel has {len(expanded)} records, expected 100")
+    if len(expanded) != 200:
+        raise SystemExit(f"expanded QAP panel has {len(expanded)} records, expected 200")
     for row in expanded:
         require(
             row,
@@ -140,8 +140,8 @@ def main() -> int:
     tsp_rows = json.loads(TSP.read_text(encoding="utf-8"))
     tsp_checked = replay_tsp(tsp_rows)
     bls = json.loads(BLS.read_text(encoding="utf-8"))
-    if len(bls) != 100:
-        raise SystemExit(f"BLS panel has {len(bls)} records, expected 100")
+    if len(bls) != 200:
+        raise SystemExit(f"BLS panel has {len(bls)} records, expected 200")
     for row in bls:
         require(
             row,

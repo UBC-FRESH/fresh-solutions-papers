@@ -32,9 +32,9 @@ the full distribution, including failures. We also run a framework-use check: th
 is reproduced with the incumbent held in the engine's resident-state contract. On 40 runs across four
 QAPLIB instances, all runs stopped on the same 100,000-iteration plateau rule under a 1,000,000
 iteration cap, all framework objectives matched the standalone and production objectives exactly, and
-all incumbents replayed exactly. A separate 20-instance QAPLIB panel, five seeds per instance, also stopped on patience and replayed
-exactly; its mean gap was 0.274\%, while an independent Breakout Local Search baseline reached
-0.116\% and 76/100 optima. The framework path cost 1.24 times
+all incumbents replayed exactly. A separate 20-instance QAPLIB panel, ten seeds per instance, also stopped on patience and replayed
+exactly; its mean gap was 0.301\%, while an independent Breakout Local Search baseline reached
+0.096\% and 161/200 optima. The framework path cost 1.24 times
 the CPU time of the private-array delta path (95\% CI 1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
 the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
@@ -614,41 +614,41 @@ the harness reports both outcomes.
 \subsection{Expanded QAP convergence panel}
 
 The four-instance framework panel is deliberately controlled; it is not a broad quality panel. To
-reduce the panel-size risk, we ran the production tabu path on 20 QAPLIB instances, five seeds each,
-with the same 100,000-iteration patience and 1,000,000-iteration cap. All 100 runs stopped on
-\texttt{patience}, all 100 replayed exactly, and 37 of 100 runs reached the known optimum. The mean
-gap is 0.274\%, the median is 0.027\%, and the worst is 1.583\%.
+reduce the panel-size risk, we ran the production tabu path on 20 QAPLIB instances, ten seeds each,
+with the same 100,000-iteration patience and 1,000,000-iteration cap. All 200 runs stopped on
+\texttt{patience}, all 200 replayed exactly, and 73 of 200 runs reached the known optimum. The mean
+gap is 0.301\%, the median is 0.043\%, and the worst is 5.695\%.
 
 \begin{table}[t]
 \centering
-\caption{Expanded QAPLIB convergence panel: 20 instances, five seeds, 100,000-iteration patience.
-All 100 runs plateau-stopped and replayed exactly.}
+\caption{Expanded QAPLIB convergence panel: 20 instances, ten seeds, 100,000-iteration patience.
+All 200 runs plateau-stopped and replayed exactly.}
 \label{tab:qap-expanded}
 \small
 \begin{tabular}{lrrrrr}
 \toprule
 Instance & n & Mean gap & Worst gap & Patience & Optima \\
 \midrule
-\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{tai20a} & 20 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{tai25a} & 25 & 0.073\% & 0.366\% & 5/5 & 4/5 \\
-\texttt{tai30a} & 30 & 0.313\% & 0.391\% & 5/5 & 1/5 \\
-\texttt{tai35a} & 35 & 0.664\% & 1.051\% & 5/5 & 0/5 \\
-\texttt{tai40a} & 40 & 0.831\% & 1.045\% & 5/5 & 0/5 \\
-\texttt{tai50a} & 50 & 1.264\% & 1.583\% & 5/5 & 0/5 \\
-\texttt{bur26a} & 26 & 0.135\% & 0.147\% & 5/5 & 0/5 \\
-\texttt{bur26b} & 26 & 0.565\% & 0.565\% & 5/5 & 0/5 \\
-\texttt{bur26c} & 26 & 0.004\% & 0.004\% & 5/5 & 0/5 \\
-\texttt{bur26d} & 26 & 0.042\% & 0.043\% & 5/5 & 0/5 \\
-\texttt{bur26e} & 26 & 0.009\% & 0.009\% & 5/5 & 0/5 \\
-\texttt{bur26f} & 26 & 0.225\% & 0.542\% & 5/5 & 0/5 \\
-\texttt{bur26g} & 26 & 0.376\% & 0.376\% & 5/5 & 0/5 \\
-\texttt{bur26h} & 26 & 0.368\% & 0.368\% & 5/5 & 0/5 \\
-\texttt{chr12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr20a} & 20 & 0.602\% & 1.460\% & 5/5 & 2/5 \\
-\texttt{chr22a} & 22 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{tai20a} & 20 & 0.030\% & 0.304\% & 10/10 & 9/10 \\
+\texttt{tai25a} & 25 & 0.077\% & 0.402\% & 10/10 & 8/10 \\
+\texttt{tai30a} & 30 & 0.245\% & 0.491\% & 10/10 & 4/10 \\
+\texttt{tai35a} & 35 & 0.599\% & 1.051\% & 10/10 & 1/10 \\
+\texttt{tai40a} & 40 & 0.827\% & 1.106\% & 10/10 & 0/10 \\
+\texttt{tai50a} & 50 & 1.170\% & 1.583\% & 10/10 & 0/10 \\
+\texttt{bur26a} & 26 & 0.123\% & 0.147\% & 10/10 & 0/10 \\
+\texttt{bur26b} & 26 & 0.565\% & 0.565\% & 10/10 & 0/10 \\
+\texttt{bur26c} & 26 & 0.004\% & 0.004\% & 10/10 & 0/10 \\
+\texttt{bur26d} & 26 & 0.041\% & 0.043\% & 10/10 & 0/10 \\
+\texttt{bur26e} & 26 & 0.009\% & 0.009\% & 10/10 & 0/10 \\
+\texttt{bur26f} & 26 & 0.383\% & 0.542\% & 10/10 & 0/10 \\
+\texttt{bur26g} & 26 & 0.376\% & 0.376\% & 10/10 & 0/10 \\
+\texttt{bur26h} & 26 & 0.368\% & 0.368\% & 10/10 & 0/10 \\
+\texttt{chr12a} & 12 & 0.570\% & 5.695\% & 10/10 & 9/10 \\
+\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{chr20a} & 20 & 0.630\% & 1.460\% & 10/10 & 2/10 \\
+\texttt{chr22a} & 22 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -660,54 +660,56 @@ four-instance panel: plateau stopping changes the reported gaps, and the hard ta
 The expanded panel is also where the independent baseline matters. We implemented Breakout Local
 Search (BLS) in the style of Benlic and Hao \citep{benlic2013}, with best-improvement descent,
 adaptive perturbation, and directed/recency/random perturbation types. It uses the same 20
-instances, five seeds, move cap, and patience as the tabu panel. All 100 runs stopped on patience,
-all 100 replayed exactly, and no run hit the cap. BLS reached the known optimum on 76 of 100 runs;
-robust tabu reached 37.
+instances, ten seeds, move cap, and patience as the tabu panel. All 200 runs stopped on patience,
+all 200 replayed exactly, and no run hit the cap. BLS reached the known optimum on 161 of 200 runs;
+robust tabu reached 73.
 
 \begin{table}[t]
 \centering
 \caption{Expanded QAP panel: robust tabu versus independent Breakout Local Search. Both use the
-same 20 instances, five seeds, 1,000,000-move cap, and 100,000-move patience.}
+same 20 instances, ten seeds, 1,000,000-move cap, and 100,000-move patience.}
 \label{tab:qap-bls}
 \small
 \begin{tabular}{lrrrrr}
 \toprule
 Instance & n & Tabu mean & BLS mean & BLS worst & BLS optima \\
 \midrule
-\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{tai20a} & 20 & 0.000\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{tai25a} & 25 & 0.073\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{tai30a} & 30 & 0.313\% & 0.157\% & 0.391\% & 3/5 \\
-\texttt{tai35a} & 35 & 0.664\% & 0.403\% & 0.649\% & 0/5 \\
-\texttt{tai40a} & 40 & 0.831\% & 0.389\% & 0.644\% & 0/5 \\
-\texttt{tai50a} & 50 & 1.264\% & 0.756\% & 1.013\% & 0/5 \\
-\texttt{bur26a} & 26 & 0.135\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26b} & 26 & 0.565\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26c} & 26 & 0.004\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26d} & 26 & 0.042\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26e} & 26 & 0.009\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26f} & 26 & 0.225\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26g} & 26 & 0.376\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{bur26h} & 26 & 0.368\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{chr12a} & 12 & 0.000\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 0.000\% & 5/5 \\
-\texttt{chr20a} & 20 & 0.602\% & 0.420\% & 1.369\% & 0/5 \\
-\texttt{chr22a} & 22 & 0.000\% & 0.188\% & 0.617\% & 3/5 \\
+\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{tai20a} & 20 & 0.030\% & 0.030\% & 0.304\% & 9/10 \\
+\texttt{tai25a} & 25 & 0.077\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{tai30a} & 30 & 0.245\% & 0.078\% & 0.391\% & 8/10 \\
+\texttt{tai35a} & 35 & 0.599\% & 0.252\% & 0.649\% & 3/10 \\
+\texttt{tai40a} & 40 & 0.827\% & 0.439\% & 0.810\% & 0/10 \\
+\texttt{tai50a} & 50 & 1.170\% & 0.739\% & 1.013\% & 0/10 \\
+\texttt{bur26a} & 26 & 0.123\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26b} & 26 & 0.565\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26c} & 26 & 0.004\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26d} & 26 & 0.041\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26e} & 26 & 0.009\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26f} & 26 & 0.383\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26g} & 26 & 0.376\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26h} & 26 & 0.368\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr12a} & 12 & 0.570\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr20a} & 20 & 0.630\% & 0.228\% & 1.369\% & 4/10 \\
+\texttt{chr22a} & 22 & 0.000\% & 0.156\% & 0.617\% & 7/10 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 The comparison is descriptive, not a state-of-the-art claim, and BLS is a reimplementation of the
-published design, not the authors' code. BLS is lower on 14 instance means and higher on
-\texttt{chr22a}; it is lower on 57 seed-level runs, higher on 7, and equal on 36. The paired mean
-difference is $-0.158$ percentage points (bootstrap 95\% CI $-0.222$ to $-0.094$). A paired sign test
-on the 64 non-tied pairs would also be significant, but the instances are not independent, so we treat
-the interval as descriptive. The overall mean gap is 0.116\% for BLS and 0.274\% for tabu; the worst
-is 1.369\% and 1.583\%, respectively. A ten-seed BLS rerun gives the same picture (mean 0.096\%
-over 20 instances), so the five-seed comparison is not a seed-selection artifact. The result is a
-negative result for the tabu reference and a positive result for the harness: the harness makes the
-stronger baseline visible and replayable. The paper does not claim that robust tabu is state-of-the-art.
+published design, not the authors' code. BLS is lower on 15 instance means, higher on one
+(\texttt{chr22a}), and equal on four. It is lower on 120 seed-level runs, higher on 11, and equal on
+69. The paired mean difference is $-0.205$ percentage points (bootstrap 95\% CI $-0.282$ to
+$-0.143$). A paired sign test on the 131 non-tied pairs would also be significant, but the instances
+are not independent, so we treat the interval as descriptive. The overall mean gap is 0.096\% for BLS
+and 0.301\% for tabu; the worst is 1.369\% and 5.695\%, respectively. The panel is unbalanced:
+eight \texttt{bur26} variants contribute 40/100 runs at five seeds. Equal-weighting the tai, bur, and
+chr families gives 0.099\% for BLS and 0.298\% for tabu, so the advantage is not only the bur
+variants. The result is a negative result for the tabu reference and a positive result for the
+harness: the harness makes the stronger baseline visible and replayable. The paper does not claim
+that robust tabu is state-of-the-art.
 
 SciPy FAQ is a second independent external baseline. With the same five seeds and
 \texttt{maxiter} 10,000, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
