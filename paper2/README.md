@@ -46,6 +46,14 @@ PYTHONPATH=fresh-solutions python paper2/run_tsp_lk.py
 PYTHONPATH=fresh-solutions python paper2/replay_tsp_lk.py
 ```
 
+Set `QAPLIB_ROOT` and `TSPLIB_ROOT` for the expanded replay scripts:
+
+```bash
+export QAPLIB_ROOT=/path/to/QAPLIB
+export TSPLIB_ROOT=/path/to/tsplib
+bash paper2/replay_all.sh
+```
+
 Final QAP framework-use campaign:
 
 ```bash

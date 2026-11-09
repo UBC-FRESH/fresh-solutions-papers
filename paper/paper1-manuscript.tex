@@ -626,15 +626,15 @@ incremental delta plus apply took 0.542~ms per move, a factor of 2,005. The fina
 incremental objective matched the whole-schedule objective to
 $3.7\times10^{-9}$. The subset scope is recorded in
 \texttt{evidence/ws4-tsa24-eval-ablation.json}. This establishes the local
-evaluation-path effect; it does not measure GPU batched evaluation against a
-matched CPU batch, and it does not establish full-instance scaling.
+evaluation-path effect; it does not measure a matched CPU-GA/search or establish full-instance
+scaling. The factorized 64-genome batch in the next subsection is a separate microbenchmark.
 
 The ablation isolates the evaluation path, not the GPU. On the 5,000-block subset, a warm
 whole-schedule move evaluation takes about 1.086 s, while the exact delta plus apply takes about
 0.542 ms. The ratio is about 2,005. The exactness check is the important part: the final incremental
 objective matches the whole-schedule objective to 3.7e-9. The result supports the claim that the
 sparse effect table plus resident state can avoid a full re-simulation without changing the objective.
-It does not support a claim that the GPU population is faster than a matched CPU batch; that
+It does not support a claim that the GPU population is faster than a matched CPU search; that
 experiment remains open.
 
 \subsection{Factorized batch ablation}
@@ -810,9 +810,9 @@ exact MIP proof is not practical at this scale with the available resources.
 
 The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
 It is not a controlled baseline. The evaluation-path ablation is diagnostic rather than full-instance:
-it uses a 5,000-block subset and does not measure GPU batched evaluation against
-a matched CPU batch. Those measurements are required before the architecture
-claim can be separated from a local implementation-speed claim.
+it uses a 5,000-block subset. The factorized 64-genome batch is a separate microbenchmark, not an
+end-to-end matched CPU-GA/search comparison. A matched CPU-GA and cache/search ablation are still
+required before the architecture claim can be separated from a local implementation-speed claim.
 
 Within those limits, the paper supports a narrower conclusion: a compiled-state
 architecture can make a 208,255-block landscape search exact, replayable, and
