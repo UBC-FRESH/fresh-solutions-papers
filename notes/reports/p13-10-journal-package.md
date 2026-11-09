@@ -1,8 +1,15 @@
 # P13.10 journal package checklist
 
-Status: prepared, not submission-ready
+Status: submission package partly prepared; not submission-ready
 Date: 2026-11-09
 Issue: #91
+
+## Prepared assets
+
+- `paper/submission/cover-letter.md`
+- `paper/submission/highlights.md`
+- `paper2/submission/cover-letter.md`
+- `paper2/submission/highlights.md`
 
 ## Paper 1 — Environmental Modelling & Software
 
