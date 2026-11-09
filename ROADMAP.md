@@ -291,15 +291,15 @@ Status: active
 Goal: add the missing evidence, independent baselines, ablation, portability, public artifact,
 sensitivity analysis, and a second independent review needed to make both drafts submission-grade.
 
-- [ ] P13.1 TSP runtime fix and 20-instance convergence panel (#82)
-- [ ] P13.2 Independent QAP baseline (#83)
-- [ ] P13.3 Generic engine tabu/LNS layer (#84)
+- [x] P13.1 TSP runtime fix and 20-instance convergence panel (#82)
+- [x] P13.2 Independent QAP baseline (#83)
+- [x] P13.3 Generic engine tabu/LNS layer (#84)
 - [ ] P13.4 Third adapter and portability (#85)
 - [ ] P13.5 Paper 1 architecture ablation (#86)
-- [ ] P13.6 Paper 1 independent search baseline (#87)
+- [x] P13.6 Paper 1 independent search baseline (#87)
 - [ ] P13.7 Public artifact, container, and evidence schema (#88)
 - [ ] P13.8 Sensitivity and statistical analysis (#89)
-- [ ] P13.9 Independent antagonistic review and claim audit (#90)
+- [x] P13.9 Independent antagonistic review and claim audit (#90)
 - [ ] P13.10 Journal package and submission readiness (#91)
 
 Acceptance criteria:
