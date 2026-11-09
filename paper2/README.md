@@ -11,7 +11,7 @@ current evidence.
 
 Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,292 source words.
 
-Evidence release: Fresh Solutions **v0.9.3 + GEO fix `c7d1507`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
+Evidence release: Fresh Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 
 ## What changed in P12
 

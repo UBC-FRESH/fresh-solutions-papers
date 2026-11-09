@@ -89,7 +89,7 @@
       "sha256": "a358356bceea23b03f83e5b235c7d3948aab4138c798578b50a355155f85e98c"
     },
     "paper2/evidence/provenance-2026-11-03.json": {
-      "sha256": "f6ef4f6d0b3a4660ce6af4be05c1d5fcda6b7d13a80ba8487e08988c0d186f54"
+      "sha256": "ea413897609756d106c0f4aa321fa8aa8f624ae2459a82171edfbcc5d98d10e4"
     },
     "paper2/check_evidence.py": {
       "sha256": "ba12eed8379e09decadaf0ea6a44f1f8c38642bbd0f12092c5dbcca03aef7621"
