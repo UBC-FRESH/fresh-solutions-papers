@@ -17,7 +17,7 @@ from fresh_solutions.engine import ResidentAssignment  # noqa: E402
 PROVENANCE = ROOT / "evidence" / "provenance-2026-11-03.json"
 FRAMEWORK = ROOT / "evidence" / "framework-use.json"
 TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
-TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-2k.json"
+TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-10k.json"
 BLS = ROOT / "evidence" / "qap-bls-expanded.json"
 QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
@@ -161,14 +161,27 @@ def main() -> int:
         expanded_tsp = json.loads(TSP_EXPANDED.read_text(encoding="utf-8"))
         if len(expanded_tsp) != 100:
             raise SystemExit(f"expanded TSP panel has {len(expanded_tsp)} records, expected 100")
+        cap_hits = 0
         for row in expanded_tsp:
             require(
                 row,
-                ("instance", "seed", "objective", "optimality_gap_percent", "exact_replay"),
+                (
+                    "instance",
+                    "seed",
+                    "objective",
+                    "optimality_gap_percent",
+                    "exact_replay",
+                    "stop_reason",
+                ),
                 "tsp-expanded",
             )
             if not bool(row["exact_replay"]):
                 raise SystemExit(f"expanded TSP record not exact: {row['instance']}")
+            if row["stop_reason"] == "max_seconds":
+                cap_hits += 1
+            elif row["stop_reason"] != "patience":
+                raise SystemExit(f"unexpected expanded TSP stop: {row['stop_reason']}")
+        print(f"expanded TSP cap hits: {cap_hits}/100 (reported, not convergence)")
     with gzip.open(BROAD, "rt", encoding="utf-8") as handle:
         broad = json.load(handle)
     successful = [row for row in broad if "gap" in row]

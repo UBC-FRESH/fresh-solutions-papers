@@ -698,7 +698,7 @@ a negative result for the tabu reference and a positive result for the harness: 
 stronger baseline visible and replayable. The paper does not claim that robust tabu is state-of-the-art.
 
 SciPy FAQ is a second independent external baseline. With the same five seeds and
-\texttt{maxiter=10000}, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
+\texttt{maxiter} 10,000, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
 \texttt{chr12a} outlier dominates the mean. The tabu panel is not an equal-time comparison with SciPy:
 SciPy is much faster, and the point is that the convergence protocol and the gap distribution are not
 interchangeable. BLS is the stronger independent baseline on this panel; the paper does not claim that
@@ -776,6 +776,56 @@ The 10,000-kick-cap campaign is deliberately expensive: mean wall time per seed 
 under 20-worker parallel load. That cost is part of the result. A 20-kick table would have looked
 successful on three instances and hidden the \texttt{ch150} gap; the convergence campaign closes that
 gap and shows that the perturbation needs a longer plateau than the pilot suggested.
+
+\subsection{Expanded TSP panel}
+
+The four-instance table is the controlled deep panel. To reduce the panel-size risk, we also ran 20
+TSPLIB instances with five seeds each, nearest-neighbour starts, 10,000-kick cap, and 1,000-kick
+patience. The runner uses depth 4 for n<100, depth 3 for 100<=n<150, and depth 2 for n>=150; the
+depth is recorded per run. Ninety-five of 100 runs stopped on patience. Five runs on
+\texttt{brazil58} reached the known optimum but hit the 3,600-second cap before the patience rule;
+they are reported as cap hits, not convergence. Across the panel, 94/100 runs reached the known
+optimum, the mean gap is 0.004\%, and the worst gap is 0.185\%.
+
+\begin{table}[t]
+\centering
+\caption{Expanded TSPLIB panel: 20 instances, five seeds, 10,000-kick cap, 1,000-kick patience.
+Ninety-five runs stopped on patience; five \texttt{brazil58} runs hit the wall-clock cap at the known
+optimum and are not counted as converged.}
+\label{tab:tsp-expanded}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Instance & n & Mean gap & Worst gap & Patience & Optima \\
+\midrule
+\texttt{att48} & 48 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{berlin52} & 52 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{bier127} & 127 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{brazil58} & 58 & 0.000\% & 0.000\% & 0/5 & 5/5 \\
+\texttt{ch130} & 130 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{ch150} & 150 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{d198} & 198 & 0.005\% & 0.006\% & 5/5 & 1/5 \\
+\texttt{eil51} & 51 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil76} & 76 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil101} & 101 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{fri26} & 26 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{gr120} & 120 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr152} & 152 & 0.074\% & 0.185\% & 5/5 & 3/5 \\
+\texttt{kroA100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroB100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroC100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroD100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroE100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{lin105} & 105 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr76} & 76 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The expanded panel is a breadth check, not a replacement for the four-instance deep table. Its
+\texttt{brazil58} cap hits are visible in the denominator and are not called convergence. The
+\texttt{d198} and \texttt{pr152} gaps show that the adaptive depth trade-off is real: lowering depth
+makes the panel finish, at a small quality cost on the hardest instances.
 
 \begin{figure}[t]
 \centering

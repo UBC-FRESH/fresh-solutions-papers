@@ -9,7 +9,7 @@ Target: **Journal of Heuristics** for the harness/reference-adapter contribution
 **SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
 current evidence.
 
-Compiled PDF: `paper2-manuscript.pdf` — 23 pages, 8,755 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 23 pages, 8,953 source words.
 
 Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
 
@@ -105,8 +105,10 @@ comparison, and not a claim of universal dominance.
 
 ## TSP iterated Lin–Kernighan
 
-An expanded 20-instance TSPLIB panel from nearest-neighbour starts is in progress; the four-instance
-generic-local-search-start panel remains the controlled framework evidence.
+Expanded 20-instance TSPLIB panel: 100/100 exact replays, 94/100 known optima, mean gap 0.004%,
+worst 0.185%. 95/100 runs stopped on patience; five brazil58 runs hit the 3,600 s cap at the known
+optimum and are reported as cap hits, not convergence. Adaptive depth: 4 for n<100, 3 for
+100<=n<150, 2 for n>=150. The four-instance 10k panel remains the controlled deep evidence.
 
 Final convergence campaign: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs
 plateau-stopped, reached the known optimum, and replayed exactly.

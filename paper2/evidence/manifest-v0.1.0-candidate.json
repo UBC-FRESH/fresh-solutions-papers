@@ -92,7 +92,7 @@
       "sha256": "8a36414e797d35d7225b23b3a56b444ca14113fd752144d60adc5f2dd0033439"
     },
     "paper2/check_evidence.py": {
-      "sha256": "24f0386105424019a2ad0fa1502ec41fae761184634bfaa952b1287cef50eee5"
+      "sha256": "e1f4edbd8bf0a5c457966dfc971b22a12fb8007eddd45ccfca2ad2f2116a6eac"
     },
     "paper2/broad_summary.py": {
       "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
@@ -107,7 +107,7 @@
       "sha256": "5954c879547e4210e21d3f7ccc56925c400d84d1e7025881cd8a32f41e1e04b0"
     },
     "paper2/run_tsp_expanded.py": {
-      "sha256": "9335c2f9f436287f5bfe772d20ee5efe65814dffa7edd620aa7ea26acdd61506"
+      "sha256": "e4e1f0e6f0c952bb74704d902e23bf4fc1215bfb1e1f3311daf0f2a81bc61cc1"
     },
     "paper2/make_figures.py": {
       "sha256": "70f12b844686b9a95a1aa0884528d519aa81fda1be3cc68b848088a9f2150b22"
@@ -144,16 +144,22 @@
     },
     "paper2/replay_qap_bls.py": {
       "sha256": "decb236506b4c0665c9fd73597cf7ef9f67c4c0f42b70e23eb76e3afed2205a0"
+    },
+    "paper2/evidence/tsp-expanded-10k.json": {
+      "sha256": "b69c4317c036950987cf71d932727e459a34d5defc5ffbcaf6a483166ef356ae"
+    },
+    "paper2/evidence/tsp-expanded-10k-summary.json": {
+      "sha256": "4fbb65c143d1683721476c73a72144abc33b6f70e4c8484ff00584af5604a268"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "ce3693d0fb73493dd9803ae537c4349ca6cb6add2e719006cb1dbb9be5032cf7"
+    "sha256": "73624624ef5eb41a0b54267917fd0fd6f8a932403bd943988544f43f7d1c9039"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "4988fe6a529f63bae780c35ada146da75925a1e10cefb7de7d273848ba70b814"
+    "sha256": "7ab1fb4fc0eb772cfd6c5c44d40ada9ab5f21a1d99c136fd1959d269bc4e78f2"
   },
   "references": {
     "path": "paper2/references.bib",

@@ -83,7 +83,7 @@ def run_task(task: tuple[str, float, int]) -> dict[str, object]:
     problem = TravellingSalesman.from_tsplib(TSP_ROOT / f"{name}.tsp")
     initial = nearest_neighbour(problem, seed % problem.variable_count)
     initial_objective = problem.evaluate(initial).objective
-    depth = 2 if problem.variable_count >= 180 else 3 if problem.variable_count >= 100 else 4
+    depth = 2 if problem.variable_count >= 150 else 3 if problem.variable_count >= 100 else 4
     started = time.perf_counter()
     result = run_tsp_lk(
         problem,
