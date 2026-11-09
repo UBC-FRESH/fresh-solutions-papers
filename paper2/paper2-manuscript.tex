@@ -285,11 +285,13 @@ without reading the paper prose.
 
 The target per-run schema contains the instance name, adapter name, seed, budget, stop reason,
 objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
-with the solver commit and hardware. The current publication-facing files implement this schema
-unevenly: the framework-use file carries hardware and worker count, while the TSP and broad files
-carry seed, budget, stop reason, assignment, wall time, solver commit, and exact-replay status, but
-not CPU time or per-record hardware. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
-This is a release blocker, not a completed per-record schema. The committed validator replays the 40 QAP and 20 TSP incumbents and checks the broad-panel fields; it does not fill missing per-record metadata.
+with the solver commit and hardware. The current files implement this schema unevenly: the
+framework-use file carries hardware and worker count; the QAP-expanded, BLS, and generic files carry
+exact-replay status but not solver commit or hardware; the expanded TSP and broad files carry
+campaign-level provenance but not per-record CPU or hardware. The campaign-level provenance is in
+\url{paper2/evidence/provenance-2026-11-03.json}. This is a release blocker, not a completed
+per-record schema. The validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 100 BLS, and 40
+generic incumbents and checks the broad fields; it does not fill missing metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
 constructs a fresh adapter, evaluates the stored assignment, and compares the objective and
@@ -328,8 +330,8 @@ maintainer approves the candidate.
 
 The public QAPLIB and TSPLIB instances are not redistributed in a modified form. The TSA24 artifact is
 published separately with its compiled data and licence statement. External LKH is not bundled; the
-provenance sidecar records its version and binary hash; the exact command is not yet recorded, and the paper treats it as an external capability
-reference. This separation matters for licensing: Fresh Solutions code is Apache-2.0, derived artifacts use
+provenance sidecar records its version, binary hash, and exact rerun command; the paper treats it as
+an external capability reference. This separation matters for licensing: Fresh Solutions code is Apache-2.0, derived artifacts use
 CC BY 4.0, and the BC source data carries OGL-BC attribution. The paper-specific evidence repository
 is not yet public, so this is an intended release policy, not a claim that the evidence is archived.
 
@@ -344,7 +346,7 @@ reported as a defect, not averaged into a table.
 
 This taxonomy is simple, but it prevents a common failure mode in heuristic papers: reporting the
 converged subset while omitting the runs that hit the cap. The QAP broad panel reports 552 of 670
-patience stops and 318 optima; the TSP broad panel reports 236 of 390 patience stops and 183 optima.
+patience stops and 318 optima; the TSP broad panel reports 236 of 390 patience stops and 195 optima.
 The denominator is visible, and the cap hits are not hidden in a footnote.
 
 \section{Experimental design}
@@ -367,12 +369,16 @@ with the convergence panels.}
 Campaign & Panel & Seeds & Budget & Stop rule \\
 \midrule
 QAP convergence/framework & 4 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
+QAP expanded & 20 QAPLIB & 5 & 1,000,000 it. & 100,000 patience \\
+QAP BLS baseline & 20 QAPLIB & 5 & 1,000,000 moves & 100,000 patience \\
 Large QAP & 4 QAPLIB & 5 starts & 1,000,000 it. & 10,000 patience \\
 Broad QAP & 134 QAPLIB & 5 & 600 s cap & 10,000 patience \\
 TSP convergence & 4 TSPLIB & 5 & 10,000 kicks & 1,000 patience \\
+TSP expanded & 20 TSPLIB & 5 & 10,000 kicks & 1,000 patience; 3,600 s cap \\
 TSP 2k check & 4 TSPLIB & 5 & 2,000 kicks & 200 patience \\
 TSP 20-kick pilot & 4 TSPLIB & 5 & 20 kicks & none \\
 Broad TSP & 78 TSPLIB & 5 & 600 s cap & 100 patience \\
+Generic tabu & 8 QAP/TSP & 5 & 20,000 it. & 5,000 patience \\
 Applied TSA24 & 1 instance & 5 & 100,000 gen. & fixed budget \\
 \bottomrule
 \end{tabular}
@@ -403,10 +409,11 @@ table includes the candidate-list construction and the LK passes; it is not a pu
 2,000-kick and 10,000-kick-cap campaigns use the same starts and seeds, so the longer campaign is a budget
 extension of the same experiment, not a different instance set.
 
-The TSP convergence panel uses \texttt{berlin52}, \texttt{kroA100}, \texttt{kroB100}, and
-\texttt{ch150}. Each run starts from the corresponding converged generic local-search tour and uses 10,000
-double-bridge kicks with a 1,000-kick patience rule. Five seeds are used. The 2,000-kick/200-patience
-and 20-kick campaigns are retained as shorter-budget checks and are not pooled with the final table.
+The controlled TSP panel uses \texttt{berlin52}, \texttt{kroA100}, \texttt{kroB100}, and
+\texttt{ch150}. Each run starts from the corresponding converged generic local-search tour and uses
+10,000 double-bridge kicks with a 1,000-kick patience rule. Five seeds are used. The expanded panel
+uses 20 TSPLIB instances and nearest-neighbour starts, with a 3,600-second cap; the 2,000-kick and
+20-kick campaigns are retained as shorter-budget checks and are not pooled with the final table.
 
 The broad QAP and TSP panels are separate fixed-budget screens. They use the public QAPLIB and TSPLIB
 collections, five seeds, and a 600-second safety cap where stated. A broad-panel run that hits the cap
@@ -827,9 +834,11 @@ Instance & n & Mean gap & Worst gap & Patience & Optima \\
 \end{table}
 
 The expanded panel is a breadth check, not a replacement for the four-instance deep table. Its
-\texttt{brazil58} cap hits are visible in the denominator and are not called convergence. The
-\texttt{d198} and \texttt{pr152} gaps show that the adaptive depth trade-off is real: lowering depth
-makes the panel finish, at a small quality cost on the hardest instances.
+\texttt{brazil58} cap hits are visible in the denominator and are not called convergence. The panel
+uses only non-GEO instances: an earlier GEO case exposed the parser defect and was replaced by the
+\texttt{EUC\_2D} \texttt{pr152}. The \texttt{d198} and \texttt{pr152} gaps show that the adaptive depth
+trade-off is real: lowering depth makes the panel finish, at a small quality cost on the hardest
+instances.
 
 \begin{figure}[t]
 \centering
@@ -840,13 +849,16 @@ makes the panel finish, at a small quality cost on the hardest instances.
 
 \subsection{Broad panel and the LKH boundary}
 
-Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 183 hit the known
-optimum. The converged subset has median gap 0.000\% and mean 0.100\%. The large tail is weak: only
-3 of 100 runs above $n=300$ reached patience, and 97 hit the safety cap. The internal method is
-therefore a small/medium TSP solver, not a large-instance solver.
+Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 195 hit the known
+optimum. The converged subset has median gap 0.000\% and mean 0.046\%; the all-run mean is 1.460\%
+and the converged worst is 1.021\%. The large tail is weak: only 3 of 100 runs above $n=300$ reached
+patience, and 97 hit the safety cap. The internal method is therefore a small/medium TSP solver, not a
+large-instance solver. The broad TSP and LKH panels were rerun after correcting a TSPLIB GEO
+conversion defect; the old runs contained objectives below the published optimum. No negative gap
+remains in the committed broad or LKH evidence.
 
-External LKH, at its stated budget and configuration, reaches 71 of 100 optima on the same large tail,
-mean gap 0.092\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
+External LKH, at its stated budget and configuration, reaches 75 of 100 optima on the same large tail,
+mean gap 0.098\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
 bundled and not claimed as Fresh Solutions' own heuristic. The comparison is capability-only, not
 matched-time.
 

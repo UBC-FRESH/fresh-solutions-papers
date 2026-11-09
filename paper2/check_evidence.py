@@ -20,6 +20,7 @@ TSP = ROOT / "evidence" / "tsp-convergence-10k.json"
 TSP_EXPANDED = ROOT / "evidence" / "tsp-expanded-10k.json"
 BLS = ROOT / "evidence" / "qap-bls-expanded.json"
 GENERIC = ROOT / "evidence" / "generic-tabu.json"
+LKH = ROOT / "evidence" / "lkh-large.json"
 QAP_EXPANDED = ROOT / "evidence" / "qap-expanded-100k.json"
 BROAD = ROOT / "evidence" / "broad-converged.json.gz"
 BROAD_SUMMARY = ROOT / "evidence" / "broad-converged-summary.json"
@@ -176,6 +177,13 @@ def main() -> int:
         )
         if not bool(row["exact_replay"]) or row["stop_reason"] != "patience":
             raise SystemExit(f"generic-tabu record invalid: {row['instance']}")
+    lkh = json.loads(LKH.read_text(encoding="utf-8"))
+    if len(lkh) != 100:
+        raise SystemExit(f"LKH panel has {len(lkh)} records, expected 100")
+    for row in lkh:
+        require(row, ("instance", "seed", "objective", "optimality_gap_percent"), "lkh")
+        if float(row["optimality_gap_percent"]) < -1e-9:
+            raise SystemExit(f"negative LKH gap: {row['instance']}")
     if TSP_EXPANDED.exists():
         expanded_tsp = json.loads(TSP_EXPANDED.read_text(encoding="utf-8"))
         if len(expanded_tsp) != 100:
@@ -230,7 +238,7 @@ def main() -> int:
         f"validated provenance; replayed {qap_checked} QAP and {tsp_checked} TSP incumbents; "
         f"broad records {len(broad)} with {len(summary)} summary rows; "
         f"large-QAP records {len(multi)} exact; BLS records {len(bls)} exact; "
-        f"generic-tabu records {len(generic)} exact"
+        f"generic-tabu records {len(generic)} exact; LKH records {len(lkh)} non-negative"
     )
     return 0
 

@@ -5,10 +5,10 @@
       "sha256": "0a57757183f56f5e625ec1b2611e4220e9970234ba59748a1326598fdaac6b9b"
     },
     "paper2/evidence/broad-converged.json.gz": {
-      "sha256": "e494bb76bfb22adf115201ee42e87c1e73d8abc77db9a8395aece477bc63b237"
+      "sha256": "20f1cf94ee6125ce9cedcc6e6da447367ae5e926715dc3011c8eb3f9c6cc2064"
     },
     "paper2/evidence/broad-converged-summary.json": {
-      "sha256": "22c2cf4ec09de9e88ddeaf4bcb6c4e9b5fff9feecde5cfbe127ee6d13417e327"
+      "sha256": "c898feb4fe09873c35f2533985bd877c37742eecf8fa72f29e845c1a4f5dd901"
     },
     "paper2/evidence/qap-tabu-converged.json": {
       "sha256": "01147de8eb17df8da4d82b34bcea2310cb127e45f66aa9018b3281f9c207be4d"
@@ -32,10 +32,10 @@
       "sha256": "11deab2af5a31d0f3bab5c6c6b6d3523b7f0b7bf6005fdf0f6913a41e2228ebb"
     },
     "paper2/evidence/lkh-large-summary.json": {
-      "sha256": "70a5dcbc88ad76f8eac2d12b86d4f9594fd64a2e3b322eaa96f8983e7ac27b92"
+      "sha256": "341279d6bd6b9cd41ff443c1f811d9f17ac73ef025adc9ee6170fb7417f028d8"
     },
     "paper2/evidence/lkh-provenance.json": {
-      "sha256": "ff57e5764064bb5f74e043ed28c7f2d4b538b4525fc68fdb62bf0ff1f235a6a9"
+      "sha256": "802483b47837802d3928fdf5ecc4a47b7e6cebc706c0be6c15bb0a6933ff45aa"
     },
     "paper2/evidence/framework-use.json": {
       "sha256": "4889379ed7e82b9ea0cf3449268c249d59f43af27b338c455f0231673d58b882"
@@ -89,10 +89,10 @@
       "sha256": "a358356bceea23b03f83e5b235c7d3948aab4138c798578b50a355155f85e98c"
     },
     "paper2/evidence/provenance-2026-11-03.json": {
-      "sha256": "e851fbad48404e50b999c85bab0c2e71b17f7409e381a0d478efe2b0fd493f07"
+      "sha256": "f6ef4f6d0b3a4660ce6af4be05c1d5fcda6b7d13a80ba8487e08988c0d186f54"
     },
     "paper2/check_evidence.py": {
-      "sha256": "dfe8994e976a1e9ef90d9c948842b4c5fe1481781a95752b0a5286de18b5b99a"
+      "sha256": "ba12eed8379e09decadaf0ea6a44f1f8c38642bbd0f12092c5dbcca03aef7621"
     },
     "paper2/broad_summary.py": {
       "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
@@ -171,16 +171,22 @@
     },
     "paper2/evidence/qap-bls-10seed-summary.json": {
       "sha256": "0a75f051b3c034612e6e6a6216384b3231ac5af4cd6828081b9228aeab414176"
+    },
+    "paper2/evidence/lkh-large.json": {
+      "sha256": "1d4bd7d33e358270206214c53142dd169f5757ff25a80956a7edcf04cf77041e"
+    },
+    "paper2/rerun_geo_tsp.py": {
+      "sha256": "61431fca899dc788903bca69171f2800bcaadfd8683b1ee91f7ac25806781506"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "027bf6e4c397adbf7e4a234cd5c9e3b1ea0906b9e1f0d63edb618129a0eaf848"
+    "sha256": "b0fb2ac4fdf7865033f9a610b8dd8a63b402404baf941b86926c177dbcf3a112"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "bbd460c3c774fbe6f3dffa799f98cf633d3bab9faec5af5a809736301aa30eaa"
+    "sha256": "4bf0c15eae8bd6e47a18661cd14ef0471192ffec52cf0b9b3230b8c1f70e4b97"
   },
   "references": {
     "path": "paper2/references.bib",

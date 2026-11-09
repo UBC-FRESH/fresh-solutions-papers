@@ -1,9 +1,9 @@
 {
   "instances": 20,
   "runs": 100,
-  "optimum_runs": 71,
-  "mean_gap_percent": 0.09211436201415645,
+  "optimum_runs": 75,
+  "mean_gap_percent": 0.09834879469421104,
   "median_gap_percent": 0.0,
   "worst_gap_percent": 1.9301003748941832,
-  "mean_wall_seconds": 4.883920439630165
+  "mean_wall_seconds": 15.012961404089584
 }
