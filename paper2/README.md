@@ -9,7 +9,7 @@ Target: **Journal of Heuristics** for the harness/reference-adapter contribution
 **SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
 current evidence.
 
-Compiled PDF: `paper2-manuscript.pdf` — 23 pages, 8,953 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 23 pages, 8,991 source words.
 
 Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
 
@@ -18,8 +18,8 @@ Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 
 - The QAP panel is convergence-controlled: ten seeds, 100,000-iteration patience, 1,000,000 cap.
 - All 40 QAP runs stopped on `patience` and replayed exactly.
 - A framework-managed QAP tabu path matched the standalone and production objectives on all 40 runs.
-- TSP is convergence-controlled: five seeds, 10,000 kicks, 1,000-kick patience.
-- All 20 TSP runs stopped on `patience`, reached the known optimum, and replayed exactly.
+- The four-instance TSP deep panel is convergence-controlled: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs stopped on `patience`, reached the known optimum, and replayed exactly.
+- The expanded 20-instance TSP panel has 95/100 patience stops and five `brazil58` wall-clock cap hits at the known optimum; cap hits are not called convergence.
 - The earlier 20-kick and 2,000-kick tables are retained as short-budget checks, not convergence
   evidence.
 
