@@ -365,13 +365,14 @@ the protocol, not a result: it fixes the denominator before the reader sees a me
 with the convergence panels.}
 \label{tab:campaigns}
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lllll}
 \toprule
 Campaign & Panel & Seeds & Budget & Stop rule \\
 \midrule
 QAP convergence/framework & 4 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
-QAP expanded & 20 QAPLIB & 5 & 1,000,000 it. & 100,000 patience \\
-QAP BLS baseline & 20 QAPLIB & 5 & 1,000,000 moves & 100,000 patience \\
+QAP expanded & 20 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
+QAP BLS baseline & 20 QAPLIB & 10 & 1,000,000 moves & 100,000 patience \\
 Large QAP & 4 QAPLIB & 5 starts & 1,000,000 it. & 10,000 patience \\
 Broad QAP & 134 QAPLIB & 5 & 600 s cap & 10,000 patience \\
 TSP convergence & 4 TSPLIB & 5 & 10,000 kicks & 1,000 patience \\
@@ -382,7 +383,8 @@ Broad TSP & 78 TSPLIB & 5 & 600 s cap & 100 patience \\
 Generic tabu & 8 QAP/TSP & 5 & 20,000 it. & 5,000 patience \\
 Applied TSA24 & 1 instance & 5 & 100,000 gen. & fixed budget \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 The QAP convergence panel uses four QAPLIB instances: \texttt{tai12a}, \texttt{tai20a},

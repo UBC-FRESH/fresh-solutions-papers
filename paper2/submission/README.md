@@ -2,16 +2,18 @@
 
 Target: Journal of Heuristics (Springer Nature).
 
-The current working draft uses the generic `article` class. Springer Nature now recommends
-`sn-jnl.cls` for journal submissions; the JoH-specific source conversion and author metadata are
-still pending. The cover letter and highlights are ready.
+- `paper2-sn-jnl.tex` — `sn-jnl` conversion, `sn-mathphys-num` references, author placeholders.
+- `sn-jnl.cls`, `sn-mathphys-num.bst` — official Springer Nature December 2024 package.
+- `paper2-sn-jnl.pdf` — compiled review copy (27 pages).
+- `cover-letter.md`, `highlights.md`.
 
-Required before conversion:
+Build:
 
-- `sn-jnl.cls` and the selected `.bst` style from the official Springer Nature package.
-- PI-approved author list, affiliations, corresponding author, CRediT, funding, competing interests.
-- Conversion of the `article` body to `sn-jnl` front matter (`\title`, `\author`, `\affil`,
-  `\abstract`, `\keywords`, `\maketitle`, `\backmatter`).
-- A clean build of the converted source and an editor checklist.
+```bash
+cd paper2/submission
+latexmk -pdf paper2-sn-jnl.tex
+```
 
-No submission is made from this directory.
+The author list, affiliations, corresponding author, CRediT, funding, and competing-interest
+statements must be replaced with PI-approved metadata before submission. No submission is made from
+this directory.
