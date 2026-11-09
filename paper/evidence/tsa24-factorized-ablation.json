@@ -65,7 +65,7 @@
   "build_seconds": 234.41774496703874,
   "peak_gpu_bytes": 9268166656,
   "commands": {
-    "cpu": "benchmark_factorized_switch.py --device cpu --genomes 64 --repeats 3 --feature feature.Yield.managed.Total --product product.HarvestedVolume.managed.Total.CC",
-    "cuda": "benchmark_factorized_switch.py --device cuda --genomes 64 --repeats 3 --feature feature.Yield.managed.Total --product product.HarvestedVolume.managed.Total.CC"
+    "cpu": "WS4_GPU_ROOT=/srv/shared-data/gep/ws4/ws4-gpu python3 paper/experiments/benchmark_factorized_switch.py --device cpu ...",
+    "cuda": "WS4_GPU_ROOT=/srv/shared-data/gep/ws4/ws4-gpu python3 paper/experiments/benchmark_factorized_switch.py --device cuda ..."
   }
 }

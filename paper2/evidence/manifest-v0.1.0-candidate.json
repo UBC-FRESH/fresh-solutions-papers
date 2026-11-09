@@ -122,7 +122,7 @@
       "sha256": "55568990bf50846d8c02647349ff82be503599eadec63fe9b7a21a3052e589d3"
     },
     "paper2/evidence/qap-expanded-100k.json": {
-      "sha256": "e91599f4c0613600aa2dd5fef460bc63e41d57d69f19bcfc37411af9798cba53"
+      "sha256": "27be7702124e25c32d8b9ebb3577d9de6dd376609a02b4e86563a59128ff8af7"
     },
     "paper2/evidence/qap-expanded-100k-summary.json": {
       "sha256": "3de3a7d15c4bb6d96e3641e0c5c5686dabd558463f6526a3a05677a24f7587eb"
@@ -131,7 +131,7 @@
       "sha256": "609861ec5201b9614e851f9bce3ebe2bf1f10cc2d017da1f7f22f66495a3e47d"
     },
     "paper2/evidence/qap-bls-expanded.json": {
-      "sha256": "170d23f2f7950e88216169f829f0200eef113e287c30453c61bd859f0278a1fd"
+      "sha256": "aa0e1950ac016cd3a63efb2f3277367059465e6d725a4941e47226fc9186597e"
     },
     "paper2/evidence/qap-bls-expanded-summary.json": {
       "sha256": "eb9059fdd0f0b6cf2d5322f5d57bb7f197a71daa3d266fd32321834743980330"
@@ -146,13 +146,13 @@
       "sha256": "decb236506b4c0665c9fd73597cf7ef9f67c4c0f42b70e23eb76e3afed2205a0"
     },
     "paper2/evidence/tsp-expanded-10k.json": {
-      "sha256": "b69c4317c036950987cf71d932727e459a34d5defc5ffbcaf6a483166ef356ae"
+      "sha256": "8b41d0bfe000f09aa389d728e6289f9dd128f6346b7c8ed81986f92de700810b"
     },
     "paper2/evidence/tsp-expanded-10k-summary.json": {
       "sha256": "4fbb65c143d1683721476c73a72144abc33b6f70e4c8484ff00584af5604a268"
     },
     "paper2/evidence/generic-tabu.json": {
-      "sha256": "c9248ce1f5baf385349e042d84851a996e1cede4485fa714e6e64b9d42ed2bfc"
+      "sha256": "752d57bb556ac60b2f64eb16f9cdc4600867af8dd1a1b2d448fea544391c1afe"
     },
     "paper2/evidence/generic-tabu-summary.json": {
       "sha256": "d8ffbe6ca16382d557bebe31417cc5f3eacf46c7727c939eafd21784042f0f48"
@@ -167,7 +167,7 @@
       "sha256": "ea823f965cad859bcb76ba77f02dca1ab2ff15e4b0ba1aa44d04d8086adfa3fa"
     },
     "paper2/evidence/qap-bls-10seed.json": {
-      "sha256": "da0b0b4c816713f865b1d2f830dd4c49c5d3095212f1fdeec0ab0260efcd913f"
+      "sha256": "9c61e5622db47d96b75be0f4a3df3add2f537d2d12131191112174c8e0c835db"
     },
     "paper2/evidence/qap-bls-10seed-summary.json": {
       "sha256": "0a75f051b3c034612e6e6a6216384b3231ac5af4cd6828081b9228aeab414176"
@@ -177,16 +177,25 @@
     },
     "paper2/rerun_geo_tsp.py": {
       "sha256": "61431fca899dc788903bca69171f2800bcaadfd8683b1ee91f7ac25806781506"
+    },
+    "paper2/replay_qap_expanded.py": {
+      "sha256": "217e4b2fab1fd301a3355d09889e22979f9fbad5d47caae5bf4e74eaee6fece6"
+    },
+    "paper2/replay_tsp_expanded.py": {
+      "sha256": "a2f7e961d0535603e3b249a2722e1f7594232bc35e54e9fe47933e9cb1627e34"
+    },
+    "paper2/stamp_convergence_metadata.py": {
+      "sha256": "03157852a9493c23a1265866a92f7ad13f452b7362a6cda717ba389de9726dbe"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "b0fb2ac4fdf7865033f9a610b8dd8a63b402404baf941b86926c177dbcf3a112"
+    "sha256": "20174a8ff0f56f2cacb799f4d55a84b3205ca5e88cc178e967b545daa917f632"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "4bf0c15eae8bd6e47a18661cd14ef0471192ffec52cf0b9b3230b8c1f70e4b97"
+    "sha256": "a85e21ce3b47fe7103fc6c91ac2a66f44fff468b3676362aca4cbdc806a64a5c"
   },
   "references": {
     "path": "paper2/references.bib",

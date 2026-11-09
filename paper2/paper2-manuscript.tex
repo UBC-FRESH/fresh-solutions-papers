@@ -286,12 +286,13 @@ without reading the paper prose.
 The target per-run schema contains the instance name, adapter name, seed, budget, stop reason,
 objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
 with the solver commit and hardware. The current files implement this schema unevenly: the
-framework-use file carries hardware and worker count; the QAP-expanded, BLS, and generic files carry
-exact-replay status but not solver commit or hardware; the expanded TSP and broad files carry
-campaign-level provenance but not per-record CPU or hardware. The campaign-level provenance is in
-\url{paper2/evidence/provenance-2026-11-03.json}. This is a release blocker, not a completed
-per-record schema. The validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 100 BLS, and 40
-generic incumbents and checks the broad fields; it does not fill missing metadata.
+framework-use file carries hardware, worker count, and CPU time; the QAP-expanded, BLS, generic, and
+expanded-TSP files carry solver commit, hardware, stop reason, and exact-replay status but not
+per-record CPU time; the broad file carries solver commit and a campaign-level replay status but not
+per-record hardware or CPU. The campaign-level provenance is in
+\url{paper2/evidence/provenance-2026-11-03.json}. Per-record CPU time remains the release blocker. The
+validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 100 BLS, and 40 generic incumbents and
+checks the broad/LKH fields; it does not fill missing CPU metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
 constructs a fresh adapter, evaluates the stored assignment, and compares the objective and
