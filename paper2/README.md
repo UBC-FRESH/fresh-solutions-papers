@@ -146,7 +146,7 @@ Five seeds per instance. `lk-only` is the sequential exchange without double-bri
 | kroB100 | 0.780% | 0.172% | 0.000% |
 | ch150 | 2.203% | 0.558% | 0.383% |
 
-The kicks are material; all 60 ablation tours replay exactly.
+The kicks are material; all 60 ablation tours replay exactly; the broad panel replays 1,060 QAP/TSP incumbents exactly, with 25 esc8 parse-error records skipped.
 
 ## Broad panels and LKH
 

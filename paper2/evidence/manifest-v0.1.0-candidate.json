@@ -92,7 +92,7 @@
       "sha256": "ea413897609756d106c0f4aa321fa8aa8f624ae2459a82171edfbcc5d98d10e4"
     },
     "paper2/check_evidence.py": {
-      "sha256": "ba12eed8379e09decadaf0ea6a44f1f8c38642bbd0f12092c5dbcca03aef7621"
+      "sha256": "f73f0b18f180f19e8202cfe5bf6dd7fe3e3711117e5c1bc5af5417a2acaec8f1"
     },
     "paper2/broad_summary.py": {
       "sha256": "00cf59dcb0e1120fe8d53225050e071ea2b8ca60c6591c4037293362687b4450"
@@ -186,6 +186,12 @@
     },
     "paper2/stamp_convergence_metadata.py": {
       "sha256": "03157852a9493c23a1265866a92f7ad13f452b7362a6cda717ba389de9726dbe"
+    },
+    "paper2/replay_broad.py": {
+      "sha256": "4c84607fa38a8887212e71d804a8d97cfa2df78ba46ed55b00752643d09847c7"
+    },
+    "paper2/replay_all.sh": {
+      "sha256": "0ad910aa7f7d42db31a801f767200f383a94da10951d2278ffff1a320c4de309"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",

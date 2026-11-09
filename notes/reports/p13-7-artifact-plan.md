@@ -21,9 +21,9 @@ Issue: #88
 
 - 40 QAP framework incumbents exact.
 - 20 TSP deep-panel incumbents exact.
-- 1,085 broad records and 7 summary rows validated.
+- 1,085 broad records and 7 summary rows validated; 1,060 QAP/TSP incumbents replayed exactly, 25 esc8 parse-error records skipped.
 - 20 large-QAP records exact.
-- 100 BLS records exact.
+- 200 BLS records exact.
 - 40 generic-tabu records exact.
 - 5/100 expanded-TSP cap hits reported as cap hits, not convergence.
 
