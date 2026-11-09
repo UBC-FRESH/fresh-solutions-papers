@@ -8,8 +8,11 @@ Issue: #91
 
 - `paper/submission/cover-letter.md`
 - `paper/submission/highlights.md`
+- `paper/submission/paper1-elsarticle.tex` — EMS `elsarticle` variant, compiles to 29 pages.
+- `paper/submission/elsarticle.cls`, `paper/submission/elsarticle-num.bst` — CTAN class/style.
 - `paper2/submission/cover-letter.md`
 - `paper2/submission/highlights.md`
+- `paper2/submission/README.md` — `sn-jnl` conversion requirements.
 
 ## Paper 1 — Environmental Modelling & Software
 
