@@ -9,7 +9,7 @@ Target: **Journal of Heuristics** for the harness/reference-adapter contribution
 **SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
 current evidence.
 
-Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,165 source words.
+Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,187 source words.
 
 Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
 

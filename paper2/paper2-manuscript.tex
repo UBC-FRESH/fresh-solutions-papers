@@ -696,9 +696,10 @@ published design, not the authors' code. BLS is lower on 14 instance means and h
 difference is $-0.158$ percentage points (bootstrap 95\% CI $-0.222$ to $-0.094$). A paired sign test
 on the 64 non-tied pairs would also be significant, but the instances are not independent, so we treat
 the interval as descriptive. The overall mean gap is 0.116\% for BLS and 0.274\% for tabu; the worst
-is 1.369\% and 1.583\%, respectively. The result is a negative result for the tabu reference and a
-positive result for the harness: the harness makes the stronger baseline visible and replayable. The
-paper does not claim that robust tabu is state-of-the-art.
+is 1.369\% and 1.583\%, respectively. A ten-seed BLS rerun gives the same picture (mean 0.096\%
+over 20 instances), so the five-seed comparison is not a seed-selection artifact. The result is a
+negative result for the tabu reference and a positive result for the harness: the harness makes the
+stronger baseline visible and replayable. The paper does not claim that robust tabu is state-of-the-art.
 
 SciPy FAQ is a second independent external baseline. With the same five seeds and
 \texttt{maxiter} 10,000, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the

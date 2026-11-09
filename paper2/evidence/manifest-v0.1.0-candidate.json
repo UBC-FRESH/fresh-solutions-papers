@@ -165,16 +165,22 @@
     },
     "paper2/replay_generic_tabu.py": {
       "sha256": "ea823f965cad859bcb76ba77f02dca1ab2ff15e4b0ba1aa44d04d8086adfa3fa"
+    },
+    "paper2/evidence/qap-bls-10seed.json": {
+      "sha256": "da0b0b4c816713f865b1d2f830dd4c49c5d3095212f1fdeec0ab0260efcd913f"
+    },
+    "paper2/evidence/qap-bls-10seed-summary.json": {
+      "sha256": "0a75f051b3c034612e6e6a6216384b3231ac5af4cd6828081b9228aeab414176"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "42b0b8e7b8171395775db958a2731a76d446b2b5d0d159b8e0e5fb01828ac929"
+    "sha256": "027bf6e4c397adbf7e4a234cd5c9e3b1ea0906b9e1f0d63edb618129a0eaf848"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "a602ec4c5575f280ef5762af21da93a41b1474eda8f6bfc2232d6aff7dcf7beb"
+    "sha256": "bbd460c3c774fbe6f3dffa799f98cf633d3bab9faec5af5a809736301aa30eaa"
   },
   "references": {
     "path": "paper2/references.bib",
