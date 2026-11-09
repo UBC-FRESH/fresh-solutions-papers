@@ -322,7 +322,7 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Provenance now records both the campaign commit (`7d3c831`, v0.8.0) and the replay commit
   (`3aa241e`, v0.9.3).
 
-## 2026-11-08/09
+## 2026-11-08
 
 ### P13 publication hardening
 
