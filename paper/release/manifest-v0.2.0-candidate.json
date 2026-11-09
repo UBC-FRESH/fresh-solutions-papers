@@ -28,11 +28,11 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "bd885f5bfe3af36dad343bf82833958c0c00b2750a0adbe16166ad141a3f0a92"
+    "sha256": "7bb5e132f104d9bef89ebeebb677bb5e62e15c39cb29fe1231eae209b245d1fc"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "511e2bb5e87d9bf6a75dbbb4a08b5833fd3f15460b68960637e576317f7d0838"
+    "sha256": "2690e9a43dbda7589bd457a75b0b076de920b3645b992f56d0b3a0b2ef92f3d8"
   },
   "references": {
     "path": "paper/references.bib",
@@ -63,5 +63,13 @@
   "target_sensitivity": {
     "path": "paper/evidence/tsa24-target-sensitivity.json",
     "sha256": "8ab936cb29cf9e5299e002c01032794948472b73c6f1ed45bbead8c56212316d"
+  },
+  "matched_search": {
+    "path": "paper/evidence/tsa24-matched-search.json",
+    "sha256": "fb84afc0d7e4a96d4479ae951c4e33d36595715d1b7e2beef8a72a57003d83a8"
+  },
+  "matched_search_runner": {
+    "path": "paper/experiments/run_matched_search.sh",
+    "sha256": "0ee0188f7e43b434ef35a34bcb42e3b697e2ea407397071778f68b559c7226ef"
   }
 }

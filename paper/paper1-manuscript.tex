@@ -693,6 +693,36 @@ path is a one-device tensor path, not a tuned multithreaded batch; the result su
 evaluation path, not a universal architecture claim. The 234.4~s build cost is also part of the
 result: the batch advantage matters only when the table is reused. The next experiment is a matched
 CPU-GA at the same population/generation count, which remains open.
+\subsection{Matched implementation search}
+
+The same \texttt{gpu-run} implementation accepts \texttt{--device cpu} and \texttt{--device cuda}. We
+ran it on the full TSA24 model with population 64, seed 7, and 1, 10, and 100 generations. The CPU
+path is one torch device path, not a tuned multithreaded CPU-GA; each row is one seed. At one
+generation the CUDA path is slower (41.7~s vs 26.2~s search), because model/table overhead dominates.
+At 100 generations CUDA search is 23.9~s vs 528.8~s on CPU, a 22-fold shorter search time in this
+one-seed run, but the CPU objective is about 5\% lower (7.11e7 vs 7.49e7). This is a short-horizon
+matched implementation comparison, not a quality ranking, not a tuned CPU baseline, and not a full
+100,000-generation CPU comparison. It also shows that the observed time ratio is generation-count
+dependent; it is not a hardware claim.
+
+\begin{table}[t]
+\centering
+\caption{TSA24 matched implementation search: full model, population 64, seed 7, one seed. CPU is a
+single torch device path, not a tuned CPU-GA. The 100-generation CUDA run uses 22-fold less search
+time, but its objective is higher; this is not a hardware claim.}
+\label{tab:matched-search}
+\footnotesize
+\begin{tabular}{rrrrrr}
+\toprule
+Generations & CPU search (s) & CUDA search (s) & CPU/CUDA time & CPU objective & CUDA objective \\
+\midrule
+1 & 26.2 & 41.7 & 0.63 & $3.18\times10^{8}$ & $3.47\times10^{8}$ \\
+10 & 71.5 & 33.7 & 2.12 & $1.23\times10^{8}$ & $1.34\times10^{8}$ \\
+100 & 528.8 & 23.9 & 22.15 & $7.11\times10^{7}$ & $7.49\times10^{7}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \begin{figure}[t]
 \centering
@@ -807,10 +837,10 @@ inspectable.
 
 \subsection{Future work}
 
-The next experiment is a matched architecture ablation. It requires a CPU batched evaluator, a GPU
-batched evaluator at the same population and generation count, and a cache-load/search split. The
-second experiment is a matched CPU-GA or CPU-SA run at equal work and equal wall time. Those are
-controlled comparisons; the current CPU-SA run is not.
+The matched implementation comparison below is a start, but a tuned CPU batched evaluator, a
+cache-load/search split, a full effect-table-versus-direct-evaluator comparison, and a matched
+CPU-GA/CPU-SA at equal work and wall time remain. Those are controlled comparisons; the current
+CPU-SA run is not.
 
 The second direction is a spatial-constraint extension. TSA24 has no hard adjacency or opening-size
 rules in the reported run. Adding them would test whether the candidate index and effect table remain
@@ -837,8 +867,10 @@ exact MIP proof is not practical at this scale with the available resources.
 The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
 It is not a controlled baseline. The evaluation-path ablation is diagnostic rather than full-instance:
 it uses a 5,000-block subset. The factorized 64-genome batch is a separate microbenchmark, not an
-end-to-end matched CPU-GA/search comparison. A matched CPU-GA and cache/search ablation are still
-required before the architecture claim can be separated from a local implementation-speed claim.
+end-to-end matched CPU-GA/search comparison. The short-horizon CPU/CUDA implementation comparison is
+reported, but the CPU path is not a tuned multithreaded baseline. A tuned CPU-GA and cache/search
+ablation at equal work are still required before the architecture claim can be separated from a
+local implementation-speed claim.
 
 Within those limits, the paper supports a narrower conclusion: a compiled-state
 architecture can make a 208,255-block landscape search exact, replayable, and
@@ -855,8 +887,8 @@ substitute for a controlled comparison. It is a foundation on which such a
 comparison can be built without rebuilding the model and accounting layer for
 every experiment.
 
-The remaining work is empirical, not rhetorical. A matched CPU-GA, a full-instance GPU-versus-CPU
-batch comparison, and a public evidence release would decide whether the architecture claim is a
+The remaining work is empirical, not rhetorical. A tuned CPU-GA, a full-campaign CPU comparison, a
+cache/search split, and a public evidence release would decide whether the architecture claim is a
 speed claim or only a reproducibility claim. Until those experiments exist, the paper should be read
 as a careful case study of the boundary. That is a useful result, and it is the one the evidence
 supports.
