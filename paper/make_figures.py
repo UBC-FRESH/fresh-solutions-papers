@@ -34,7 +34,7 @@ def scaling() -> None:
         (10_000, load("ws4-tsa24-gpu-ga-10000-r7")),
         (100_000, load("ws4-tsa24-gpu-ga-100000-r7")),
     ]
-    fig, ax = plt.subplots(figsize=(5.4, 3.0))
+    _fig, ax = plt.subplots(figsize=(5.4, 3.0))
     ax.plot(
         [g for g, _ in records], [float(r["result"]["objective"]) for _, r in records], marker="o"
     )
@@ -58,7 +58,7 @@ def matched_search() -> None:
     cpu_obj = [float(run["cpu"]["objective"]) for run in runs]
     cuda_obj = [float(run["cuda"]["objective"]) for run in runs]
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.2))
+    _fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.2))
     time_ax, obj_ax = axes
 
     time_ax.plot(generations, cpu_time, marker="o", color="black", label="CPU torch path")

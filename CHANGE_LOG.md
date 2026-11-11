@@ -335,10 +335,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - P13.9 independent re-review found a TSPLIB GEO parser bug; fixed in Fresh Solutions commit 4583ad3, broad TSP rerun (195 optima, no negative gaps), LKH rerun (75/100, no negatives).
 - P13.5 added a factorized CPU/GPU batch ablation: 23.124 s vs 0.0931 s (248x), max error 1.7e-6, batch only.
 - P13.7 wired expanded QAP/TSP/BLS/generic replays into `paper2/replay_all.sh` and committed the factorized runner.
-- Paper 1: 21 pages, 8,340 words, 40 refs, 5 figures. Paper 2: 24 pages, 9,292 words, 42 refs, 5 figures.
+- Paper 1: 21 pages, 8,574 words, 40 refs, 3 figures. Paper 2: 24 pages, 9,357 words, 42 refs, 5 figures.
 - Dashboard green. No tag, release, visibility change, merge, or submission.
 
-## 2026-11-11 - Paper 1 figures: remove filler, promote matched search
+## 2026-11-11
 
 - Replaced the seed-term stacked bar (old Figure 3) with a two-panel matched
   CPU/CUDA implementation figure: search time and objective over 1/10/100

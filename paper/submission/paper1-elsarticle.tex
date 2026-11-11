@@ -28,7 +28,7 @@ compact candidate and sparse effect indexes, exact resident accounting, and batc
 search with exact CPU replay. A CPU-refinement handoff is designed but is not part of the measured
 campaign. We evaluate the architecture on a public frozen TSA24
 landscape with 208,255 operable blocks. A 1,000-generation GPU search reduces the weighted penalty
-from 1,722,144,291.336651 to 8,588,725.370498 in 9.381 s of search time; a 100,000-generation,
+from 1,722,140,000 to 8,588,730 in 9.38 s of search time; a 100,000-generation,
 five-seed campaign reaches 512.574–518.621 (mean 515.682) with exact CPU replay. The target uses
 deliberately unattainable harvest-level aspirations to pull the solution toward the maximum even-flow
 level; the final level is approximately 51.21–52.49M m\textsuperscript{3} per 10-year period against a 70M aspiration.
@@ -222,7 +222,7 @@ This construction is the maximum-even-flow pattern documented for WS4. It is not
 
 \subsection{Initial schedule and feasibility}\label{initial-schedule-and-feasibility}
 
-The initial schedule is the oldest-first seed from the public artifact. It is a valid block/treatment schedule and therefore a feasible starting point for the search, but it is not an optimized control. The initial objective is 1,722,144,291.336651. The very large initial penalty is dominated by even-flow deviations; the seed is a starting point chosen for reproducibility, not a baseline chosen to make the search look effective.
+The initial schedule is the oldest-first seed from the public artifact. It is a valid block/treatment schedule and therefore a feasible starting point for the search, but it is not an optimized control. The initial objective is 1,722,140,000. The very large initial penalty is dominated by even-flow deviations; the seed is a starting point chosen for reproducibility, not a baseline chosen to make the search look effective.
 
 The model has no hard spatial constraints in this run. The target residuals are soft, and the reported schedule is a compromise. The paper therefore distinguishes schedule validity from target satisfaction: the schedule is feasible, while the targets are aspirations.
 
@@ -275,8 +275,8 @@ and its hash so that a replay cannot silently use a different weighting. This is
 important form of provenance: a target configuration is data, not a constant.
 
 A 1,000-iteration screen across the five published TSA24 target variants shows how strongly the target
-construction controls the objective scale. The objectives range from 1.71e9 for the main even-flow
-target to 1,010 for the LT-sy stock-90 variant under the same seed, start, and budget. This is not a
+construction controls the objective scale. The objectives range from $1.71\times10^9$ for the main even-flow
+target to $1.01\times10^3$ for the LT-sy stock-90 variant under the same seed, start, and budget. This is not a
 converged ranking; it is a warning that a single target file is not a universal objective. The full
 100,000-generation campaign is reported only for the main target, and target-weight sensitivity at the
 full budget remains future work.
@@ -291,11 +291,11 @@ converged comparison.}
 \toprule
 Target file & Objective after 1,000 iterations \\
 \midrule
-\texttt{evenflow\_tsa24} & $1.714\times10^{9}$ \\
-\texttt{evenflow\_tsa24\_allperiods5} & $1.573\times10^{9}$ \\
-\texttt{evenflow\_tsa24\_allperiods5\_stock90} & $1.624\times10^{9}$ \\
-\texttt{evenflow\_tsa24\_ltsy} & $5.748\times10^{8}$ \\
-\texttt{evenflow\_tsa24\_ltsy\_stock90} & $1{,}010$ \\
+\texttt{evenflow\_tsa24} & $1.71\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5} & $1.57\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5\_stock90} & $1.62\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_ltsy} & $5.75\times10^{8}$ \\
+\texttt{evenflow\_tsa24\_ltsy\_stock90} & $1.01\times10^{3}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -489,7 +489,7 @@ The GPU population size was 64. We report three budgets: 1,000, 10,000, and
 correspond to the earlier architecture and scaling records. The
 100,000-generation campaign uses seeds 1--5; seed~7 is retained as a reference
 run. Every GPU run starts from the same oldest-first feasible seed. The initial
-objective is 1,722,144,291.336651.
+objective is 1,722,140,000.
 
 The CPU baseline is simulated annealing at 100,000 iterations with a nominal
 30-minute limit and 32 threads, using the same instance, target, and seed. It is a
@@ -513,16 +513,21 @@ report a disclosed diagnostic ablation on the first 5,000 blocks of the recorded
 100k schedule. The subset is not a substitute for a full-instance ablation, but
 it isolates the evaluation path from the GPU population search.
 
+Numeric reporting follows one rule. Counts, seeds, iterations, and blocks are exact. Campaign
+objectives and flow/level terms use six significant figures; screen and one-seed diagnostic
+objectives use three. Optimality gaps use three decimal places in percentage points. Times, ratios,
+and CPU overheads use three significant figures. Full-precision values remain in the evidence files.
+
 \section{Results}\label{results}
 
 \subsection{Scaling from 1,000 to 100,000 generations}
 
 Table~\ref{tab:scaling} reports the seed-7 runs at the three budgets. The
-1,000-generation run reduced the objective from 1,722,144,291.336651 to
-8,588,725.370498 in 9.381~s of search time (23.13~s wall). The
-10,000-generation run reached 76,540.740733 in 89.78~s search (157.34~s wall).
-The 100,000-generation run reached 517.861982 in 856.10~s search
-(941.51~s wall). The 100,000-generation result is not a near-zero objective: the
+1,000-generation run reduced the objective from 1,722,140,000 to
+8,588,730 in 9.38~s of search time (23.1~s wall). The
+10,000-generation run reached 76,540.7 in 89.8~s search (157~s wall).
+The 100,000-generation run reached 517.862 in 856~s search
+(942~s wall). The 100,000-generation result is not a near-zero objective: the
 flow term is small, but the deliberate level-aspiration term remains.
 
 The shape of the scaling curve is informative. The objective falls by roughly two orders of magnitude
@@ -547,9 +552,9 @@ and cache setup; search time is the GPU search budget.}
 \toprule
 Generations & Objective & Flow term & Level term & Search / wall (s) \\
 \midrule
-1,000 & 8,588,725.370 & 8,588,225.550 & 499.821 & 9.38 / 23.13 \\
-10,000 & 76,540.741 & 76,026.909 & 513.832 & 89.78 / 157.34 \\
-100,000 & 517.862 & 2.721 & 515.141 & 856.10 / 941.51 \\
+1,000 & 8,588,730 & 8,588,230 & 499.821 & 9.38 / 23.1 \\
+10,000 & 76,540.7 & 76,026.9 & 513.832 & 89.8 / 157 \\
+100,000 & 517.862 & 2.721 & 515.141 & 856 / 942 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -567,7 +572,7 @@ Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations.
 The objectives are tightly clustered: the best seed is 512.574, the worst is
 518.621, the mean is 515.682, and the median is 515.938. Seed~7, at 517.862, lies
 inside the same range. All five schedules replay exactly. The campaign took
-3,995.906~s wall for all five runs.
+$4.00\times10^3$~s wall for all five runs.
 
 \begin{table}[t]
 \centering
@@ -594,8 +599,8 @@ Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{
 The realized level is approximately 51.21--52.49M~m\textsuperscript{3} per
 10-year period against the 70M aspiration. The level term is therefore the
 dominant part of the final objective, not a residual that the search failed to
-remove. The even-flow term falls from 8.59M at 1,000 generations to 2.72 at
-100,000 generations; the level term remains near 499.8--517.3 because the target is
+remove. The even-flow term falls from 8.58823M at 1,000 generations to 2.721 at
+100,000 generations; the level term remains near 499.821--517.290 because the target is
 deliberately above the achievable level. This is the expected maximum-even-flow
 behaviour of the target construction.
 
@@ -616,8 +621,8 @@ inference.
 
 \subsection{CPU simulated-annealing comparator}
 
-The CPU simulated-annealing run reached 335,044,976.675435 in 1,875.12~s wall
-(31.25 min) and stopped at the nominal 30-minute limit after 100,000 iterations. It is not converged and
+The CPU simulated-annealing run reached $3.35045\times10^8$ in $1.88\times10^3$~s wall
+(31.3 min) and stopped at the nominal 30-minute limit after 100,000 iterations. It is not converged and
 not a controlled baseline. Its objective is far above the GPU-GA results in
 Table~\ref{tab:scaling}. We do not interpret this as a universal architecture
 win: the CPU run is untuned, single-seed, and performs much less work than the
@@ -641,8 +646,8 @@ attribution open.
 \subsection{Evaluation-path ablation}
 
 On the 5,000-block diagnostic subset, a cold whole-schedule evaluation took
-54.85~s; after warm-up, a whole-schedule move evaluation took 1.086~s. Exact
-incremental delta plus apply took 0.542~ms per move, a factor of 2,005. The final
+54.9~s; after warm-up, a whole-schedule move evaluation took 1.09~s. Exact
+incremental delta plus apply took 0.542~ms per move, a factor of $2.00\times10^3$. The final
 incremental objective matched the whole-schedule objective to
 $3.7\times10^{-9}$. The subset scope is recorded in
 \texttt{evidence/ws4-tsa24-eval-ablation.json}. This establishes the local
@@ -650,8 +655,8 @@ evaluation-path effect; it does not measure a matched CPU-GA/search or establish
 scaling. The factorized 64-genome batch in the next subsection is a separate microbenchmark.
 
 The ablation isolates the evaluation path, not the GPU. On the 5,000-block subset, a warm
-whole-schedule move evaluation takes about 1.086 s, while the exact delta plus apply takes about
-0.542 ms. The ratio is about 2,005. The exactness check is the important part: the final incremental
+whole-schedule move evaluation takes about 1.09 s, while the exact delta plus apply takes about
+0.542 ms. The ratio is about $2.00\times10^3$. The exactness check is the important part: the final incremental
 objective matches the whole-schedule objective to 3.7e-9. The result supports the claim that the
 sparse effect table plus resident state can avoid a full re-simulation without changing the objective.
 It does not support a claim that the GPU population is faster than a matched CPU search; that
@@ -661,9 +666,9 @@ experiment remains open.
 
 The factorized-effect benchmark is a second, independent architecture check. It evaluates the same
 64-genome batch against the same four mixed feature/product cells on CPU and CUDA, using the TSA24
-factorized archive. The CPU batch takes 23.124~s; the CUDA batch takes 0.0931~s, a factor of 248.
+factorized archive. The CPU batch takes 23.1~s; the CUDA batch takes 0.0931~s, a factor of 248.
 The throughput is 2.77 genomes/s on CPU and 687 genomes/s on CUDA. The maximum absolute error
-against the exact evaluator is $1.7\times10^{-6}$ on both paths. The factorized build takes 234.4~s
+against the exact evaluator is $1.71\times10^{-6}$ on both paths. The factorized build takes 234~s
 and the GPU peak allocation is 9.27~GB.
 
 \begin{table}[t]
@@ -676,15 +681,15 @@ both devices; batch evaluation only, not end-to-end search.}
 \toprule
 Device & Batch (s) & Genomes/s & Peak GPU (GB) & Max error \\
 \midrule
-CPU & 23.124 & 2.77 & -- & $1.7\times10^{-6}$ \\
-CUDA & 0.0931 & 687.07 & 9.27 & $1.7\times10^{-6}$ \\
+CPU & 23.1 & 2.77 & -- & $1.71\times10^{-6}$ \\
+CUDA & 0.0931 & 687 & 9.27 & $1.71\times10^{-6}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 This is a real GPU-versus-CPU batch effect, but it is not an end-to-end search comparison. The CPU
 path is a one-device tensor path, not a tuned multithreaded batch; the result supports the factorized
-evaluation path, not a universal architecture claim. The 234.4~s build cost is also part of the
+evaluation path, not a universal architecture claim. The 234~s build cost is also part of the
 result: the batch advantage matters only when the table is reused. The next experiment is a matched
 CPU-GA at the same population/generation count, which remains open.
 \subsection{Matched implementation search}
@@ -693,8 +698,8 @@ The same \texttt{gpu-run} implementation accepts \texttt{--device cpu} and \text
 ran it on the full TSA24 model with population 64, seed 7, and 1, 10, and 100 generations. The CPU
 path is one torch device path, not a tuned multithreaded CPU-GA; each row is one seed. At one
 generation the CUDA path is slower (41.7~s vs 26.2~s search), because model/table overhead dominates.
-At 100 generations CUDA search is 23.9~s vs 528.8~s on CPU, a 22-fold shorter search time in this
-one-seed run, but the CPU objective is about 5\% lower (7.11e7 vs 7.49e7). This is a short-horizon
+At 100 generations CUDA search is 23.9~s vs 529~s on CPU, a 22.2-fold shorter search time in this
+one-seed run, but the CPU objective is about 5\% lower ($7.11\times10^7$ vs $7.49\times10^7$). This is a short-horizon
 matched implementation comparison, not a quality ranking, not a tuned CPU baseline, and not a full
 100,000-generation CPU comparison. It also shows that the observed time ratio is generation-count
 dependent; it is not a hardware claim.
@@ -713,7 +718,7 @@ Generations & CPU search (s) & CUDA search (s) & CPU/CUDA time & CPU objective &
 \midrule
 1 & 26.2 & 41.7 & 0.63 & $3.18\times10^{8}$ & $3.47\times10^{8}$ \\
 10 & 71.5 & 33.7 & 2.12 & $1.23\times10^{8}$ & $1.34\times10^{8}$ \\
-100 & 528.8 & 23.9 & 22.15 & $7.11\times10^{7}$ & $7.49\times10^{7}$ \\
+100 & 529 & 23.9 & 22.2 & $7.11\times10^{7}$ & $7.49\times10^{7}$ \\
 \bottomrule
 \end{tabular}%
 }
@@ -723,7 +728,7 @@ Generations & CPU search (s) & CUDA search (s) & CPU/CUDA time & CPU objective &
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.92\linewidth]{figures/matched-search.pdf}
-\caption{Matched CPU/CUDA implementation search on the full TSA24 model, population 64, seed 7. (a) Search time; the CUDA path is slower at one generation but 22.2 times shorter at 100 generations. (b) Objective; the CPU path remains 5.0\% lower at 100 generations. This is a short-horizon implementation comparison, not a hardware ranking.}
+\caption{Matched CPU/CUDA implementation search on the full TSA24 model, population 64, seed 7. (a) Search time; the CUDA path is slower at one generation but 22.2 times shorter at 100 generations. (b) Objective; the CPU path remains 5\% lower at 100 generations. This is a short-horizon implementation comparison, not a hardware ranking.}
 \label{fig:matched-search}
 \end{figure}
 
