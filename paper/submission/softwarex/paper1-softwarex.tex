@@ -400,9 +400,9 @@ architecture-versus-implementation effect, an independent quality comparison, a 
 or optimality. The retained CPU simulated-annealing run is untuned, single-seed, and not equal-work; it
 is not used here as a quality baseline.
 
-\section{Reuse potential and limitations}
+\section{Impact}
 
-The architecture is reusable when the model boundary is the expensive part of a project. A team with a
+The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. The architecture is reusable when the model boundary is the expensive part of a project. A team with a
 compiled model and an exact evaluator can add a candidate index and a sparse effect table without
 changing model semantics. A team with a fast heuristic but no replay contract can wrap the heuristic in
 the adapter and keep the evidence boundary. A team comparing search methods can hold the model and
@@ -412,12 +412,16 @@ manifest, a candidate-index builder for the model's eligibility rules, and an ef
 maps a block/chain pair to target cells. The state, search loop, record schema, and replay gate are
 designed to be model-agnostic.
 
+\subsection{Reuse potential}
+
 A practical integration pattern follows: freeze the compiled model and record its fingerprint; freeze
 the candidate order and target file; build the table once and record its identity; run with a declared
 population, budget, and seed; store the assignment, not only the seed; replay it through the exact
 evaluator; and report the stop reason with the result. The replay gate also supports archival review: a
-repository can store the assignment and record, and a future reader can verify the objective without the
-optimizer binary or the original GPU.
+repository can store the assignment and record, and a future reader can verify the objective without
+rerunning the search or needing the original GPU.
+
+\subsection{Limitations}
 
 The limitations are explicit. The validation covers one landscape, one target construction, and one
 20-period horizon. The reported run has no hard adjacency or opening-size constraints, so the software
@@ -429,9 +433,9 @@ at equal work, a full-instance evaluation-path comparison, and a cache-load/sear
 
 Two constraints follow. The effect table must fit in device memory alongside the population batch; the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
-partitioning. The GPU code is a feature-branch commit, not a tagged release, and the paper-specific
+partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc2}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc3}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -465,17 +469,17 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \newline \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Legal code licence: MIT for repository code; the TSA24 artifact retains its own public terms \\
+C3 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C4 & Code versioning system: Git \\
 C5 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
 C6 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
 C7 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4} \\
-C8 & Test command: \texttt{python -m pytest}; replay: \texttt{bash paper/replay\_all.sh} \\
+C8 & Test command: \texttt{python -m pytest}; replay: \texttt{WS4\_ROOT=... TSA24\_ROOT=... FHOPS\_ROOT=... bash paper/replay\_all.sh} \\
 C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
 \end{tabular}%
 }
-\caption{Code metadata (mandatory). Placeholders must be replaced before submission.}
+\caption{Code metadata (mandatory).}
 \label{tab:metadata}
 \end{table}
 
@@ -485,8 +489,8 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc2}; a DOI
-remain pending maintainer approval.
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc3}; a DOI
+remains pending.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references-softwarex}

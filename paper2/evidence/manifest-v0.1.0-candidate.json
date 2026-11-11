@@ -233,11 +233,11 @@
   },
   "jors_submission_manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "0b052d1af375e77b8476d5b5d7adde72b59b0dc0b1680dc8f7af4b55ea05e6d0"
+    "sha256": "caa79ae6e619ff4587dcfc4aff383ab02af0ebbaf52edf2091dd21d0a23c6e56"
   },
   "jors_submission_pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "942d373ef907dcc17a32967b43a6a15f5ac81ec1ef16a020254e70fffebffef5"
+    "sha256": "3ab9bd9af5710804c9e4c6bbe4d4c005cffdd38f37faa44b402407087ef5209e"
   },
   "jors_supplement_manuscript": {
     "path": "paper2/submission/jors/paper2-jors-supplement.tex",

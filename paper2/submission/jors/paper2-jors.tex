@@ -43,7 +43,7 @@ of 16 non-tied instance means. A frozen, mixed-depth 20-instance TSPLIB breadth 
 100 known optima; 95 runs stopped on patience and five \texttt{brazil58} runs hit a wall-clock cap at
 the optimum. We also report a negative result for a generic adapter-only search layer. The
 contribution is the harness, the replay contract, and the reference adapters, not a
-state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc2}; DOI pending
+state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc3}; DOI pending
 explicitly.
 \end{abstract}
 
@@ -152,7 +152,7 @@ state management, not a difference in search strategy.
 Replay is more than a checksum. Every reported incumbent is a complete assignment, and the stored
 assignment must re-evaluate to the stored objective. The record names the public instance and its
 known optimum or best-known value, the pinned solver version or commit, the seed, the iteration or
-kick budget, the stopping reason, the exact-replay result, and the wall and CPU time. A safety-cap
+kick budget, the stopping reason, the exact-replay result, and the wall time; CPU time is recorded where available. A safety-cap
 hit is recorded as a cap hit; it is not relabelled as convergence. The replay gate constructs a new
 adapter, evaluates the stored assignment, and compares the objective and feasibility. It does not
 call the search code, so a record cannot pass by reusing the optimizer's cached objective. For a
@@ -265,8 +265,9 @@ runs.
 
 The tabu reference is weak on the asymmetric \texttt{bur26} family: it reached no optimum in 80 runs,
 while BLS reached all 80. We report this as a property of this untuned reference implementation, not
-as evidence about robust tabu in general. The panel is a negative result for the tabu reference and
-a positive result for the harness: the harness made a stronger baseline visible, replayable, and
+as evidence about robust tabu in general. We therefore treat BLS as the primary QAP quality reference
+and the tabu path as an unvalidated reference implementation. The panel is a negative result for the
+tabu reference and a positive result for the harness: the harness made a stronger baseline visible, replayable, and
 comparable on the same denominator. Neither method is claimed to be state of the art.
 
 \subsection{TSP breadth panel}
@@ -348,10 +349,10 @@ contract is not by itself a search engine.
 
 FRESH Solutions is developed by the UBC FRESH Lab. The code is at
 \url{https://github.com/UBC-FRESH/fresh-solutions}, release candidate
-\texttt{v0.9.3-p13rc1}. The paper-specific evidence is at
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc2}. A DOI is
-\texttt{[DOI to be assigned]}. The evidence release is public, but it is a candidate rather than an
-candidate (\texttt{paper2-evidence-v0.1.0}) and is not public or archived at the time of writing.
+\texttt{v0.9.3-p13rc1}. The paper-specific evidence is public at
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc3}. A DOI is
+\texttt{[DOI to be assigned]}; the GitHub release is a public prerelease, not yet an archival DOI
+record.
 
 FRESH Solutions is licensed under Apache-2.0. The paper-specific runners and derived evidence are
 intended for release under CC BY 4.0; code in the papers repository is MIT. QAPLIB and TSPLIB
@@ -378,10 +379,10 @@ explicitly, and the five \texttt{brazil58} cap hits are reported as cap hits. Th
 the individual replay scripts perform the full adapter re-evaluation.
 
 The release blocker is specific. Per-record CPU time is missing from the expanded-QAP and
-expanded-TSP records (the BLS and generic records carry it), and the candidate manifest does not yet
-cover the ten-seed \texttt{qap-expanded-100k-10seed} files used in Table~\ref{tab:qap}. Until those
-fields and the manifest are complete, the candidate cannot be approved as an immutable tag.
-The repository and tag are public; a DOI and a tested container digest are still pending.
+expanded-TSP records (the BLS and generic records carry it); the candidate manifest covers the
+ten-seed \texttt{qap-expanded-100k-10seed} files used in Table~\ref{tab:qap}. The repository and tag
+are public; a DOI and a tested container digest are still pending. Per-record CPU must be supplied or
+the CPU claim explicitly scoped before an archival DOI record.
 
 Reuse is the point of the design. A new adapter for a compiled spatial model can reuse the evidence
 machinery, the replay gate, the stopping taxonomy, and the run/summary schema while supplying its
@@ -427,9 +428,9 @@ The harness is useful now because it makes those steps replayable.
 \section*{Data and code availability}
 The harness, reference implementations, runners, replay scripts, and evidence are in the FRESH
 \url{https://github.com/UBC-FRESH/fresh-solutions-papers}, release candidate \
-\texttt{p14-evidence-rc2}; DOI pending. QAPLIB and TSPLIB
-are public. The evidence candidate is \texttt{paper2-evidence-v0.1.0}; it is not yet tagged,
-archived, or public. Full per-instance tables for the QAP and TSP panels are provided in the
+\texttt{p14-evidence-rc3}; DOI pending. QAPLIB and TSPLIB
+are public. The evidence is the public release candidate \texttt{p14-evidence-rc3}; a DOI is pending.
+Full per-instance tables for the QAP and TSP panels are provided in the
 supplementary material.
 
 \bibliographystyle{unsrtnat}
