@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import re
 import sys
+from pathlib import Path
 
 
 def count_words(text: str) -> int:
@@ -30,7 +31,7 @@ def count_words(text: str) -> int:
 def main() -> int:
     """Print the counted word total for the SoftwareX draft."""
     path = sys.argv[1] if len(sys.argv) > 1 else "paper1-softwarex.tex"
-    source = open(path, encoding="utf-8").read()
+    source = Path(path).read_text(encoding="utf-8")
     main_text = source[
         source.index(r"\begin{abstract}") : source.index(r"\section*{Code metadata}")
     ]
