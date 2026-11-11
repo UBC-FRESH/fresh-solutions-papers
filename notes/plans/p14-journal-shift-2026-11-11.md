@@ -4,7 +4,8 @@ Date: 2026-11-11
 Status: proposed plan; no submission or release approved
 Targets:
 - Paper 1: **SoftwareX** (primary), **JORS** fallback
-- Paper 2: **JORS** (primary), **SoftwareX** fallback
+- Paper 2: **JORS Issues in Research Software** (primary), **SoftwareX** fallback
+- JORS Software Metapaper format: not suitable for the evidence paper
 - JOSS: excluded
 - EMS / JoH: not targets for current drafts
 
@@ -15,8 +16,10 @@ software/reproducibility contributions:
 
 - Paper 1 is a single-instance compiled-state architecture/software case. SoftwareX fits if the
   paper is shortened and framed as software.
-- Paper 2 is a reusable adapter/replay harness with benchmark evidence. JORS fits if the paper is
-  framed as research software and the evidence/replay is public.
+- Paper 2 is a reusable adapter/replay harness with benchmark evidence. JORS *Issues in Research
+  Software* fits as an experience/reproducibility report, but the current 8,900-word draft must be cut
+  to the journal's 3,000--4,000-word limit. JORS Software Metapaper is a shorter 3-section software
+  description and is not suitable for the BLS/TSP evidence.
 - EMS/JoH would require a new environmental-validation or methodological study, not a rewrite of the
   current drafts.
 
@@ -131,7 +134,12 @@ too long. Move detail to the evidence repository and supplement.
 Gate: SoftwareX metadata table complete; public code/data links resolve; no P0; target-specific cover
 letter and highlights.
 
-## Phase P14.5 — Paper 2 JORS conversion
+## Phase P14.5 — Paper 2 JORS Issues in Research Software conversion
+
+JORS format facts (verified 2026-11-11): Software Metapapers are concise descriptions; Issues in
+Research Software articles are experience/reproducibility papers limited to 3,000--4,000 words
+(roughly 4--6 pages), Vancouver numbered references, no required LaTeX template; APC applies. Confirm
+current APC/waiver before submission.
 
 Target structure:
 
@@ -145,12 +153,17 @@ Target structure:
 7. Availability: repository, tag/DOI, container, replay command.
 8. Conclusions, references.
 
+Length: move the detailed QAP/TSP/broad tables and long negative-result analysis to supplementary
+material; keep one summary table for QAP/BLS and one for TSP, plus the replay/availability details.
+The current 8,900-word draft must roughly halve.
+
 Cut list:
 - applied TSA24 case (move to Paper 1);
 - repeated caveats and “laboratory notebook” passages;
 - long internal-review-style discussion;
 - SciPy baseline can remain as a short weak external check, not a headline.
-- JoH `sn-jnl` variant is obsolete; obtain the current JORS/Ubiquity template and convert.
+- JoH `sn-jnl` variant is obsolete. JORS has no required LaTeX template; use a clean `article`
+  build with Vancouver numbered references and follow the Issues in Research Software word limit.
 
 Gate: JORS software-paper structure; public FRESH Solutions tag; one-command replay 200/200 BLS,
 200/200 QAP expanded, 100/100 TSP expanded, 1,060 broad, 40 generic, 40 framework + 20 deep TSP.

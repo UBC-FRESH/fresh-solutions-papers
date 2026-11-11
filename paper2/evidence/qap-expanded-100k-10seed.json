@@ -39,7 +39,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -81,7 +87,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -123,7 +135,13 @@
     },
     "replay_objective": 5431434.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -165,7 +183,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -207,7 +231,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -249,7 +279,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -291,7 +327,13 @@
     },
     "replay_objective": 5431434.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -333,7 +375,13 @@
     },
     "replay_objective": 5434622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -375,7 +423,13 @@
     },
     "replay_objective": 5431434.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26a",
@@ -417,7 +471,13 @@
     },
     "replay_objective": 5431434.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -459,7 +519,13 @@
     },
     "replay_objective": 3839405.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -501,7 +567,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -543,7 +615,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -585,7 +663,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -627,7 +711,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -669,7 +759,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -711,7 +807,13 @@
     },
     "replay_objective": 3839405.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -753,7 +855,13 @@
     },
     "replay_objective": 3839405.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -795,7 +903,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26b",
@@ -837,7 +951,13 @@
     },
     "replay_objective": 3839432.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -879,7 +999,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -921,7 +1047,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -963,7 +1095,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1005,7 +1143,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1047,7 +1191,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1089,7 +1239,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1131,7 +1287,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1173,7 +1335,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1215,7 +1383,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26c",
@@ -1257,7 +1431,13 @@
     },
     "replay_objective": 5426993.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1299,7 +1479,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1341,7 +1527,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1383,7 +1575,13 @@
     },
     "replay_objective": 3822758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1425,7 +1623,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1467,7 +1671,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1509,7 +1719,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1551,7 +1767,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1593,7 +1815,13 @@
     },
     "replay_objective": 3822758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1635,7 +1863,13 @@
     },
     "replay_objective": 3822856.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26d",
@@ -1677,7 +1911,13 @@
     },
     "replay_objective": 3822551.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1719,7 +1959,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1761,7 +2007,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1803,7 +2055,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1845,7 +2103,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1887,7 +2151,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1929,7 +2199,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -1971,7 +2247,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -2013,7 +2295,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -2055,7 +2343,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26e",
@@ -2097,7 +2391,13 @@
     },
     "replay_objective": 5387368.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2139,7 +2439,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2181,7 +2487,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2223,7 +2535,13 @@
     },
     "replay_objective": 3782558.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2265,7 +2583,13 @@
     },
     "replay_objective": 3782558.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2307,7 +2631,13 @@
     },
     "replay_objective": 3782558.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2349,7 +2679,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2391,7 +2727,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2433,7 +2775,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2475,7 +2823,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26f",
@@ -2517,7 +2871,13 @@
     },
     "replay_objective": 3802543.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2559,7 +2919,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2601,7 +2967,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2643,7 +3015,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2685,7 +3063,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2727,7 +3111,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2769,7 +3159,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2811,7 +3207,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2853,7 +3255,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2895,7 +3303,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26g",
@@ -2937,7 +3351,13 @@
     },
     "replay_objective": 10155259.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -2979,7 +3399,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3021,7 +3447,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3063,7 +3495,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3105,7 +3543,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3147,7 +3591,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3189,7 +3639,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3231,7 +3687,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3273,7 +3735,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3315,7 +3783,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "bur26h",
@@ -3357,7 +3831,13 @@
     },
     "replay_objective": 7124758.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3385,7 +3865,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3413,7 +3899,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3441,7 +3933,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3469,7 +3967,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3497,7 +4001,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3525,7 +4035,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3553,7 +4069,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3581,7 +4103,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3609,7 +4137,13 @@
     },
     "replay_objective": 10096.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr12a",
@@ -3637,7 +4171,13 @@
     },
     "replay_objective": 9552.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3668,7 +4208,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3699,7 +4245,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3730,7 +4282,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3761,7 +4319,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3792,7 +4356,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3823,7 +4393,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3854,7 +4430,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3885,7 +4467,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3916,7 +4504,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr15a",
@@ -3947,7 +4541,13 @@
     },
     "replay_objective": 9896.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -3981,7 +4581,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4015,7 +4621,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4049,7 +4661,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4083,7 +4701,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4117,7 +4741,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4151,7 +4781,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4185,7 +4821,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4219,7 +4861,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4253,7 +4901,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr18a",
@@ -4287,7 +4941,13 @@
     },
     "replay_objective": 11098.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4323,7 +4983,13 @@
     },
     "replay_objective": 2222.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4359,7 +5025,13 @@
     },
     "replay_objective": 2192.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4395,7 +5067,13 @@
     },
     "replay_objective": 2224.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4431,7 +5109,13 @@
     },
     "replay_objective": 2196.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4467,7 +5151,13 @@
     },
     "replay_objective": 2192.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4503,7 +5193,13 @@
     },
     "replay_objective": 2222.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4539,7 +5235,13 @@
     },
     "replay_objective": 2196.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4575,7 +5277,13 @@
     },
     "replay_objective": 2196.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4611,7 +5319,13 @@
     },
     "replay_objective": 2196.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr20a",
@@ -4647,7 +5361,13 @@
     },
     "replay_objective": 2222.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4685,7 +5405,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4723,7 +5449,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4761,7 +5493,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4799,7 +5537,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4837,7 +5581,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4875,7 +5625,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4913,7 +5669,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4951,7 +5713,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -4989,7 +5757,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "chr22a",
@@ -5027,7 +5801,13 @@
     },
     "replay_objective": 6156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5055,7 +5835,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5083,7 +5869,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5111,7 +5903,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5139,7 +5937,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5167,7 +5971,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5195,7 +6005,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5223,7 +6039,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5251,7 +6073,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5279,7 +6107,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai12a",
@@ -5307,7 +6141,13 @@
     },
     "replay_objective": 224416.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5343,7 +6183,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5379,7 +6225,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5415,7 +6267,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5451,7 +6309,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5487,7 +6351,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5523,7 +6393,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5559,7 +6435,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5595,7 +6477,13 @@
     },
     "replay_objective": 705622.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5631,7 +6519,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai20a",
@@ -5667,7 +6561,13 @@
     },
     "replay_objective": 703482.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5708,7 +6608,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5749,7 +6655,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5790,7 +6702,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5831,7 +6749,13 @@
     },
     "replay_objective": 1171526.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5872,7 +6796,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5913,7 +6843,13 @@
     },
     "replay_objective": 1171944.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5954,7 +6890,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -5995,7 +6937,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -6036,7 +6984,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai25a",
@@ -6077,7 +7031,13 @@
     },
     "replay_objective": 1167256.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6123,7 +7083,13 @@
     },
     "replay_objective": 1825262.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6169,7 +7135,13 @@
     },
     "replay_objective": 1825262.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6215,7 +7187,13 @@
     },
     "replay_objective": 1825262.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6261,7 +7239,13 @@
     },
     "replay_objective": 1818146.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6307,7 +7291,13 @@
     },
     "replay_objective": 1825262.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6353,7 +7343,13 @@
     },
     "replay_objective": 1827072.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6399,7 +7395,13 @@
     },
     "replay_objective": 1818146.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6445,7 +7447,13 @@
     },
     "replay_objective": 1825262.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6491,7 +7499,13 @@
     },
     "replay_objective": 1818146.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai30a",
@@ -6537,7 +7551,13 @@
     },
     "replay_objective": 1818146.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6588,7 +7608,13 @@
     },
     "replay_objective": 2432198.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6639,7 +7665,13 @@
     },
     "replay_objective": 2437276.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6690,7 +7722,13 @@
     },
     "replay_objective": 2447456.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6741,7 +7779,13 @@
     },
     "replay_objective": 2444194.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6792,7 +7836,13 @@
     },
     "replay_objective": 2429278.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6843,7 +7893,13 @@
     },
     "replay_objective": 2431156.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6894,7 +7950,13 @@
     },
     "replay_objective": 2440220.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6945,7 +8007,13 @@
     },
     "replay_objective": 2437814.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -6996,7 +8064,13 @@
     },
     "replay_objective": 2422002.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai35a",
@@ -7047,7 +8121,13 @@
     },
     "replay_objective": 2443460.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7103,7 +8183,13 @@
     },
     "replay_objective": 3167496.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7159,7 +8245,13 @@
     },
     "replay_objective": 3172188.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7215,7 +8307,13 @@
     },
     "replay_objective": 3161838.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7271,7 +8369,13 @@
     },
     "replay_objective": 3157648.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7327,7 +8431,13 @@
     },
     "replay_objective": 3168070.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7383,7 +8493,13 @@
     },
     "replay_objective": 3173806.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7439,7 +8555,13 @@
     },
     "replay_objective": 3174088.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7495,7 +8617,13 @@
     },
     "replay_objective": 3168086.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7551,7 +8679,13 @@
     },
     "replay_objective": 3145872.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai40a",
@@ -7607,7 +8741,13 @@
     },
     "replay_objective": 3164226.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -7673,7 +8813,13 @@
     },
     "replay_objective": 5012978.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -7739,7 +8885,13 @@
     },
     "replay_objective": 5005006.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -7805,7 +8957,13 @@
     },
     "replay_objective": 5016966.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -7871,7 +9029,13 @@
     },
     "replay_objective": 4986384.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -7937,7 +9101,13 @@
     },
     "replay_objective": 4984730.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -8003,7 +9173,13 @@
     },
     "replay_objective": 4994692.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -8069,7 +9245,13 @@
     },
     "replay_objective": 4985208.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -8135,7 +9317,13 @@
     },
     "replay_objective": 4986180.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -8201,7 +9389,13 @@
     },
     "replay_objective": 4996044.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   },
   {
     "instance": "tai50a",
@@ -8267,6 +9461,12 @@
     },
     "replay_objective": 4997822.0,
     "exact_replay": true,
-    "converged_on_patience": true
+    "converged_on_patience": true,
+    "solver_commit": "7d3c831",
+    "replay_solver_commit": "4583ad3",
+    "provenance_file": "paper2/evidence/provenance-2026-11-03.json",
+    "hardware": "Intel Xeon Gold 6254; 40 workers",
+    "iterations_budget": 1000000,
+    "patience_budget": 100000
   }
 ]

@@ -28,11 +28,11 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "9bdbafc2822492c294d34171b7344c4d9a466c5163f41939f692250d2569ff69"
+    "sha256": "b5abf630e02baff2f9a709f582c159978d5befff4cfc581b605c8491f96b7aae"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "24c82642479ff52c4da6eee9d18816651753ba4acec053f16e6e90917c4c3708"
+    "sha256": "0bad81d008b66619e0b2cecdf600c9abbca217504ccd405f78ab0938160f6dd1"
   },
   "references": {
     "path": "paper/references.bib",
@@ -48,7 +48,7 @@
   },
   "factorized_ablation": {
     "path": "paper/evidence/tsa24-factorized-ablation.json",
-    "sha256": "9d788e6e828a4ea631ae5af46bb9032322b1dcd310656a4f9096c2658c9bd6c9"
+    "sha256": "e958a621cd17dd4f8476bc3ea6ecedfd022cd2c0538bf19b8b8bab5cfee995e2"
   },
   "factorized_cpu": {
     "path": "paper/evidence/tsa24-factorized-cpu.json",
@@ -72,10 +72,10 @@
   },
   "submission_manuscript": {
     "path": "paper/submission/paper1-elsarticle.tex",
-    "sha256": "983ffd57ea76cf4469f83c0fdaff9fa07ef5dff8451f0c9fa0de24a4ceadeb53"
+    "sha256": "4ac6cdeee1224f940c2d2419e032f3f4b0b0f85e6a67d62b5484707430f6cd2a"
   },
   "submission_pdf": {
     "path": "paper/submission/paper1-elsarticle.pdf",
-    "sha256": "74dae09dec729e6b80bef5e3dedf2b7d3703337fa49976403a6ff7095c7548bb"
+    "sha256": "9d04f9223848e892e2c3c40adedf6a7d44c35d4187ae84ed70320df531cb82d0"
   }
 }

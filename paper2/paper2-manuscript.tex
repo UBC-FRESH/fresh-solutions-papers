@@ -33,10 +33,9 @@ is reproduced with the incumbent held in the engine's resident-state contract. O
 QAPLIB instances, all runs stopped on the same 100,000-iteration plateau rule under a 1,000,000
 iteration cap, all framework objectives matched the standalone and production objectives exactly, and
 all incumbents replayed exactly. A separate 20-instance QAPLIB panel, ten seeds per instance, also stopped on patience and replayed
-exactly; its mean gap was 0.301\%, while an independent Breakout Local Search baseline reached
+exactly; its mean gap was 0.301\%, while a separately implemented Breakout Local Search baseline reached
 0.096\% and 161/200 optima. The framework path cost 1.24 times
-the CPU time of the private-array delta path (95\% CI 1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
-the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
+the CPU time of the private-array delta path (95\% CI 1.17--1.31). A four-instance, five-seed 10,000-kick deep TSP campaign plateau-stopped on all 20 runs and reached the known optimum. A separate 20-instance breadth panel reached 94/100 optima with 95/100 patience and five \texttt{brazil58} wall-clock cap hits. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
 \end{abstract}
 
@@ -79,7 +78,7 @@ The remainder of the paper is organized as follows. Section~\ref{sec:related} re
 benchmarking literature. Section~\ref{sec:framework} describes the adapter, resident state, search
 layers, and evidence protocol. Section~\ref{sec:qap} reports the QAP evidence and the framework-use
 experiment. Section~\ref{sec:tsp} reports the TSP convergence campaign and the LKH boundary.
-Section~\ref{sec:applied} describes the applied case, and Section~\ref{sec:discussion} discusses
+Section~\ref{sec:discussion} discusses
 limitations and the claim boundary.
 
 \section{Related work}
@@ -216,7 +215,7 @@ permutation problem, the options are the same integer set as the positions, and 
 that the mapping is a bijection. For a spatial model, a variable may be a block and an option may be
 a treatment or a harvest period; the adapter translates the integer option into the domain value.
 The engine never needs to know which interpretation is correct. This is why the same resident-state
-and replay code can serve QAP, TSP, and the applied spatial case.
+and replay code can serve QAP, TSP, and other adapters.
 
 The adapter also supplies \texttt{evaluate\_batch}, which is used by the population layer and by
 external baseline adapters. The batch path is not required to be vectorised; it is a contract for
@@ -296,7 +295,7 @@ expanded-TSP files carry solver commit, hardware, stop reason, and exact-replay 
 per-record CPU time; the broad file carries solver commit and a campaign-level replay status but not
 per-record hardware or CPU. The campaign-level provenance is in
 \url{paper2/evidence/provenance-2026-11-03.json}. Per-record CPU time remains the release blocker. The
-validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 100 BLS, and 40 generic incumbents and
+validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 200 BLS, and 40 generic incumbents and
 checks the broad/LKH fields; it does not fill missing CPU metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
@@ -310,8 +309,7 @@ looks plausible.
 The harness is implemented in Python \citep{freshsolutions} and uses NumPy \citep{harris2020} for array operations and SciPy
 \citep{virtanen2020} for an independent QAP baseline. The optional accelerated QAP path uses Numba
 \citep{lam2015}; the reference path remains available without it. The public instances are QAPLIB
-\citep{burkard1997} and TSPLIB \citep{reinelt1991}. The TSA24 applied case is a public UBC-FRESH
-artifact \citep{tsa24artifact}. External LKH is a separate research-use binary \citep{lkh3}; it is not
+\citep{burkard1997} and TSPLIB \citep{reinelt1991}. External LKH is a separate research-use binary \citep{lkh3}; it is not
 bundled and its results are reported as a capability boundary, not as part of the package.
 
 The campaign-level provenance sidecar records the hardware and software environment, solver commit,
@@ -334,8 +332,7 @@ dropping the run. A summary records the number of converged runs, not only the m
 ones. The manifest stores SHA-256 hashes for the evidence files; a tag is not created until the
 maintainer approves the candidate.
 
-The public QAPLIB and TSPLIB instances are not redistributed in a modified form. The TSA24 artifact is
-published separately with its compiled data and licence statement. External LKH is not bundled; the
+The public QAPLIB and TSPLIB instances are not redistributed in a modified form. External LKH is not bundled; the
 provenance sidecar records its version, binary hash, and exact rerun command; the paper treats it as
 an external capability reference. This separation matters for licensing: FRESH Solutions code is Apache-2.0, derived artifacts use
 CC BY 4.0, and the BC source data carries OGL-BC attribution. The paper-specific evidence repository
@@ -386,7 +383,6 @@ TSP 2k check & 4 TSPLIB & 5 & 2,000 kicks & 200 patience \\
 TSP 20-kick pilot & 4 TSPLIB & 5 & 20 kicks & none \\
 Broad TSP & 78 TSPLIB & 5 & 600 s cap & 100 patience \\
 Generic tabu & 8 QAP/TSP & 5 & 20,000 it. & 5,000 patience \\
-Applied TSA24 & 1 instance & 5 & 100,000 gen. & fixed budget \\
 \bottomrule
 \end{tabular}%
 }
@@ -708,9 +704,11 @@ Instance & n & Tabu mean & BLS mean & BLS worst & BLS optima \\
 The comparison is descriptive, not a state-of-the-art claim, and BLS is a reimplementation of the
 published design, not the authors' code. BLS is lower on 15 instance means, higher on one
 (\texttt{chr22a}), and equal on four. It is lower on 120 seed-level runs, higher on 11, and equal on
-69. The paired mean difference is $-0.205$ percentage points (bootstrap 95\% CI $-0.282$ to
-$-0.143$). A paired sign test on the 131 non-tied pairs would also be significant, but the instances
-are not independent, so we treat the interval as descriptive. The overall mean gap is 0.096\% for BLS
+69. The paired mean difference is $-0.205$ percentage points. A cluster-by-instance bootstrap gives a
+95\% interval of $-0.300$ to $-0.111$; a family-cluster bootstrap gives $-0.234$ to $-0.163$. The
+instance-level result is 15 of 16 non-tied instance means lower for BLS (exact two-sided sign test
+$p=5.2\times10^{-4}$). The effective sample is 20 instances in three families, not 200 independent
+runs, so we report the clustered intervals and treat the pair count as descriptive. The overall mean gap is 0.096\% for BLS
 and 0.301\% for tabu; the worst is 1.369\% and 5.695\%, respectively. The panel is unbalanced:
 eight \texttt{bur26} variants contribute 80/200 runs. Equal-weighting the tai, bur, and
 chr families gives 0.099\% for BLS and 0.298\% for tabu, so the advantage is not only the bur
@@ -802,8 +800,7 @@ gap and shows that the perturbation needs a longer plateau than the pilot sugges
 
 The four-instance table is the controlled deep panel. To reduce the panel-size risk, we also ran 20
 TSPLIB instances with five seeds each, nearest-neighbour starts, 10,000-kick cap, and 1,000-kick
-patience. The runner uses depth 4 for n<100, depth 3 for 100<=n<150, and depth 2 for n>=150; the
-depth is recorded per run. Ninety-five of 100 runs stopped on patience. Five runs on
+patience. This is a frozen breadth panel with the per-instance LK depth recorded in Table~\ref{tab:tsp-expanded}; it is not a controlled depth comparison. Most instances use depth 4, \texttt{lin105} uses depth 3, and \texttt{d198}/\texttt{pr152} use depth 2. Ninety-five of 100 runs stopped on patience. Five runs on
 \texttt{brazil58} reached the known optimum but hit the 3,600-second cap before the patience rule;
 they are reported as cap hits, not convergence. Across the panel, 94/100 runs reached the known
 optimum, the mean gap is 0.004\%, and the worst gap is 0.185\%.
@@ -814,31 +811,31 @@ optimum, the mean gap is 0.004\%, and the worst gap is 0.185\%.
 Ninety-five runs stopped on patience; five \texttt{brazil58} runs hit the wall-clock cap at the known
 optimum and are not counted as converged.}
 \label{tab:tsp-expanded}
-\small
-\begin{tabular}{lrrrrr}
+\footnotesize
+\begin{tabular}{lrrrrrr}
 \toprule
-Instance & n & Mean gap & Worst gap & Patience & Optima \\
+Instance & n & Depth & Mean gap & Worst gap & Patience & Optima \\
 \midrule
-\texttt{att48} & 48 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{berlin52} & 52 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{bier127} & 127 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{brazil58} & 58 & 0.000\% & 0.000\% & 0/5 & 5/5 \\
-\texttt{ch130} & 130 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{ch150} & 150 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{d198} & 198 & 0.005\% & 0.006\% & 5/5 & 1/5 \\
-\texttt{eil51} & 51 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{eil76} & 76 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{eil101} & 101 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{fri26} & 26 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{gr120} & 120 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{pr152} & 152 & 0.074\% & 0.185\% & 5/5 & 3/5 \\
-\texttt{kroA100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{kroB100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{kroC100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{kroD100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{kroE100} & 100 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{lin105} & 105 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{pr76} & 76 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{att48} & 48 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{berlin52} & 52 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{bier127} & 127 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{brazil58} & 58 & 4 & 0.000\% & 0.000\% & 0/5 & 5/5 \\
+\texttt{ch130} & 130 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{ch150} & 150 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{d198} & 198 & 2 & 0.005\% & 0.006\% & 5/5 & 1/5 \\
+\texttt{eil51} & 51 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil76} & 76 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil101} & 101 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{fri26} & 26 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{gr120} & 120 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr152} & 152 & 2 & 0.074\% & 0.185\% & 5/5 & 3/5 \\
+\texttt{kroA100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroB100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroC100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroD100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroE100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{lin105} & 105 & 3 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr76} & 76 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -883,43 +880,6 @@ reports the converged subset separately. This is the same rule used in the QAP b
 \caption{Empirical gap distributions on the broad QAP and TSP panels. The long tails are retained; the curves are not a state-of-the-art ranking.}
 \label{fig:broad-gaps}
 \end{figure}
-
-\section{Applied case}
-\label{sec:applied}
-
-TSA24/Prince George is a public-data applied case. The frozen build, target, and seed are published as
-\texttt{ws4-tsa24-evenflow-v1} in
-\url{https://github.com/UBC-FRESH/femic-tsa24-instance}, derived from public BC VRI, FADM, and
-SiteProd data. The even-flow target is a WS4 scenario configuration, not an official TSA decision.
-
-The instance combines a compiled spatial model with an operations-research objective. The build
-freezes the block geometry, the operable-block set, the yield and treatment assumptions, and the
-candidate schedule structure. The target is a maximum-even-flow aspiration with a level term and a
-flow term; the objective is lower-is-better. The evidence records the compiled table identity, the
-target weights, the seed, and the schedule. A change to any of those invalidates the replay, which is
-the point of freezing the artifact rather than regenerating it from a mutable database.
-
-The source data are public BC data with OGL-BC attribution. The compiled artifact is distributed
-under the terms recorded in the instance repository. The FRESH Solutions solver is Apache-2.0; the
-paper-specific evidence release is pending. This is an intended release policy, not a claim that the
-evidence is already archived. The distinction matters because a
-public source dataset and a derived compiled model are not the same artifact.
-
-The case has 208,255 operable blocks over a 200-year horizon. The even-flow target is a scenario
-configuration, not an official TSA decision. The 100,000-generation GPU-GA campaign spans
-512.574--518.621 (mean 515.682) across five seeds. The seed-7 objective decomposes into a level term
-of 515.141 and a flow term of 2.721; the realized level is 51.21--52.49M m$^3$ per period against the
-70M aspiration. That is a deliberate maximum-even-flow compromise, not a near-zero solution and not a
-feasibility failure.
-
-The 1,000-generation record is 8,588,730 and the 10,000-generation same-engine record is
-76,540.7; both replay exactly and show that the objective is still moving at short budgets. The
-CPU-SA independent-search baseline is $3.35045\times10^8$ after $1.88\times10^3$~s and is time-limited,
-not converged. The comparison is therefore a budget illustration, not a matched-performance claim.
-
-The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed
-and has no independent model baseline. It is included to show that the adapter and evidence boundary
-survive a compiled spatial model, not to claim an operational recommendation.
 
 \section{Discussion and limitations}
 \label{sec:discussion}
@@ -1003,10 +963,6 @@ the largest TSPLIB tail, and the large-tail comparison against LKH is capability
 matched-time. LKH is external research-use software; it is not bundled and is not claimed as FRESH
 Solutions' own heuristic.
 
-The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed and
-has no independent model baseline. The CPU-SA baseline is time-limited, not converged. The applied
-section is an evidence-boundary demonstration, not an operational recommendation.
-
 The generic simulated-annealing and population layers were tested for contract conformance and smoke
 behaviour, but they are not competitive with the adapter-specific references in the headline results.
 The framework-use experiment covers state management and replay, not a generic search engine. A reader
@@ -1047,8 +1003,7 @@ confidence bound of 1.31.
 
 The claim would also fail if a new adapter required changes to the engine's search loop. The adapter
 for a new problem would then not be a boundary; it would be a patch. The current QAP and TSP adapters
-do not require such changes, but two adapters are not proof of generality. The applied TSA24 case is a separate WS4 codebase, not a FRESH Solutions adapter. It is not part of
-the QAP/TSP convergence panel and is not used to claim universal portability.
+do not require such changes, but two adapters are not proof of generality. The QAP and TSP adapters are the portability evidence; a third-party adapter is future work.
 
 The TSP convergence claim would fail if the plateau-stopped runs were not reproducible, if the starts
 were not the stated local-search tours, or if the 10,000-kick-cap run did not improve on the
@@ -1072,11 +1027,10 @@ be useful before that approval, not to imply that an unreleased artifact is alre
 
 The next evidence step is a wider, family-balanced panel. The QAP side has BLS but still needs more
 families and a matched-time comparison; the TSP side has a 20-instance breadth panel but needs a
-matched-time comparison against LKH. The applied case needs an independent spatial baseline before
-it can support an operational claim.
+matched-time comparison against LKH. 
 
 The next framework step is a portability experiment with a third problem family and an adapter
-written by someone other than the reference author. The current QAP and TSP adapters share the contract; the applied TSA24 case is separate. A
+written by someone other than the reference author. The current QAP and TSP adapters share the contract. A
 third-party adapter is a stronger test of whether the boundary is real. A
 containerized artifact and a one-command replay are also needed before the evidence release can be
 called archival.
@@ -1111,8 +1065,7 @@ QAPLIB and TSPLIB instances are public. The harness, reference implementations, 
 scripts, and evidence are in the FRESH Solutions papers repository. The framework-use evidence is
 \url{paper2/evidence/framework-use.json}; the TSP convergence evidence is
 \url{paper2/evidence/tsp-convergence-10k.json}; the shorter 2k and 20-kick runs are retained
-separately. The TSA24 artifact is available at
-\url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}.
+separately.
 The evidence tag and release remain pending maintainer approval.
 
 \bibliographystyle{plainnat}

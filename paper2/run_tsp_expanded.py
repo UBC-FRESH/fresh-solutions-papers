@@ -83,7 +83,8 @@ def run_task(task: tuple[str, float, int]) -> dict[str, object]:
     problem = TravellingSalesman.from_tsplib(TSP_ROOT / f"{name}.tsp")
     initial = nearest_neighbour(problem, seed % problem.variable_count)
     initial_objective = problem.evaluate(initial).objective
-    depth = 2 if problem.variable_count >= 150 else 3 if problem.variable_count >= 100 else 4
+    # Frozen per-instance depths recorded in the committed panel.
+    depth = {"d198": 2, "pr152": 2, "lin105": 3}.get(name, 4)
     started = time.perf_counter()
     result = run_tsp_lk(
         problem,

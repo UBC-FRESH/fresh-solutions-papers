@@ -5,7 +5,7 @@ Target: Environmental Modelling & Software.
 - `paper1-elsarticle.tex` — `elsarticle` preprint variant with placeholder author metadata.
 - `elsarticle.cls` — generated from CTAN `elsarticle.dtx` (LPPL).
 - `elsarticle-num.bst` — CTAN bibliography style.
-- `paper1-elsarticle.pdf` — compiled review copy (29 pages, 11pt preprint).
+- `paper1-elsarticle.pdf` — compiled review copy (28 pages, 11pt preprint).
 - `cover-letter.md`, `highlights.md`.
 
 Build:

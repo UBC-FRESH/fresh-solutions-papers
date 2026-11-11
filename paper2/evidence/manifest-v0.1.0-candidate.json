@@ -2,7 +2,7 @@
   "candidate": "paper2-evidence-v0.1.0",
   "files": {
     "paper2/paper2-draft.md": {
-      "sha256": "0a57757183f56f5e625ec1b2611e4220e9970234ba59748a1326598fdaac6b9b"
+      "sha256": "12f2a840262f500ec26077177504e7ab14a856d954d6827d1938ff01193e0265"
     },
     "paper2/evidence/broad-converged.json.gz": {
       "sha256": "20f1cf94ee6125ce9cedcc6e6da447367ae5e926715dc3011c8eb3f9c6cc2064"
@@ -107,7 +107,7 @@
       "sha256": "7156036ebe714a04bcef7fdb08cc89bd6a82a81ca66ad3bf9ce57eedfb5a3b7b"
     },
     "paper2/run_tsp_expanded.py": {
-      "sha256": "e4e1f0e6f0c952bb74704d902e23bf4fc1215bfb1e1f3311daf0f2a81bc61cc1"
+      "sha256": "1d52fa2ace309cd5e46f5c36f94cd0f8a79a712fc4a04307da6d09643ddb9f8a"
     },
     "paper2/make_figures.py": {
       "sha256": "19a38f2b80a1c2369896fe99a653f4aea3da2e78dcb0768bc7a7e597aab72550"
@@ -122,7 +122,7 @@
       "sha256": "55568990bf50846d8c02647349ff82be503599eadec63fe9b7a21a3052e589d3"
     },
     "paper2/evidence/qap-expanded-100k.json": {
-      "sha256": "27be7702124e25c32d8b9ebb3577d9de6dd376609a02b4e86563a59128ff8af7"
+      "sha256": "ed010e25fe7824a9c641dd012d0b41ffc05939e44fa4e9c596ee5dcc371a7bf9"
     },
     "paper2/evidence/qap-expanded-100k-summary.json": {
       "sha256": "3de3a7d15c4bb6d96e3641e0c5c5686dabd558463f6526a3a05677a24f7587eb"
@@ -191,17 +191,17 @@
       "sha256": "4c84607fa38a8887212e71d804a8d97cfa2df78ba46ed55b00752643d09847c7"
     },
     "paper2/replay_all.sh": {
-      "sha256": "0ad910aa7f7d42db31a801f767200f383a94da10951d2278ffff1a320c4de309"
+      "sha256": "3fb6694599f3ea11c6986867ad6faf8dc93a88820016d1e7f0c97d15112f345c"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "c0d70afadc6b777e814806ec8d860f240dcc2877c83f4adbd313d67c320c1f46"
+    "sha256": "53a1e76f9a3729e6fd8c70106a2ab5d4e319013643963aaeba9f983127e08872"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "322d42458f9ecd379bdcee74e3127a3fe08cb3d7975568e2dbff1469ffd3a2ea"
+    "sha256": "f691da6c2f1a291a75a38a6af5ea69be659f3bf504a3fb7c6b4cfa56edc57b92"
   },
   "references": {
     "path": "paper2/references.bib",
