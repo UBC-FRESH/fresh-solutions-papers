@@ -5,11 +5,11 @@ evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`
 
-Target: **Journal of Heuristics** for the harness/reference-adapter contribution. Fallback:
-**SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
-current evidence.
+Target: **JORS, Issues in Research Software**. The target-specific 3,000–4,000-word draft is
+`paper2/submission/jors/paper2-jors.tex`. Fallback: **SoftwareX** after a further cut. **EMS/JoH/COR**
+are not targets for the current draft.
 
-Compiled PDF: `paper2-manuscript.pdf` — 24 pages, 9,311 source words.
+Working manuscript PDF: `paper2-manuscript.pdf` — 23 pages, 8,930 source words.
 
 Evidence release: FRESH Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 

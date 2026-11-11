@@ -21,7 +21,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - **Word count: 3,815** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
-- **PDF pages: 9** (7 pages of text/figures/tables plus 2 pages of references).
+- **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
 - **Figures: 2** (architecture boundary; framework CPU overhead).
 - **Tables: 2** in the main text (compact QAP/BLS family summary; compact TSP depth summary).
   The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
@@ -45,15 +45,15 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 1. **Public release / DOI.** The repository and evidence are not public. Visibility, tag, release,
    DOI, and container digest need PI approval before submission.
 2. **Exact release blocker.** Per-record CPU time is missing from the expanded-QAP and expanded-TSP
-   evidence records, and `evidence/manifest-v0.1.0-candidate.json` does not cover the ten-seed
-   `qap-expanded-100k-10seed` files used in Table 1 (it lists the older five-seed
-   `qap-expanded-100k` files). The candidate cannot become an immutable tag until both are fixed.
+   evidence records. The candidate manifest now covers the ten-seed
+   `qap-expanded-100k-10seed` files used in Table 1; per-record CPU remains missing. The candidate
+   cannot become an immutable tag until that is resolved or the claim is explicitly scoped.
 3. **Provenance identity.** The evidence still carries more than one replay identifier
    (`4583ad3` for the expanded QAP, `c7d1507` for BLS/TSP/generic); one immutable replay commit and
    tag must be selected and the records re-stamped.
-4. **Stale repository documents.** `paper2/README.md` says “DO NOT SUBMIT”, and
-   `paper2/paper2-draft.md` (included in the candidate manifest) says “NOT SUBMISSION-READY” and
-   reports the old LKH 71/100 result. Update or remove them before release.
+4. **Stale repository documents.** `paper2/paper2-draft.md` says “NOT SUBMISSION-READY” and reports
+   the old LKH 71/100 result. Update or remove it before release; the top-level README now points to
+   the JORS draft.
 5. **Container.** A Dockerfile and requirements file exist, but the base-image digest and solver
    checkout are not pinned; the paper therefore does not claim a tested container.
 6. **TSP depth protocol.** The 20-instance panel is frozen and mixed-depth (17 at depth 4, `lin105`
@@ -69,7 +69,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 10. **Journal metadata.** Cover letter, editor checklist, keywords confirmation, author metadata,
     CRediT, funding, and competing interests are still required at submission.
 11. **Page guide.** The word count is inside the 3,000–4,000 limit, but the 10 pt `article` build is
-    9 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
+    8 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
     do not cut below 3,000 words to chase the page estimate.
 
 ## Source discipline

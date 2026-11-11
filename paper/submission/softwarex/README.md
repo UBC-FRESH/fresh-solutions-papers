@@ -21,7 +21,7 @@ main manuscript, evidence, and EMS variant are unchanged.
 - **Tables: 3 content tables** (scaling, five-seed campaign, evaluation-path diagnostic) plus the
   **mandatory code-metadata table**. The manuscript has no separate table limit; the metadata table is
   excluded from the word count.
-- **PDF: 14 pages**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
+- **PDF: 8 pages (two-column draft; official template still to be applied)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
 
 ## Template status
 

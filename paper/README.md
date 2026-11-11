@@ -8,10 +8,10 @@ Bibliography: `paper/references.bib`
 
 Compile with `make` in `paper/` or `latexmk -pdf paper1-manuscript.tex`.
 
-Target: **Environmental Modelling & Software**, as an architecture/reproducibility paper. The
-`elsarticle` class and journal-specific author metadata are not yet applied. Fallback: SoftwareX/JORS
-only if the paper is intentionally a tool/software paper. CJFR/Forest Science are not recommended
-without a real spatial/forestry experiment.
+Target: **SoftwareX, Original Software Publication**. The target-specific 4,000-word draft is
+`paper/submission/softwarex/paper1-softwarex.tex` (8 pages, 3,874 counted words). Fallback: **JORS**
+after a further cut. EMS is not a target for the current draft; it would require a new environmental
+validation and a second landscape/spatial case.
 
 Evidence table: `paper/tables/evidence.md`
 
