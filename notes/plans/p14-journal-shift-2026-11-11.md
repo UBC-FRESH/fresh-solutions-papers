@@ -1,7 +1,7 @@
 # P14: Journal-target shift and submission hardening
 
 Date: 2026-11-11
-Status: proposed plan; no submission or release approved
+Status: approved 2026-11-11; P0 corrections and target drafts built; release/author metadata outstanding
 Targets:
 - Paper 1: **SoftwareX** (primary), **JORS** fallback
 - Paper 2: **JORS Issues in Research Software** (primary), **SoftwareX** fallback
@@ -215,3 +215,20 @@ Gate: a clean clone on a machine with QAPLIB/TSPLIB mounts reproduces every tabl
 4. Provide author/affiliation/corresponding/CRediT/funding metadata.
 5. Decide: rerun the invalid Paper 1 timing and TSP depth panel, or remove those claims.
 6. Decide: remove the TSA24 applied case from Paper 2 and keep it in Paper 1.
+
+
+## Execution checkpoint — 2026-11-11
+
+Completed:
+- Paper 1 P0: level-term equation, Table 3 seed-7 labeling, 54.8 s, manifest hash, invalid 22.2× timing removed.
+- Paper 2 P0: BLS replay 200/200, QAP expanded metadata stamped, TSP mixed depth disclosed with per-instance depth, cluster-robust BLS statistics, applied TSA24 case removed.
+- Target drafts: `paper/submission/softwarex/paper1-softwarex.tex` (3,874 counted words, 8 pages, 2 figures); `paper2/submission/jors/paper2-jors.tex` (3,798 words, 8 pages, 2 figures + supplement).
+- Both target drafts compile; Paper 1 replay passes with `WS4_ROOT`, `TSA24_ROOT`, `FHOPS_ROOT`; Paper 2 replay passes 200/200 BLS and all other panels.
+
+Still blocking:
+- Public release/DOI/container and immutable WS4/FRESH Solutions tags.
+- PI author/affiliation/CRediT/funding/competing-interest metadata and APC decision.
+- Official SoftwareX `cas-sc` template application (current draft is a two-column `elsarticle` review build).
+- JORS page estimate (8 pages vs rough 4–6) and final target formatting.
+- Tabu `bur26` verification, TSP depth rerun-vs-disclosure decision, and per-record CPU scope.
+- New independent reviews of the target drafts.
