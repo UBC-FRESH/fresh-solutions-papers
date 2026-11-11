@@ -337,3 +337,14 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - P13.7 wired expanded QAP/TSP/BLS/generic replays into `paper2/replay_all.sh` and committed the factorized runner.
 - Paper 1: 21 pages, 8,340 words, 40 refs, 5 figures. Paper 2: 24 pages, 9,292 words, 42 refs, 5 figures.
 - Dashboard green. No tag, release, visibility change, merge, or submission.
+
+## 2026-11-11 - Paper 1 figures: remove filler, promote matched search
+
+- Replaced the seed-term stacked bar (old Figure 3) with a two-panel matched
+  CPU/CUDA implementation figure: search time and objective over 1/10/100
+  generations.
+- Removed the realized-level and evaluation-path ablation figures; both were
+  low-information restatements of tables or text.
+- Paper 1 now has three figures: architecture, scaling, matched implementation.
+- Rebuilt both manuscript PDFs and refreshed figure hashes in the release
+  candidate manifest.
