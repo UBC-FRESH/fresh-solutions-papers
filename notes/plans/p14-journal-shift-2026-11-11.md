@@ -232,3 +232,13 @@ Still blocking:
 - JORS page estimate (8 pages vs rough 4–6) and final target formatting.
 - Tabu `bur26` verification, TSP depth rerun-vs-disclosure decision, and per-record CPU scope.
 - New independent reviews of the target drafts.
+
+
+## Release checkpoint — 2026-11-11
+
+- Public repository: https://github.com/UBC-FRESH/fresh-solutions-papers (public).
+- Evidence prerelease: `p14-evidence-rc4`.
+- WS4 prerelease: `ws4-v0.2.0-p14rc1` at `f60ce64`.
+- FRESH Solutions prerelease: `v0.9.3-p13rc1` at `4583ad3`.
+- Sole author metadata: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
+- DOI/Zenodo, container digest, official SoftwareX template, final independent review, and final PI approval remain.
