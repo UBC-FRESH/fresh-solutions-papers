@@ -28,11 +28,11 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "b5abf630e02baff2f9a709f582c159978d5befff4cfc581b605c8491f96b7aae"
+    "sha256": "4911040af613f329c254a4ca3862dcfad6abbc62d6caacba68efd93205744f40"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "0bad81d008b66619e0b2cecdf600c9abbca217504ccd405f78ab0938160f6dd1"
+    "sha256": "ac649bdff90e4a28238e006b0b23c9da1fb1d32a61494fb4a288fd32d0129424"
   },
   "references": {
     "path": "paper/references.bib",
@@ -80,10 +80,10 @@
   },
   "softwarex_manuscript": {
     "path": "paper/submission/softwarex/paper1-softwarex.tex",
-    "sha256": "a9301318b042f4c18b26d2454a0851c6e0ac8942c8e7d5351c003fc23c83ebe9"
+    "sha256": "8536cb87e988378634cbc0a9abec1584bd424cbfa9b193e8dee5f7b2efa0a549"
   },
   "softwarex_pdf": {
     "path": "paper/submission/softwarex/paper1-softwarex.pdf",
-    "sha256": "bc29cfcd5c257b4b113e4b42d2c1c659354b9180d41388d303df216bfb16f1df"
+    "sha256": "835a4bd6edcc3bbbfdc8c4b642bb55c27aa222a8234b5f90dbe94e016dcfc10e"
   }
 }

@@ -19,6 +19,6 @@ is approved.
 
 Sincerely,
 
-[Corresponding author name]
-[Affiliation]
-[Email]
+Gregory Paradis
+UBC FRESH Lab, University of British Columbia
+gregory.paradis@ubc.ca
