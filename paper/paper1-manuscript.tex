@@ -585,12 +585,7 @@ Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.72\linewidth]{figures/seed-terms.pdf}
-\caption{Five-seed objective decomposition at 100,000 generations. The level term dominates; the flow term is the even-flow residual.}
-\label{fig:seed-terms}
-\end{figure}
+
 
 The realized level is approximately 51.21--52.49M~m\textsuperscript{3} per
 10-year period against the 70M aspiration. The level term is therefore the
@@ -613,12 +608,7 @@ the final schedules have almost no flow penalty but still pay for the level aspi
 sees only the total might infer that the target was nearly satisfied. The split prevents that
 inference.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.72\linewidth]{figures/realized-level.pdf}
-\caption{Realized harvest-level ranges against the 70M m\textsuperscript{3}/period aspiration. The aspiration is a pull-up target, not a feasibility floor.}
-\label{fig:realized-level}
-\end{figure}
+
 
 \subsection{CPU simulated-annealing comparator}
 
@@ -726,9 +716,9 @@ Generations & CPU search (s) & CUDA search (s) & CPU/CUDA time & CPU objective &
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.58\linewidth]{figures/ablation.pdf}
-\caption{Evaluation-path ablation on the 5,000-block diagnostic subset. The delta plus apply path is about 2,005 times faster than a warm whole-schedule move evaluation.}
-\label{fig:ablation}
+\includegraphics[width=0.92\linewidth]{figures/matched-search.pdf}
+\caption{Matched CPU/CUDA implementation search on the full TSA24 model, population 64, seed 7. (a) Search time; the CUDA path is slower at one generation but 22.2 times shorter at 100 generations. (b) Objective; the CPU path remains 5.0\% lower at 100 generations. This is a short-horizon implementation comparison, not a hardware ranking.}
+\label{fig:matched-search}
 \end{figure}
 
 \subsection{What the results establish}

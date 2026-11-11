@@ -28,21 +28,19 @@
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "7bb5e132f104d9bef89ebeebb677bb5e62e15c39cb29fe1231eae209b245d1fc"
+    "sha256": "4974478b1fbe1281363e6ef4e1d8662a8ba9e579b1e1bf0587903cadb2c66530"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "2690e9a43dbda7589bd457a75b0b076de920b3645b992f56d0b3a0b2ef92f3d8"
+    "sha256": "d6116084357d7a4d6c1bf5bbabeca473cbe50ea47590c9a150e8d051f695e291"
   },
   "references": {
     "path": "paper/references.bib",
     "sha256": "50208c88acaf2fe71575e8d55836b1b479c0a50001bbbf40577a3848f46d869b"
   },
   "figures": {
-    "paper/figures/ablation.pdf": "a4e3116aac97656acb1628a328ae64e62260340e65afde5a788f5d8f582f24e5",
-    "paper/figures/realized-level.pdf": "abbeb4b84eed8e6b3101b96d8138eefbef7d24a97e47e1d1078f3df0ce264336",
-    "paper/figures/scaling.pdf": "8de298a3091a85bfe62a2de58cd404c68140183444fd12b9210eca0477a56d57",
-    "paper/figures/seed-terms.pdf": "6031ad3c0bd44c921095f2fdc1e181328dbdf6be529d301d2b012c5e491c672a"
+    "paper/figures/matched-search.pdf": "73446fb9e222fdc2c46b6dd2bdd4f99bc3e9e56ac144f1d836c8a3cdeae38c78",
+    "paper/figures/scaling.pdf": "29b987c52d77b83f1a28c3901e692c552e386f4a73abd33662d783250297975f"
   },
   "replay": {
     "all_records": "paper/replay_all.sh",
@@ -71,5 +69,13 @@
   "matched_search_runner": {
     "path": "paper/experiments/run_matched_search.sh",
     "sha256": "0ee0188f7e43b434ef35a34bcb42e3b697e2ea407397071778f68b559c7226ef"
+  },
+  "submission_manuscript": {
+    "path": "paper/submission/paper1-elsarticle.tex",
+    "sha256": "ea7bd704df6cf428ac4452ab877de432ba24da2629a5e3cc26b1cb31ed67d6c7"
+  },
+  "submission_pdf": {
+    "path": "paper/submission/paper1-elsarticle.pdf",
+    "sha256": "f51e92a5deb553f6da390ab68dc229bfd98ba194e05b51ab5a32cc749549b88a"
   }
 }
