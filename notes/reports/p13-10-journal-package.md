@@ -19,12 +19,12 @@ Issue: #91
 
 ## Paper 1 — Environmental Modelling & Software
 
-- [ ] `elsarticle` class or current EMS template; current draft uses `article`.
+- [x] `elsarticle` variant built; working draft remains `article`.
 - [ ] Author list, affiliations, corresponding author, CRediT, funding, competing interests.
 - [ ] Keywords and highlights (3–5 bullets).
 - [ ] 40–60 references; current draft has 40.
-- [ ] 5 figures; current draft has 5.
-- [ ] 8,000–9,500 words; current draft 8,228.
+- [x] 3 figures; current draft has 3.
+- [x] 8,000–9,500 words; current draft 8,574.
 - [ ] Public evidence DOI and one-command replay.
 - [ ] Independent model baseline or explicit architecture/reproducibility scope.
 - [ ] Matched CPU-GA/CPU batch and cache/search ablation or explicit scope.
@@ -33,12 +33,12 @@ Issue: #91
 
 ## Paper 2 — Journal of Heuristics
 
-- [ ] Springer `svjour3` (or current JoH) template; current draft uses `article`.
+- [x] JoH `sn-jnl` variant built; working draft remains `article`.
 - [ ] Author list, affiliations, corresponding author, CRediT, funding, competing interests.
 - [ ] Keywords and highlights.
 - [ ] 40–60 references; current draft has 42.
-- [ ] 5 figures; current draft has 5.
-- [ ] 8,000–9,500 words; current draft 9,187.
+- [x] 5 figures; current draft has 5.
+- [x] 8,000–9,500 words; current draft 9,357.
 - [ ] Public artifact DOI and one-command replay.
 - [ ] Complete per-record metadata or explicit campaign-level scope.
 - [ ] Independent QAP baseline: BLS present; matched-time comparison still limited.
