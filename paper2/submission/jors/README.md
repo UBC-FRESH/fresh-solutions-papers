@@ -1,0 +1,81 @@
+# Paper 2 — JORS Issues in Research Software draft
+
+Target: **Journal of Open Research Software**, *Issues in Research Software* (experience and
+reproducibility report). This is not a Software Metapaper. The journal has no mandatory LaTeX
+template; this package uses a clean `article` build with `natbib` numeric citations.
+
+## Files
+
+- `paper2-jors.tex` — main manuscript source.
+- `paper2-jors.pdf` — compiled manuscript.
+- `paper2-jors-supplement.tex` — supplementary material with the full per-instance tables.
+- `paper2-jors-supplement.pdf` — compiled supplement (2 pages).
+- `references.bib` — unchanged copy of `paper2/references.bib`.
+- `figures/` — copies of the two committed evidence figures; the architecture figure is inline TikZ.
+
+Build with `latexmk -pdf paper2-jors.tex` and `latexmk -pdf paper2-jors-supplement.tex`.
+The main build has no undefined citations, overfull boxes, or LaTeX warnings.
+
+## Counts
+
+- **Word count: 3,815** in the counted text (title through Data and code availability, including
+  abstract, headings, table contents, and captions; excludes the reference list).
+  Command: `detex -n paper2-jors.tex | wc -w`.
+- **PDF pages: 9** (7 pages of text/figures/tables plus 2 pages of references).
+- **Figures: 2** (architecture boundary; framework CPU overhead).
+- **Tables: 2** in the main text (compact QAP/BLS family summary; compact TSP depth summary).
+  The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
+- **References: 28**, Vancouver-style numeric citations in square brackets, in order of first
+  appearance. Style: `natbib` `[numbers,sort&compress]` with `unsrtnat`.
+- **Replay count stated in the paper:** 40 framework + 20 deep-TSP + 200 expanded-QAP + 200 BLS +
+  100 expanded-TSP + 40 generic + 1,060 broad incumbents.
+
+## Placeholders
+
+- Software repository: `[repository URL to be supplied at release]`.
+- Archived artifact DOI: `[DOI to be assigned]`.
+- Author list is the lab byline `UBC FRESH Lab, University of British Columbia`; corresponding
+  author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
+  statements are not yet supplied.
+- No claim is made that the artifact is public or archived. The evidence set is the candidate
+  `paper2-evidence-v0.1.0`.
+
+## Blocking issues
+
+1. **Public release / DOI.** The repository and evidence are not public. Visibility, tag, release,
+   DOI, and container digest need PI approval before submission.
+2. **Exact release blocker.** Per-record CPU time is missing from the expanded-QAP and expanded-TSP
+   evidence records, and `evidence/manifest-v0.1.0-candidate.json` does not cover the ten-seed
+   `qap-expanded-100k-10seed` files used in Table 1 (it lists the older five-seed
+   `qap-expanded-100k` files). The candidate cannot become an immutable tag until both are fixed.
+3. **Provenance identity.** The evidence still carries more than one replay identifier
+   (`4583ad3` for the expanded QAP, `c7d1507` for BLS/TSP/generic); one immutable replay commit and
+   tag must be selected and the records re-stamped.
+4. **Stale repository documents.** `paper2/README.md` says “DO NOT SUBMIT”, and
+   `paper2/paper2-draft.md` (included in the candidate manifest) says “NOT SUBMISSION-READY” and
+   reports the old LKH 71/100 result. Update or remove them before release.
+5. **Container.** A Dockerfile and requirements file exist, but the base-image digest and solver
+   checkout are not pinned; the paper therefore does not claim a tested container.
+6. **TSP depth protocol.** The 20-instance panel is frozen and mixed-depth (17 at depth 4, `lin105`
+   at 3, `d198` and `pr152` at 2). This is disclosed in the paper, but it is not a single
+   pre-registered depth rule. Decide whether to rerun under one rule before submission.
+7. **Tabu credibility.** The tabu reference reaches 0/80 optima on `bur26`. The paper states this as
+   a property of this untuned reference, but it has not been verified against a published
+   robust-tabu implementation or accompanied by a per-seed diversity table.
+8. **Generic-layer comparison.** The generic negative result is not matched for start quality or
+   work; the paper is scoped to “this configuration is not competitive.”
+9. **APC/waiver.** Not confirmed. Do not state or imply that JORS is free; confirm the current APC
+   and any institutional waiver separately.
+10. **Journal metadata.** Cover letter, editor checklist, keywords confirmation, author metadata,
+    CRediT, funding, and competing interests are still required at submission.
+11. **Page guide.** The word count is inside the 3,000–4,000 limit, but the 10 pt `article` build is
+    9 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
+    do not cut below 3,000 words to chase the page estimate.
+
+## Source discipline
+
+The main manuscript, the evidence directory, and the obsolete JoH `sn-jnl` variant were not edited.
+The figures reused here are the committed `paper2/figures/framework-overhead.pdf` and
+`broad-gaps.pdf`. All numbers are taken from the current evidence summaries; the BLS inference uses
+the corrected cluster-by-instance interval (−0.300 to −0.111), the family interval (−0.234 to
+−0.163), and the 15/16 instance-level result.

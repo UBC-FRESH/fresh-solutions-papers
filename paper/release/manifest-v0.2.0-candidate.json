@@ -77,5 +77,13 @@
   "submission_pdf": {
     "path": "paper/submission/paper1-elsarticle.pdf",
     "sha256": "9d04f9223848e892e2c3c40adedf6a7d44c35d4187ae84ed70320df531cb82d0"
+  },
+  "softwarex_manuscript": {
+    "path": "paper/submission/softwarex/paper1-softwarex.tex",
+    "sha256": "83b4c1c5f87d8e20707981274a4506a94f899dfba5cf268b7d9b08e44d58ffd3"
+  },
+  "softwarex_pdf": {
+    "path": "paper/submission/softwarex/paper1-softwarex.pdf",
+    "sha256": "f644acf4c3afaa9c212a7455f34b6182754bd3926aa6286357ac79a1869451ba"
   }
 }

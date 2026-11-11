@@ -1,6 +1,6 @@
 # Paper 2 working manuscript and evidence
 
-**DO NOT SUBMIT.** This directory contains the working Paper 2 manuscript and its internal benchmark
+**Working evidence repository.** The submission draft is `paper2/submission/jors/paper2-jors.tex` (JORS Issues in Research Software). This directory also contains the longer working manuscript and internal benchmark
 evidence. The paper is a working draft, not a submission-ready article.
 
 Working manuscript (LaTeX): `paper2-manuscript.tex`

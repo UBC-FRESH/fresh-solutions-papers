@@ -192,6 +192,12 @@
     },
     "paper2/replay_all.sh": {
       "sha256": "3fb6694599f3ea11c6986867ad6faf8dc93a88820016d1e7f0c97d15112f345c"
+    },
+    "paper2/evidence/qap-expanded-100k-10seed.json": {
+      "sha256": "599d0d2730ca31645130666fb490162b45075bfe3780808fd5f9173a6a9797a4"
+    },
+    "paper2/evidence/qap-expanded-100k-10seed-summary.json": {
+      "sha256": "fb8042fa197fd6758719be0def50c2d93995500bc4b66008ddb799995559f020"
     }
   },
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
@@ -224,5 +230,21 @@
   "submission_pdf": {
     "path": "paper2/submission/paper2-sn-jnl.pdf",
     "sha256": "4b441c3d6205c8926cd8f752f05085d53ad67bef9774656ea879b38f9a0c53e2"
+  },
+  "jors_submission_manuscript": {
+    "path": "paper2/submission/jors/paper2-jors.tex",
+    "sha256": "4232f8c2ac442e1d369c9d7ab59dd58d5750b8099ead15292bf5cbff95a2e6cb"
+  },
+  "jors_submission_pdf": {
+    "path": "paper2/submission/jors/paper2-jors.pdf",
+    "sha256": "3ae2a0376a3526269517e24fc0213149314c48bdef45c3b29b0d285def875bcb"
+  },
+  "jors_supplement_manuscript": {
+    "path": "paper2/submission/jors/paper2-jors-supplement.tex",
+    "sha256": "594a410518ea114f246de32bffc06235fbbe16651bf9dfbd585666154468ed61"
+  },
+  "jors_supplement_pdf": {
+    "path": "paper2/submission/jors/paper2-jors-supplement.pdf",
+    "sha256": "b377d9a5d630e7e029ef93790c65265275e072a054cae91a24cecfc3dcfed609"
   }
 }

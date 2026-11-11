@@ -1,0 +1,435 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[numbers,sort&compress]{natbib}
+\bibpunct{[}{]}{,}{n}{}{,}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand{\bibfont}{\small}
+\setlength{\bibsep}{2pt plus 0.3ex}
+
+\title{FRESH Solutions: an adapter and exact-replay harness for metaheuristic benchmarking}
+\author{UBC FRESH Lab\\University of British Columbia, Vancouver, BC, Canada}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Applied metaheuristic research is slowed less by the choice of search method than by the engineering
+around it: problem-specific state, exact objective accounting, seed and budget handling, stopping
+rules, and evidence that another person can replay. FRESH Solutions is a Python harness that makes
+those concerns part of a small problem-adapter contract. An adapter supplies exact evaluation,
+feasibility, proposals, and reversible moves; the engine owns resident assignment state, a replay
+gate, convergence records, and a budget protocol. Two reference adapters are included: robust tabu
+search for the quadratic assignment problem (QAP) and iterated Lin--Kernighan for the travelling
+salesman problem (TSP). We report an experience-oriented validation, not a solver competition. A
+40-run QAP framework-use check matched the standalone and production objectives exactly and replayed
+every incumbent, at 1.24 times the CPU time of a private-array path (95\% CI 1.17--1.31). On a
+20-instance QAPLIB panel with ten seeds, the tabu reference averaged a 0.301\% gap, while a separately
+implemented Breakout Local Search (BLS) baseline averaged 0.096\%; the cluster-by-instance 95\%
+interval for the paired difference was $-0.300$ to $-0.111$ percentage points, with BLS lower on 15
+of 16 non-tied instance means. A frozen, mixed-depth 20-instance TSPLIB breadth panel reached 94 of
+100 known optima; 95 runs stopped on patience and five \texttt{brazil58} runs hit a wall-clock cap at
+the optimum. We also report a negative result for a generic adapter-only search layer. The
+contribution is the harness, the replay contract, and the reference adapters, not a
+state-of-the-art claim. The artifact is not yet released; DOI and repository placeholders are stated
+explicitly.
+\end{abstract}
+
+\noindent\textbf{Keywords:} reproducible benchmarking; metaheuristics; quadratic assignment; travelling salesman; research software
+
+\section{Introduction}
+
+Applying a known metaheuristic to a new combinatorial problem is often limited by the work around
+the search rather than by the search itself. A team must define a move representation, maintain
+incremental state, preserve feasibility, compute the objective exactly, choose a stopping rule, keep
+seeds and budgets, and produce a record that a reviewer can inspect. These concerns are rebuilt for
+each project, and they are easy to get subtly wrong. The resulting comparisons are difficult to
+reproduce even when the algorithm is standard.
+
+The benchmarking literature has treated parts of this problem. Hooker argued that algorithm
+comparisons should test hypotheses about why a method works \citep{hooker1995}; Barr et al.\ proposed
+a reporting discipline for heuristic experiments \citep{barr1995}; McGeoch described an experimental
+method for algorithm simulation \citep{mcgeoch1996}; and Beiranvand et al.\ collect practices for
+comparing optimisation algorithms, including budget accounting, multiple seeds, and distributional
+reporting \citep{beiranvand2017,bartz2020}. COCO standardises the comparison of continuous optimisers
+\citep{hansen2020}, and irace standardises algorithm configuration \citep{lopez2016}. The
+reproducible-research literature makes the same point: a result depends on the code, environment,
+and workflow, not only on a seed \citep{peng2011,sandve2013,wilson2014,stodden2016,donoho2009}, and
+containers reduce the software part of that dependence \citep{boettiger2015,kurtzer2017}.
+
+Public benchmark libraries provide instances and reference values: QAPLIB for the quadratic
+assignment problem \citep{burkard1997} and TSPLIB for the travelling salesman problem
+\citep{reinelt1991}. General metaheuristic frameworks expose a solution representation, an objective,
+and a neighbourhood, then supply search operators \citep{blum2003,hoos2004}. What they typically do
+not own is the evidence boundary: the rule that a stored incumbent is re-evaluated by the problem
+adapter before it is reported, and that the stop reason and denominator travel with the result. That
+boundary is the subject of this paper.
+
+FRESH Solutions is a response to that engineering problem. It provides a problem-adapter contract,
+exact resident state and reversible moves, local and population search paths, exact replay,
+convergence records, and reference implementations for QAP and TSP. The paper asks a narrow
+question: can a user add a problem-specific neighbourhood or reference implementation and obtain
+credible, replayable evidence without rebuilding the surrounding machinery? We answer with a bounded
+framework-use experiment, two reference panels, a broad screen, and a negative result. We do not
+claim that the generic search layers are competitive, that the QAP reference is state of the art, or
+that the harness has been tested by a third-party adapter author.
+
+The paper makes four contributions. First, it specifies a small adapter contract that separates a
+problem's exact state, moves, and feasibility from the search layer. Second, it specifies a replay
+and evidence protocol: an incumbent is not a result unless a new adapter evaluation reproduces the
+stored objective, and the record names the instance, seed, budget, stopping reason, and provenance.
+Third, it provides two reference implementations and reports their full distributions, including
+tails and cap hits. Fourth, it reports a convergence-controlled framework-use check for QAP state
+management and a TSP breadth panel, together with the failure modes that the protocol exposes. The
+contribution is software and evidence design; the empirical panels are validation, not a ranking.
+
+\section{Software description}
+
+\subsection{Design requirements}
+
+The harness is built around four goals. \emph{Exactness} means that every reported assignment is a
+complete discrete assignment and every objective is computed by the adapter, not by a search
+heuristic's internal counter. \emph{Reversibility} means that a move can be applied and undone
+without rebuilding the whole assignment, so a local search can test neighbours without allocating a
+new state for every candidate. \emph{Replayability} means that a result is stored with enough
+metadata for a third party to re-evaluate the incumbent and recover the same objective and
+feasibility. \emph{Separation} means that the search layer sees only the adapter interface, so a
+domain-specific neighbourhood can be added without changing the engine.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.7cm, every node/.style={font=\small}]
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center] (model) {Compiled model};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of model] (adapter) {Adapter contract};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of adapter] (engine) {Search layer};
+\node[draw, rounded corners, fill=blue!5, text width=2.4cm, align=center, right=of engine] (evidence) {Evidence + replay};
+\draw[->] (model) -- (adapter);
+\draw[->] (adapter) -- (engine);
+\draw[->] (engine) -- (evidence);
+\draw[->, dashed] (evidence.south) -- ++(0,-0.55) -| (model.south);
+\end{tikzpicture}
+\caption{The evidence boundary. The search layer sees only the adapter; every incumbent crosses the
+replay gate before it becomes a result.}
+\label{fig:architecture}
+\end{figure}
+
+An adapter supplies discrete variables, their options, a complete initial and random assignment,
+exact and batched evaluation, feasibility, mutation and crossover, and reversible moves. An
+assignment is a mapping from every variable to one option; for a permutation problem, the adapter
+owns the permutation invariant. A change records the variable, the option before, the option after,
+and an optional move kind and segment size. The adapter's \texttt{apply} and \texttt{undo}
+operations must be exact inverses on the assignment.
+
+The contract is intentionally smaller than a general modelling language. It does not expose linear
+constraints, gradients, or symbolic expressions. That restriction keeps it implementable for
+compiled spatial models and public combinatorial libraries, where the objective is often a
+domain-specific calculation rather than a closed-form expression. A model that cannot supply exact
+evaluation and reversible moves is outside the contract. The adapter also supplies
+\texttt{evaluate\_batch}, which is used by the population layer and by external baseline adapters;
+it is a contract for exact evaluations, not a performance promise.
+
+\subsection{Resident state and exact replay}
+
+The engine exposes \texttt{ResidentAssignment}, which holds one complete assignment and routes every
+accepted move through the adapter's reversible operations, followed by an exact evaluation. The
+reference modules can also keep a private array and update the objective from an incremental delta;
+that path is faster and is used for the production QAP tabu scan. The framework-use experiment
+compares the two representations on the same trajectory, so the measured difference is the cost of
+state management, not a difference in search strategy.
+
+Replay is more than a checksum. Every reported incumbent is a complete assignment, and the stored
+assignment must re-evaluate to the stored objective. The record names the public instance and its
+known optimum or best-known value, the pinned solver version or commit, the seed, the iteration or
+kick budget, the stopping reason, the exact-replay result, and the wall and CPU time. A safety-cap
+hit is recorded as a cap hit; it is not relabelled as convergence. The replay gate constructs a new
+adapter, evaluates the stored assignment, and compares the objective and feasibility. It does not
+call the search code, so a record cannot pass by reusing the optimizer's cached objective. For a
+permutation problem the gate also validates the mapping, and a malformed assignment raises an error.
+
+The evidence format is JSON: per-run records keep the assignment and search counters, and a summary
+keeps the distribution. The repository also keeps the runner, replay script, instance files or their
+provenance, and environment. A reader can rerun a campaign, replay the stored incumbents, or compare
+the distribution without reading the paper prose. A manifest stores SHA-256 hashes for the candidate
+evidence set; a tag is not created until the maintainer approves the release.
+
+\subsection{Stopping and budget protocol}
+
+The harness distinguishes four outcomes: plateau stop, safety-cap hit, budget exhaustion, and
+invalid replay. A plateau stop is a run that met its declared patience rule. A safety-cap hit is a
+run that reached a wall-clock cap before its patience rule; it is not convergence evidence. Budget
+exhaustion is a run that reached its iteration or kick cap; it is retained but not called converged.
+Invalid replay is a record that cannot reproduce its objective; it is removed from the evidence and
+reported as a defect, not averaged into a table. The denominator is therefore visible, and a mean is
+always accompanied by the stop counts that produced it.
+
+This taxonomy matters because the budget changes the reported gap. On the four controlled QAP
+instances, a fixed 10,000-iteration budget gave mean gaps of 0.000\%, 0.403\%, 0.786\%, and 0.792\%;
+the 100,000-iteration patience rule gave 0.000\%, 0.030\%, 0.077\%, and 0.245\%. The difference is a
+longer plateau, not a new algorithm. The TSP campaign shows the same effect: a 20-kick pilot reached
+the optimum on three of four instances, a 2,000-kick/200-patience run reached 19 of 20 optima, and
+the 10,000-kick/1,000-patience run reached all 20. A short-budget table would have looked successful
+and concealed the method's ceiling.
+
+\subsection{Reference implementations}
+
+The reference implementations are adapter-specific modules. The QAP module uses robust tabu search
+\citep{taillard1991} over facility swaps, with exact swap deltas, a tabu tenure sampled between
+$n/2$ and $3n/2$, an aspiration rule for a new incumbent, and Taillard's delta-matrix update for
+symmetric zero-diagonal instances. Asymmetric instances use an exact general scan. The TSP module
+uses a bounded candidate-list Lin--Kernighan exchange \citep{lin1973} with 16 nearest neighbours,
+sequential exchange to depth four, and deterministic double-bridge kicks. The engine still owns the
+assignment and the replay boundary, but the neighbourhood and acceptance logic are problem-specific.
+The generic local and population layers \citep{kirkpatrick1983,talbi2009,pisinger2010} are retained
+for smoke tests and contract conformance; they are not the source of the headline results.
+
+\section{Validation and quality control}
+
+\subsection{Framework use and overhead}
+
+The first check asks whether a QAP tabu path held in resident state preserves the search trajectory.
+The framework path repeats the reference scan, tabu memory, start, seed, delta matrix, tenure,
+patience, and iteration cap, but applies every accepted swap through the adapter and calls the exact
+evaluator. Both paths run on four QAPLIB instances, ten seeds each, with a 100,000-iteration
+patience rule and a 1,000,000-iteration cap. All 40 runs stopped on patience, all 40 framework
+objectives matched the standalone and production objectives, and all 40 incumbents replayed exactly.
+
+The measured CPU overhead is 1.24 (95\% bootstrap CI 1.17--1.31); per-instance means range from 1.17
+to 1.33 (Figure~\ref{fig:framework-overhead}). This is a real cost, and it has a clear source: the
+standalone path mutates an array and updates the objective from the delta, while the framework path
+routes the swap through the adapter and calls the exact evaluator. The overhead is measured against
+the pure-Python private-array path, not against the Numba-accelerated production path; production CPU
+time was not recorded, so 1.24 is not an overhead against the fastest path. Even with that caveat,
+the result is the narrow framework claim: resident state does not change the trajectory, at a
+measured state-management cost.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/framework-overhead.pdf}
+\caption{Paired framework CPU overhead by QAP instance. Points are means; bars are percentile
+bootstrap 95\% intervals over ten seeds. The overall mean ratio is 1.24 (95\% CI 1.17--1.31).}
+\label{fig:framework-overhead}
+\end{figure}
+
+\subsection{QAP convergence panel and independent baseline}
+
+The QAP quality panel uses 20 QAPLIB instances, ten seeds per instance, the same 100,000-iteration
+patience and 1,000,000-iteration cap. All 200 tabu runs stopped on patience, all 200 replayed
+exactly, and 73 reached the known optimum. The mean gap was 0.301\%, the median 0.043\%, and the
+worst 5.695\%. A separately implemented Breakout Local Search baseline \citep{benlic2013} used the
+same instances, seeds, start, declared move budget, and patience. All 200 BLS runs stopped on
+patience and replayed exactly; BLS reached 161 optima, with a mean gap of 0.096\% and a worst gap of
+1.369\%. Table~\ref{tab:qap} summarises both arms by instance family.
+
+\begin{table}[H]
+\centering
+\caption{QAPLIB panel: robust tabu versus separately implemented Breakout Local Search (BLS). Each
+arm uses 20 instances, ten seeds, a 100,000-iteration or 100,000-move patience rule, and a
+1,000,000-unit cap. All 400 runs plateau-stopped and replayed exactly. Gaps are percentages to the
+known optimum; optima are runs at the known optimum.}
+\label{tab:qap}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Family & Instances & Tabu mean & Tabu optima & BLS mean & BLS optima \\
+\midrule
+\texttt{tai} (type II) & 7 & 0.421\% & 32/70 & 0.220\% & 40/70 \\
+\texttt{bur} (type I)   & 8 & 0.234\% & 0/80  & 0.000\% & 80/80 \\
+\texttt{chr} (type III) & 5 & 0.240\% & 41/50 & 0.077\% & 41/50 \\
+\midrule
+All                     & 20 & 0.301\% & 73/200 & 0.096\% & 161/200 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The comparison is descriptive and clustered. BLS is lower on 15 instance means, higher on one
+(\texttt{chr22a}), and equal on four. The paired mean difference is $-0.205$ percentage points. A
+cluster-by-instance bootstrap gives a 95\% interval of $-0.300$ to $-0.111$; a family-cluster
+bootstrap gives $-0.234$ to $-0.163$. The instance-level result is 15 of 16 non-tied instance means
+lower for BLS (exact two-sided sign test $p=5.2\times10^{-4}$). The effective sample is 20 instances
+in three families, not 200 independent runs, so the clustered intervals are the appropriate summary
+and the run count is descriptive. Equal-weighting the families gives 0.099\% for BLS and 0.298\% for
+tabu, so the advantage is not only the eight \texttt{bur26} variants, which contribute 80 of the 200
+runs.
+
+The tabu reference is weak on the asymmetric \texttt{bur26} family: it reached no optimum in 80 runs,
+while BLS reached all 80. We report this as a property of this untuned reference implementation, not
+as evidence about robust tabu in general. The panel is a negative result for the tabu reference and
+a positive result for the harness: the harness made a stronger baseline visible, replayable, and
+comparable on the same denominator. Neither method is claimed to be state of the art.
+
+\subsection{TSP breadth panel}
+
+The TSP breadth panel uses 20 TSPLIB instances, five seeds each, a 10,000-kick cap, a 1,000-kick
+patience rule, and a 3,600-second safety cap. It is a frozen panel with per-instance maximum exchange
+depth: depth 4 for 17 instances, depth 3 for \texttt{lin105}, and depth 2 for \texttt{d198} and
+\texttt{pr152}. It is not one adaptive-depth experiment, and we do not interpret depth as a
+controlled factor. The panel combines runs produced under a legacy depth-4 setting and later runs at
+reduced depth after the original depth-4 pass on \texttt{d198} exceeded 300 seconds per kick; the
+recorded depth is a property of each row, and the quality comparison is across the panel as frozen.
+
+Ninety-five of 100 runs stopped on patience, and 94 reached the known optimum. The mean gap is
+0.004\% and the worst 0.185\%. Five \texttt{brazil58} runs reached the known optimum but hit the
+3,600-second cap after roughly 380--400 kicks; they are reported as cap hits, not convergence.
+\texttt{brazil58} ($n=58$, explicit upper-row matrix) is about four times slower per kick than the
+larger \texttt{bier127} under this implementation, so the cap is a real limit of the current path,
+not a solver failure hidden in a footnote. Table~\ref{tab:tsp} keeps the cap hits in the
+denominator.
+
+\begin{table}[H]
+\centering
+\caption{Frozen TSPLIB breadth panel with per-instance exchange depth. Twenty instances, five seeds,
+a 10,000-kick cap, a 1,000-kick patience rule, and a 3,600-second safety cap. The five
+\texttt{brazil58} runs (depth 4) reached the optimum but hit the wall-clock cap and are not counted as
+patience stops. Gaps are percentages to the known optimum.}
+\label{tab:tsp}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Depth & Instances & Runs & Mean gap & Worst gap & Patience & Optima \\
+\midrule
+4 & 17 & 85 & 0.000\% & 0.000\% & 80/85 & 85/85 \\
+3 & 1  & 5  & 0.000\% & 0.000\% & 5/5   & 5/5 \\
+2 & 2  & 10 & 0.039\% & 0.185\% & 10/10 & 4/10 \\
+\midrule
+All & 20 & 100 & 0.004\% & 0.185\% & 95/100 & 94/100 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For context, a separate four-instance deep panel (\texttt{berlin52}, \texttt{kroA100},
+\texttt{kroB100}, \texttt{ch150}) used 10,000 kicks and a 1,000-kick patience rule from converged
+local-search tours; all 20 runs stopped on patience, reached the optimum, and replayed. The breadth
+panel is not a replacement for that controlled comparison: it uses nearest-neighbour starts, and its
+mixed depth means the absolute gaps are descriptive.
+
+\subsection{Broad screens, external LKH, and a generic negative result}
+
+Two fixed-budget screens test coverage. The QAP screen parses 134 QAPLIB instances with five seeds
+and a 600-second cap; 552 of 670 runs stopped on patience and 318 reached the known optimum. The
+converged subset has median gap 0.000\%, mean 1.823\%, and worst 36.445\%; the mean is pulled by a
+small hard tail, and the median is not evidence that the tail is solved. The TSP screen covers 78
+instances with $n\le1000$; 236 of 390 runs stopped on patience and 195 reached the optimum, with an
+all-run mean of 1.460\%. Above $n=300$, only 3 of 100 runs stopped on patience, 1 reached the
+optimum, and 97 hit the safety cap. The internal method is therefore a small-instance solver with a
+weak larger tail (the evidence records retain the full distribution).
+
+
+
+External LKH \citep{lkh3} is an optional capability reference, not part of the package. On the same 20-instance
+large tail, at a 600-second timeout, five seeds, and one run per seed (LKH 3.0.6, commit
+\texttt{9a51de3}), it reached 75 of 100 optima with a mean gap of 0.098\%, median 0\%, and worst
+1.930\%; mean wall time was 15.0 seconds. On that tail, FRESH reached 1 of 100 optima and hit the cap
+on 97 runs. The comparison is capability-only, not matched time; LKH is research-use software and is
+not bundled.
+
+Finally, a generic tabu/large-neighbourhood prototype used only adapter proposals, apply/undo, and
+exact evaluation. It ran on four QAP and four TSP instances, five seeds, 20,000 iterations, 16
+proposals per iteration, and a 5,000-iteration patience rule. All 40 runs stopped on patience and
+replayed exactly, and the result is negative: the QAP mean gap was 3.848\% against 0.097\% for the
+adapter-specific tabu reference, and the TSP mean gap was 127.978\% against 0.000\% for the LK
+reference. The generic runs start from random assignments and use about 117,000 exact evaluations,
+so this is not a matched-work or matched-start comparison. It supports a narrow statement only:
+this configuration is not competitive with a problem-specific neighbourhood, and the adapter
+contract is not by itself a search engine.
+
+\section{Availability and reuse}
+
+FRESH Solutions is developed by the UBC FRESH Lab. The software repository is
+\texttt{[repository URL to be supplied at release]} and the artifact DOI is
+\texttt{[DOI to be assigned]}. These are explicit placeholders: the paper-specific evidence set is a
+candidate (\texttt{paper2-evidence-v0.1.0}) and is not public or archived at the time of writing.
+
+FRESH Solutions is licensed under Apache-2.0. The paper-specific runners and derived evidence are
+intended for release under CC BY 4.0; code in the papers repository is MIT. QAPLIB and TSPLIB
+instances are referenced by name and are not redistributed. External LKH is research-use software
+and is not bundled; its provenance sidecar records the version, commit, binary hash, and rerun
+command.
+
+The campaign environment used Python 3.12; the package requires Python 3.11 or later. It uses NumPy
+\citep{harris2020} and SciPy \citep{virtanen2020} for the independent QAP baseline. Numba
+\citep{lam2015} is optional for the accelerated QAP path; the reference path runs without it. No GPU
+is required. A Dockerfile and requirements file are included, but the container recipe is not yet
+pinned to a base-image digest and solver checkout, so we do not claim a tested container.
+
+After mounting QAPLIB and TSPLIB, one command replays the evidence:
+\begin{quote}
+\small
+\texttt{export QAPLIB\_ROOT=/path/to/QAPLIB; export TSPLIB\_ROOT=/path/to/tsplib;}\\
+\texttt{bash paper2/replay\_all.sh}
+\end{quote}
+The script re-evaluates 40 framework, 20 deep-TSP, 200 expanded-QAP, 200 BLS, 100 expanded-TSP, 40
+generic, and 1,060 broad incumbents. Twenty-five \texttt{esc8} parse-error records are skipped
+explicitly, and the five \texttt{brazil58} cap hits are reported as cap hits. The validator
+\texttt{paper2/check\_evidence.py} checks provenance, record counts, stop reasons, and replay status;
+the individual replay scripts perform the full adapter re-evaluation.
+
+The release blocker is specific. Per-record CPU time is missing from the expanded-QAP and
+expanded-TSP records (the BLS and generic records carry it), and the candidate manifest does not yet
+cover the ten-seed \texttt{qap-expanded-100k-10seed} files used in Table~\ref{tab:qap}. Until those
+fields and the manifest are complete, the candidate cannot be approved as an immutable tag.
+Repository visibility, tag, DOI, and container digest are pending institutional approval.
+
+Reuse is the point of the design. A new adapter for a compiled spatial model can reuse the evidence
+machinery, the replay gate, the stopping taxonomy, and the run/summary schema while supplying its
+own neighbourhood; the two reference adapters are templates, not a closed list. A team that already
+has a mature solver and a mature evidence pipeline should not adopt the boundary for its own sake.
+A team that rebuilds replay and provenance code for every problem is the intended user.
+
+\section{Limitations and claim boundary}
+
+The controlled framework panel has four QAP instances. The quality panel has 20 instances in three
+families, with a BLS baseline that is stronger than the tabu reference; the tabu result is a negative
+result, not a baseline endorsement. The QAP reference is untuned and weak on asymmetric instances,
+and BLS is a reimplementation from the published design, not the original authors' code.
+
+The TSP breadth panel is frozen and mixed-depth, not a controlled depth comparison; its 3,600-second
+cap is close enough to normal runtimes that a slightly slower host could change the patience count.
+The deep panel has four instances. The internal LK exchange is bounded and lacks $\alpha$-nearness,
+fractional cascading, and the full LKH gain criteria, which is why the larger tail is weak. The LKH
+comparison is capability-only and not matched time.
+
+Timings come from a shared 72-logical-CPU Linux host under parallel load. The framework comparison
+alternates execution order by seed and uses process CPU time, but wall times are descriptive, not
+single-thread benchmarks. Production-path CPU time is not recorded, so the overhead is scoped to the
+private-array baseline.
+
+Most importantly, portability is demonstrated by two adapters written by the reference author, not
+by a third party. Two adapters are not proof of generality. A third-party adapter, a matched-time
+comparison against LKH, and a family-balanced panel are future work. We make no state-of-the-art
+claim for robust tabu or for the LK implementation, and no claim that the harness is a general
+algorithm-selection framework.
+
+\section{Conclusion}
+
+FRESH Solutions provides a benchmark harness and adapter boundary, with two reference
+metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
+QAP state. The QAP panel shows that a patience rule changes the reported gaps relative to a short
+fixed budget, while the framework path preserves the trajectory at a measured 1.24 CPU ratio. The
+TSP breadth panel reaches 94 of 100 known optima and keeps five cap hits visible. The generic layer
+is reported as a negative result rather than promoted. The next step is not a larger claim: it is a
+third-party adapter, a pinned release with a DOI and tested container, and matched-time comparisons.
+The harness is useful now because it makes those steps replayable.
+
+\section*{Data and code availability}
+The harness, reference implementations, runners, replay scripts, and evidence are in the FRESH
+Solutions papers repository, with repository URL and DOI to be supplied at release. QAPLIB and TSPLIB
+are public. The evidence candidate is \texttt{paper2-evidence-v0.1.0}; it is not yet tagged,
+archived, or public. Full per-instance tables for the QAP and TSP panels are provided in the
+supplementary material.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
