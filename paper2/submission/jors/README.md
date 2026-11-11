@@ -21,7 +21,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - **Word count: 3,815** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
-- **PDF pages: 9** (7 pages of text/figures/tables plus 2 pages of references).
+- **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
 - **Figures: 2** (architecture boundary; framework CPU overhead).
 - **Tables: 2** in the main text (compact QAP/BLS family summary; compact TSP depth summary).
   The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
@@ -37,8 +37,8 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - Author list is the lab byline `UBC FRESH Lab, University of British Columbia`; corresponding
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are not yet supplied.
-- No claim is made that the artifact is public or archived. The evidence set is the candidate
-  `paper2-evidence-v0.1.0`.
+- The repository and release tag are public; a DOI and tested container digest remain pending.
+  The evidence set is the public release candidate `p14-evidence-rc3`.
 
 ## Blocking issues
 
@@ -69,7 +69,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 10. **Journal metadata.** Cover letter, editor checklist, keywords confirmation, author metadata,
     CRediT, funding, and competing interests are still required at submission.
 11. **Page guide.** The word count is inside the 3,000–4,000 limit, but the 10 pt `article` build is
-    9 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
+    8 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
     do not cut below 3,000 words to chase the page estimate.
 
 ## Source discipline
