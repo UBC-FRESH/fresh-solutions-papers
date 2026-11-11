@@ -9,7 +9,7 @@
   "qaplib": {
     "source": "https://github.com/didoudiaz/QAP-instances",
     "commit": "3cfd4f2bf82782e6c02fe4a79397e02f8ef54b14",
-    "included": "QAPLIB .dat instances parseable by Fresh Solutions v0.5.1",
+    "included": "QAPLIB .dat instances parseable by FRESH Solutions v0.5.1",
     "excluded": "5 esc8 variants with extra header token",
     "count": 134
   },

@@ -1,4 +1,4 @@
-# Fresh Solutions Papers
+# FRESH Solutions Papers
 
 A two-paper research programme on compiled spatial optimisation, GPU hybrid metaheuristics, and
 reproducible benchmark reproduction.
@@ -6,7 +6,7 @@ reproducible benchmark reproduction.
 The programme has two outputs:
 
 1. **Compiled spatial optimisation** — the architecture and forestry benchmark evidence.
-2. **Fresh Solutions** — a general hybrid metaheuristic engine tested beyond forestry.
+2. **FRESH Solutions** — a general hybrid metaheuristic engine tested beyond forestry.
 
 The general solver lives in the `fresh-solutions/` git submodule:
 <https://github.com/UBC-FRESH/fresh-solutions>.

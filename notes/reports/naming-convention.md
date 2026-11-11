@@ -2,13 +2,11 @@
 
 - **FRESH** is an acronym and the name of the UBC lab. Always uppercase.
 - The lab reference in both manuscripts and both bibliographies is `UBC FRESH Lab`.
-- **Fresh Solutions** is the software artifact name, not the lab name.
+- **FRESH Solutions** is the software artifact name, not the lab name.
 - Paths such as `fresh-solutions/`, `fresh_solutions`, and `UBC-FRESH` are code/repository identifiers and are not prose uses of the lab name.
 
-Audit (2026-11-11): no lower-case lab reference such as `Fresh Lab` remains in either manuscript.
-If the software itself is to be styled `FRESH Solutions`, that is a separate branding decision and will
-be applied consistently to the title, text, figures, and citation keys.
-
-Update 2026-11-11: the remaining lower-case adjective uses of “fresh” in Paper 2 were replaced with
-“new”. The papers use `FRESH` only for the lab and `Fresh Solutions` only for the software artifact.
+Audit (2026-11-11): no title-case lab reference remains in either manuscript. The remaining lower-case
+uses of “fresh” as an adjective in Paper 2 were replaced with “new”. The papers use `FRESH` for the lab
+and `FRESH Solutions` for the software artifact. The package path and import name remain
+`fresh-solutions/` and `fresh_solutions`; these are code identifiers, not prose.
 

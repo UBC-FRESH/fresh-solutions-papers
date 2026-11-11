@@ -14,13 +14,13 @@
 \graphicspath{{../}}
 \setlength{\emergencystretch}{3em}
 \begin{document}
-\title{Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
+\title{FRESH Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
 \author*[1]{\fnm{UBC FRESH} \sur{Lab}}\email{author@example.invalid}
 \affil*[1]{\orgname{University of British Columbia}, \orgaddress{\city{Vancouver}, \state{BC}, \country{Canada}}}
 \abstract{Applying metaheuristics to hard combinatorial problems is often slowed less by the choice of
 metaheuristic than by the engineering around it: problem-specific move representations, exact
 incremental state, replayable evidence, stopping rules, and benchmark bookkeeping are usually rebuilt
-for each project. Fresh Solutions provides an adapter contract and a reproducible benchmark harness,
+for each project. FRESH Solutions provides an adapter contract and a reproducible benchmark harness,
 together with two reference implementations: quadratic-assignment robust tabu search and
 travelling-salesman iterated Lin--Kernighan. We evaluate the references on QAPLIB and TSPLIB and report
 the full distribution, including failures. We also run a framework-use check: the QAP tabu trajectory
@@ -47,7 +47,7 @@ evidence that another person can replay. That work is repetitive and easy to get
 Problem-specific move representations, incremental state, stopping rules, benchmark harnesses, seed
 handling, and evidence records are rebuilt for each project.
 
-Fresh Solutions is a response to that engineering problem. It provides a problem-adapter contract,
+FRESH Solutions is a response to that engineering problem. It provides a problem-adapter contract,
 exact resident state and reversible moves, local and population search paths, checkpointing, exact
 replay, convergence records, and public-library reference implementations for QAP and TSP. The paper
 asks a narrow engineering question: can a user add a problem-specific neighbourhood or reference
@@ -334,7 +334,7 @@ maintainer approves the candidate.
 The public QAPLIB and TSPLIB instances are not redistributed in a modified form. The TSA24 artifact is
 published separately with its compiled data and licence statement. External LKH is not bundled; the
 provenance sidecar records its version, binary hash, and exact rerun command; the paper treats it as
-an external capability reference. This separation matters for licensing: Fresh Solutions code is Apache-2.0, derived artifacts use
+an external capability reference. This separation matters for licensing: FRESH Solutions code is Apache-2.0, derived artifacts use
 CC BY 4.0, and the BC source data carries OGL-BC attribution. The paper-specific evidence repository
 is not yet public, so this is an intended release policy, not a claim that the evidence is archived.
 
@@ -479,7 +479,7 @@ for the convergence panels.
 The second threat is baseline strength. The QAP reference is robust tabu, a standard but not
 state-of-the-art method; SciPy FAQ is weak. The TSP reference is a bounded LK implementation, and
 external LKH is stronger on the large tail. The paper therefore reports gaps to known optima and a
-capability boundary, not a claim that Fresh Solutions dominates published solvers.
+capability boundary, not a claim that FRESH Solutions dominates published solvers.
 
 The third threat is timing. The framework comparison is CPU-bound and run in parallel. Alternating
 order reduces, but does not eliminate, host-load bias. Process CPU time is the primary overhead
@@ -597,7 +597,7 @@ independent external baseline with the same five-seed protocol.}
 \small
 \begin{tabular}{lrrrr}
 \toprule
-Instance & Fresh best & Fresh mean & SciPy mean & Fresh worst \\
+Instance & FRESH best & FRESH mean & SciPy mean & FRESH worst \\
 \midrule
 \texttt{esc128} & 0.000\% & 1.250\% & 12.500\% & 3.125\% \\
 \texttt{tai150b} & 2.008\% & 2.976\% & 1.861\% & 3.699\% \\
@@ -607,7 +607,7 @@ Instance & Fresh best & Fresh mean & SciPy mean & Fresh worst \\
 \end{tabular}
 \end{table}
 
-The large-instance table is a mixed result, not a portfolio win. Fresh tabu is better on
+The large-instance table is a mixed result, not a portfolio win. FRESH tabu is better on
 \texttt{esc128} and \texttt{tai256c}, worse on \texttt{tai150b}, and only modestly better on
 \texttt{tho150}. The SciPy baseline is fast and, on \texttt{tai150b}, better than the tabu path; on
 \texttt{tai256c} it is far worse. A best-of-five column would hide the tail, so the table reports both
@@ -866,7 +866,7 @@ remains in the committed broad or LKH evidence.
 
 External LKH, at its stated budget and configuration, reaches 75 of 100 optima on the same large tail,
 mean gap 0.098\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
-bundled and not claimed as Fresh Solutions' own heuristic. The comparison is capability-only, not
+bundled and not claimed as FRESH Solutions' own heuristic. The comparison is capability-only, not
 matched-time.
 
 The broad TSP panel also exposes the difference between a plateau stop and a safety-cap stop. A run
@@ -897,7 +897,7 @@ target weights, the seed, and the schedule. A change to any of those invalidates
 the point of freezing the artifact rather than regenerating it from a mutable database.
 
 The source data are public BC data with OGL-BC attribution. The compiled artifact is distributed
-under the terms recorded in the instance repository. The Fresh Solutions solver is Apache-2.0; the
+under the terms recorded in the instance repository. The FRESH Solutions solver is Apache-2.0; the
 paper-specific evidence release is pending. This is an intended release policy, not a claim that the
 evidence is already archived. The distinction matters because a
 public source dataset and a derived compiled model are not the same artifact.
@@ -991,13 +991,13 @@ independent BLS baseline; BLS is stronger than robust tabu on that panel, so rob
 reference implementation, not a state-of-the-art QAP method. The broad panel covers 134 parseable
 instances with a fixed budget; it is a screen, not a convergence study. The median gap of 0\% on the
 broad panel is dominated by small instances, and the mean is pulled by hard outliers. The
-large-instance table is mixed: Fresh tabu wins some instances and loses \texttt{tai150b} to SciPy.
+large-instance table is mixed: FRESH tabu wins some instances and loses \texttt{tai150b} to SciPy.
 
 The TSP deep panel has four instances; the expanded panel has 20, with five \texttt{brazil58} cap hits at the
 known optimum. The 78-instance broad panel uses nearest-neighbour starts and a different budget; it
 is not the same experiment. The internal LK path does not scale to
 the largest TSPLIB tail, and the large-tail comparison against LKH is capability-only, not
-matched-time. LKH is external research-use software; it is not bundled and is not claimed as Fresh
+matched-time. LKH is external research-use software; it is not bundled and is not claimed as FRESH
 Solutions' own heuristic.
 
 The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed and
@@ -1044,7 +1044,7 @@ confidence bound of 1.31.
 
 The claim would also fail if a new adapter required changes to the engine's search loop. The adapter
 for a new problem would then not be a boundary; it would be a patch. The current QAP and TSP adapters
-do not require such changes, but two adapters are not proof of generality. The applied TSA24 case is a separate WS4 codebase, not a Fresh Solutions adapter. It is not part of
+do not require such changes, but two adapters are not proof of generality. The applied TSA24 case is a separate WS4 codebase, not a FRESH Solutions adapter. It is not part of
 the QAP/TSP convergence panel and is not used to claim universal portability.
 
 The TSP convergence claim would fail if the plateau-stopped runs were not reproducible, if the starts
@@ -1085,7 +1085,7 @@ strengthen the framework-use claim unless it were compared fairly and reproduced
 
 \section{Conclusion}
 
-Fresh Solutions provides a reproducible benchmark harness and adapter boundary, with two reference
+FRESH Solutions provides a reproducible benchmark harness and adapter boundary, with two reference
 metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
 QAP state. The QAP convergence panel shows that a 100,000-iteration plateau changes the reported gaps
 relative to a short fixed budget, while the framework path preserves the search trajectory at a
@@ -1105,7 +1105,7 @@ which the next version should be judged.
 
 \section*{Data and code availability}
 QAPLIB and TSPLIB instances are public. The harness, reference implementations, runners, replay
-scripts, and evidence are in the Fresh Solutions papers repository. The framework-use evidence is
+scripts, and evidence are in the FRESH Solutions papers repository. The framework-use evidence is
 \url{paper2/evidence/framework-use.json}; the TSP convergence evidence is
 \url{paper2/evidence/tsp-convergence-10k.json}; the shorter 2k and 20-kick runs are retained
 separately. The TSA24 artifact is available at

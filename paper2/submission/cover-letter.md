@@ -2,7 +2,7 @@
 
 Dear Editor,
 
-Please consider our manuscript, **"Fresh Solutions: a reproducible adapter harness for applied metaheuristic
+Please consider our manuscript, **"FRESH Solutions: a reproducible adapter harness for applied metaheuristic
 benchmarks"**, for the Journal of Heuristics.
 
 The paper studies a reproducibility problem that is central to heuristic search: an incumbent is not
