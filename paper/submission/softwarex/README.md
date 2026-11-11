@@ -25,7 +25,7 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 ## Template status
 
-Built with `elsarticle` in single-column preprint mode with line numbers. This is **not** the official
+Built with `elsarticle` in 5p two-column mode with line numbers. This is **not** the official
 SoftwareX Original Software Publication template. The official template (and its metadata-table layout)
 must be applied before submission; the content is structured to map onto its five sections:
 Motivation and significance; Software description; Validation/illustration; Reuse potential and
