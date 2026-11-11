@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,815** in the counted text (title through Data and code availability, including
+- **Word count: 3,788** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
