@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are not yet supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc3`.
+  The evidence set is the public release candidate `p14-evidence-rc4`.
 
 ## Blocking issues
 
