@@ -1,6 +1,6 @@
 # Paper 2 evidence release candidate
 
-Status: local candidate only. No tag, release, visibility change, or DOI has been made.
+Status: public release candidate `p14-evidence-rc5`; DOI pending.
 
 ## Verification
 

@@ -228,7 +228,7 @@ the instance and its availability, the objective and feasibility definition, the
 and configuration, the seed, the hardware and software, the wall and search times, the schedule path
 and SHA-256, the exact-replay flag, and the per-target residuals. A validator checks the schema, the
 schedule path, and the hash. The replay gate is a separate program: it loads the compiled model, reads
-the stored schedule, validates coverage and candidate membership, and evaluates the objective without
+the stored schedule, evaluates the objective through the compiled model, and checks the record fields without
 calling the optimizer. It verifies the incumbent, not the search trajectory, and does not prove that
 the search explored the neighbourhood it claims.
 
@@ -435,7 +435,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc4}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc5}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -468,13 +468,13 @@ competitive solver.
 Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
-C2 & Permanent link to code/repository: \newline \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
-C4 & Code versioning system: Git \\
-C5 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
-C6 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
-C7 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4} \\
-C8 & Test command: \texttt{python -m pytest}; replay: \texttt{WS4\_ROOT=... TSA24\_ROOT=... FHOPS\_ROOT=... bash paper/replay\_all.sh} \\
+C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
+C3 & Permanent link to reproducible capsule: \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc5} \\
+C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
+C5 & Code versioning system: Git \\
+C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
+C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
+C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4} \\
 C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
 \end{tabular}%
@@ -489,7 +489,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc4}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc5}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}

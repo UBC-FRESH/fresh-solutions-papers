@@ -22,7 +22,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
-- **Figures: 2** (architecture boundary; framework CPU overhead).
+- **Figures: 1** (architecture boundary; framework overhead is reported in text).
 - **Tables: 2** in the main text (compact QAP/BLS family summary; compact TSP depth summary).
   The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
 - **References: 28**, Vancouver-style numeric citations in square brackets, in order of first
@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are not yet supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc4`.
+  The evidence set is the public release candidate `p14-evidence-rc5`.
 
 ## Blocking issues
 
@@ -51,9 +51,8 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 3. **Provenance identity.** The evidence still carries more than one replay identifier
    (`4583ad3` for the expanded QAP, `c7d1507` for BLS/TSP/generic); one immutable replay commit and
    tag must be selected and the records re-stamped.
-4. **Stale repository documents.** `paper2/paper2-draft.md` says “NOT SUBMISSION-READY” and reports
-   the old LKH 71/100 result. Update or remove it before release; the top-level README now points to
-   the JORS draft.
+4. **Archived repository document.** The old `paper2/paper2-draft.md` is archived at
+   `notes/archive/paper2-draft-2026-11-03.md`; the public submission path is this JORS draft.
 5. **Container.** A Dockerfile and requirements file exist, but the base-image digest and solver
    checkout are not pinned; the paper therefore does not claim a tested container.
 6. **TSP depth protocol.** The 20-instance panel is frozen and mixed-depth (17 at depth 4, `lin105`

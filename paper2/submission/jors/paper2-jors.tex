@@ -31,7 +31,7 @@ around it: problem-specific state, exact objective accounting, seed and budget h
 rules, and evidence that another person can replay. FRESH Solutions is a Python harness that makes
 those concerns part of a small problem-adapter contract. An adapter supplies exact evaluation,
 feasibility, proposals, and reversible moves; the engine owns resident assignment state, a replay
-gate, convergence records, and a budget protocol. Two reference adapters are included: robust tabu
+gate, convergence records, and a budget protocol. Two reference adapters are included: Taillard-style tabu
 search for the quadratic assignment problem (QAP) and iterated Lin--Kernighan for the travelling
 salesman problem (TSP). We report an experience-oriented validation, not a solver competition. A
 40-run QAP framework-use check matched the standalone and production objectives exactly and replayed
@@ -43,8 +43,7 @@ of 16 non-tied instance means. A frozen, mixed-depth 20-instance TSPLIB breadth 
 100 known optima; 95 runs stopped on patience and five \texttt{brazil58} runs hit a wall-clock cap at
 the optimum. We also report a negative result for a generic adapter-only search layer. The
 contribution is the harness, the replay contract, and the reference adapters, not a
-state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc4}; DOI pending
-explicitly.
+state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc5}; a DOI is pending.
 \end{abstract}
 
 \noindent\textbf{Keywords:} reproducible benchmarking; metaheuristics; quadratic assignment; travelling salesman; research software
@@ -184,7 +183,7 @@ and concealed the method's ceiling.
 
 \subsection{Reference implementations}
 
-The reference implementations are adapter-specific modules. The QAP module uses robust tabu search
+The reference implementations are adapter-specific modules. The QAP module uses Taillard-style tabu search
 \citep{taillard1991} over facility swaps, with exact swap deltas, a tabu tenure sampled between
 $n/2$ and $3n/2$, an aspiration rule for a new incumbent, and Taillard's delta-matrix update for
 symmetric zero-diagonal instances. Asymmetric instances use an exact general scan. The TSP module
@@ -206,7 +205,7 @@ patience rule and a 1,000,000-iteration cap. All 40 runs stopped on patience, al
 objectives matched the standalone and production objectives, and all 40 incumbents replayed exactly.
 
 The measured CPU overhead is 1.24 (95\% bootstrap CI 1.17--1.31); per-instance means range from 1.17
-to 1.33 (Figure~\ref{fig:framework-overhead}). This is a real cost, and it has a clear source: the
+to 1.33 . This is a real cost, and it has a clear source: the
 standalone path mutates an array and updates the objective from the delta, while the framework path
 routes the swap through the adapter and calls the exact evaluator. The overhead is measured against
 the pure-Python private-array path, not against the Numba-accelerated production path; production CPU
@@ -214,13 +213,7 @@ time was not recorded, so 1.24 is not an overhead against the fastest path. Even
 the result is the narrow framework claim: resident state does not change the trajectory, at a
 measured state-management cost.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.78\linewidth]{figures/framework-overhead.pdf}
-\caption{Paired framework CPU overhead by QAP instance. Points are means; bars are percentile
-bootstrap 95\% intervals over ten seeds. The overall mean ratio is 1.24 (95\% CI 1.17--1.31).}
-\label{fig:framework-overhead}
-\end{figure}
+
 
 \subsection{QAP convergence panel and independent baseline}
 
@@ -234,7 +227,7 @@ patience and replayed exactly; BLS reached 161 optima, with a mean gap of 0.096\
 
 \begin{table}[H]
 \centering
-\caption{QAPLIB panel: robust tabu versus separately implemented Breakout Local Search (BLS). Each
+\caption{QAPLIB panel: tabu reference versus separately implemented Breakout Local Search (BLS). Each
 arm uses 20 instances, ten seeds, a 100,000-iteration or 100,000-move patience rule, and a
 1,000,000-unit cap. All 400 runs plateau-stopped and replayed exactly. Gaps are percentages to the
 known optimum; optima are runs at the known optimum.}
@@ -265,7 +258,7 @@ runs.
 
 The tabu reference is weak on the asymmetric \texttt{bur26} family: it reached no optimum in 80 runs,
 while BLS reached all 80. We report this as a property of this untuned reference implementation, not
-as evidence about robust tabu in general. We therefore treat BLS as the primary QAP quality reference
+as evidence about the tabu reference in general. We therefore treat BLS as the primary QAP quality reference
 and the tabu path as an unvalidated reference implementation. The panel is a negative result for the
 tabu reference and a positive result for the harness: the harness made a stronger baseline visible, replayable, and
 comparable on the same denominator. Neither method is claimed to be state of the art.
@@ -350,13 +343,12 @@ contract is not by itself a search engine.
 FRESH Solutions is developed by the UBC FRESH Lab. The code is at
 \url{https://github.com/UBC-FRESH/fresh-solutions}, release candidate
 \texttt{v0.9.3-p13rc1}. The paper-specific evidence is public at
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc4}. A DOI is
-\texttt{[DOI to be assigned]}; the GitHub release is a public prerelease, not yet an archival DOI
-record.
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc5}. A DOI will be
+minted when the release is accepted; the GitHub release is a public prerelease.
 
 FRESH Solutions is licensed under Apache-2.0. The paper-specific runners and derived evidence are
-intended for release under CC BY 4.0; code in the papers repository is MIT. QAPLIB and TSPLIB
-instances are referenced by name and are not redistributed. External LKH is research-use software
+intended for release under CC BY 4.0; code in the papers repository is MIT. The four QAP and four TSP instance files in \texttt{paper2/instances} are included under their original
+benchmark terms; QAPLIB and TSPLIB are not relicensed here. External LKH is research-use software
 and is not bundled; its provenance sidecar records the version, commit, binary hash, and rerun
 command.
 
@@ -378,11 +370,9 @@ explicitly, and the five \texttt{brazil58} cap hits are reported as cap hits. Th
 \texttt{paper2/check\_evidence.py} checks provenance, record counts, stop reasons, and replay status;
 the individual replay scripts perform the full adapter re-evaluation.
 
-The release blocker is specific. Per-record CPU time is missing from the expanded-QAP and
-expanded-TSP records (the BLS and generic records carry it); the candidate manifest covers the
-ten-seed \texttt{qap-expanded-100k-10seed} files used in Table~\ref{tab:qap}. The repository and tag
-are public; a DOI and a tested container digest are still pending. Per-record CPU must be supplied or
-the CPU claim explicitly scoped before an archival DOI record.
+The repository and tag are public; a DOI and a tested container digest remain pending. Per-record
+CPU time is absent from the expanded-QAP and expanded-TSP records (the BLS and generic records carry
+it), so CPU timing is reported only where recorded.
 
 Reuse is the point of the design. A new adapter for a compiled spatial model can reuse the evidence
 machinery, the replay gate, the stopping taxonomy, and the run/summary schema while supplying its
@@ -411,7 +401,7 @@ private-array baseline.
 Most importantly, portability is demonstrated by two adapters written by the reference author, not
 by a third party. Two adapters are not proof of generality. A third-party adapter, a matched-time
 comparison against LKH, and a family-balanced panel are future work. We make no state-of-the-art
-claim for robust tabu or for the LK implementation, and no claim that the harness is a general
+claim for the tabu reference or for the LK implementation, and no claim that the harness is a general
 algorithm-selection framework.
 
 \section{Conclusion}
@@ -420,16 +410,25 @@ FRESH Solutions provides a benchmark harness and adapter boundary, with two refe
 metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
 QAP state. The QAP panel shows that a patience rule changes the reported gaps relative to a short
 fixed budget, while the framework path preserves the trajectory at a measured 1.24 CPU ratio. The
-TSP breadth panel reaches 94 of 100 known optima and keeps five cap hits visible. The generic layer
+TSP mixed-depth breadth panel reaches 94 of 100 known optima and keeps five cap hits visible. The generic layer
 is reported as a negative result rather than promoted. The next step is not a larger claim: it is a
 third-party adapter, a pinned release with a DOI and tested container, and matched-time comparisons.
 The harness is useful now because it makes those steps replayable.
 
+\section*{Author contributions}
+
+Gregory Paradis: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation,
+Data curation, Writing -- original draft, Writing -- review and editing, Visualization, Project
+administration.
+
+\section*{Competing interests}
+
+The author declares no competing interests.
+
 \section*{Data and code availability}
 The harness, reference implementations, runners, replay scripts, and evidence are in the FRESH
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers}, release candidate \
-\texttt{p14-evidence-rc4}; DOI pending. QAPLIB and TSPLIB
-are public. The evidence is the public release candidate \texttt{p14-evidence-rc4}; a DOI is pending.
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers}, public release candidate
+\texttt{p14-evidence-rc5}; a DOI is pending. QAPLIB and TSPLIB are public.
 Full per-instance tables for the QAP and TSP panels are provided in the
 supplementary material.
 

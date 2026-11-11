@@ -8,5 +8,5 @@
 - Fresh Solutions solver code is Apache-2.0 in its own repository, not MIT.
 - External LKH is research-use software and is not bundled.
 
-The repository is not yet public. This file states the intended release licensing; it does not change
-repository visibility or create a release.
+The repository is public. This file states the release licensing; the GitHub release candidate is
+`p14-evidence-rc4`. A DOI is still pending.
