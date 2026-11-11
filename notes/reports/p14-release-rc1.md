@@ -30,3 +30,12 @@ as the drafts, author metadata, and final evidence tags are completed.
 
 Sole author: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
 Repository licence: MIT for code; see `LICENSING.md` for the manuscript and derived-artifact terms.
+
+## Verification
+
+- Public clone at tag `p14-evidence-rc1` passes `paper2/replay_all.sh`:
+  200/200 expanded QAP, 200/200 BLS, 100/100 expanded TSP, 1,060 broad, 40 generic,
+  40 framework + 20 deep TSP.
+- Public clone passes `paper/replay_all.sh` with WS4, TSA24, and FHOPS roots.
+- The SoftwareX draft builds to 8 pages; the JORS draft builds to 8 pages.
+
