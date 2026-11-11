@@ -31,7 +31,9 @@ def main() -> int:
     """Print the counted word total for the SoftwareX draft."""
     path = sys.argv[1] if len(sys.argv) > 1 else "paper1-softwarex.tex"
     source = open(path, encoding="utf-8").read()
-    main_text = source[source.index(r"\begin{abstract}") : source.index(r"\section*{Code metadata}")]
+    main_text = source[
+        source.index(r"\begin{abstract}") : source.index(r"\section*{Code metadata}")
+    ]
     availability = source[
         source.index(r"\section*{Data and code availability}") : source.index(r"\bibliographystyle")
     ]
