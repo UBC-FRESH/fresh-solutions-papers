@@ -197,24 +197,32 @@
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "20174a8ff0f56f2cacb799f4d55a84b3205ca5e88cc178e967b545daa917f632"
+    "sha256": "549088e0b922e237ea742b4cd2af85051030e28fe2e078475a5621f9c2a624f1"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "a85e21ce3b47fe7103fc6c91ac2a66f44fff468b3676362aca4cbdc806a64a5c"
+    "sha256": "468f64c92b563a5c4289c49001f4ceefe226887e494abd5743e9d082677a4f33"
   },
   "references": {
     "path": "paper2/references.bib",
     "sha256": "fb8a770ee0765eb79d56cf3c163f50cde9a4decbf6803d24bf9c6decbf457ff3"
   },
   "figures": {
-    "paper2/figures/broad-gaps.pdf": "c73deb1c5ce3dc0c1c66c358d5677c01f032872e3b97d5019e65bb6aed2b7f0c",
-    "paper2/figures/framework-overhead.pdf": "390917965235bd65e17d0dc7471536484767310bb30b69d4aa331193e9faafad",
-    "paper2/figures/qap-expanded.pdf": "3646531969901ad9f5fe63f21f17347e0a1adc42334505f8019065638ac9a790",
-    "paper2/figures/tsp-budget.pdf": "fb9cd47d54ea49508a867ae5462318fb7a51b2c274cf087a48d9ffa0e0c367e9"
+    "paper2/figures/broad-gaps.pdf": "079e705f7420c1a3ab07fdb468c7634362efd6e5b088150655a8e57196ce9aaa",
+    "paper2/figures/framework-overhead.pdf": "c5fd90edad45657fb1e3af4b1059a95deaa4f8a59f518b9c8474c0e59f5b68af",
+    "paper2/figures/qap-expanded.pdf": "8f9921fba06b354e398477806cb50c671635dc8c40e3d8d87ec79adfeb22a4ff",
+    "paper2/figures/tsp-budget.pdf": "4de0e3660257c81043e58903aff8115f683c56e340612c3c7e347ce1fac1e28d"
   },
   "replay": {
     "all_checks": "paper2/replay_all.sh",
     "sha256": "cdc8b45ff2b930ea2e8d6a9f790c22aeba3e686ace7819eabade2c5691413d05"
+  },
+  "submission_manuscript": {
+    "path": "paper2/submission/paper2-sn-jnl.tex",
+    "sha256": "0e80cb270abf5799cc8ca08d295d77ac9d6c5a66f930c3aee6836e33317be026"
+  },
+  "submission_pdf": {
+    "path": "paper2/submission/paper2-sn-jnl.pdf",
+    "sha256": "c83994576d62e402343935f516022ff3c1f041b0e82e391fde447379ff7cb2f7"
   }
 }

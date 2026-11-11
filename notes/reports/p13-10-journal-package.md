@@ -12,7 +12,7 @@ Issue: #91
 - `paper/submission/elsarticle.cls`, `paper/submission/elsarticle-num.bst` — CTAN class/style.
 - `paper2/submission/cover-letter.md`
 - `paper2/submission/highlights.md`
-- `paper2/submission/paper2-sn-jnl.tex` — JoH `sn-jnl` variant, compiles to 27 pages.
+- `paper2/submission/paper2-sn-jnl.tex` — JoH `sn-jnl` variant, compiles to 28 pages.
 - `paper2/submission/sn-jnl.cls`, `paper2/submission/sn-mathphys-num.bst` — official Springer Nature class/style.
 - `paper2/submission/README.md` — build and metadata requirements.
 - `paper/submission/editor-checklist.md`, `paper2/submission/editor-checklist.md`.

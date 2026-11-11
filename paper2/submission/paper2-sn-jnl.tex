@@ -280,6 +280,11 @@ the runner, the replay script, the instance files or their provenance, and the e
 can therefore rerun the campaign, replay the stored incumbents, or compare the reported distribution
 without reading the paper prose.
 
+Numeric reporting follows one rule. Counts, seeds, budgets, iterations, and runs are exact.
+Optimality gaps use three decimal places in percentage points. Campaign objectives use six
+significant figures; screen and one-seed diagnostic objectives use three. Times, ratios, and CPU
+overheads use three significant figures. Full precision remains in the evidence files.
+
 The target per-run schema contains the instance name, adapter name, seed, budget, stop reason,
 objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
 with the solver commit and hardware. The current files implement this schema unevenly: the
@@ -361,6 +366,7 @@ the protocol, not a result: it fixes the denominator before the reader sees a me
 \caption{Campaigns and stopping rules. The broad panels are fixed-budget screens and are not pooled
 with the convergence panels.}
 \label{tab:campaigns}
+\small
 \tiny
 \setlength{\tabcolsep}{2pt}
 \begin{tabular}{lllll}
@@ -541,10 +547,10 @@ the private-array delta path.}
 \toprule
 Instance & Mean gap & Median gap & Worst gap & Mean iter. & CPU ratio & Patience \\
 \midrule
-\texttt{tai12a} & 0.000\% & 0.000\% & 0.000\% & 100,186 & 1.327 & yes \\
-\texttt{tai20a} & 0.030\% & 0.000\% & 0.304\% & 147,748 & 1.170 & yes \\
-\texttt{tai25a} & 0.077\% & 0.000\% & 0.402\% & 175,611 & 1.181 & yes \\
-\texttt{tai30a} & 0.245\% & 0.391\% & 0.491\% & 161,046 & 1.279 & yes \\
+\texttt{tai12a} & 0.000\% & 0.000\% & 0.000\% & 100,186 & 1.33 & yes \\
+\texttt{tai20a} & 0.030\% & 0.000\% & 0.304\% & 147,748 & 1.17 & yes \\
+\texttt{tai25a} & 0.077\% & 0.000\% & 0.402\% & 175,611 & 1.18 & yes \\
+\texttt{tai30a} & 0.245\% & 0.391\% & 0.491\% & 161,046 & 1.28 & yes \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -558,8 +564,8 @@ hardest instance.
 The fixed-budget table used in the earlier draft was not a per-run convergence table. At 10,000 fixed
 iterations its means were 0.000\%, 0.403\%, 0.786\%, and 0.792\%; the plateau-stopped panel improves
 the last three to 0.030\%, 0.077\%, and 0.245\%. The difference is a budget effect, not a claim that
-the longer runs prove global optimality. The overall framework CPU overhead is 1.239 (95\% bootstrap
-CI 1.168--1.310); per-instance ratios range from 1.170 to 1.327. The largest overhead is on the
+the longer runs prove global optimality. The overall framework CPU overhead is 1.24 (95\% bootstrap
+CI 1.17--1.31); per-instance ratios range from 1.17 to 1.33. The largest overhead is on the
 smallest instance, where fixed per-iteration state bookkeeping is a larger share of a short run; the
 larger instances also pay for the exact evaluation but amortise the setup cost over more work.
 
@@ -574,7 +580,7 @@ larger instances also pay for the exact evaluation but amortise the setup cost o
 
 The broad panel below is a separate fixed-budget screen, not the convergence panel above. Across 134
 parseable QAPLIB instances and five seeds, 552 of 670 runs stopped on patience and 318 hit the known
-optimum. The converged subset has median gap 0.000\% and mean 1.823\%, with a worst case of 36.4\%.
+optimum. The converged subset has median gap 0.000\% and mean 1.823\%, with a worst case of 36.400\%.
 The mean is pulled by a small number of hard outliers; the median is not evidence that the tail is
 solved.
 
@@ -710,7 +716,7 @@ harness: the harness makes the stronger baseline visible and replayable. The pap
 that robust tabu is state-of-the-art.
 
 SciPy FAQ is a second independent external baseline. With the same five seeds and
-\texttt{maxiter} 10,000, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
+\texttt{maxiter} 10,000, its mean gap is 25.440\%, median 2.550\%, and worst 246.340\%; the
 \texttt{chr12a} outlier dominates the mean. The tabu panel is not an equal-time comparison with SciPy:
 SciPy is much faster, and the point is that the convergence protocol and the gap distribution are not
 interchangeable. BLS is the stronger independent baseline on this panel; the paper does not claim that
@@ -771,10 +777,10 @@ and 20-kick runs are retained as shorter-budget checks; they are not the converg
 \toprule
 Instance & Start mean gap & ILK mean gap & ILK worst gap & Plateau & Mean wall \\
 \midrule
-\texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% & 5/5 & 754.3 s \\
-\texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% & 5/5 & 605.0 s \\
-\texttt{kroB100} & 3.696\% & 0.000\% & 0.000\% & 5/5 & 688.4 s \\
-\texttt{ch150} & 8.229\% & 0.000\% & 0.000\% & 5/5 & 603.9 s \\
+\texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% & 5/5 & 754 s \\
+\texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% & 5/5 & 605 s \\
+\texttt{kroB100} & 3.696\% & 0.000\% & 0.000\% & 5/5 & 688 s \\
+\texttt{ch150} & 8.229\% & 0.000\% & 0.000\% & 5/5 & 604 s \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -899,13 +905,13 @@ public source dataset and a derived compiled model are not the same artifact.
 The case has 208,255 operable blocks over a 200-year horizon. The even-flow target is a scenario
 configuration, not an official TSA decision. The 100,000-generation GPU-GA campaign spans
 512.574--518.621 (mean 515.682) across five seeds. The seed-7 objective decomposes into a level term
-of 515.141 and a flow term of 2.721; the realized level is 51.3--52.4M m$^3$ per period against the
+of 515.141 and a flow term of 2.721; the realized level is 51.21--52.49M m$^3$ per period against the
 70M aspiration. That is a deliberate maximum-even-flow compromise, not a near-zero solution and not a
 feasibility failure.
 
-The 1,000-generation record is 8,588,725.370498 and the 10,000-generation same-engine record is
-76,540.740733; both replay exactly and show that the objective is still moving at short budgets. The
-CPU-SA independent-search baseline is 335,044,976.675435 after 1,875 seconds and is time-limited,
+The 1,000-generation record is 8,588,730 and the 10,000-generation same-engine record is
+76,540.7; both replay exactly and show that the objective is still moving at short budgets. The
+CPU-SA independent-search baseline is $3.35045\times10^8$ after $1.88\times10^3$~s and is time-limited,
 not converged. The comparison is therefore a budget illustration, not a matched-performance claim.
 
 The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed
@@ -934,8 +940,8 @@ that makes their evidence comparable and replayable.
 The framework-use result is narrower than a generic search claim: a QAP tabu path held in the engine's
 resident state reproduces the private-array trajectory exactly on the tested panel. All 40 runs matched
 the standalone and production objectives, stopped on the same patience rule, and replayed exactly.
-The measured CPU overhead is 1.239 (95\% bootstrap CI 1.168--1.310); per-instance means range from
-1.170 to 1.327. This is a real cost, not a rounding error. It is also small enough to be acceptable
+The measured CPU overhead is 1.24 (95\% bootstrap CI 1.17--1.31); per-instance means range from
+1.17 to 1.33. This is a real cost, not a rounding error. It is also small enough to be acceptable
 when the alternative is rebuilding replay, provenance, and exact accounting around a new problem.
 
 The overhead has a clear source. The standalone path mutates an array and updates the objective from
@@ -1033,8 +1039,8 @@ The framework-use claim is narrow enough to falsify. It would fail if any seed p
 framework objective from the standalone path, if a run hit the iteration cap, if a stored incumbent
 did not replay, or if the paired overhead were so large that the evidence boundary dominated the
 search. None of those failures occurred on the 40-run QAP panel: all objectives matched, all runs
-stopped on patience, all incumbents replayed, and the mean CPU ratio was 1.239 with an upper
-confidence bound of 1.310.
+stopped on patience, all incumbents replayed, and the mean CPU ratio was 1.24 with an upper
+confidence bound of 1.31.
 
 The claim would also fail if a new adapter required changes to the engine's search loop. The adapter
 for a new problem would then not be a boundary; it would be a patch. The current QAP and TSP adapters
@@ -1083,7 +1089,7 @@ Fresh Solutions provides a reproducible benchmark harness and adapter boundary, 
 metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
 QAP state. The QAP convergence panel shows that a 100,000-iteration plateau changes the reported gaps
 relative to a short fixed budget, while the framework path preserves the search trajectory at a
-measured 1.239 CPU ratio. The TSP 10,000-kick-cap campaign closes the gap left by the 20-kick pilot and
+measured 1.24 CPU ratio. The TSP 10,000-kick-cap campaign closes the gap left by the 20-kick pilot and
 reaches all 20 known optima in the convergence panel.
 
 The result is deliberately bounded. The panels are small, the QAP baseline is standard rather than

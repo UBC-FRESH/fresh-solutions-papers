@@ -4,7 +4,7 @@ Target: Journal of Heuristics (Springer Nature).
 
 - `paper2-sn-jnl.tex` — `sn-jnl` conversion, `sn-mathphys-num` references, author placeholders.
 - `sn-jnl.cls`, `sn-mathphys-num.bst` — official Springer Nature December 2024 package.
-- `paper2-sn-jnl.pdf` — compiled review copy (27 pages).
+- `paper2-sn-jnl.pdf` — compiled review copy (28 pages).
 - `cover-letter.md`, `highlights.md`.
 
 Build:
