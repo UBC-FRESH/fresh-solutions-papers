@@ -246,7 +246,7 @@ the evidence; the experiment argues about the search.
 The implementation is in Python 3.12 and uses NumPy \citep{harris2020}, SciPy \citep{virtanen2020},
 Numba for optional acceleration \citep{lam2015}, and PyTorch for the GPU path \citep{paszke2019}. The
 reported campaign ran on an NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition (97,887~MiB) with
-an Intel Xeon Gold 6254 CPU at 3.10~GHz, Python 3.12.3, and WS4 at commit \texttt{f60ce64}
+an Intel Xeon Gold 6254 CPU at 3.10~GHz, Python 3.12.3, and WS4 release candidate \texttt{ws4-v0.2.0-p14rc1}
 \citep{ws4}. The command-line surface is small: compile a dataset, build an effect table, run a search
 with a configuration file, and replay a record. The test suite covers the compiled-table schema,
 candidate index, effect rows, apply/undo invariants, evaluator, and record validator. The large GPU
@@ -430,8 +430,9 @@ at equal work, a full-instance evaluation-path comparison, and a cache-load/sear
 Two constraints follow. The effect table must fit in device memory alongside the population batch; the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is a feature-branch commit, not a tagged release, and the paper-specific
-schedules and replay scripts are retained in the evidence repository but not yet public. Until a tag and
-DOI exist, the replay contract is a design and a local procedure, not an archival service. The target
+schedules and replay scripts are in the public papers repository under release candidate
+\texttt{p14-evidence-rc1}. The release is a public snapshot; a DOI is still pending, so the replay
+contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
 
@@ -445,7 +446,7 @@ measurements show that a move can be priced from a sparse effect row instead of 
 re-simulation, with objective agreement at $3.7\times10^{-9}$.
 
 The contribution is the software architecture and its evidence boundary, not a new metaheuristic or a
-landscape-quality claim. The next steps are a tagged public release with a DOI and a one-command
+landscape-quality claim. The next steps are a DOI and a tested one-command
 replay, a tuned CPU comparison at equal work, a full-instance evaluation-path study, and a
 spatial-constraint extension. Until those exist, the software is an exact, replayable platform for
 controlled landscape-search experiments, not a leaderboard entry. It is a reproducible case, not a
@@ -462,15 +463,15 @@ competitive solver.
 \toprule
 Nr. & Code metadata description \\
 \midrule
-C1 & Current code version: untagged development snapshot (GPU commit \texttt{f60ce64}); no versioned release yet \\
-C2 & Permanent link to code/repository: \newline \url{https://github.com/UBC-FRESH/ws4} \newline (placeholder; tag and DOI pending) \\
+C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
+C2 & Permanent link to code/repository: \newline \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
 C3 & Legal code licence: MIT for repository code; the TSA24 artifact retains its own public terms \\
 C4 & Code versioning system: Git \\
 C5 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
 C6 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
-C7 & Link to developer documentation: repository README and project documentation site (placeholder URL) \\
+C7 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4} \\
 C8 & Test command: \texttt{python -m pytest}; replay: \texttt{bash paper/replay\_all.sh} \\
-C9 & Support email: placeholder (to be supplied by the corresponding author) \\
+C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
 \end{tabular}%
 }
@@ -483,7 +484,8 @@ C9 & Support email: placeholder (to be supplied by the corresponding author) \\
 The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
-schedules and replay scripts are retained in the project evidence repository; a public release and DOI
+schedules and replay scripts are in the public evidence release
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc1}; a DOI
 remain pending maintainer approval.
 
 \bibliographystyle{elsarticle-num}

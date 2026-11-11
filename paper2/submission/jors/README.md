@@ -21,7 +21,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - **Word count: 3,815** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
-- **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
+- **PDF pages: 9** (7 pages of text/figures/tables plus 2 pages of references).
 - **Figures: 2** (architecture boundary; framework CPU overhead).
 - **Tables: 2** in the main text (compact QAP/BLS family summary; compact TSP depth summary).
   The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
@@ -42,12 +42,12 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Blocking issues
 
-1. **Public release / DOI.** The repository and evidence are not public. Visibility, tag, release,
-   DOI, and container digest need PI approval before submission.
+1. **Public release / DOI.** The repository and tag are public; a DOI and a tested container digest
+   remain pending.
 2. **Exact release blocker.** Per-record CPU time is missing from the expanded-QAP and expanded-TSP
-   evidence records. The candidate manifest now covers the ten-seed
-   `qap-expanded-100k-10seed` files used in Table 1; per-record CPU remains missing. The candidate
-   cannot become an immutable tag until that is resolved or the claim is explicitly scoped.
+   evidence records. The candidate manifest covers the ten-seed `qap-expanded-100k-10seed` files used
+   in Table 1; per-record CPU remains missing. The candidate cannot become an archival DOI release
+   until that is resolved or the claim is explicitly scoped.
 3. **Provenance identity.** The evidence still carries more than one replay identifier
    (`4583ad3` for the expanded QAP, `c7d1507` for BLS/TSP/generic); one immutable replay commit and
    tag must be selected and the records re-stamped.
@@ -69,7 +69,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 10. **Journal metadata.** Cover letter, editor checklist, keywords confirmation, author metadata,
     CRediT, funding, and competing interests are still required at submission.
 11. **Page guide.** The word count is inside the 3,000–4,000 limit, but the 10 pt `article` build is
-    8 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
+    9 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
     do not cut below 3,000 words to chase the page estimate.
 
 ## Source discipline
