@@ -34,3 +34,5 @@ outputs/
 .idea/
 .DS_Store
 Thumbs.db
+
+paper/submission/softwarex/*.spl
