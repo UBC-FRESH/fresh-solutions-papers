@@ -13,7 +13,7 @@ breadth panel, a bounded broad-panel/LKH comparison, and a generic adapter-only 
 explicitly non-competitive. We report the BLS difference with cluster-by-instance and family-cluster
 intervals, not the misleading pair-level interval.
 
-The manuscript is 3,798 words, within the Issues in Research Software limit. We do not claim
+The manuscript is 3,806 words, within the Issues in Research Software limit. We do not claim
 state-of-the-art heuristic performance or third-party portability. The software and evidence are being
 prepared as a public tagged release with a one-command replay; the repository and DOI fields are
 placeholders until that release is approved.
