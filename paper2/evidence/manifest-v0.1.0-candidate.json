@@ -197,11 +197,11 @@
   "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
-    "sha256": "549088e0b922e237ea742b4cd2af85051030e28fe2e078475a5621f9c2a624f1"
+    "sha256": "88188381aecd5d49057a1fa35053b133e0e54a2ff911370effdff705316be3eb"
   },
   "pdf": {
     "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "468f64c92b563a5c4289c49001f4ceefe226887e494abd5743e9d082677a4f33"
+    "sha256": "e339b5bfbc0548b44cc21ac85260226fb501160dbccb73feecc4810d39338541"
   },
   "references": {
     "path": "paper2/references.bib",
@@ -219,10 +219,10 @@
   },
   "submission_manuscript": {
     "path": "paper2/submission/paper2-sn-jnl.tex",
-    "sha256": "0e80cb270abf5799cc8ca08d295d77ac9d6c5a66f930c3aee6836e33317be026"
+    "sha256": "1b5be34d1c7cf208f56bcf3289ceb09ce4b303d909c2af605fe7593c415e8ac5"
   },
   "submission_pdf": {
     "path": "paper2/submission/paper2-sn-jnl.pdf",
-    "sha256": "c83994576d62e402343935f516022ff3c1f041b0e82e391fde447379ff7cb2f7"
+    "sha256": "4ccccf4e8eb407171021c18a57e15708b087334d63d35a7b65b6e1f35ad7f8c9"
   }
 }

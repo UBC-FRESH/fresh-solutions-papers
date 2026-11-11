@@ -59,7 +59,7 @@ the adapter-specific references.
 
 The paper makes four contributions. First, it specifies a small adapter contract that separates a
 problem's exact state, moves, and feasibility from the search layer. Second, it specifies a replay and
-evidence protocol: an incumbent is not a result unless a fresh adapter evaluation reproduces the
+evidence protocol: an incumbent is not a result unless a new adapter evaluation reproduces the
 stored objective and the record names the instance, seed, budget, stopping reason, and provenance.
 Third, it provides two public reference implementations, robust tabu for QAP and iterated
 Lin--Kernighan for TSP, and reports their full distributions, including tails and cap hits. Fourth, it
@@ -232,7 +232,7 @@ Replay is more than a checksum. The record names the public instance and its kno
 best-known value, the pinned solver version or commit, the seed, the iteration or kick budget, the
 stopping reason, the exact-replay result, and the wall and CPU time. A safety-cap hit is recorded as a
 cap hit; it is not relabelled as convergence. The replay gate runs the stored assignment through a
-fresh adapter state, so a record cannot pass by reusing the optimizer's cached objective.
+new adapter state, so a record cannot pass by reusing the optimizer's cached objective.
 
 The QAP and TSP adapters both validate the assignment before evaluation. QAP checks that the
 assignment is a permutation of facilities; TSP checks that it is a permutation of cities. Both return
@@ -297,7 +297,7 @@ validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 100 BLS, and 40 g
 checks the broad/LKH fields; it does not fill missing CPU metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
-constructs a fresh adapter, evaluates the stored assignment, and compares the objective and
+constructs a new adapter, evaluates the stored assignment, and compares the objective and
 feasibility. For a permutation problem it also validates the mapping. A record that passes the gate
 is reproducible in the narrow sense used here; a record that fails is a defect even if its objective
 looks plausible.
@@ -325,7 +325,7 @@ sensitivity comparison. The TSP directory contains the convergence runner, the 2
 and the replay script. The analysis scripts read the JSON and print the LaTeX table rows, so a
 reviewer can regenerate a table without copying numbers from the paper.
 
-The artifact is designed to fail closed. A replay script compares the stored objective with a fresh
+The artifact is designed to fail closed. A replay script compares the stored objective with a new
 adapter evaluation and raises on a mismatch. A runner records a safety-cap hit rather than silently
 dropping the run. A summary records the number of converged runs, not only the mean of the successful
 ones. The manifest stores SHA-256 hashes for the evidence files; a tag is not created until the
@@ -1024,7 +1024,7 @@ rule that produced it. The harness records the stop reason for this reason. A re
 to see whether a mean came from plateau-stopped runs or from a mixture of plateau stops and cap hits.
 
 The third rule is to replay in continuous integration. A stored objective is not evidence until a
-fresh adapter evaluation reproduces it. The replay gate is cheap relative to the search and catches
+new adapter evaluation reproduces it. The replay gate is cheap relative to the search and catches
 serialization, permutation, and objective-accounting defects. It does not catch a bad search design,
 but it prevents a bad record from being reported as a good one.
 
