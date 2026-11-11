@@ -1,19 +1,8 @@
-# Paper 1 submission variant
+# Paper 1 submission directory
 
-Target: Environmental Modelling & Software.
+Target changed to **SoftwareX, Original Software Publication**.
 
-- `paper1-elsarticle.tex` — `elsarticle` preprint variant with placeholder author metadata.
-- `elsarticle.cls` — generated from CTAN `elsarticle.dtx` (LPPL).
-- `elsarticle-num.bst` — CTAN bibliography style.
-- `paper1-elsarticle.pdf` — compiled review copy (28 pages, 11pt preprint).
-- `cover-letter.md`, `highlights.md`.
-
-Build:
-
-```bash
-cd paper/submission
-latexmk -pdf paper1-elsarticle.tex
-```
-
-The author, affiliation, email, CRediT, funding, competing-interest, and corresponding-author
-placeholders must be replaced by the PI-approved metadata before submission.
+- Current submission draft: `softwarex/`
+- The old EMS `paper1-elsarticle.*` files are obsolete and are not a submission candidate.
+- The official SoftwareX template must be applied before submission; the current draft is a
+  two-column `elsarticle` review build with the content mapped to the required sections.
