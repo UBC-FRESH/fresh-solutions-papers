@@ -1,4 +1,4 @@
-# Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks
+# FRESH Solutions: a reproducible adapter harness for applied metaheuristic benchmarks
 
 Status: **INTERNAL DRAFT — NOT SUBMISSION-READY**
 Date: 2026-11-03
@@ -8,7 +8,7 @@ Date: 2026-11-03
 Applying metaheuristics to hard combinatorial problems is often slowed less by the
 choice of metaheuristic than by the engineering around it: problem-specific move
 representations, exact incremental state, replayable evidence, stopping rules, and
-benchmark bookkeeping are usually rebuilt for each project. Fresh Solutions
+benchmark bookkeeping are usually rebuilt for each project. FRESH Solutions
 provides an adapter contract and a reproducible benchmark harness for this work,
 together with two reference implementations: QAP robust tabu and TSP iterated
 Lin–Kernighan. We evaluate those references on QAPLIB and TSPLIB. The evidence is
@@ -25,7 +25,7 @@ reliable way to apply known methods to a new problem, preserve exact feasibility
 and objective accounting, and produce evidence that another person can replay.
 That work is repetitive and easy to get subtly wrong.
 
-Fresh Solutions is a response to that engineering problem. The harness provides:
+FRESH Solutions is a response to that engineering problem. The harness provides:
 
 - a problem-adapter contract;
 - exact resident state and reversible moves;
@@ -127,8 +127,8 @@ The best-of-five values are not a portfolio-improvement claim. Compared by mean,
 the multi-start results are worse on `esc128` (1.250% vs 0.000% identity best) and
 `tai150b` (2.976% vs 1.714–2.163% identity), and better on `tai256c` (0.413% vs
 0.452%) and `tho150` (0.507% vs 1.850–2.097%). SciPy FAQ is an independent external
-baseline: its mean is 1.861% on `tai150b` (better than Fresh mean 2.976%) and
-1.523% on `tho150` (worse than Fresh mean 0.507%). The result is mixed; no claim of
+baseline: its mean is 1.861% on `tai150b` (better than FRESH mean 2.976%) and
+1.523% on `tho150` (worse than FRESH mean 0.507%). The result is mixed; no claim of
 universal dominance is made.
 
 ## 4. TSP evidence
@@ -164,7 +164,7 @@ the safety cap.
 
 External LKH, at its stated budget and configuration, reaches 71/100 optima, mean
 gap 0.092%, median 0%, worst 1.930%. LKH is optional external research-use
-software, not bundled and not claimed as Fresh Solutions' own heuristic. The
+software, not bundled and not claimed as FRESH Solutions' own heuristic. The
 comparison is capability-only, not matched-time.
 
 ## 5. Applied case
@@ -195,7 +195,7 @@ time-limited, not converged. No partner-impact claim is made.
 
 ## 7. Conclusion
 
-Fresh Solutions provides a reproducible benchmark harness and adapter boundary,
+FRESH Solutions provides a reproducible benchmark harness and adapter boundary,
 with two reference metaheuristic implementations and exact replay. It is useful
 today for small and medium QAP/TSP work and for building applied cases. It is not
 yet a general-framework experiment or a universal large-instance solver, and the

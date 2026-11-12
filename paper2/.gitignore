@@ -6,3 +6,5 @@
 *.log
 *.out
 *.synctex.gz
+
+evidence/tsp-expanded-10k.jsonl

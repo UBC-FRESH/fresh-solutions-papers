@@ -21,31 +21,69 @@
     "ws4-tsa24-gpu-ga-100000-r5": "b351c4b00506278d1e8f7e3df964d8d64eca46f47710265caa101ee3053ad32c",
     "ws4-tsa24-gpu-ga-100000-r7": "3bfdab04f44646f5d5551d7ff33b535e0c76985b161b9b2f6c56ddb0491a967b"
   },
-  "status": "candidate; no tag/release created; public schedules/replay release pending",
+  "status": "public release candidate p14-evidence-rc11; DOI pending",
   "evaluation_ablation": {
     "path": "evidence/ws4-tsa24-eval-ablation.json",
     "sha256": "242b1a4c9e863bbbdd6cae4911590767aef9ecbb0609fe42953c3bc9d9b4973a"
   },
   "manuscript": {
     "path": "paper/paper1-manuscript.tex",
-    "sha256": "c88ff00d6f6c99e71ce8a8ac53ba99763c0cac1d56bc7c9aab7c1dbfcfa50c90"
+    "sha256": "4911040af613f329c254a4ca3862dcfad6abbc62d6caacba68efd93205744f40"
   },
   "pdf": {
     "path": "paper/paper1-manuscript.pdf",
-    "sha256": "6bc2e74186ce6460e64e183cfdfd719df58b5628515d176ea8d68b05fff20180"
+    "sha256": "ac649bdff90e4a28238e006b0b23c9da1fb1d32a61494fb4a288fd32d0129424"
   },
   "references": {
     "path": "paper/references.bib",
     "sha256": "50208c88acaf2fe71575e8d55836b1b479c0a50001bbbf40577a3848f46d869b"
   },
   "figures": {
-    "paper/figures/ablation.pdf": "a4e3116aac97656acb1628a328ae64e62260340e65afde5a788f5d8f582f24e5",
-    "paper/figures/realized-level.pdf": "abbeb4b84eed8e6b3101b96d8138eefbef7d24a97e47e1d1078f3df0ce264336",
-    "paper/figures/scaling.pdf": "8de298a3091a85bfe62a2de58cd404c68140183444fd12b9210eca0477a56d57",
-    "paper/figures/seed-terms.pdf": "6031ad3c0bd44c921095f2fdc1e181328dbdf6be529d301d2b012c5e491c672a"
+    "paper/figures/matched-search.pdf": "73446fb9e222fdc2c46b6dd2bdd4f99bc3e9e56ac144f1d836c8a3cdeae38c78",
+    "paper/figures/scaling.pdf": "29b987c52d77b83f1a28c3901e692c552e386f4a73abd33662d783250297975f"
   },
   "replay": {
     "all_records": "paper/replay_all.sh",
     "sha256": "a09f3da3ba58e2e9e8a3ae1c9cf0b4432cc30528af9430c6fa648a4919e8b71e"
+  },
+  "factorized_ablation": {
+    "path": "paper/evidence/tsa24-factorized-ablation.json",
+    "sha256": "e958a621cd17dd4f8476bc3ea6ecedfd022cd2c0538bf19b8b8bab5cfee995e2"
+  },
+  "factorized_cpu": {
+    "path": "paper/evidence/tsa24-factorized-cpu.json",
+    "sha256": "88c2b915dd31dca30ed9a2002d67f267ff5d5cfcaa0b49f96a471dca11c97c0f"
+  },
+  "factorized_gpu": {
+    "path": "paper/evidence/tsa24-factorized-gpu.json",
+    "sha256": "8d1ac27a688e87e765a2ef99bfb79c1922c2edc5cc6429b088b21ddb02bddd94"
+  },
+  "target_sensitivity": {
+    "path": "paper/evidence/tsa24-target-sensitivity.json",
+    "sha256": "8ab936cb29cf9e5299e002c01032794948472b73c6f1ed45bbead8c56212316d"
+  },
+  "matched_search": {
+    "path": "paper/evidence/tsa24-matched-search.json",
+    "sha256": "fb84afc0d7e4a96d4479ae951c4e33d36595715d1b7e2beef8a72a57003d83a8"
+  },
+  "matched_search_runner": {
+    "path": "paper/experiments/run_matched_search.sh",
+    "sha256": "0ee0188f7e43b434ef35a34bcb42e3b697e2ea407397071778f68b559c7226ef"
+  },
+  "submission_manuscript": {
+    "path": "paper/submission/paper1-elsarticle.tex",
+    "sha256": "4ac6cdeee1224f940c2d2419e032f3f4b0b0f85e6a67d62b5484707430f6cd2a"
+  },
+  "submission_pdf": {
+    "path": "paper/submission/paper1-elsarticle.pdf",
+    "sha256": "9d04f9223848e892e2c3c40adedf6a7d44c35d4187ae84ed70320df531cb82d0"
+  },
+  "softwarex_manuscript": {
+    "path": "paper/submission/softwarex/paper1-softwarex.tex",
+    "sha256": "92fbe46d98a93c1fb684c6b8902eabf5554f5c964d84bc3fcfa60c12990b0c65"
+  },
+  "softwarex_pdf": {
+    "path": "paper/submission/softwarex/paper1-softwarex.pdf",
+    "sha256": "333a9a991434de2ff1b0c8b3f8e20d9235b9c558ac25c9435a4754c215debf1e"
   }
 }

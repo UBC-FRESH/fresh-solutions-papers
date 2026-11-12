@@ -1,4 +1,8 @@
-# Fresh Solutions Papers
+# FRESH Solutions Papers
+
+Public release status: **P14 release candidate 8** (`p14-evidence-rc11`); DOI pending. The repository
+contains the working manuscripts and target-journal drafts, evidence, replay scripts, and release
+metadata. Sole author: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
 
 A two-paper research programme on compiled spatial optimisation, GPU hybrid metaheuristics, and
 reproducible benchmark reproduction.
@@ -6,7 +10,7 @@ reproducible benchmark reproduction.
 The programme has two outputs:
 
 1. **Compiled spatial optimisation** — the architecture and forestry benchmark evidence.
-2. **Fresh Solutions** — a general hybrid metaheuristic engine tested beyond forestry.
+2. **FRESH Solutions** — a general hybrid metaheuristic engine tested beyond forestry.
 
 The general solver lives in the `fresh-solutions/` git submodule:
 <https://github.com/UBC-FRESH/fresh-solutions>.

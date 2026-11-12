@@ -14,8 +14,8 @@
 \usepackage[T1]{fontenc}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\title{Fresh Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
-\author{UBC FRESH Lab\\University of British Columbia}
+\title{FRESH Solutions: a reproducible adapter harness for applied metaheuristic benchmarks}
+\author{Gregory Paradis\\UBC FRESH Lab, University of British Columbia}
 \date{\today}
 
 \begin{document}
@@ -25,17 +25,17 @@
 Applying metaheuristics to hard combinatorial problems is often slowed less by the choice of
 metaheuristic than by the engineering around it: problem-specific move representations, exact
 incremental state, replayable evidence, stopping rules, and benchmark bookkeeping are usually rebuilt
-for each project. Fresh Solutions provides an adapter contract and a reproducible benchmark harness,
+for each project. FRESH Solutions provides an adapter contract and a reproducible benchmark harness,
 together with two reference implementations: quadratic-assignment robust tabu search and
 travelling-salesman iterated Lin--Kernighan. We evaluate the references on QAPLIB and TSPLIB and report
 the full distribution, including failures. We also run a framework-use check: the QAP tabu trajectory
 is reproduced with the incumbent held in the engine's resident-state contract. On 40 runs across four
 QAPLIB instances, all runs stopped on the same 100,000-iteration plateau rule under a 1,000,000
 iteration cap, all framework objectives matched the standalone and production objectives exactly, and
-all incumbents replayed exactly. A separate 20-instance QAPLIB panel, ten seeds per instance, also
-stopped on patience and replayed exactly; its mean gap was 0.274\%. The framework path cost 1.24 times
-the CPU time of the private-array delta path (95\% CI 1.17--1.31). A 10,000-kick-cap TSP campaign with 1,000-kick patience plateau-stopped on all 20 runs;
-the runs stopped after 1,000--1,380 kicks and all 20 reached the known optimum. The contribution is the harness, exact replay contract, reference
+all incumbents replayed exactly. A separate 20-instance QAPLIB panel, ten seeds per instance, also stopped on patience and replayed
+exactly; its mean gap was 0.301\%, while a separately implemented Breakout Local Search baseline reached
+0.096\% and 161/200 optima. The framework path cost 1.24 times
+the CPU time of the private-array delta path (95\% CI 1.17--1.31). A four-instance, five-seed 10,000-kick deep TSP campaign plateau-stopped on all 20 runs and reached the known optimum. A separate 20-instance breadth panel reached 94/100 optima with 95/100 patience and five \texttt{brazil58} wall-clock cap hits. The contribution is the harness, exact replay contract, reference
 adapters, and this bounded framework-use result, not a state-of-the-art solver claim.
 \end{abstract}
 
@@ -49,7 +49,7 @@ evidence that another person can replay. That work is repetitive and easy to get
 Problem-specific move representations, incremental state, stopping rules, benchmark harnesses, seed
 handling, and evidence records are rebuilt for each project.
 
-Fresh Solutions is a response to that engineering problem. It provides a problem-adapter contract,
+FRESH Solutions is a response to that engineering problem. It provides a problem-adapter contract,
 exact resident state and reversible moves, local and population search paths, checkpointing, exact
 replay, convergence records, and public-library reference implementations for QAP and TSP. The paper
 asks a narrow engineering question: can a user add a problem-specific neighbourhood or reference
@@ -61,7 +61,7 @@ the adapter-specific references.
 
 The paper makes four contributions. First, it specifies a small adapter contract that separates a
 problem's exact state, moves, and feasibility from the search layer. Second, it specifies a replay and
-evidence protocol: an incumbent is not a result unless a fresh adapter evaluation reproduces the
+evidence protocol: an incumbent is not a result unless a new adapter evaluation reproduces the
 stored objective and the record names the instance, seed, budget, stopping reason, and provenance.
 Third, it provides two public reference implementations, robust tabu for QAP and iterated
 Lin--Kernighan for TSP, and reports their full distributions, including tails and cap hits. Fourth, it
@@ -78,7 +78,7 @@ The remainder of the paper is organized as follows. Section~\ref{sec:related} re
 benchmarking literature. Section~\ref{sec:framework} describes the adapter, resident state, search
 layers, and evidence protocol. Section~\ref{sec:qap} reports the QAP evidence and the framework-use
 experiment. Section~\ref{sec:tsp} reports the TSP convergence campaign and the LKH boundary.
-Section~\ref{sec:applied} describes the applied case, and Section~\ref{sec:discussion} discusses
+Section~\ref{sec:discussion} discusses
 limitations and the claim boundary.
 
 \section{Related work}
@@ -215,7 +215,7 @@ permutation problem, the options are the same integer set as the positions, and 
 that the mapping is a bijection. For a spatial model, a variable may be a block and an option may be
 a treatment or a harvest period; the adapter translates the integer option into the domain value.
 The engine never needs to know which interpretation is correct. This is why the same resident-state
-and replay code can serve QAP, TSP, and the applied spatial case.
+and replay code can serve QAP, TSP, and other adapters.
 
 The adapter also supplies \texttt{evaluate\_batch}, which is used by the population layer and by
 external baseline adapters. The batch path is not required to be vectorised; it is a contract for
@@ -234,7 +234,7 @@ Replay is more than a checksum. The record names the public instance and its kno
 best-known value, the pinned solver version or commit, the seed, the iteration or kick budget, the
 stopping reason, the exact-replay result, and the wall and CPU time. A safety-cap hit is recorded as a
 cap hit; it is not relabelled as convergence. The replay gate runs the stored assignment through a
-fresh adapter state, so a record cannot pass by reusing the optimizer's cached objective.
+new adapter state, so a record cannot pass by reusing the optimizer's cached objective.
 
 The QAP and TSP adapters both validate the assignment before evaluation. QAP checks that the
 assignment is a permutation of facilities; TSP checks that it is a permutation of cities. Both return
@@ -282,16 +282,24 @@ the runner, the replay script, the instance files or their provenance, and the e
 can therefore rerun the campaign, replay the stored incumbents, or compare the reported distribution
 without reading the paper prose.
 
+Numeric reporting follows one rule. Counts, seeds, budgets, iterations, and runs are exact.
+Optimality gaps use three decimal places in percentage points. Campaign objectives use six
+significant figures; screen and one-seed diagnostic objectives use three. Times, ratios, and CPU
+overheads use three significant figures. Full precision remains in the evidence files.
+
 The target per-run schema contains the instance name, adapter name, seed, budget, stop reason,
 objective, feasibility, assignment, exact-replay result, wall time, CPU time, and a metadata block
-with the solver commit and hardware. The current publication-facing files implement this schema
-unevenly: the framework-use file carries hardware and worker count, while the TSP and broad files
-carry seed, budget, stop reason, assignment, wall time, solver commit, and exact-replay status, but
-not CPU time or per-record hardware. The campaign-level provenance is in \url{paper2/evidence/provenance-2026-11-03.json}.
-This is a release blocker, not a completed per-record schema. The committed validator replays the 40 QAP and 20 TSP incumbents and checks the broad-panel fields; it does not fill missing per-record metadata.
+with the solver commit and hardware. The current files implement this schema unevenly: the
+framework-use file carries hardware, worker count, and CPU time; the QAP-expanded, BLS, generic, and
+expanded-TSP files carry solver commit, hardware, stop reason, and exact-replay status but not
+per-record CPU time; the broad file carries solver commit and a campaign-level replay status but not
+per-record hardware or CPU. The campaign-level provenance is in
+\url{paper2/evidence/provenance-2026-11-03.json}. Per-record CPU time remains the release blocker. The
+validator replays the 40 framework, 20 deep-TSP, 20 large-QAP, 200 BLS, and 40 generic incumbents and
+checks the broad/LKH fields; it does not fill missing CPU metadata.
 
 The replay gate is intentionally stricter than the optimizer. It does not call the search code. It
-constructs a fresh adapter, evaluates the stored assignment, and compares the objective and
+constructs a new adapter, evaluates the stored assignment, and compares the objective and
 feasibility. For a permutation problem it also validates the mapping. A record that passes the gate
 is reproducible in the narrow sense used here; a record that fails is a defect even if its objective
 looks plausible.
@@ -301,8 +309,7 @@ looks plausible.
 The harness is implemented in Python \citep{freshsolutions} and uses NumPy \citep{harris2020} for array operations and SciPy
 \citep{virtanen2020} for an independent QAP baseline. The optional accelerated QAP path uses Numba
 \citep{lam2015}; the reference path remains available without it. The public instances are QAPLIB
-\citep{burkard1997} and TSPLIB \citep{reinelt1991}. The TSA24 applied case is a public UBC-FRESH
-artifact \citep{tsa24artifact}. External LKH is a separate research-use binary \citep{lkh3}; it is not
+\citep{burkard1997} and TSPLIB \citep{reinelt1991}. External LKH is a separate research-use binary \citep{lkh3}; it is not
 bundled and its results are reported as a capability boundary, not as part of the package.
 
 The campaign-level provenance sidecar records the hardware and software environment, solver commit,
@@ -319,16 +326,15 @@ sensitivity comparison. The TSP directory contains the convergence runner, the 2
 and the replay script. The analysis scripts read the JSON and print the LaTeX table rows, so a
 reviewer can regenerate a table without copying numbers from the paper.
 
-The artifact is designed to fail closed. A replay script compares the stored objective with a fresh
+The artifact is designed to fail closed. A replay script compares the stored objective with a new
 adapter evaluation and raises on a mismatch. A runner records a safety-cap hit rather than silently
 dropping the run. A summary records the number of converged runs, not only the mean of the successful
 ones. The manifest stores SHA-256 hashes for the evidence files; a tag is not created until the
 maintainer approves the candidate.
 
-The public QAPLIB and TSPLIB instances are not redistributed in a modified form. The TSA24 artifact is
-published separately with its compiled data and licence statement. External LKH is not bundled; the
-provenance sidecar records its version and binary hash; the exact command is not yet recorded, and the paper treats it as an external capability
-reference. This separation matters for licensing: Fresh Solutions code is Apache-2.0, derived artifacts use
+The public QAPLIB and TSPLIB instances are not redistributed in a modified form. External LKH is not bundled; the
+provenance sidecar records its version, binary hash, and exact rerun command; the paper treats it as
+an external capability reference. This separation matters for licensing: FRESH Solutions code is Apache-2.0, derived artifacts use
 CC BY 4.0, and the BC source data carries OGL-BC attribution. The paper-specific evidence repository
 is not yet public, so this is an intended release policy, not a claim that the evidence is archived.
 
@@ -343,7 +349,7 @@ reported as a defect, not averaged into a table.
 
 This taxonomy is simple, but it prevents a common failure mode in heuristic papers: reporting the
 converged subset while omitting the runs that hit the cap. The QAP broad panel reports 552 of 670
-patience stops and 318 optima; the TSP broad panel reports 236 of 390 patience stops and 183 optima.
+patience stops and 318 optima; the TSP broad panel reports 236 of 390 patience stops and 195 optima.
 The denominator is visible, and the cap hits are not hidden in a footnote.
 
 \section{Experimental design}
@@ -361,20 +367,25 @@ the protocol, not a result: it fixes the denominator before the reader sees a me
 with the convergence panels.}
 \label{tab:campaigns}
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lllll}
 \toprule
 Campaign & Panel & Seeds & Budget & Stop rule \\
 \midrule
 QAP convergence/framework & 4 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
+QAP expanded & 20 QAPLIB & 10 & 1,000,000 it. & 100,000 patience \\
+QAP BLS baseline & 20 QAPLIB & 10 & 1,000,000 moves & 100,000 patience \\
 Large QAP & 4 QAPLIB & 5 starts & 1,000,000 it. & 10,000 patience \\
 Broad QAP & 134 QAPLIB & 5 & 600 s cap & 10,000 patience \\
 TSP convergence & 4 TSPLIB & 5 & 10,000 kicks & 1,000 patience \\
+TSP expanded & 20 TSPLIB & 5 & 10,000 kicks & 1,000 patience; 3,600 s cap \\
 TSP 2k check & 4 TSPLIB & 5 & 2,000 kicks & 200 patience \\
 TSP 20-kick pilot & 4 TSPLIB & 5 & 20 kicks & none \\
 Broad TSP & 78 TSPLIB & 5 & 600 s cap & 100 patience \\
-Applied TSA24 & 1 instance & 5 & 100,000 gen. & fixed budget \\
+Generic tabu & 8 QAP/TSP & 5 & 20,000 it. & 5,000 patience \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 The QAP convergence panel uses four QAPLIB instances: \texttt{tai12a}, \texttt{tai20a},
@@ -402,10 +413,11 @@ table includes the candidate-list construction and the LK passes; it is not a pu
 2,000-kick and 10,000-kick-cap campaigns use the same starts and seeds, so the longer campaign is a budget
 extension of the same experiment, not a different instance set.
 
-The TSP convergence panel uses \texttt{berlin52}, \texttt{kroA100}, \texttt{kroB100}, and
-\texttt{ch150}. Each run starts from the corresponding converged generic local-search tour and uses 10,000
-double-bridge kicks with a 1,000-kick patience rule. Five seeds are used. The 2,000-kick/200-patience
-and 20-kick campaigns are retained as shorter-budget checks and are not pooled with the final table.
+The controlled TSP panel uses \texttt{berlin52}, \texttt{kroA100}, \texttt{kroB100}, and
+\texttt{ch150}. Each run starts from the corresponding converged generic local-search tour and uses
+10,000 double-bridge kicks with a 1,000-kick patience rule. Five seeds are used. The expanded panel
+uses 20 TSPLIB instances and nearest-neighbour starts, with a 3,600-second cap; the 2,000-kick and
+20-kick campaigns are retained as shorter-budget checks and are not pooled with the final table.
 
 The broad QAP and TSP panels are separate fixed-budget screens. They use the public QAPLIB and TSPLIB
 collections, five seeds, and a 600-second safety cap where stated. A broad-panel run that hits the cap
@@ -466,7 +478,7 @@ for the convergence panels.
 The second threat is baseline strength. The QAP reference is robust tabu, a standard but not
 state-of-the-art method; SciPy FAQ is weak. The TSP reference is a bounded LK implementation, and
 external LKH is stronger on the large tail. The paper therefore reports gaps to known optima and a
-capability boundary, not a claim that Fresh Solutions dominates published solvers.
+capability boundary, not a claim that FRESH Solutions dominates published solvers.
 
 The third threat is timing. The framework comparison is CPU-bound and run in parallel. Alternating
 order reduces, but does not eliminate, host-load bias. Process CPU time is the primary overhead
@@ -534,10 +546,10 @@ the private-array delta path.}
 \toprule
 Instance & Mean gap & Median gap & Worst gap & Mean iter. & CPU ratio & Patience \\
 \midrule
-\texttt{tai12a} & 0.000\% & 0.000\% & 0.000\% & 100,186 & 1.327 & yes \\
-\texttt{tai20a} & 0.030\% & 0.000\% & 0.304\% & 147,748 & 1.170 & yes \\
-\texttt{tai25a} & 0.077\% & 0.000\% & 0.402\% & 175,611 & 1.181 & yes \\
-\texttt{tai30a} & 0.245\% & 0.391\% & 0.491\% & 161,046 & 1.279 & yes \\
+\texttt{tai12a} & 0.000\% & 0.000\% & 0.000\% & 100,186 & 1.33 & yes \\
+\texttt{tai20a} & 0.030\% & 0.000\% & 0.304\% & 147,748 & 1.17 & yes \\
+\texttt{tai25a} & 0.077\% & 0.000\% & 0.402\% & 175,611 & 1.18 & yes \\
+\texttt{tai30a} & 0.245\% & 0.391\% & 0.491\% & 161,046 & 1.28 & yes \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -551,8 +563,8 @@ hardest instance.
 The fixed-budget table used in the earlier draft was not a per-run convergence table. At 10,000 fixed
 iterations its means were 0.000\%, 0.403\%, 0.786\%, and 0.792\%; the plateau-stopped panel improves
 the last three to 0.030\%, 0.077\%, and 0.245\%. The difference is a budget effect, not a claim that
-the longer runs prove global optimality. The overall framework CPU overhead is 1.239 (95\% bootstrap
-CI 1.168--1.310); per-instance ratios range from 1.170 to 1.327. The largest overhead is on the
+the longer runs prove global optimality. The overall framework CPU overhead is 1.24 (95\% bootstrap
+CI 1.17--1.31); per-instance ratios range from 1.17 to 1.33. The largest overhead is on the
 smallest instance, where fixed per-iteration state bookkeeping is a larger share of a short run; the
 larger instances also pay for the exact evaluation but amortise the setup cost over more work.
 
@@ -567,7 +579,7 @@ larger instances also pay for the exact evaluation but amortise the setup cost o
 
 The broad panel below is a separate fixed-budget screen, not the convergence panel above. Across 134
 parseable QAPLIB instances and five seeds, 552 of 670 runs stopped on patience and 318 hit the known
-optimum. The converged subset has median gap 0.000\% and mean 1.823\%, with a worst case of 36.4\%.
+optimum. The converged subset has median gap 0.000\% and mean 1.823\%, with a worst case of 36.400\%.
 The mean is pulled by a small number of hard outliers; the median is not evidence that the tail is
 solved.
 
@@ -584,7 +596,7 @@ independent external baseline with the same five-seed protocol.}
 \small
 \begin{tabular}{lrrrr}
 \toprule
-Instance & Fresh best & Fresh mean & SciPy mean & Fresh worst \\
+Instance & FRESH best & FRESH mean & SciPy mean & FRESH worst \\
 \midrule
 \texttt{esc128} & 0.000\% & 1.250\% & 12.500\% & 3.125\% \\
 \texttt{tai150b} & 2.008\% & 2.976\% & 1.861\% & 3.699\% \\
@@ -594,7 +606,7 @@ Instance & Fresh best & Fresh mean & SciPy mean & Fresh worst \\
 \end{tabular}
 \end{table}
 
-The large-instance table is a mixed result, not a portfolio win. Fresh tabu is better on
+The large-instance table is a mixed result, not a portfolio win. FRESH tabu is better on
 \texttt{esc128} and \texttt{tai256c}, worse on \texttt{tai150b}, and only modestly better on
 \texttt{tho150}. The SciPy baseline is fast and, on \texttt{tai150b}, better than the tabu path; on
 \texttt{tai256c} it is far worse. A best-of-five column would hide the tail, so the table reports both
@@ -605,41 +617,41 @@ the harness reports both outcomes.
 \subsection{Expanded QAP convergence panel}
 
 The four-instance framework panel is deliberately controlled; it is not a broad quality panel. To
-reduce the panel-size risk, we ran the production tabu path on 20 QAPLIB instances, five seeds each,
-with the same 100,000-iteration patience and 1,000,000-iteration cap. All 100 runs stopped on
-\texttt{patience}, all 100 replayed exactly, and 37 of 100 runs reached the known optimum. The mean
-gap is 0.274\%, the median is 0.027\%, and the worst is 1.583\%.
+reduce the panel-size risk, we ran the production tabu path on 20 QAPLIB instances, ten seeds each,
+with the same 100,000-iteration patience and 1,000,000-iteration cap. All 200 runs stopped on
+\texttt{patience}, all 200 replayed exactly, and 73 of 200 runs reached the known optimum. The mean
+gap is 0.301\%, the median is 0.043\%, and the worst is 5.695\%.
 
 \begin{table}[t]
 \centering
-\caption{Expanded QAPLIB convergence panel: 20 instances, five seeds, 100,000-iteration patience.
-All 100 runs plateau-stopped and replayed exactly.}
+\caption{Expanded QAPLIB convergence panel: 20 instances, ten seeds, 100,000-iteration patience.
+All 200 runs plateau-stopped and replayed exactly.}
 \label{tab:qap-expanded}
 \small
 \begin{tabular}{lrrrrr}
 \toprule
 Instance & n & Mean gap & Worst gap & Patience & Optima \\
 \midrule
-\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{tai20a} & 20 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{tai25a} & 25 & 0.073\% & 0.366\% & 5/5 & 4/5 \\
-\texttt{tai30a} & 30 & 0.313\% & 0.391\% & 5/5 & 1/5 \\
-\texttt{tai35a} & 35 & 0.664\% & 1.051\% & 5/5 & 0/5 \\
-\texttt{tai40a} & 40 & 0.831\% & 1.045\% & 5/5 & 0/5 \\
-\texttt{tai50a} & 50 & 1.264\% & 1.583\% & 5/5 & 0/5 \\
-\texttt{bur26a} & 26 & 0.135\% & 0.147\% & 5/5 & 0/5 \\
-\texttt{bur26b} & 26 & 0.565\% & 0.565\% & 5/5 & 0/5 \\
-\texttt{bur26c} & 26 & 0.004\% & 0.004\% & 5/5 & 0/5 \\
-\texttt{bur26d} & 26 & 0.042\% & 0.043\% & 5/5 & 0/5 \\
-\texttt{bur26e} & 26 & 0.009\% & 0.009\% & 5/5 & 0/5 \\
-\texttt{bur26f} & 26 & 0.225\% & 0.542\% & 5/5 & 0/5 \\
-\texttt{bur26g} & 26 & 0.376\% & 0.376\% & 5/5 & 0/5 \\
-\texttt{bur26h} & 26 & 0.368\% & 0.368\% & 5/5 & 0/5 \\
-\texttt{chr12a} & 12 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
-\texttt{chr20a} & 20 & 0.602\% & 1.460\% & 5/5 & 2/5 \\
-\texttt{chr22a} & 22 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{tai20a} & 20 & 0.030\% & 0.304\% & 10/10 & 9/10 \\
+\texttt{tai25a} & 25 & 0.077\% & 0.402\% & 10/10 & 8/10 \\
+\texttt{tai30a} & 30 & 0.245\% & 0.491\% & 10/10 & 4/10 \\
+\texttt{tai35a} & 35 & 0.599\% & 1.051\% & 10/10 & 1/10 \\
+\texttt{tai40a} & 40 & 0.827\% & 1.106\% & 10/10 & 0/10 \\
+\texttt{tai50a} & 50 & 1.170\% & 1.583\% & 10/10 & 0/10 \\
+\texttt{bur26a} & 26 & 0.123\% & 0.147\% & 10/10 & 0/10 \\
+\texttt{bur26b} & 26 & 0.565\% & 0.565\% & 10/10 & 0/10 \\
+\texttt{bur26c} & 26 & 0.004\% & 0.004\% & 10/10 & 0/10 \\
+\texttt{bur26d} & 26 & 0.041\% & 0.043\% & 10/10 & 0/10 \\
+\texttt{bur26e} & 26 & 0.009\% & 0.009\% & 10/10 & 0/10 \\
+\texttt{bur26f} & 26 & 0.383\% & 0.542\% & 10/10 & 0/10 \\
+\texttt{bur26g} & 26 & 0.376\% & 0.376\% & 10/10 & 0/10 \\
+\texttt{bur26h} & 26 & 0.368\% & 0.368\% & 10/10 & 0/10 \\
+\texttt{chr12a} & 12 & 0.570\% & 5.695\% & 10/10 & 9/10 \\
+\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
+\texttt{chr20a} & 20 & 0.630\% & 1.460\% & 10/10 & 2/10 \\
+\texttt{chr22a} & 22 & 0.000\% & 0.000\% & 10/10 & 10/10 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -648,12 +660,68 @@ The expanded panel is still not QAPLIB. It is a 20-instance convergence test, no
 benchmark. Its value is that it fixes the denominator and shows the same instruction as the
 four-instance panel: plateau stopping changes the reported gaps, and the hard tail remains visible.
 
-SciPy FAQ is the only independent baseline on this expanded panel. With the same five seeds and
-\texttt{maxiter=10000}, its mean gap is 25.44\%, median 2.55\%, and worst 246.34\%; the
+The expanded panel is also where the independent baseline matters. We implemented Breakout Local
+Search (BLS) in the style of Benlic and Hao \citep{benlic2013}, with best-improvement descent,
+adaptive perturbation, and directed/recency/random perturbation types. It uses the same 20
+instances, ten seeds, move cap, and patience as the tabu panel. All 200 runs stopped on patience,
+all 200 replayed exactly, and no run hit the cap. BLS reached the known optimum on 161 of 200 runs;
+robust tabu reached 73.
+
+\begin{table}[t]
+\centering
+\caption{Expanded QAP panel: robust tabu versus independent Breakout Local Search. Both use the
+same 20 instances, ten seeds, 1,000,000-move cap, and 100,000-move patience.}
+\label{tab:qap-bls}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Instance & n & Tabu mean & BLS mean & BLS worst & BLS optima \\
+\midrule
+\texttt{tai12a} & 12 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{tai20a} & 20 & 0.030\% & 0.030\% & 0.304\% & 9/10 \\
+\texttt{tai25a} & 25 & 0.077\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{tai30a} & 30 & 0.245\% & 0.078\% & 0.391\% & 8/10 \\
+\texttt{tai35a} & 35 & 0.599\% & 0.252\% & 0.649\% & 3/10 \\
+\texttt{tai40a} & 40 & 0.827\% & 0.439\% & 0.810\% & 0/10 \\
+\texttt{tai50a} & 50 & 1.170\% & 0.739\% & 1.013\% & 0/10 \\
+\texttt{bur26a} & 26 & 0.123\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26b} & 26 & 0.565\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26c} & 26 & 0.004\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26d} & 26 & 0.041\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26e} & 26 & 0.009\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26f} & 26 & 0.383\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26g} & 26 & 0.376\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{bur26h} & 26 & 0.368\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr12a} & 12 & 0.570\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr15a} & 15 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr18a} & 18 & 0.000\% & 0.000\% & 0.000\% & 10/10 \\
+\texttt{chr20a} & 20 & 0.630\% & 0.228\% & 1.369\% & 4/10 \\
+\texttt{chr22a} & 22 & 0.000\% & 0.156\% & 0.617\% & 7/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The comparison is descriptive, not a state-of-the-art claim, and BLS is a reimplementation of the
+published design, not the authors' code. BLS is lower on 15 instance means, higher on one
+(\texttt{chr22a}), and equal on four. It is lower on 120 seed-level runs, higher on 11, and equal on
+69. The paired mean difference is $-0.205$ percentage points. A cluster-by-instance bootstrap gives a
+95\% interval of $-0.300$ to $-0.111$; a family-cluster bootstrap gives $-0.234$ to $-0.163$. The
+instance-level result is 15 of 16 non-tied instance means lower for BLS (exact two-sided sign test
+$p=5.2\times10^{-4}$). The effective sample is 20 instances in three families, not 200 independent
+runs, so we report the clustered intervals and treat the pair count as descriptive. The overall mean gap is 0.096\% for BLS
+and 0.301\% for tabu; the worst is 1.369\% and 5.695\%, respectively. The panel is unbalanced:
+eight \texttt{bur26} variants contribute 80/200 runs. Equal-weighting the tai, bur, and
+chr families gives 0.099\% for BLS and 0.298\% for tabu, so the advantage is not only the bur
+variants. The result is a negative result for the tabu reference and a positive result for the
+harness: the harness makes the stronger baseline visible and replayable. The paper does not claim
+that robust tabu is state-of-the-art.
+
+SciPy FAQ is a second independent external baseline. With the same five seeds and
+\texttt{maxiter} 10,000, its mean gap is 25.440\%, median 2.550\%, and worst 246.340\%; the
 \texttt{chr12a} outlier dominates the mean. The tabu panel is not an equal-time comparison with SciPy:
 SciPy is much faster, and the point is that the convergence protocol and the gap distribution are not
-interchangeable. A stronger published QAP heuristic remains future work, and the paper does not claim
-that robust tabu is state-of-the-art.
+interchangeable. BLS is the stronger independent baseline on this panel; the paper does not claim that
+robust tabu is state-of-the-art.
 
 \begin{figure}[t]
 \centering
@@ -710,10 +778,10 @@ and 20-kick runs are retained as shorter-budget checks; they are not the converg
 \toprule
 Instance & Start mean gap & ILK mean gap & ILK worst gap & Plateau & Mean wall \\
 \midrule
-\texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% & 5/5 & 754.3 s \\
-\texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% & 5/5 & 605.0 s \\
-\texttt{kroB100} & 3.696\% & 0.000\% & 0.000\% & 5/5 & 688.4 s \\
-\texttt{ch150} & 8.229\% & 0.000\% & 0.000\% & 5/5 & 603.9 s \\
+\texttt{berlin52} & 6.433\% & 0.000\% & 0.000\% & 5/5 & 754 s \\
+\texttt{kroA100} & 7.323\% & 0.000\% & 0.000\% & 5/5 & 605 s \\
+\texttt{kroB100} & 3.696\% & 0.000\% & 0.000\% & 5/5 & 688 s \\
+\texttt{ch150} & 8.229\% & 0.000\% & 0.000\% & 5/5 & 604 s \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -728,6 +796,57 @@ under 20-worker parallel load. That cost is part of the result. A 20-kick table 
 successful on three instances and hidden the \texttt{ch150} gap; the convergence campaign closes that
 gap and shows that the perturbation needs a longer plateau than the pilot suggested.
 
+\subsection{Expanded TSP panel}
+
+The four-instance table is the controlled deep panel. To reduce the panel-size risk, we also ran 20
+TSPLIB instances with five seeds each, nearest-neighbour starts, 10,000-kick cap, and 1,000-kick
+patience. This is a frozen breadth panel with the per-instance LK depth recorded in Table~\ref{tab:tsp-expanded}; it is not a controlled depth comparison. Most instances use depth 4, \texttt{lin105} uses depth 3, and \texttt{d198}/\texttt{pr152} use depth 2. Ninety-five of 100 runs stopped on patience. Five runs on
+\texttt{brazil58} reached the known optimum but hit the 3,600-second cap before the patience rule;
+they are reported as cap hits, not convergence. Across the panel, 94/100 runs reached the known
+optimum, the mean gap is 0.004\%, and the worst gap is 0.185\%.
+
+\begin{table}[t]
+\centering
+\caption{Expanded TSPLIB panel: 20 instances, five seeds, 10,000-kick cap, 1,000-kick patience.
+Ninety-five runs stopped on patience; five \texttt{brazil58} runs hit the wall-clock cap at the known
+optimum and are not counted as converged.}
+\label{tab:tsp-expanded}
+\footnotesize
+\begin{tabular}{lrrrrrr}
+\toprule
+Instance & n & Depth & Mean gap & Worst gap & Patience & Optima \\
+\midrule
+\texttt{att48} & 48 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{berlin52} & 52 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{bier127} & 127 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{brazil58} & 58 & 4 & 0.000\% & 0.000\% & 0/5 & 5/5 \\
+\texttt{ch130} & 130 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{ch150} & 150 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{d198} & 198 & 2 & 0.005\% & 0.006\% & 5/5 & 1/5 \\
+\texttt{eil51} & 51 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil76} & 76 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{eil101} & 101 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{fri26} & 26 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{gr120} & 120 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr152} & 152 & 2 & 0.074\% & 0.185\% & 5/5 & 3/5 \\
+\texttt{kroA100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroB100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroC100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroD100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{kroE100} & 100 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{lin105} & 105 & 3 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\texttt{pr76} & 76 & 4 & 0.000\% & 0.000\% & 5/5 & 5/5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The expanded panel is a breadth check, not a replacement for the four-instance deep table. Its
+\texttt{brazil58} cap hits are visible in the denominator and are not called convergence. The panel
+uses only non-GEO instances: an earlier GEO case exposed the parser defect and was replaced by the
+\texttt{EUC\_2D} \texttt{pr152}. The \texttt{d198} and \texttt{pr152} gaps show that the adaptive depth
+trade-off is real: lowering depth makes the panel finish, at a small quality cost on the hardest
+instances.
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.68\linewidth]{figures/tsp-budget.pdf}
@@ -737,14 +856,17 @@ gap and shows that the perturbation needs a longer plateau than the pilot sugges
 
 \subsection{Broad panel and the LKH boundary}
 
-Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 183 hit the known
-optimum. The converged subset has median gap 0.000\% and mean 0.100\%. The large tail is weak: only
-3 of 100 runs above $n=300$ reached patience, and 97 hit the safety cap. The internal method is
-therefore a small/medium TSP solver, not a large-instance solver.
+Across 78 TSPLIB instances with $n\le1000$, 236 of 390 runs stopped on patience and 195 hit the known
+optimum. The converged subset has median gap 0.000\% and mean 0.046\%; the all-run mean is 1.460\%
+and the converged worst is 1.021\%. The large tail is weak: only 3 of 100 runs above $n=300$ reached
+patience, and 97 hit the safety cap. The internal method is therefore a small/medium TSP solver, not a
+large-instance solver. The broad TSP and LKH panels were rerun after correcting a TSPLIB GEO
+conversion defect; the old runs contained objectives below the published optimum. No negative gap
+remains in the committed broad or LKH evidence.
 
-External LKH, at its stated budget and configuration, reaches 71 of 100 optima on the same large tail,
-mean gap 0.092\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
-bundled and not claimed as Fresh Solutions' own heuristic. The comparison is capability-only, not
+External LKH, at its stated budget and configuration, reaches 75 of 100 optima on the same large tail,
+mean gap 0.098\%, median 0\%, and worst 1.930\%. LKH is optional external research-use software, not
+bundled and not claimed as FRESH Solutions' own heuristic. The comparison is capability-only, not
 matched-time.
 
 The broad TSP panel also exposes the difference between a plateau stop and a safety-cap stop. A run
@@ -758,43 +880,6 @@ reports the converged subset separately. This is the same rule used in the QAP b
 \caption{Empirical gap distributions on the broad QAP and TSP panels. The long tails are retained; the curves are not a state-of-the-art ranking.}
 \label{fig:broad-gaps}
 \end{figure}
-
-\section{Applied case}
-\label{sec:applied}
-
-TSA24/Prince George is a public-data applied case. The frozen build, target, and seed are published as
-\texttt{ws4-tsa24-evenflow-v1} in
-\url{https://github.com/UBC-FRESH/femic-tsa24-instance}, derived from public BC VRI, FADM, and
-SiteProd data. The even-flow target is a WS4 scenario configuration, not an official TSA decision.
-
-The instance combines a compiled spatial model with an operations-research objective. The build
-freezes the block geometry, the operable-block set, the yield and treatment assumptions, and the
-candidate schedule structure. The target is a maximum-even-flow aspiration with a level term and a
-flow term; the objective is lower-is-better. The evidence records the compiled table identity, the
-target weights, the seed, and the schedule. A change to any of those invalidates the replay, which is
-the point of freezing the artifact rather than regenerating it from a mutable database.
-
-The source data are public BC data with OGL-BC attribution. The compiled artifact is distributed
-under the terms recorded in the instance repository. The Fresh Solutions solver is Apache-2.0; the
-paper-specific evidence release is pending. This is an intended release policy, not a claim that the
-evidence is already archived. The distinction matters because a
-public source dataset and a derived compiled model are not the same artifact.
-
-The case has 208,255 operable blocks over a 200-year horizon. The even-flow target is a scenario
-configuration, not an official TSA decision. The 100,000-generation GPU-GA campaign spans
-512.574--518.621 (mean 515.682) across five seeds. The seed-7 objective decomposes into a level term
-of 515.141 and a flow term of 2.721; the realized level is 51.3--52.4M m$^3$ per period against the
-70M aspiration. That is a deliberate maximum-even-flow compromise, not a near-zero solution and not a
-feasibility failure.
-
-The 1,000-generation record is 8,588,725.370498 and the 10,000-generation same-engine record is
-76,540.740733; both replay exactly and show that the objective is still moving at short budgets. The
-CPU-SA independent-search baseline is 335,044,976.675435 after 1,875 seconds and is time-limited,
-not converged. The comparison is therefore a budget illustration, not a matched-performance claim.
-
-The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed
-and has no independent model baseline. It is included to show that the adapter and evidence boundary
-survive a compiled spatial model, not to claim an operational recommendation.
 
 \section{Discussion and limitations}
 \label{sec:discussion}
@@ -818,8 +903,8 @@ that makes their evidence comparable and replayable.
 The framework-use result is narrower than a generic search claim: a QAP tabu path held in the engine's
 resident state reproduces the private-array trajectory exactly on the tested panel. All 40 runs matched
 the standalone and production objectives, stopped on the same patience rule, and replayed exactly.
-The measured CPU overhead is 1.239 (95\% bootstrap CI 1.168--1.310); per-instance means range from
-1.170 to 1.327. This is a real cost, not a rounding error. It is also small enough to be acceptable
+The measured CPU overhead is 1.24 (95\% bootstrap CI 1.17--1.31); per-instance means range from
+1.17 to 1.33. This is a real cost, not a rounding error. It is also small enough to be acceptable
 when the alternative is rebuilding replay, provenance, and exact accounting around a new problem.
 
 The overhead has a clear source. The standalone path mutates an array and updates the objective from
@@ -827,6 +912,22 @@ the delta; the framework path routes the accepted swap through the adapter and c
 evaluator. The gap is the price of the evidence boundary. A user who needs the last few percent of
 single-run speed can keep a private array inside an adapter-specific module. A user who needs
 replayable evidence across problems can pay the measured cost and use the resident state.
+
+\subsection{Generic adapter layer: a negative result}
+
+We also built a generic tabu/LNS prototype that uses only adapter proposals, apply/undo, and exact
+evaluation. It ran on four QAP and four TSP instances, five seeds, 20,000 iterations, 16 proposals per
+iteration, and a 5,000-iteration patience rule. All 40 runs stopped on patience and replayed exactly.
+It is not competitive. The QAP mean gap is 3.848\% against 0.097\% for the adapter-specific tabu
+reference; the TSP mean gap is 127.978\% against 0.000\% for the adapter-specific LK reference. The
+result survives a matched-budget control: tabu at 20,000 iterations averages 0.439\%, and LK at only
+2,000 kicks averages 0.004\%.
+
+This is a negative result for the generic search layer, and it is the correct one to report. The
+adapter contract is sufficient to run a search; it is not sufficient to replace a problem-specific
+neighbourhood. The paper's framework claim is therefore limited to contract portability and
+resident-state management, not generic search quality. The generic prototype is retained in the
+evidence and is not promoted to a headline result.
 
 \subsection{Stopping rules and benchmark methodology}
 
@@ -848,22 +949,19 @@ not “proved optimal.” The cap-hit counts are part of the result, not an appe
 
 \subsection{Limitations}
 
-The QAP convergence panel has four instances. It tests the framework path and the stopping rule, but
-it does not estimate performance across QAPLIB. The broad panel covers 134 parseable instances with a
-fixed budget; it is a screen, not a convergence study. The median gap of 0\% on the broad panel is
-dominated by small instances, and the mean is pulled by hard outliers. The large-instance table is
-mixed: Fresh tabu wins some instances and loses \texttt{tai150b} to SciPy. The reference is robust
-tabu, not a state-of-the-art QAP method.
+The controlled framework panel has four QAP instances. The expanded quality panel has 20, with the
+independent BLS baseline; BLS is stronger than robust tabu on that panel, so robust tabu is a
+reference implementation, not a state-of-the-art QAP method. The broad panel covers 134 parseable
+instances with a fixed budget; it is a screen, not a convergence study. The median gap of 0\% on the
+broad panel is dominated by small instances, and the mean is pulled by hard outliers. The
+large-instance table is mixed: FRESH tabu wins some instances and loses \texttt{tai150b} to SciPy.
 
-The TSP convergence panel has four instances. The 78-instance broad panel uses nearest-neighbour
-starts and a different budget; it is not the same experiment. The internal LK path does not scale to
+The TSP deep panel has four instances; the expanded panel has 20, with five \texttt{brazil58} cap hits at the
+known optimum. The 78-instance broad panel uses nearest-neighbour starts and a different budget; it
+is not the same experiment. The internal LK path does not scale to
 the largest TSPLIB tail, and the large-tail comparison against LKH is capability-only, not
-matched-time. LKH is external research-use software; it is not bundled and is not claimed as Fresh
+matched-time. LKH is external research-use software; it is not bundled and is not claimed as FRESH
 Solutions' own heuristic.
-
-The applied case is public-data and reproducible from the artifact, but it is not partner-endorsed and
-has no independent model baseline. The CPU-SA baseline is time-limited, not converged. The applied
-section is an evidence-boundary demonstration, not an operational recommendation.
 
 The generic simulated-annealing and population layers were tested for contract conformance and smoke
 behaviour, but they are not competitive with the adapter-specific references in the headline results.
@@ -885,7 +983,7 @@ rule that produced it. The harness records the stop reason for this reason. A re
 to see whether a mean came from plateau-stopped runs or from a mixture of plateau stops and cap hits.
 
 The third rule is to replay in continuous integration. A stored objective is not evidence until a
-fresh adapter evaluation reproduces it. The replay gate is cheap relative to the search and catches
+new adapter evaluation reproduces it. The replay gate is cheap relative to the search and catches
 serialization, permutation, and objective-accounting defects. It does not catch a bad search design,
 but it prevents a bad record from being reported as a good one.
 
@@ -900,13 +998,12 @@ The framework-use claim is narrow enough to falsify. It would fail if any seed p
 framework objective from the standalone path, if a run hit the iteration cap, if a stored incumbent
 did not replay, or if the paired overhead were so large that the evidence boundary dominated the
 search. None of those failures occurred on the 40-run QAP panel: all objectives matched, all runs
-stopped on patience, all incumbents replayed, and the mean CPU ratio was 1.239 with an upper
-confidence bound of 1.310.
+stopped on patience, all incumbents replayed, and the mean CPU ratio was 1.24 with an upper
+confidence bound of 1.31.
 
 The claim would also fail if a new adapter required changes to the engine's search loop. The adapter
 for a new problem would then not be a boundary; it would be a patch. The current QAP and TSP adapters
-do not require such changes, but two adapters are not proof of generality. The applied TSA24 case is a separate WS4 codebase, not a Fresh Solutions adapter. It is not part of
-the QAP/TSP convergence panel and is not used to claim universal portability.
+do not require such changes, but two adapters are not proof of generality. The QAP and TSP adapters are the portability evidence; a third-party adapter is future work.
 
 The TSP convergence claim would fail if the plateau-stopped runs were not reproducible, if the starts
 were not the stated local-search tours, or if the 10,000-kick-cap run did not improve on the
@@ -928,13 +1025,12 @@ be useful before that approval, not to imply that an unreleased artifact is alre
 
 \subsection{Future work}
 
-The next evidence step is a wider convergence panel. The QAP side needs more sizes and a
-state-of-the-art baseline, not only robust tabu and SciPy. The TSP side needs more instances and a
-matched-time comparison against LKH, not only a capability boundary. The applied case needs an
-independent spatial baseline before it can support an operational claim.
+The next evidence step is a wider, family-balanced panel. The QAP side has BLS but still needs more
+families and a matched-time comparison; the TSP side has a 20-instance breadth panel but needs a
+matched-time comparison against LKH. 
 
 The next framework step is a portability experiment with a third problem family and an adapter
-written by someone other than the reference author. The current QAP and TSP adapters share the contract; the applied TSA24 case is separate. A
+written by someone other than the reference author. The current QAP and TSP adapters share the contract. A
 third-party adapter is a stronger test of whether the boundary is real. A
 containerized artifact and a one-command replay are also needed before the evidence release can be
 called archival.
@@ -946,11 +1042,11 @@ strengthen the framework-use claim unless it were compared fairly and reproduced
 
 \section{Conclusion}
 
-Fresh Solutions provides a reproducible benchmark harness and adapter boundary, with two reference
+FRESH Solutions provides a reproducible benchmark harness and adapter boundary, with two reference
 metaheuristic implementations, exact replay, and a bounded framework-use result for engine-managed
 QAP state. The QAP convergence panel shows that a 100,000-iteration plateau changes the reported gaps
 relative to a short fixed budget, while the framework path preserves the search trajectory at a
-measured 1.239 CPU ratio. The TSP 10,000-kick-cap campaign closes the gap left by the 20-kick pilot and
+measured 1.24 CPU ratio. The TSP 10,000-kick-cap campaign closes the gap left by the 20-kick pilot and
 reaches all 20 known optima in the convergence panel.
 
 The result is deliberately bounded. The panels are small, the QAP baseline is standard rather than
@@ -966,11 +1062,10 @@ which the next version should be judged.
 
 \section*{Data and code availability}
 QAPLIB and TSPLIB instances are public. The harness, reference implementations, runners, replay
-scripts, and evidence are in the Fresh Solutions papers repository. The framework-use evidence is
+scripts, and evidence are in the FRESH Solutions papers repository. The framework-use evidence is
 \url{paper2/evidence/framework-use.json}; the TSP convergence evidence is
 \url{paper2/evidence/tsp-convergence-10k.json}; the shorter 2k and 20-kick runs are retained
-separately. The TSA24 artifact is available at
-\url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}.
+separately.
 The evidence tag and release remain pending maintainer approval.
 
 \bibliographystyle{plainnat}

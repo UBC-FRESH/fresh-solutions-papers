@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this evidence or software, cite the manuscript and the released artifact."
+title: "FRESH Solutions Papers: evidence and manuscripts"
+abstract: "Public evidence, manuscripts, replay scripts, and release metadata for the FRESH Solutions papers."
+authors:
+  - family-names: Paradis
+    given-names: Gregory
+    email: gregory.paradis@ubc.ca
+    affiliation: "UBC FRESH Lab, University of British Columbia"
+version: 0.1.0
+date-released: 2026-11-11
+license: MIT
+repository-code: "https://github.com/UBC-FRESH/fresh-solutions-papers"
+keywords:
+  - reproducible research
+  - metaheuristics
+  - quadratic assignment
+  - travelling salesman
+  - forest planning

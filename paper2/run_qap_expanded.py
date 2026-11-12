@@ -20,7 +20,7 @@ from fresh_solutions.adapters.qap_tabu import QapTabuConfig, run_qap_tabu  # noq
 from fresh_solutions.engine import ResidentAssignment  # noqa: E402
 
 QAP_ROOT = Path(os.environ.get("QAPLIB_ROOT", "benchmarks/qaplib/QAPLIB"))
-SEEDS = (1, 2, 3, 4, 5)
+SEEDS = tuple(int(value) for value in os.environ.get("QAP_EXPANDED_SEEDS", "1,2,3,4,5").split(","))
 INSTANCES = (
     "tai12a",
     "tai20a",
@@ -46,8 +46,10 @@ INSTANCES = (
 ITERATIONS = int(os.environ.get("QAP_EXPANDED_ITERATIONS", "1000000"))
 PATIENCE = int(os.environ.get("QAP_EXPANDED_PATIENCE", "100000"))
 WORKERS = int(os.environ.get("QAP_EXPANDED_WORKERS", str(min(40, os.cpu_count() or 1))))
-OUT = ROOT / "evidence" / "qap-expanded-100k.json"
-SUMMARY = ROOT / "evidence" / "qap-expanded-100k-summary.json"
+OUT = ROOT / "evidence" / os.environ.get("QAP_EXPANDED_OUT", "qap-expanded-100k.json")
+SUMMARY = (
+    ROOT / "evidence" / os.environ.get("QAP_EXPANDED_SUMMARY", "qap-expanded-100k-summary.json")
+)
 
 
 def optimum(name: str) -> float:

@@ -15,7 +15,7 @@
 \usepackage{lmodern}
 
 \title{Compiled landscape optimisation: exact resident state and GPU population search for harvest scheduling}
-\author{UBC FRESH Lab\\University of British Columbia}
+\author{Gregory Paradis\\UBC FRESH Lab, University of British Columbia}
 \date{\today}
 
 \begin{document}
@@ -29,10 +29,12 @@ compact candidate and sparse effect indexes, exact resident accounting, and batc
 search with exact CPU replay. A CPU-refinement handoff is designed but is not part of the measured
 campaign. We evaluate the architecture on a public frozen TSA24
 landscape with 208,255 operable blocks. A 1,000-generation GPU search reduces the weighted penalty
-from 1,722,144,291.336651 to 8,588,725.370498 in 9.381 s of search time; a 100,000-generation,
+from 1,722,140,000 to 8,588,730 in 9.38 s of search time; a 100,000-generation,
 five-seed campaign reaches 512.574–518.621 (mean 515.682) with exact CPU replay. The target uses
 deliberately unattainable harvest-level aspirations to pull the solution toward the maximum even-flow
 level; the final level is approximately 51.21–52.49M m\textsuperscript{3} per 10-year period against a 70M aspiration.
+A factorized 64-genome batch is 248 times faster on CUDA than on CPU with a maximum exact-evaluator
+error of 1.7e-6; this is batch evaluation, not an end-to-end search comparison.
 The frozen dataset, target, and seed are public; the paper-specific schedules and replay scripts are retained in the project evidence repository and are not yet publicly released. We do not claim an independent model
 comparison or a state-of-the-art landscape result; the contribution is the architecture and its
 reproducibility contract.
@@ -210,13 +212,17 @@ e_{t,p} &= \max(v_{t,p} - M_t, 0),\\
 
 The shape is linear or quadratic. The target set is not a set of hard constraints. The names \texttt{minimum} and \texttt{maximum} name the hinge of the penalty, not a feasible interval.
 
-The TSA24 target has two roles. First, one even-flow target spans periods 1--20, compares each period with the reference period, and charges a squared deviation outside a $\pm1\%$ band with weight 10,000. Second, every period carries a linear harvest-level target with aspiration 70,000,000 m\textsuperscript{3} per 10-year period and weight 100. The level aspiration is deliberately above the level the estate is expected to achieve. It is a pull-up device: every period has a downward gradient toward more harvest, including periods that would otherwise be left underused. The even-flow target selects the flattest profile at the level where the two roles reach their best weighted compromise. The realized level is therefore an outcome, not a declared floor.
+The TSA24 target has two roles. First, one even-flow target spans periods 1--20, compares each period with the reference period, and charges a squared deviation outside a $\pm1\%$ band with weight 10,000. Second, the level target is a normalized linear penalty on the mean realized level over the 20 periods:
+\[
+\ell = 20 \times 100 \times \frac{70{,}000{,}000 - \bar v}{70{,}000{,}000},
+\]
+where $\bar v$ is the mean realized level in m\textsuperscript{3} per 10-year period and 70,000,000 m\textsuperscript{3} is the aspiration. The level term is therefore dimensionless and is scaled by the number of periods; it is not a per-period hard floor. The aspiration is deliberately above the level the estate is expected to achieve, so it creates a common pull-up gradient. The even-flow target selects the flattest profile at the level where the two roles reach their best weighted compromise. The realized level is an outcome, not a declared floor.
 
 This construction is the maximum-even-flow pattern documented for WS4. It is not an infeasibility error, and a large residual on the level term is not evidence that the target should be removed. It is the expected consequence of an aspirational target that creates a search gradient. The paper reports the split between the flow and level terms, the realized harvest level, and the target values so that a reader can inspect the compromise rather than infer it from a single total.
 
 \subsection{Initial schedule and feasibility}\label{initial-schedule-and-feasibility}
 
-The initial schedule is the oldest-first seed from the public artifact. It is a valid block/treatment schedule and therefore a feasible starting point for the search, but it is not an optimized control. The initial objective is 1,722,144,291.336651. The very large initial penalty is dominated by even-flow deviations; the seed is a starting point chosen for reproducibility, not a baseline chosen to make the search look effective.
+The initial schedule is the oldest-first seed from the public artifact. It is a valid block/treatment schedule and therefore a feasible starting point for the search, but it is not an optimized control. The initial objective is 1,722,140,000. The very large initial penalty is dominated by even-flow deviations; the seed is a starting point chosen for reproducibility, not a baseline chosen to make the search look effective.
 
 The model has no hard spatial constraints in this run. The target residuals are soft, and the reported schedule is a compromise. The paper therefore distinguishes schedule validity from target satisfaction: the schedule is feasible, while the targets are aspirations.
 
@@ -267,6 +273,32 @@ The weights are part of the evidence. A change to the even-flow weight, the leve
 changes the objective and therefore changes which schedule is best. The record stores the target file
 and its hash so that a replay cannot silently use a different weighting. This is a modest but
 important form of provenance: a target configuration is data, not a constant.
+
+A 1,000-iteration screen across the five published TSA24 target variants shows how strongly the target
+construction controls the objective scale. The objectives range from $1.71\times10^9$ for the main even-flow
+target to $1.01\times10^3$ for the LT-sy stock-90 variant under the same seed, start, and budget. This is not a
+converged ranking; it is a warning that a single target file is not a universal objective. The full
+100,000-generation campaign is reported only for the main target, and target-weight sensitivity at the
+full budget remains future work.
+
+\begin{table}[t]
+\centering
+\caption{TSA24 target-variant screen: 1,000 SA iterations, seed 7, same start; screen only, not a
+converged comparison.}
+\label{tab:target-screen}
+\small
+\begin{tabular}{lr}
+\toprule
+Target file & Objective after 1,000 iterations \\
+\midrule
+\texttt{evenflow\_tsa24} & $1.71\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5} & $1.57\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_allperiods5\_stock90} & $1.62\times10^{9}$ \\
+\texttt{evenflow\_tsa24\_ltsy} & $5.75\times10^{8}$ \\
+\texttt{evenflow\_tsa24\_ltsy\_stock90} & $1.01\times10^{3}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Architecture}\label{architecture}
 
@@ -457,7 +489,7 @@ The GPU population size was 64. We report three budgets: 1,000, 10,000, and
 correspond to the earlier architecture and scaling records. The
 100,000-generation campaign uses seeds 1--5; seed~7 is retained as a reference
 run. Every GPU run starts from the same oldest-first feasible seed. The initial
-objective is 1,722,144,291.336651.
+objective is 1,722,140,000.
 
 The CPU baseline is simulated annealing at 100,000 iterations with a nominal
 30-minute limit and 32 threads, using the same instance, target, and seed. It is a
@@ -481,16 +513,21 @@ report a disclosed diagnostic ablation on the first 5,000 blocks of the recorded
 100k schedule. The subset is not a substitute for a full-instance ablation, but
 it isolates the evaluation path from the GPU population search.
 
+Numeric reporting follows one rule. Counts, seeds, iterations, and blocks are exact. Campaign
+objectives and flow/level terms use six significant figures; screen and one-seed diagnostic
+objectives use three. Optimality gaps use three decimal places in percentage points. Times, ratios,
+and CPU overheads use three significant figures. Full-precision values remain in the evidence files.
+
 \section{Results}\label{results}
 
 \subsection{Scaling from 1,000 to 100,000 generations}
 
 Table~\ref{tab:scaling} reports the seed-7 runs at the three budgets. The
-1,000-generation run reduced the objective from 1,722,144,291.336651 to
-8,588,725.370498 in 9.381~s of search time (23.13~s wall). The
-10,000-generation run reached 76,540.740733 in 89.78~s search (157.34~s wall).
-The 100,000-generation run reached 517.861982 in 856.10~s search
-(941.51~s wall). The 100,000-generation result is not a near-zero objective: the
+1,000-generation run reduced the objective from 1,722,140,000 to
+8,588,730 in 9.38~s of search time (23.1~s wall). The
+10,000-generation run reached 76,540.7 in 89.8~s search (157~s wall).
+The 100,000-generation run reached 517.862 in 856~s search
+(942~s wall). The 100,000-generation result is not a near-zero objective: the
 flow term is small, but the deliberate level-aspiration term remains.
 
 The shape of the scaling curve is informative. The objective falls by roughly two orders of magnitude
@@ -515,9 +552,9 @@ and cache setup; search time is the GPU search budget.}
 \toprule
 Generations & Objective & Flow term & Level term & Search / wall (s) \\
 \midrule
-1,000 & 8,588,725.370 & 8,588,225.550 & 499.821 & 9.38 / 23.13 \\
-10,000 & 76,540.741 & 76,026.909 & 513.832 & 89.78 / 157.34 \\
-100,000 & 517.862 & 2.721 & 515.141 & 856.10 / 941.51 \\
+1,000 & 8,588,730 & 8,588,230 & 499.821 & 9.38 / 23.1 \\
+10,000 & 76,540.7 & 76,026.9 & 513.832 & 89.8 / 157 \\
+100,000 & 517.862 & 2.721 & 515.141 & 856 / 942 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -531,16 +568,12 @@ Generations & Objective & Flow term & Level term & Search / wall (s) \\
 
 \subsection{Five-seed 100,000-generation campaign}
 
-Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations.
-The objectives are tightly clustered: the best seed is 512.574, the worst is
-518.621, the mean is 515.682, and the median is 515.938. Seed~7, at 517.862, lies
-inside the same range. All five schedules replay exactly. The campaign took
-3,995.906~s wall for all five runs.
+Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations, plus the seed-7 reference run. For seeds 1--5, the best objective is 512.574, the worst is 518.621, the mean is 515.682, and the median is 515.938. Seed~7, at 517.862, lies inside the same range but is not part of the five-seed summary. All five campaign schedules replay exactly. The campaign took
+$4.00\times10^3$~s wall for all five runs.
 
 \begin{table}[t]
 \centering
-\caption{Five-seed 100,000-generation campaign. All objectives are exact CPU
-replays.}
+\caption{Five-seed 100,000-generation campaign plus the seed-7 reference run. All objectives are exact CPU replays. The mean and median in the text use seeds 1--5 only.}
 \label{tab:seeds}
 \small
 \begin{tabular}{rrrrr}
@@ -557,18 +590,13 @@ Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.72\linewidth]{figures/seed-terms.pdf}
-\caption{Five-seed objective decomposition at 100,000 generations. The level term dominates; the flow term is the even-flow residual.}
-\label{fig:seed-terms}
-\end{figure}
+
 
 The realized level is approximately 51.21--52.49M~m\textsuperscript{3} per
 10-year period against the 70M aspiration. The level term is therefore the
 dominant part of the final objective, not a residual that the search failed to
-remove. The even-flow term falls from 8.59M at 1,000 generations to 2.72 at
-100,000 generations; the level term remains near 499.8--517.3 because the target is
+remove. The even-flow term falls from 8.58823M at 1,000 generations to 2.721 at
+100,000 generations; the level term remains near 499.821--517.290 because the target is
 deliberately above the achievable level. This is the expected maximum-even-flow
 behaviour of the target construction.
 
@@ -585,17 +613,12 @@ the final schedules have almost no flow penalty but still pay for the level aspi
 sees only the total might infer that the target was nearly satisfied. The split prevents that
 inference.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.72\linewidth]{figures/realized-level.pdf}
-\caption{Realized harvest-level ranges against the 70M m\textsuperscript{3}/period aspiration. The aspiration is a pull-up target, not a feasibility floor.}
-\label{fig:realized-level}
-\end{figure}
+
 
 \subsection{CPU simulated-annealing comparator}
 
-The CPU simulated-annealing run reached 335,044,976.675435 in 1,875.12~s wall
-(31.25 min) and stopped at the nominal 30-minute limit after 100,000 iterations. It is not converged and
+The CPU simulated-annealing run reached $3.35045\times10^8$ in $1.88\times10^3$~s wall
+(31.3 min) and stopped at the nominal 30-minute limit after 100,000 iterations. It is not converged and
 not a controlled baseline. Its objective is far above the GPU-GA results in
 Table~\ref{tab:scaling}. We do not interpret this as a universal architecture
 win: the CPU run is untuned, single-seed, and performs much less work than the
@@ -619,29 +642,52 @@ attribution open.
 \subsection{Evaluation-path ablation}
 
 On the 5,000-block diagnostic subset, a cold whole-schedule evaluation took
-54.85~s; after warm-up, a whole-schedule move evaluation took 1.086~s. Exact
-incremental delta plus apply took 0.542~ms per move, a factor of 2,005. The final
+54.8~s; after warm-up, a whole-schedule move evaluation took 1.09~s. Exact
+incremental delta plus apply took 0.542~ms per move, a factor of $2.00\times10^3$. The final
 incremental objective matched the whole-schedule objective to
 $3.7\times10^{-9}$. The subset scope is recorded in
 \texttt{evidence/ws4-tsa24-eval-ablation.json}. This establishes the local
-evaluation-path effect; it does not measure GPU batched evaluation against a
-matched CPU batch, and it does not establish full-instance scaling.
+evaluation-path effect; it does not measure a matched CPU-GA/search or establish full-instance
+scaling. The factorized 64-genome batch in the next subsection is a separate microbenchmark.
 
 The ablation isolates the evaluation path, not the GPU. On the 5,000-block subset, a warm
-whole-schedule move evaluation takes about 1.086 s, while the exact delta plus apply takes about
-0.542 ms. The ratio is about 2,005. The exactness check is the important part: the final incremental
+whole-schedule move evaluation takes about 1.09 s, while the exact delta plus apply takes about
+0.542 ms. The ratio is about $2.00\times10^3$. The exactness check is the important part: the final incremental
 objective matches the whole-schedule objective to 3.7e-9. The result supports the claim that the
 sparse effect table plus resident state can avoid a full re-simulation without changing the objective.
-It does not support a claim that the GPU population is faster than a matched CPU batch; that
+It does not support a claim that the GPU population is faster than a matched CPU search; that
 experiment remains open.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.58\linewidth]{figures/ablation.pdf}
-\caption{Evaluation-path ablation on the 5,000-block diagnostic subset. The delta plus apply path is about 2,005 times faster than a warm whole-schedule move evaluation.}
-\label{fig:ablation}
-\end{figure}
+\subsection{Factorized batch ablation}
 
+The factorized-effect benchmark is a second, independent architecture check. It evaluates the same
+64-genome batch against the same four mixed feature/product cells on CPU and CUDA, using the TSA24
+factorized archive. The CPU batch takes 23.1~s; the CUDA batch takes 0.0931~s, a factor of 248.
+The throughput is 2.77 genomes/s on CPU and 687 genomes/s on CUDA. The maximum absolute error
+against the exact evaluator is $1.71\times10^{-6}$ on both paths. The factorized build takes 234~s
+and the GPU peak allocation is 9.27~GB.
+
+\begin{table}[t]
+\centering
+\caption{TSA24 factorized mixed feature/product batch ablation. Same 64 genomes and four cells on
+both devices; batch evaluation only, not end-to-end search.}
+\label{tab:factorized}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Device & Batch (s) & Genomes/s & Peak GPU (GB) & Max error \\
+\midrule
+CPU & 23.1 & 2.77 & -- & $1.71\times10^{-6}$ \\
+CUDA & 0.0931 & 687 & 9.27 & $1.71\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is a real GPU-versus-CPU batch effect, but it is not an end-to-end search comparison. The CPU
+path is a one-device tensor path, not a tuned multithreaded batch; the result supports the factorized
+evaluation path, not a universal architecture claim. The 234~s build cost is also part of the
+result: the batch advantage matters only when the table is reused. The next experiment is a matched
+CPU-GA at the same population/generation count, which remains open.
 \subsection{What the results establish}
 
 The results establish four things. First, the compiled-state pipeline can run a
@@ -748,10 +794,10 @@ inspectable.
 
 \subsection{Future work}
 
-The next experiment is a matched architecture ablation. It requires a CPU batched evaluator, a GPU
-batched evaluator at the same population and generation count, and a cache-load/search split. The
-second experiment is a matched CPU-GA or CPU-SA run at equal work and equal wall time. Those are
-controlled comparisons; the current CPU-SA run is not.
+The matched implementation comparison below is a start, but a tuned CPU batched evaluator, a
+cache-load/search split, a full effect-table-versus-direct-evaluator comparison, and a matched
+CPU-GA/CPU-SA at equal work and wall time remain. Those are controlled comparisons; the current
+CPU-SA run is not.
 
 The second direction is a spatial-constraint extension. TSA24 has no hard adjacency or opening-size
 rules in the reported run. Adding them would test whether the candidate index and effect table remain
@@ -777,9 +823,11 @@ exact MIP proof is not practical at this scale with the available resources.
 
 The CPU-SA comparator is untuned, single-seed, time-limited, and not equal-work.
 It is not a controlled baseline. The evaluation-path ablation is diagnostic rather than full-instance:
-it uses a 5,000-block subset and does not measure GPU batched evaluation against
-a matched CPU batch. Those measurements are required before the architecture
-claim can be separated from a local implementation-speed claim.
+it uses a 5,000-block subset. The factorized 64-genome batch is a separate microbenchmark, not an
+end-to-end matched CPU-GA/search comparison. The short-horizon CPU/CUDA implementation comparison is
+reported, but the CPU path is not a tuned multithreaded baseline. A tuned CPU-GA and cache/search
+ablation at equal work are still required before the architecture claim can be separated from a
+local implementation-speed claim.
 
 Within those limits, the paper supports a narrower conclusion: a compiled-state
 architecture can make a 208,255-block landscape search exact, replayable, and
@@ -796,8 +844,8 @@ substitute for a controlled comparison. It is a foundation on which such a
 comparison can be built without rebuilding the model and accounting layer for
 every experiment.
 
-The remaining work is empirical, not rhetorical. A matched CPU-GA, a full-instance GPU-versus-CPU
-batch comparison, and a public evidence release would decide whether the architecture claim is a
+The remaining work is empirical, not rhetorical. A tuned CPU-GA, a full-campaign CPU comparison, a
+cache/search split, and a public evidence release would decide whether the architecture claim is a
 speed claim or only a reproducibility claim. Until those experiments exist, the paper should be read
 as a careful case study of the boundary. That is a useful result, and it is the one the evidence
 supports.

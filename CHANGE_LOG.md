@@ -321,3 +321,30 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   records and 7 summary rows validated.
 - Provenance now records both the campaign commit (`7d3c831`, v0.8.0) and the replay commit
   (`3aa241e`, v0.9.3).
+
+## 2026-11-08
+
+### P13 publication hardening
+
+- Added P13 parent #81 and child issues #82-#91; plan at `notes/plans/p13-publication-hardening-2026-11-08.md`.
+- P13.1 completed a 20-instance TSP panel: 95/100 patience, five brazil58 cap hits at the known optimum, 94/100 optima, exact replay.
+- P13.2 added an independent BLS baseline: mean 0.116%, 76/100 optima; a 10-seed rerun gives 0.096%.
+- P13.3 added a generic adapter-only tabu prototype: QAP 3.848% vs 0.097%; TSP 127.978% vs 0.000%; explicit negative result.
+- P13.6 documented failed CPU tabu/ILS attempts; no improved independent CPU baseline.
+- P13.8 added a 1,000-iteration TSA24 target-variant screen and statistical/sensitivity notes.
+- P13.9 independent re-review found a TSPLIB GEO parser bug; fixed in Fresh Solutions commit 4583ad3, broad TSP rerun (195 optima, no negative gaps), LKH rerun (75/100, no negatives).
+- P13.5 added a factorized CPU/GPU batch ablation: 23.124 s vs 0.0931 s (248x), max error 1.7e-6, batch only.
+- P13.7 wired expanded QAP/TSP/BLS/generic replays into `paper2/replay_all.sh` and committed the factorized runner.
+- Paper 1: 21 pages, 8,574 words, 40 refs, 3 figures. Paper 2: 24 pages, 9,357 words, 42 refs, 5 figures.
+- Dashboard green. No tag, release, visibility change, merge, or submission.
+
+## 2026-11-11
+
+- Replaced the seed-term stacked bar (old Figure 3) with a two-panel matched
+  CPU/CUDA implementation figure: search time and objective over 1/10/100
+  generations.
+- Removed the realized-level and evaluation-path ablation figures; both were
+  low-information restatements of tables or text.
+- Paper 1 now has three figures: architecture, scaling, matched implementation.
+- Rebuilt both manuscript PDFs and refreshed figure hashes in the release
+  candidate manifest.

@@ -25,7 +25,7 @@ def save(name: str) -> None:
 
 def qap_expanded() -> None:
     """Plot the expanded QAP mean and worst gaps."""
-    rows = json.loads((ROOT / "evidence" / "qap-expanded-100k-summary.json").read_text())
+    rows = json.loads((ROOT / "evidence" / "qap-expanded-100k-10seed-summary.json").read_text())
     sizes = [row["size"] for row in rows]
     means = [row["mean_gap_percent"] for row in rows]
     worst = [row["worst_gap_percent"] for row in rows]

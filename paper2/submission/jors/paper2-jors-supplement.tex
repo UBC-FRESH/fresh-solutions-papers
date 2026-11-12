@@ -1,0 +1,155 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+
+\title{Supplementary material\\[0.4em]
+\large FRESH Solutions: an adapter and exact-replay harness for metaheuristic benchmarking}
+\author{Gregory Paradis\\UBC FRESH Lab, University of British Columbia, Vancouver, BC, Canada}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+This supplement reports the per-instance results summarised in the main text. Gap values are
+percentages to the known optimum, rounded to three decimal places. Counts, seeds, and budgets are
+exact. The evidence files are \texttt{paper2/evidence/qap-expanded-100k-10seed.json},
+\texttt{qap-bls-10seed.json}, \texttt{tsp-expanded-10k.json}, and \texttt{framework-use.json}.
+Every incumbent listed here replayed exactly through the corresponding problem adapter.
+
+\section{Framework-use panel}
+
+Four QAPLIB instances, ten seeds, a 100,000-iteration patience rule, and a 1,000,000-iteration cap.
+The CPU ratio is the framework-managed path divided by the private-array delta path.
+
+\begin{table}[H]
+\centering
+\caption{Framework-use panel. All 40 runs plateau-stopped, matched the standalone and production
+objectives, and replayed exactly.}
+\begin{tabular}{lrrrrrr}
+\toprule
+Instance & Mean gap & Median gap & Worst gap & Mean iterations & CPU ratio & Patience \\
+\midrule
+\texttt{tai12a} & 0.000 & 0.000 & 0.000 & 100,186 & 1.33 & 10/10 \\
+\texttt{tai20a} & 0.030 & 0.000 & 0.304 & 147,748 & 1.17 & 10/10 \\
+\texttt{tai25a} & 0.077 & 0.000 & 0.402 & 175,611 & 1.18 & 10/10 \\
+\texttt{tai30a} & 0.245 & 0.391 & 0.491 & 161,046 & 1.28 & 10/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{QAP panel: tabu reference and Breakout Local Search}
+
+Twenty QAPLIB instances, ten seeds per arm, a 100,000-iteration or 100,000-move patience rule, and a
+1,000,000-unit cap. All 400 runs plateau-stopped and replayed exactly. BLS is a reimplementation of
+the published design, not the original authors' code.
+
+\begin{table}[H]
+\centering
+\caption{Per-instance QAP results. ``Optima'' counts runs at the known optimum.}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{Tabu reference} & \multicolumn{3}{c}{BLS} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Instance & $n$ & Mean & Worst & Optima & Mean & Worst & Optima \\
+\midrule
+\texttt{tai12a} & 12 & 0.000 & 0.000 & 10/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{tai20a} & 20 & 0.030 & 0.304 & 9/10 & 0.030 & 0.304 & 9/10 \\
+\texttt{tai25a} & 25 & 0.077 & 0.402 & 8/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{tai30a} & 30 & 0.245 & 0.491 & 4/10 & 0.078 & 0.391 & 8/10 \\
+\texttt{tai35a} & 35 & 0.599 & 1.051 & 1/10 & 0.252 & 0.649 & 3/10 \\
+\texttt{tai40a} & 40 & 0.827 & 1.106 & 0/10 & 0.439 & 0.810 & 0/10 \\
+\texttt{tai50a} & 50 & 1.170 & 1.583 & 0/10 & 0.739 & 1.013 & 0/10 \\
+\texttt{bur26a} & 26 & 0.123 & 0.147 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26b} & 26 & 0.565 & 0.565 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26c} & 26 & 0.004 & 0.004 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26d} & 26 & 0.041 & 0.043 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26e} & 26 & 0.009 & 0.009 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26f} & 26 & 0.383 & 0.542 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26g} & 26 & 0.376 & 0.376 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{bur26h} & 26 & 0.368 & 0.368 & 0/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{chr12a} & 12 & 0.570 & 5.695 & 9/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{chr15a} & 15 & 0.000 & 0.000 & 10/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{chr18a} & 18 & 0.000 & 0.000 & 10/10 & 0.000 & 0.000 & 10/10 \\
+\texttt{chr20a} & 20 & 0.630 & 1.460 & 2/10 & 0.228 & 1.369 & 4/10 \\
+\texttt{chr22a} & 22 & 0.000 & 0.000 & 10/10 & 0.156 & 0.617 & 7/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Tabu-reference diversity on the \texttt{bur26} family}
+
+The eight asymmetric \texttt{bur26} instances are not independent replicates. The tabu reference
+reaches no optimum in 80 runs; four instances produce a single gap value across all ten seeds, and the
+others produce two or three values. This is a property of the unvalidated reference, not evidence about
+the tabu reference in general.
+
+\begin{table}[H]
+\centering
+\caption{Distinct tabu-reference gap values across ten seeds per \texttt{bur26} instance.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Instance & Distinct gaps & Best gap & Worst gap \\
+\midrule
+\texttt{bur26a} & 2 & 0.088 & 0.147 \\
+\texttt{bur26b} & 2 & 0.565 & 0.565 \\
+\texttt{bur26c} & 1 & 0.004 & 0.004 \\
+\texttt{bur26d} & 3 & 0.035 & 0.043 \\
+\texttt{bur26e} & 1 & 0.009 & 0.009 \\
+\texttt{bur26f} & 2 & 0.014 & 0.542 \\
+\texttt{bur26g} & 1 & 0.376 & 0.376 \\
+\texttt{bur26h} & 1 & 0.368 & 0.368 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{TSP breadth panel}
+
+Twenty TSPLIB instances, five seeds, a 10,000-kick cap, a 1,000-kick patience rule, and a
+3,600-second safety cap. The panel is frozen with the per-instance maximum exchange depth shown.
+It is not one adaptive-depth experiment. Five \texttt{brazil58} runs reached the known optimum but
+hit the wall-clock cap and are reported as cap hits, not patience stops.
+
+\begin{table}[H]
+\centering
+\caption{Per-instance TSP breadth results. Mean wall time is seconds per run on the campaign host.}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Instance & $n$ & Depth & Mean gap & Worst gap & Patience & Optima & Mean wall (s) \\
+\midrule
+\texttt{att48} & 48 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 134 \\
+\texttt{berlin52} & 52 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 637 \\
+\texttt{bier127} & 127 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 2,180 \\
+\texttt{brazil58} & 58 & 4 & 0.000 & 0.000 & 0/5 & 5/5 & 3,600 \\
+\texttt{ch130} & 130 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 902 \\
+\texttt{ch150} & 150 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 526 \\
+\texttt{d198} & 198 & 2 & 0.005 & 0.006 & 5/5 & 1/5 & 895 \\
+\texttt{eil51} & 51 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 38 \\
+\texttt{eil76} & 76 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 49 \\
+\texttt{eil101} & 101 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 149 \\
+\texttt{fri26} & 26 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 67 \\
+\texttt{gr120} & 120 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 1,700 \\
+\texttt{pr152} & 152 & 2 & 0.074 & 0.185 & 5/5 & 3/5 & 269 \\
+\texttt{kroA100} & 100 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 545 \\
+\texttt{kroB100} & 100 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 559 \\
+\texttt{kroC100} & 100 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 339 \\
+\texttt{kroD100} & 100 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 395 \\
+\texttt{kroE100} & 100 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 514 \\
+\texttt{lin105} & 105 & 3 & 0.000 & 0.000 & 5/5 & 5/5 & 222 \\
+\texttt{pr76} & 76 & 4 & 0.000 & 0.000 & 5/5 & 5/5 & 335 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

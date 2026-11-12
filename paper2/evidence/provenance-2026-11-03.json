@@ -13,8 +13,8 @@
   "tsp_workers": 20,
   "qap_framework_command": "FRAMEWORK_SEEDS=10 FRAMEWORK_PATIENCE=100000 FRAMEWORK_MAX_ITERATIONS=1000000 FRAMEWORK_WORKERS=40 python3 -u paper2/run_framework_use.py",
   "tsp_convergence_command": "python3 -u paper2/run_tsp_convergence.py --kicks 10000 --patience 1000 --seeds 1,2,3,4,5 --workers 20",
-  "note": "Campaign-level provenance sidecar. The campaign ran at 7d3c831 (v0.8.0); every incumbent was replayed exactly under v0.9.3 (3aa241e) on 2026-11-04. Per-run records do not yet uniformly repeat solver commit, hardware, and CPU time; this is a release blocker, not a completed per-record schema.",
-  "replay_solver_commit": "3aa241e",
-  "replay_solver_version": "v0.9.3",
-  "clone": "v0.9.3"
+  "note": "Campaign ran at 7d3c831 (v0.8.0); all convergence evidence was replayed under the v0.9.3 GEO-fix commit 4583ad3. Per-record records do not yet uniformly repeat solver commit, hardware, and CPU time; this is a release blocker, not a completed per-record schema.",
+  "replay_solver_commit": "4583ad3",
+  "replay_solver_version": "v0.9.3+geo-fix",
+  "clone": "v0.9.3+geo-fix"
 }
