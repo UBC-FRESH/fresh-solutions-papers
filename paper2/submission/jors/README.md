@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,783** in the counted text (title through Data and code availability, including
+- **Word count: 3,794** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
@@ -36,9 +36,9 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - Archived artifact DOI: `[DOI to be assigned]`.
 - Author list is the lab byline `UBC FRESH Lab, University of British Columbia`; corresponding
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
-  statements are not yet supplied.
+  statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc10`.
+  The evidence set is the public release candidate `p14-evidence-rc11`.
 
 ## Blocking issues
 
@@ -65,7 +65,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 9. **APC/waiver.** Not confirmed. Do not state or imply that JORS is free; confirm the current APC
    and any institutional waiver separately.
 10. **Journal metadata.** Cover letter, editor checklist, keywords confirmation, author metadata,
-    CRediT, funding, and competing interests are still required at submission.
+    ORCID is the only remaining author-metadata field; CRediT, funding, and competing interests are present.
 11. **Page guide.** The word count is inside the 3,000–4,000 limit, but the 10 pt `article` build is
     8 pages, above the journal’s rough 4–6 page guide. The publisher’s own typesetting may differ;
     do not cut below 3,000 words to chase the page estimate.
