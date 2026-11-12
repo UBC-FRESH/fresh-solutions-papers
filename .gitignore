@@ -36,3 +36,5 @@ outputs/
 Thumbs.db
 
 paper/submission/softwarex/*.spl
+
+paper/submission/softwarex/*.abs
