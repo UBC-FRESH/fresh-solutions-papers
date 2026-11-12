@@ -80,10 +80,10 @@
   },
   "softwarex_manuscript": {
     "path": "paper/submission/softwarex/paper1-softwarex.tex",
-    "sha256": "42ff27a15ec3fb86676c8193669e57bf5cce9c2dcc4572c8f38697dd426a1efe"
+    "sha256": "f603e26122e17050a88849bfeb5c815f0930b16a74d232b3604b4770fdb5625b"
   },
   "softwarex_pdf": {
     "path": "paper/submission/softwarex/paper1-softwarex.pdf",
-    "sha256": "76e584a8ac2835735f62cc571ef3e87efe6fd58bd3043ebb3deeeb69f82d9ccf"
+    "sha256": "9774a938b694c33bb42593092d657d489f059df4b9ca8c6823dd730b4b215570"
   }
 }
