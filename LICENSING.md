@@ -9,4 +9,4 @@
 - External LKH is research-use software and is not bundled.
 
 The repository is public. This file states the release licensing; the GitHub release candidate is
-`p14-evidence-rc9`. A DOI is still pending.
+`p14-evidence-rc10`. A DOI is still pending.

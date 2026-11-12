@@ -410,29 +410,24 @@ is not used here as a quality baseline.
 
 A user can run the public snapshot directly: extract the TSA24 release tarball, clone WS4, set
 \texttt{WS4\_ROOT}, \texttt{TSA24\_ROOT}, and \texttt{FHOPS\_ROOT}, then run
-\texttt{bash paper/replay\_all.sh}. The expected result is \texttt{VALID} for every record; the
-TSA24 records report the stored objective to within $10^{-6}$.
+\begin{verbatim}
+WS4_ROOT=/path/to/ws4 TSA24_ROOT=/path/to/tsa24 \
+FHOPS_ROOT=/path/to/fhops bash paper/replay_all.sh
+\end{verbatim}
+The expected result is \texttt{VALID} for every record; the TSA24 records report the stored objective
+to within $10^{-6}$.
 
 \section{Impact}
 
 The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. The architecture is reusable when the model boundary is the expensive part of a project. A team with a
 compiled model and an exact evaluator can add a candidate index and a sparse effect table without
-changing model semantics. A team with a fast heuristic but no replay contract can wrap the heuristic in
-the adapter and keep the evidence boundary. A team comparing search methods can hold the model and
-target fixed and vary only the search layer. Because weights are data, a sensitivity study can reuse the
+changing model semantics. Because weights are data, a sensitivity study can reuse the
 table and recompute only pricing. Adapting to a new model requires a compiler that emits the tables and
 manifest, a candidate-index builder for the model's eligibility rules, and an effect-row builder that
 maps a block/chain pair to target cells. The state, search loop, record schema, and replay gate are
 designed to be model-agnostic.
 
 \subsection{Reuse potential}
-
-A practical integration pattern follows: freeze the compiled model and record its fingerprint; freeze
-the candidate order and target file; build the table once and record its identity; run with a declared
-population, budget, and seed; store the assignment, not only the seed; replay it through the exact
-evaluator; and report the stop reason with the result. The replay gate also supports archival review: a
-repository can store the assignment and record, and a future reader can verify the objective without
-rerunning the search or needing the original GPU.
 
 \subsection{Limitations}
 
@@ -441,8 +436,7 @@ The limitations are explicit. The validation covers one landscape, one target co
 is not validated on the spatial-constraint case that motivates much of the literature. There is no
 independent harvest-scheduling model or LP/MIP bound on the same instance, so the objective values are
 not a competitive quality result. The five-seed campaign is descriptive; the evaluation-path ablation
-uses a 5,000-block subset; and the factorized result is a 64-genome batch microbenchmark. A tuned CPU-GA
-at equal work, a full-instance evaluation-path comparison, and a cache-load/search split remain open.
+uses a 5,000-block subset; and the factorized result is a 64-genome batch microbenchmark.
 
 Two constraints follow. The effect table must fit in device memory alongside the population batch; the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
@@ -468,6 +462,20 @@ replay, a tuned CPU comparison at equal work, a full-instance evaluation-path st
 spatial-constraint extension. Until those exist, the software is an exact, replayable platform for
 controlled landscape-search experiments, not a leaderboard entry. It is a reproducible case, not a
 competitive solver.
+
+\section*{CRediT authorship contribution statement}
+
+Gregory Paradis: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation,
+Data curation, Writing -- original draft, Writing -- review and editing, Visualization, Project
+administration.
+
+\section*{Funding}
+
+No specific grant from a funding agency supported this work.
+
+\section*{Competing interests}
+
+The author declares no competing interests.
 
 \clearpage
 \section*{Code metadata}

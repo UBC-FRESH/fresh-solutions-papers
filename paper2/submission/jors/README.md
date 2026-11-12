@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,792** in the counted text (title through Data and code availability, including
+- **Word count: 3,783** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are not yet supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc9`.
+  The evidence set is the public release candidate `p14-evidence-rc10`.
 
 ## Blocking issues
 
@@ -48,9 +48,8 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
    evidence records. The candidate manifest covers the ten-seed `qap-expanded-100k-10seed` files used
    in Table 1; per-record CPU remains missing. The candidate cannot become an archival DOI release
    until that is resolved or the claim is explicitly scoped.
-3. **Provenance identity.** The evidence still carries more than one replay identifier
-   (`4583ad3` for the expanded QAP, `c7d1507` for BLS/TSP/generic); one immutable replay commit and
-   tag must be selected and the records re-stamped.
+3. **Provenance identity.** All records now use replay commit `4583ad3`; the manifest and release tag
+   are the remaining identity check.
 4. **Archived repository document.** The old `paper2/paper2-draft.md` is archived at
    `notes/archive/paper2-draft-2026-11-03.md`; the public submission path is this JORS draft.
 5. **Container.** The base image and solver checkout are pinned, but no container build has been

@@ -13,14 +13,14 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 ## Length and display items
 
-- **Counted words: 3,977.** Counts abstract, running text, captions, and footnotes; excludes
+- **Counted words: 3,881.** Counts abstract, running text, captions, and footnotes; excludes
   title/authors/affiliations, references, the metadata table, equations, and data-table bodies.
   Verify with `python3 count_words.py`.
 - **Figures: 2** (architecture, scaling). Limit is 6.
 - **Tables: 3 content tables** (scaling, five-seed campaign, evaluation-path diagnostic) plus the
   **mandatory code-metadata table**. The manuscript has no separate table limit; the metadata table is
   excluded from the word count.
-- **PDF: 10 pages (official cas-sc template)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
+- **PDF: 11 pages (official cas-sc template)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
 
 ## Template status
 
