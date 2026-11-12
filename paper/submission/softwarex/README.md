@@ -5,9 +5,9 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 ## Files
 
-- `paper1-softwarex.tex` — SoftwareX-style manuscript (`elsarticle`, preprint, 11 pt, numeric refs, line numbers).
-- `paper1-softwarex.pdf` — compiled review copy.
-- `elsarticle.cls`, `elsarticle-num.bst` — local class/style copies so the build is self-contained.
+- `paper1-softwarex.tex` — official SoftwareX `cas-sc` manuscript.
+- `paper1-softwarex.pdf` — compiled 10-page review copy.
+- `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`, `thumbnails/` — official SoftwareX/Elsevier bundle files.
 - `references-softwarex.bib` — copy of `paper/references.bib`; only the WS4 note capitalization is adjusted.
 - `count_words.py` — reproducible word count for the convention below.
 
@@ -15,8 +15,7 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 - **Counted words: 3,977.** Counts abstract, running text, captions, and footnotes; excludes
   title/authors/affiliations, references, the metadata table, equations, and data-table bodies.
-  Verify with `python3 count_words.py`. Including the three content-table bodies still gives 3,979,
-  below the 4,000-word cap.
+  Verify with `python3 count_words.py`.
 - **Figures: 2** (architecture, scaling). Limit is 6.
 - **Tables: 3 content tables** (scaling, five-seed campaign, evaluation-path diagnostic) plus the
   **mandatory code-metadata table**. The manuscript has no separate table limit; the metadata table is
