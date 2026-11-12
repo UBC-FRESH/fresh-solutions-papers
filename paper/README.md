@@ -9,7 +9,7 @@ Bibliography: `paper/references.bib`
 Compile with `make` in `paper/` or `latexmk -pdf paper1-manuscript.tex`.
 
 Target: **SoftwareX, Original Software Publication**. The target-specific 4,000-word draft is
-`paper/submission/softwarex/paper1-softwarex.tex` (8 pages, 3,908 counted words). Fallback: **JORS**
+`paper/submission/softwarex/paper1-softwarex.tex` (10 pages, 3,908 counted words). Fallback: **JORS**
 after a further cut. EMS is not a target for the current draft; it would require a new environmental
 validation and a second landscape/spatial case.
 

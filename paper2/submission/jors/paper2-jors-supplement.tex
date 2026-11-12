@@ -12,7 +12,7 @@
 
 \title{Supplementary material\\[0.4em]
 \large FRESH Solutions: an adapter and exact-replay harness for metaheuristic benchmarking}
-\author{UBC FRESH Lab\\University of British Columbia, Vancouver, BC, Canada}
+\author{Gregory Paradis\\UBC FRESH Lab, University of British Columbia, Vancouver, BC, Canada}
 \date{}
 
 \begin{document}
@@ -46,7 +46,7 @@ Instance & Mean gap & Median gap & Worst gap & Mean iterations & CPU ratio & Pat
 \end{tabular}
 \end{table}
 
-\section{QAP panel: robust tabu and Breakout Local Search}
+\section{QAP panel: tabu reference and Breakout Local Search}
 
 Twenty QAPLIB instances, ten seeds per arm, a 100,000-iteration or 100,000-move patience rule, and a
 1,000,000-unit cap. All 400 runs plateau-stopped and replayed exactly. BLS is a reimplementation of
@@ -58,7 +58,7 @@ the published design, not the original authors' code.
 \small
 \begin{tabular}{lrrrrrrr}
 \toprule
- & & \multicolumn{3}{c}{Robust tabu} & \multicolumn{3}{c}{BLS} \\
+ & & \multicolumn{3}{c}{Tabu reference} & \multicolumn{3}{c}{BLS} \\
 \cmidrule(lr){3-5}\cmidrule(lr){6-8}
 Instance & $n$ & Mean & Worst & Optima & Mean & Worst & Optima \\
 \midrule
@@ -82,6 +82,33 @@ Instance & $n$ & Mean & Worst & Optima & Mean & Worst & Optima \\
 \texttt{chr18a} & 18 & 0.000 & 0.000 & 10/10 & 0.000 & 0.000 & 10/10 \\
 \texttt{chr20a} & 20 & 0.630 & 1.460 & 2/10 & 0.228 & 1.369 & 4/10 \\
 \texttt{chr22a} & 22 & 0.000 & 0.000 & 10/10 & 0.156 & 0.617 & 7/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Tabu-reference diversity on the \texttt{bur26} family}
+
+The eight asymmetric \texttt{bur26} instances are not independent replicates. The tabu reference
+reaches no optimum in 80 runs; four instances produce a single gap value across all ten seeds, and the
+others produce two or three values. This is a property of the unvalidated reference, not evidence about
+the tabu reference in general.
+
+\begin{table}[H]
+\centering
+\caption{Distinct tabu-reference gap values across ten seeds per \texttt{bur26} instance.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Instance & Distinct gaps & Best gap & Worst gap \\
+\midrule
+\texttt{bur26a} & 2 & 0.088 & 0.147 \\
+\texttt{bur26b} & 2 & 0.565 & 0.565 \\
+\texttt{bur26c} & 1 & 0.004 & 0.004 \\
+\texttt{bur26d} & 3 & 0.035 & 0.043 \\
+\texttt{bur26e} & 1 & 0.009 & 0.009 \\
+\texttt{bur26f} & 2 & 0.014 & 0.542 \\
+\texttt{bur26g} & 1 & 0.376 & 0.376 \\
+\texttt{bur26h} & 1 & 0.368 & 0.368 \\
 \bottomrule
 \end{tabular}
 \end{table}

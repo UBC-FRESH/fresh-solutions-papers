@@ -21,13 +21,11 @@ main manuscript, evidence, and EMS variant are unchanged.
 - **Tables: 3 content tables** (scaling, five-seed campaign, evaluation-path diagnostic) plus the
   **mandatory code-metadata table**. The manuscript has no separate table limit; the metadata table is
   excluded from the word count.
-- **PDF: 8 pages (two-column draft; official template still to be applied)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
+- **PDF: 10 pages (official cas-sc template)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
 
 ## Template status
 
-Built with `elsarticle` in 5p two-column mode with line numbers. This is **not** the official
-SoftwareX Original Software Publication template. The official template (and its metadata-table layout)
-must be applied before submission; the content is structured to map onto its five sections:
+Built with the official `cas-sc` SoftwareX bundle. Content is mapped to its required sections:
 Motivation and significance; Software description; Validation/illustration; Reuse potential and
 limitations; Conclusions.
 

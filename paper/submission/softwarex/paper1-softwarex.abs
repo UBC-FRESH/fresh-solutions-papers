@@ -1,0 +1,12 @@
+WS4 is an open-source Python system that compiles landscape harvest-scheduling models into a stable
+sparse form and searches them with exact accounting. It separates four concerns usually rebuilt
+together: a versioned compiled model, compact candidate and sparse effect indexes, exact resident
+accounting, and batched GPU search with exact CPU replay. Every reported schedule is replayed through
+the exact CPU evaluator that is the evidence authority. On a public frozen TSA24 landscape with 208,255
+operable blocks, a 100,000-generation five-seed campaign reaches 512.574--518.621 (mean 515.682), and
+all five schedules replay exactly. The level penalty is a normalized mean-level term, not a per-period
+floor: the realized level ranges from 51.21 to 52.49M~m\textsuperscript{3} per 10-year period
+against a deliberately unattainable 70M aspiration. A 5,000-block diagnostic reduces move-evaluation
+time by $2.00\times10^{3}$ with objective agreement to $3.7\times10^{-9}$, and a 64-genome factorized
+batch runs 248 times faster on CUDA than on a single-device CPU path. The contribution is the software architecture
+and its replay contract; we make no independent harvest-scheduling comparison or state-of-the-art claim.

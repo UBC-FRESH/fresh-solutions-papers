@@ -1,27 +1,30 @@
-\documentclass[5p,11pt,numbers]{elsarticle}
-\journal{SoftwareX}
+\documentclass[a4paper,fleqn]{cas-sc}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usepackage[numbers]{natbib}
 \usepackage{xurl}
 \usepackage{hyperref}
 \usepackage{microtype}
-\usepackage{lineno}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \graphicspath{{../../figures/}}
 \setlength{\emergencystretch}{3em}
-
+\shorttitle{WS4}
+\shortauthors{Gregory Paradis}
 \begin{document}
-\begin{frontmatter}
-\title{WS4: a compiled-state software architecture with exact replay for landscape harvest scheduling}
-\author[ubc]{Gregory Paradis}
-\affiliation[ubc]{organization={UBC FRESH Lab, University of British Columbia}, country={Canada}}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\title[mode=title]{WS4: a compiled-state software architecture with exact replay for landscape harvest scheduling}
+\author[1]{Gregory Paradis}
+\cormark[1]
 \ead{gregory.paradis@ubc.ca}
-
+\affiliation[1]{organization={UBC FRESH Lab, University of British Columbia}, city={Vancouver}, state={BC}, country={Canada}}
+\cortext[1]{Corresponding author}
 \begin{abstract}
 WS4 is an open-source Python system that compiles landscape harvest-scheduling models into a stable
 sparse form and searches them with exact accounting. It separates four concerns usually rebuilt
@@ -36,14 +39,17 @@ time by $2.00\times10^{3}$ with objective agreement to $3.7\times10^{-9}$, and a
 batch runs 248 times faster on CUDA than on a single-device CPU path. The contribution is the software architecture
 and its replay contract; we make no independent harvest-scheduling comparison or state-of-the-art claim.
 \end{abstract}
-
-\begin{keyword}
+\begin{highlights}
+\item Compiled-state architecture separates model, exact state, and search.
+\item Public TSA24 case: five seeds with exact CPU replay.
+\item Microbenchmarks are bounded, not architecture claims.
+\end{highlights}
+\begin{keywords}
 landscape harvest scheduling \sep compiled model \sep GPU population search \sep exact replay \sep reproducibility
-\end{keyword}
-\end{frontmatter}
+\end{keywords}
+\maketitle
 
-\linenumbers
-\modulolinenumbers[1]
+
 
 \section{Motivation and significance}
 
@@ -435,7 +441,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc5}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc6}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -469,7 +475,7 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Permanent link to reproducible capsule: \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc5} \\
+C3 & Permanent link to reproducible capsule: \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc6} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
@@ -489,7 +495,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc5}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc6}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}
