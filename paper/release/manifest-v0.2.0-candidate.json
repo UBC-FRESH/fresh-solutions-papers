@@ -21,7 +21,7 @@
     "ws4-tsa24-gpu-ga-100000-r5": "b351c4b00506278d1e8f7e3df964d8d64eca46f47710265caa101ee3053ad32c",
     "ws4-tsa24-gpu-ga-100000-r7": "3bfdab04f44646f5d5551d7ff33b535e0c76985b161b9b2f6c56ddb0491a967b"
   },
-  "status": "candidate; no tag/release created; public schedules/replay release pending",
+  "status": "public release candidate p14-evidence-rc8; DOI pending",
   "evaluation_ablation": {
     "path": "evidence/ws4-tsa24-eval-ablation.json",
     "sha256": "242b1a4c9e863bbbdd6cae4911590767aef9ecbb0609fe42953c3bc9d9b4973a"
@@ -80,10 +80,10 @@
   },
   "softwarex_manuscript": {
     "path": "paper/submission/softwarex/paper1-softwarex.tex",
-    "sha256": "349793796987eefb41bb2be9ac1fad3aa258c4e8217f98408a3c447eb47724e6"
+    "sha256": "42ff27a15ec3fb86676c8193669e57bf5cce9c2dcc4572c8f38697dd426a1efe"
   },
   "softwarex_pdf": {
     "path": "paper/submission/softwarex/paper1-softwarex.pdf",
-    "sha256": "7dd44da95a22d3888c49e66e3e0939322a2694e621ab6e51bd722a9892b68db9"
+    "sha256": "76e584a8ac2835735f62cc571ef3e87efe6fd58bd3043ebb3deeeb69f82d9ccf"
   }
 }

@@ -406,6 +406,13 @@ architecture-versus-implementation effect, an independent quality comparison, a 
 or optimality. The retained CPU simulated-annealing run is untuned, single-seed, and not equal-work; it
 is not used here as a quality baseline.
 
+\section{Illustrative example}
+
+A user can run the public snapshot directly: extract the TSA24 release tarball, clone WS4, set
+\texttt{WS4\_ROOT}, \texttt{TSA24\_ROOT}, and \texttt{FHOPS\_ROOT}, then run
+\texttt{bash paper/replay\_all.sh}. The expected result is \texttt{VALID} for every record; the
+TSA24 records report the stored objective to within $10^{-6}$.
+
 \section{Impact}
 
 The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. The architecture is reusable when the model boundary is the expensive part of a project. A team with a
@@ -441,7 +448,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc7}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc8}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -475,12 +482,12 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Permanent link to reproducible capsule: \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc7} \\
+C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc8} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
 C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
-C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4} \\
+C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4/tree/main/docs} \\
 C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
 \end{tabular}%
@@ -495,7 +502,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc7}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc8}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}

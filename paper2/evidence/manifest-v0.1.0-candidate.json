@@ -197,7 +197,7 @@
       "sha256": "fb8042fa197fd6758719be0def50c2d93995500bc4b66008ddb799995559f020"
     }
   },
-  "status": "candidate; no tag/release created; P12 framework-use and TSP convergence added",
+  "status": "public release candidate p14-evidence-rc8; DOI pending",
   "manuscript": {
     "path": "paper2/paper2-manuscript.tex",
     "sha256": "f7f821ae74744914155e9acb66d316d3f4d47ecec1cbeac5d53df542caabf0f8"
@@ -208,7 +208,7 @@
   },
   "references": {
     "path": "paper2/references.bib",
-    "sha256": "fb8a770ee0765eb79d56cf3c163f50cde9a4decbf6803d24bf9c6decbf457ff3"
+    "sha256": "8b6230a7a195b357b7b7df1c8daccc5fec78d19325c775ccf614fb8603324485"
   },
   "figures": {
     "paper2/figures/broad-gaps.pdf": "079e705f7420c1a3ab07fdb468c7634362efd6e5b088150655a8e57196ce9aaa",
@@ -218,7 +218,7 @@
   },
   "replay": {
     "all_checks": "paper2/replay_all.sh",
-    "sha256": "cdc8b45ff2b930ea2e8d6a9f790c22aeba3e686ace7819eabade2c5691413d05"
+    "sha256": "3fb6694599f3ea11c6986867ad6faf8dc93a88820016d1e7f0c97d15112f345c"
   },
   "submission_manuscript": {
     "path": "paper2/submission/paper2-sn-jnl.tex",
@@ -230,11 +230,11 @@
   },
   "jors_submission_manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "e56c37d41ae29948949e47e48eaf95e80f68ab36de23e18db05664b812e4f077"
+    "sha256": "b79da5bcdb8e087904d609f7e087eea2aa98101933611ebc139b2c4c45a55ad4"
   },
   "jors_submission_pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "4b2e03c56e18cf9208cd17ee7934029e48eb0a6026bf21767501a0119b474fca"
+    "sha256": "65490f729e61a477d13dbe6919271efa07931bfdac197c3c561350f293635b5b"
   },
   "jors_supplement_manuscript": {
     "path": "paper2/submission/jors/paper2-jors-supplement.tex",
@@ -242,6 +242,6 @@
   },
   "jors_supplement_pdf": {
     "path": "paper2/submission/jors/paper2-jors-supplement.pdf",
-    "sha256": "c8ef8c8e63e09e86a544a771c9795684263002fdd2ca56a59ffe02cd7130055b"
+    "sha256": "6b030c52e7d255869af62fc2a5d93afebe13cad789f5627df847a0c4d261911d"
   }
 }
