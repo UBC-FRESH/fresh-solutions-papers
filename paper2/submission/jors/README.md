@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,814** in the counted text (title through Data and code availability, including
+- **Word count: 3,816** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc12`.
+  The evidence set is the public release candidate `p14-evidence-rc13`.
 
 ## Blocking issues
 

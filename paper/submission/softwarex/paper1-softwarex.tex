@@ -339,6 +339,14 @@ statistics for five runs, not a confidence interval or a test against a baseline
 
 
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{../../figures/realized-level.pdf}
+\caption{Realized harvest level by seed. Lines show the 70M per-decade aspiration and the 2025 AAC
+(6.917M~m\textsuperscript{3}/year). Bars show the per-period range and points the mean.}
+\label{fig:realized-level}
+\end{figure}
+
 \subsection{Evaluation path and batch microbenchmark}
 
 A full-instance whole-schedule ablation is impractical, because a single full evaluation of the
@@ -382,6 +390,12 @@ FHOPS_ROOT=/path/to/fhops bash paper/replay_all.sh
 The expected result is \texttt{VALID} for every record; the TSA24 records report the stored objective
 to within $10^{-6}$.
 
+\begin{verbatim}
+targets: product.HarvestedVolume.managed.Total.CC
+minimum: 70000000.0; min_weight: 100.0
+VALID: ws4-tsa24-gpu-ga-1000-r7 (tsa24-evenflow-w100)
+\end{verbatim}
+
 \section{Impact}
 
 The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. A planning team can also use WS4 as an audit path: replay a submitted schedule, compare two target
@@ -394,8 +408,6 @@ table and recompute only pricing. Adapting to a new model requires a compiler th
 manifest, a candidate-index builder for the model's eligibility rules, and an effect-row builder that
 maps a block/chain pair to target cells. The state, search loop, record schema, and replay gate are
 designed to be model-agnostic.
-
-\subsection{Reuse potential}
 
 \subsection{Limitations}
 
@@ -410,7 +422,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc12}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc13}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -458,7 +470,7 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc12} \\
+C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc13} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
@@ -478,7 +490,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc12}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc13}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}

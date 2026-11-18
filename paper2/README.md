@@ -174,5 +174,4 @@ The kicks are material; all 60 ablation tours replay exactly; the broad panel re
 - `evidence/provenance-2026-11-03.json`
 - `evidence/lkh-provenance.json`
 
-No tag or release has been created. The evidence release remains a candidate until maintainer
-approval.
+Public release candidate: `p14-evidence-rc13`; a DOI is pending.

@@ -43,7 +43,7 @@ of 16 non-tied instance means. A frozen, mixed-depth 20-instance TSPLIB breadth 
 100 known optima; 95 runs stopped on patience and five \texttt{brazil58} runs hit a wall-clock cap at
 the optimum. We also report a negative result for a generic adapter-only search layer. The
 contribution is the harness, the replay contract, and the reference adapters, not a
-state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc12}; a DOI is pending.
+state-of-the-art claim. The artifact is public as release candidate \texttt{p14-evidence-rc13}; a DOI is pending.
 \end{abstract}
 
 \noindent\textbf{Keywords:} reproducible benchmarking; metaheuristics; quadratic assignment; travelling salesman; research software
@@ -161,7 +161,7 @@ The evidence format is JSON: per-run records keep the assignment and search coun
 keeps the distribution. The repository also keeps the runner, replay script, instance files or their
 provenance, and environment. A reader can rerun a campaign, replay the stored incumbents, or compare
 the distribution without reading the paper prose. A manifest stores SHA-256 hashes for the candidate
-evidence set; a tag is not created until the maintainer approves the release.
+evidence set; this release candidate is public and a DOI will be minted on acceptance.
 
 \subsection{Stopping and budget protocol}
 
@@ -342,7 +342,7 @@ contract is not by itself a search engine.
 FRESH Solutions is developed by the UBC FRESH Lab. The code is at
 \url{https://github.com/UBC-FRESH/fresh-solutions}, release candidate
 \texttt{v0.9.3-p13rc1}. The paper-specific evidence is public at
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc12}. A DOI will be
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc13}. A DOI will be
 minted when the release is accepted; the GitHub release is a public prerelease.
 
 FRESH Solutions is licensed under Apache-2.0. The paper-specific runners and derived evidence are
@@ -435,7 +435,7 @@ The harness and reference implementations are in FRESH Solutions
 \url{https://github.com/UBC-FRESH/fresh-solutions}, release candidate
 \texttt{v0.9.3-p13rc1}. The runners, replay scripts, and evidence are in
 \url{https://github.com/UBC-FRESH/fresh-solutions-papers}, public release candidate
-\texttt{p14-evidence-rc12}; a DOI is pending. QAPLIB and TSPLIB are public.
+\texttt{p14-evidence-rc13}; a DOI is pending. QAPLIB and TSPLIB are public.
 Full per-instance tables for the QAP and TSP panels are provided in the
 supplementary material.
 

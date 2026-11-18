@@ -14,7 +14,7 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 ## Length and display items
 
-- **Counted words: 3,877.** Counts abstract, running text, captions, and footnotes; excludes
+- **Counted words: 3,919.** Counts abstract, running text, captions, and footnotes; excludes
   title/authors/affiliations, references, the metadata table, equations, and data-table bodies.
   Verify with `python3 count_words.py`.
 - **Figures: 3** (architecture, scaling, realized level). Limit is 6.
@@ -48,14 +48,7 @@ python3 count_words.py
 
 ## Placeholders and submission blockers
 
-1. Author names, affiliations, corresponding author, email, CRediT, funding, and competing interests
-   (`author@example.invalid`; metadata C9).
-2. Repository tag/DOI for WS4: the draft cites commit `f60ce64` on a feature branch, not a release
-   (metadata C1–C2).
-3. Public evidence release with a DOI and one-command replay for the paper-specific schedules and
-   replay scripts; these are currently private (Data availability; metadata C8).
-4. Documentation URL and support email (metadata C7, C9).
-5. Official SoftwareX template and any journal-specific metadata/format checks.
-6. APC/institutional coverage and PI approval of the target shift.
-7. Scope limitation, not a formatting fix: there is no independent harvest-scheduling baseline or
-   tuned CPU/GPU comparison. The draft states this and does not claim one.
+1. DOI/Zenodo for the public release candidate.
+2. Tested container; the target currently reports a public software/evidence snapshot.
+3. Final page/format acceptance under the official SoftwareX template.
+4. Final PI approval.

@@ -1,6 +1,6 @@
 # Paper 2 evidence release candidate
 
-Status: public release candidate `p14-evidence-rc12`; DOI pending.
+Status: public release candidate `p14-evidence-rc13`; DOI pending.
 
 ## Verification
 
@@ -12,10 +12,9 @@ Status: public release candidate `p14-evidence-rc12`; DOI pending.
 
 ## Assets
 
-- `paper2/paper2-manuscript.pdf`
-- `paper2/paper2-manuscript.tex`
-- `paper2/figures/`
-- `paper2/references.bib`
+- `paper2/submission/jors/paper2-jors.pdf`
+- `paper2/submission/jors/paper2-jors.tex`
+- `paper2/submission/jors/paper2-jors-supplement.pdf`
 - `paper2/evidence/`
 - `paper2/*.py` runners and replay scripts
 - `paper2/submission/paper2-sn-jnl.tex` (JoH variant)
