@@ -322,39 +322,22 @@ Generations & Objective & Flow term & Level term & Search / wall (s) \\
 
 \subsection{Five-seed campaign}
 
-Table~\ref{tab:seeds} reports the five-seed campaign at 100,000 generations. The best objective is
+Supplementary Table S1 reports the five-seed campaign at 100,000 generations. The best objective is
 512.574, the worst is 518.621, the mean is 515.682, and the median is 515.938. Seed~7, the scaling
 reference, lies at 517.862 and is not part of the five-seed summary. All five campaign schedules replay
 exactly, and the campaign took $4.00\times10^{3}$~s wall for all five runs.
 
 The realized level is approximately 51.21--52.49M~m\textsuperscript{3} per 10-year period against the
-70M aspiration. The level term is therefore the dominant part of the final objective, not a residual
+70M aspiration. The 70M target is 7.0M~m\textsuperscript{3}/year, slightly above the 2025 allowable
+annual cut of 6,917,231~m\textsuperscript{3}/year; the realized level is 5.12--5.25M~m\textsuperscript{3}/year,
+about 24--26\% below that cut. The level term is therefore the dominant part of the final objective, not a residual
 that the search failed to remove. The initial seed is dominated by flow deviations; the final schedules
 have almost no flow penalty but still pay for the level aspiration. Reporting the split prevents a
 reader from inferring that the target was nearly satisfied. The five-seed spread is small in objective,
 but the seeds do not all reach the same flow/level compromise. The mean and median are descriptive
 statistics for five runs, not a confidence interval or a test against a baseline.
 
-\begin{table}[t]
-\centering
-\caption{Five-seed 100,000-generation campaign. All objectives are exact CPU replays; the mean and
-median in the text use these five seeds.}
-\label{tab:seeds}
-\small
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{rrrrr}
-\toprule
-Seed & Objective & Flow term & Level term & Realized level (M~m\textsuperscript{3}/period) \\
-\midrule
-1 & 518.621 & 1.331 & 517.290 & 51.21--52.25 \\
-2 & 512.574 & 0.000 & 512.574 & 51.46--52.49 \\
-3 & 515.938 & 0.000 & 515.938 & 51.31--52.32 \\
-4 & 514.746 & 0.000 & 514.746 & 51.34--52.35 \\
-5 & 516.530 & 0.076 & 516.454 & 51.26--52.29 \\
-\bottomrule
-\end{tabular}%
-}
-\end{table}
+
 
 \subsection{Evaluation path and batch microbenchmark}
 
@@ -363,30 +346,12 @@ A full-instance whole-schedule ablation is impractical, because a single full ev
 5,000 blocks of the recorded 100,000-generation seed-7 schedule, over 50 moves. A cold whole-schedule
 evaluation took 54.8~s; after warm-up, a whole-schedule move evaluation took 1.09~s. Exact incremental
 delta plus apply took 0.542~ms per move, a factor of $2.00\times10^{3}$. The final incremental objective
-matched the whole-schedule objective to $3.7\times10^{-9}$ (Table~\ref{tab:eval}). The subset is not a
+matched the whole-schedule objective to $3.7\times10^{-9}$ (Supplementary Table S2). The subset is not a
 random sample, and the 50 moves are a diagnostic sequence rather than a search trajectory. The result
 isolates the evaluation path from the GPU population search; it is not a full-instance ablation and
 does not measure a matched CPU search.
 
-\begin{table}[t]
-\centering
-\caption{Evaluation-path diagnostic on the first 5,000 blocks of the recorded 100,000-generation seed-7
-schedule, 50 moves. Times are exact CPU measurements; relative time is warm whole-schedule move time
-divided by the row time.}
-\label{tab:eval}
-\small
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}llrrr@{}}
-\toprule
-Path & Measurement & Time & Relative & Error \\
-\midrule
-Whole schedule, cold & first evaluation & 54.8~s & -- & -- \\
-Whole schedule, warm & mean per move & 1.09~s & 1 & -- \\
-Incremental delta + apply & mean per move & 0.542~ms & $2.00\times10^{3}$ & $3.7\times10^{-9}$ \\
-\bottomrule
-\end{tabular}%
-}
-\end{table}
+
 
 A second check evaluates the same 64-genome batch against four mixed feature/product cells on CPU and
 CUDA, using the TSA24 factorized archive. The CPU batch takes 23.1~s and the CUDA batch 0.0931~s, a
@@ -419,7 +384,10 @@ to within $10^{-6}$.
 
 \section{Impact}
 
-The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. The architecture is reusable when the model boundary is the expensive part of a project. A team with a
+The immediate software impact is measured in exact replay and reduced evaluation cost, not in adoption numbers: a 100,000-generation campaign is replayable from stored assignments, and a move evaluation drops from 1.09~s to 0.542~ms on the diagnostic subset. A planning team can also use WS4 as an audit path: replay a submitted schedule, compare two target
+configurations without rebuilding the model, inspect the exact assignment behind an objective, or use
+the model/accounting/search separation in teaching. The architecture is reusable when the model boundary
+is the expensive part of a project. A team with a
 compiled model and an exact evaluator can add a candidate index and a sparse effect table without
 changing model semantics. Because weights are data, a sensitivity study can reuse the
 table and recompute only pricing. Adapting to a new model requires a compiler that emits the tables and

@@ -1,6 +1,6 @@
 # Paper 2 evidence release candidate
 
-Status: public release candidate `p14-evidence-rc11`; DOI pending.
+Status: public release candidate `p14-evidence-rc12`; DOI pending.
 
 ## Verification
 

@@ -9,7 +9,7 @@ template; this package uses a clean `article` build with `natbib` numeric citati
 - `paper2-jors.tex` — main manuscript source.
 - `paper2-jors.pdf` — compiled manuscript.
 - `paper2-jors-supplement.tex` — supplementary material with the full per-instance tables.
-- `paper2-jors-supplement.pdf` — compiled supplement (2 pages).
+- `paper2-jors-supplement.pdf` — compiled supplement (4 pages).
 - `references.bib` — unchanged copy of `paper2/references.bib`.
 - `figures/` — copies of the two committed evidence figures; the architecture figure is inline TikZ.
 
@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,794** in the counted text (title through Data and code availability, including
+- **Word count: 3,814** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc11`.
+  The evidence set is the public release candidate `p14-evidence-rc12`.
 
 ## Blocking issues
 

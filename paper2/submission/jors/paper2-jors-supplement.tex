@@ -152,4 +152,48 @@ Instance & $n$ & Depth & Mean gap & Worst gap & Patience & Optima & Mean wall (s
 \end{tabular}
 \end{table}
 
+\section{When to use the harness}
+
+\begin{table}[H]
+\centering
+\caption{Use-case guide.}
+\small
+\begin{tabular}{p{0.42\linewidth}p{0.48\linewidth}}
+\toprule
+Situation & Recommendation \\
+\midrule
+Multiple adapters, exact replay, benchmark audit & Use FRESH Solutions \\
+Single QAP/TSP run at maximum solver speed & Use a tuned solver; use the record/replay protocol separately \\
+New problem with a mature evidence pipeline & Reuse the replay and record layer \\
+Teaching or replication & Use the harness and a frozen evidence set \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Minimal adapter skeleton}
+
+\begin{verbatim}
+class Adapter:
+    def evaluate(self, assignment): ...
+    def feasible(self, assignment): ...
+    def propose(self, assignment, rng): ...
+    def apply(self, assignment, move): ...
+    def undo(self, assignment, move): ...
+\end{verbatim}
+
+The engine owns the search loop and resident state; the adapter owns exact problem semantics.
+
+\section{Sample evidence record}
+
+\begin{verbatim}
+{"instance": "...", "seed": 1, "objective": ...,
+ "stop_reason": "patience", "assignment": "...",
+ "exact_replay": true, "solver_commit": "...",
+ "replay_solver_commit": "...", "wall_seconds": ...,
+ "cpu_seconds": null, "hardware": "..."}
+\end{verbatim}
+
+CPU is recorded where available; the QAP/BLS and generic campaigns carry it, while the expanded
+QAP/TSP records expose that limitation rather than filling it with a synthetic value.
+
 \end{document}
