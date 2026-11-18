@@ -14,7 +14,7 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 ## Length and display items
 
-- **Counted words: 3,919.** Counts abstract, running text, captions, and footnotes; excludes
+- **Counted words: 3,717.** Counts abstract, running text, captions, and footnotes; excludes
   title/authors/affiliations, references, the metadata table, equations, and data-table bodies.
   Verify with `python3 count_words.py`.
 - **Figures: 3** (architecture, scaling, realized level). Limit is 6.

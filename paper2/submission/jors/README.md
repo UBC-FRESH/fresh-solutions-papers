@@ -32,13 +32,13 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Placeholders
 
-- Software repository: `[repository URL to be supplied at release]`.
-- Archived artifact DOI: `[DOI to be assigned]`.
+- Software repository: `https://github.com/UBC-FRESH/fresh-solutions`.
+- Archived artifact DOI: to be minted on acceptance.
 - Author list is the lab byline `UBC FRESH Lab, University of British Columbia`; corresponding
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc13`.
+  The evidence set is the public release candidate `p14-evidence-rc14`.
 
 ## Blocking issues
 

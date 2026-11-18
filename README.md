@@ -1,6 +1,6 @@
 # FRESH Solutions Papers
 
-Public release status: **P16 release candidate 13** (`p14-evidence-rc13`); DOI pending. The repository
+Public release status: **P16 release candidate 14** (`p14-evidence-rc14`); DOI pending. The repository
 contains the working manuscripts and target-journal drafts, evidence, replay scripts, and release
 metadata. Sole author: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
 

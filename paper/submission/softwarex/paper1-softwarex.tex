@@ -35,8 +35,7 @@ operable blocks, a 100,000-generation five-seed campaign reaches 512.574--518.62
 all five schedules replay exactly. The level penalty is a normalized mean-level term, not a per-period
 floor: the realized level ranges from 51.21 to 52.49M~m\textsuperscript{3} per 10-year period
 against a deliberately unattainable 70M aspiration. A 5,000-block diagnostic reduces move-evaluation
-time by $2.00\times10^{3}$ with objective agreement to $3.7\times10^{-9}$, and a 64-genome factorized
-batch runs 248 times faster on CUDA than on a single-device CPU path. The contribution is the software architecture
+time by $2.00\times10^{3}$ with objective agreement to $3.7\times10^{-9}$. The contribution is the software architecture
 and its replay contract; we make no independent harvest-scheduling comparison or state-of-the-art claim.
 \end{abstract}
 \begin{highlights}
@@ -157,7 +156,7 @@ number of non-zero cells, not to the dense block-by-period-by-account product. T
 move is proportional to the old and new rows. The table identity includes the dataset fingerprint,
 candidate order, target-cell geometry, horizon, period width, and table format version. It is a cache
 key: a dataset change forces a rebuild, while a change to weights, priorities, or targets is a pricing
-change and reuses the table. The identity check is also a failure detector, because a stale table would
+change and reuses the table.
 attach rows to the wrong model or chains. If the table does not fit in device memory, a population
 search cannot run; the TSA24 table uses a lean format that omits the full row index.
 
@@ -241,10 +240,8 @@ the search explored the neighbourhood it claims.
 The software therefore supports two levels of reproducibility. The search is reproducible from its
 configuration and seed for a fixed implementation, and the reported result is replayable from the
 stored schedule even if the search is not rerun. The record format also permits a table to be
-regenerated from the record files rather than typed by hand. Four failure modes are exposed: a model
-change without a table rebuild, an irreversible move, a reported device objective, and a partial or
-infeasible schedule. None is silent in a record that passes the gate. The gate does not catch a bad
-search design: a poor schedule can still produce an exact, replayable record. The harness guarantees
+regenerated from the record files rather than typed by hand. A record that passes the gate does not
+prove that the search design is good: a poor schedule can still produce an exact, replayable record. The harness guarantees
 the evidence; the experiment argues about the search.
 
 \subsection{Implementation and use}
@@ -361,20 +358,11 @@ does not measure a matched CPU search.
 
 
 
-A second check evaluates the same 64-genome batch against four mixed feature/product cells on CPU and
-CUDA, using the TSA24 factorized archive. The CPU batch takes 23.1~s and the CUDA batch 0.0931~s, a
-factor of 248; throughput is 2.77 and 687 genomes/s. The maximum absolute error against the exact
-evaluator is $1.71\times10^{-6}$ on both paths. The factorized build takes 234~s and the GPU peak
-allocation is 9.27~GB. This is a batch microbenchmark, not an end-to-end search comparison and not
-evidence that the architecture causes a search-speed gain. The CPU path is a single-device tensor path,
-not a tuned multithreaded batch, and the build cost matters only when the table is reused.
-
 \subsection{What the validation establishes}
 
 The results establish that the software can run a 208,255-operable-block instance at a
 100,000-generation GPU budget and produce exact, replayable schedules; that the sparse table plus
-resident state avoids a full re-simulation without changing the objective; and that the factorized GPU
-batch evaluates a population quickly on this instance. They do not establish a controlled
+resident state avoids a full re-simulation without changing the objective;  They do not establish a controlled
 architecture-versus-implementation effect, an independent quality comparison, a tuned CPU/GPU ranking,
 or optimality. The retained CPU simulated-annealing run is untuned, single-seed, and not equal-work; it
 is not used here as a quality baseline.
@@ -391,8 +379,6 @@ The expected result is \texttt{VALID} for every record; the TSA24 records report
 to within $10^{-6}$.
 
 \begin{verbatim}
-targets: product.HarvestedVolume.managed.Total.CC
-minimum: 70000000.0; min_weight: 100.0
 VALID: ws4-tsa24-gpu-ga-1000-r7 (tsa24-evenflow-w100)
 \end{verbatim}
 
@@ -416,13 +402,13 @@ The limitations are explicit. The validation covers one landscape, one target co
 is not validated on the spatial-constraint case that motivates much of the literature. There is no
 independent harvest-scheduling model or LP/MIP bound on the same instance, so the objective values are
 not a competitive quality result. The five-seed campaign is descriptive; the evaluation-path ablation
-uses a 5,000-block subset; and the factorized result is a 64-genome batch microbenchmark.
+uses a 5,000-block subset.
 
 Two constraints follow. The effect table must fit in device memory alongside the population batch; the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc13}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc14}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -470,11 +456,11 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc13} \\
+C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc14} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
-C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (9.27~GB peak in the factorized batch); virtual-environment install \\
+C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (); virtual-environment install \\
 C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4/tree/main/docs} \\
 C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
@@ -490,7 +476,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc13}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc14}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}

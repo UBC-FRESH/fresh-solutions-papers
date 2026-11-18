@@ -197,14 +197,14 @@
       "sha256": "fb8042fa197fd6758719be0def50c2d93995500bc4b66008ddb799995559f020"
     }
   },
-  "status": "public release candidate p16-evidence-rc13; DOI pending",
+  "status": "public release candidate p14-evidence-rc14; DOI pending",
   "manuscript": {
-    "path": "paper2/paper2-manuscript.tex",
-    "sha256": "f7f821ae74744914155e9acb66d316d3f4d47ecec1cbeac5d53df542caabf0f8"
+    "path": "paper2/submission/jors/paper2-jors.tex",
+    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
   },
   "pdf": {
-    "path": "paper2/paper2-manuscript.pdf",
-    "sha256": "a0c1ae2a8d41871ad869ed56761234481f56936844398bae0374fc86559c4904"
+    "path": "paper2/submission/jors/paper2-jors.pdf",
+    "sha256": "4cb0ae89bc56c7da77ffeb55bf7ae903586fe23f13c9b4558d48a009f039394b"
   },
   "references": {
     "path": "paper2/references.bib",
@@ -221,20 +221,20 @@
     "sha256": "3fb6694599f3ea11c6986867ad6faf8dc93a88820016d1e7f0c97d15112f345c"
   },
   "submission_manuscript": {
-    "path": "paper2/submission/paper2-sn-jnl.tex",
-    "sha256": "108691699aa847eb308ec01d3b2f662b1c7f8558d95de79438eb65df5c6a598b"
+    "path": "paper2/submission/jors/paper2-jors.tex",
+    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
   },
   "submission_pdf": {
-    "path": "paper2/submission/paper2-sn-jnl.pdf",
-    "sha256": "4b441c3d6205c8926cd8f752f05085d53ad67bef9774656ea879b38f9a0c53e2"
+    "path": "paper2/submission/jors/paper2-jors.pdf",
+    "sha256": "4cb0ae89bc56c7da77ffeb55bf7ae903586fe23f13c9b4558d48a009f039394b"
   },
   "jors_submission_manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "00ae875ab987d54eb68898286ea5cce082ed191989123bbc08c1a108c0f1cc0e"
+    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
   },
   "jors_submission_pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "4cb0ae89bc56c7da77ffeb55bf7ae903586fe23f13c9b4558d48a009f039394b"
+    "sha256": "0738fc6b92a4ea3107b31dc0aec966e18860465bd8e94f767a743fb91c943c2a"
   },
   "jors_supplement_manuscript": {
     "path": "paper2/submission/jors/paper2-jors-supplement.tex",
