@@ -21,8 +21,8 @@ Evidence release: FRESH Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign gener
 - The four-instance TSP deep panel is convergence-controlled: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs stopped on `patience`, reached the known optimum, and replayed exactly.
 - The expanded 20-instance TSP panel has 95/100 patience stops and five `brazil58` wall-clock cap hits at the known optimum; cap hits are not called convergence.
 - A generic adapter-only tabu/LNS prototype is a negative result: QAP mean gap 3.848% vs 0.097% for qap_tabu; TSP 127.978% vs 0.000% for tsp_lk. It is retained as a boundary result, not a headline.
-- The earlier 20-kick and 2,000-kick tables are retained as short-budget checks, not convergence
-  evidence.
+- The earlier 200-kick/20-patience and 2,000-kick tables are retained as short-budget checks, not
+  convergence evidence.
 
 ## Instances
 

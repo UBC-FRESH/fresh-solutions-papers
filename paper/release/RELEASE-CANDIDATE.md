@@ -1,17 +1,18 @@
 # Paper 1 evidence release candidate
 
-Status: local candidate only. No tag, release, visibility change, or DOI has been made.
+Status: public release candidate `p14-evidence-rc17`; DOI pending. The tag and release are public.
 
 ## Assets
 
-- `paper/paper1-manuscript.pdf`
-- `paper/paper1-manuscript.tex`
+- `paper/submission/softwarex/paper1-softwarex.pdf`
+- `paper/submission/softwarex/paper1-softwarex-supplement.pdf`
 - `paper/figures/`
 - `paper/references.bib`
 - `paper/evidence/`
 - `paper/replay_all.sh`
 - `paper/release/manifest-v0.2.0-candidate.json`
-- `paper/submission/paper1-elsarticle.tex` (journal variant)
+- `paper/submission/softwarex/paper1-softwarex.tex` (SoftwareX submission)
+- `paper/submission/softwarex/paper1-softwarex-supplement.tex`
 
 ## Verification
 

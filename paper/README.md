@@ -35,10 +35,7 @@ for record in evidence/*/record.json; do python scripts/check_benchmark_record.p
 
 Current status:
 
-- Claim corrections: non-separable even-flow delta, GPU-only 100k evidence wording, and stale numbers.
-- Factorized batch ablation: CPU 23.124 s vs CUDA 0.0931 s (248x) for 64 genomes, max error 1.7e-6; batch only, not end-to-end search.
-- Public TSA24 artifact: available.
-- Paper-specific schedules and replay scripts: retained in the project evidence repository; public
-  release remains pending approval.
-- Still open for submission: matched architecture ablation or explicit software-paper reframe,
-  matched CPU-GA/CPU-SA, EMS formatting, and final claim audit.
+- SoftwareX target draft is the current submission candidate.
+- Public TSA24 artifact and public evidence capsule are available.
+- The 248x factorized result is not part of the current SoftwareX manuscript.
+- Still open for submission: DOI/Zenodo, tested container, and final PI approval.

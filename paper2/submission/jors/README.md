@@ -28,17 +28,16 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - **References: 28**, Vancouver-style numeric citations in square brackets, in order of first
   appearance. Style: `natbib` `[numbers,sort&compress]` with `unsrtnat`.
 - **Replay count stated in the paper:** 40 framework + 20 deep-TSP + 20 QAP 10k + 200 expanded-QAP +
-  200 BLS + 100 expanded-TSP + 40 generic + 1,060 broad + 20 QAP 10k incumbents.
+  200 BLS + 100 expanded-TSP + 40 generic + 1,060 broad incumbents.
 
 ## Placeholders
 
 - Software repository: `https://github.com/UBC-FRESH/fresh-solutions`.
 - Archived artifact DOI: to be minted on acceptance.
-- Author list is the lab byline `UBC FRESH Lab, University of British Columbia`; corresponding
-  author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
-  statements are present; ORCID is not supplied.
+- Author: Gregory Paradis, UBC FRESH Lab, University of British Columbia; corresponding author,
+  affiliation, CRediT, funding, and competing-interest statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc16`.
+  The evidence set is the public release candidate `p14-evidence-rc17`.
 
 ## Blocking issues
 

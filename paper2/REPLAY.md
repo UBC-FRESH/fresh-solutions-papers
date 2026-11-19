@@ -1,7 +1,7 @@
 # Paper 2 replay
 
 ```bash
-git clone --branch p14-evidence-rc16 --recurse-submodules https://github.com/UBC-FRESH/fresh-solutions-papers
+git clone --branch p14-evidence-rc17 --recurse-submodules https://github.com/UBC-FRESH/fresh-solutions-papers
 cd fresh-solutions-papers
 python3 -m pip install -r container/requirements-evidence.txt
 export QAPLIB_ROOT=/path/to/QAPLIB
