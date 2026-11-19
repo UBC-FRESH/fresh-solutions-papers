@@ -6,8 +6,7 @@ Compiled submission PDF: `paper/submission/softwarex/paper1-softwarex.pdf` — 1
 
 Bibliography: `paper/references.bib`
 
-The superseded long-form working manuscript is archived at
-`notes/archive/working-manuscripts-2026-11-11/`.
+The superseded long-form working manuscript has been removed from the active tree.
 
 Build with `make` in `paper/` or `latexmk -pdf paper1-softwarex.tex` from `paper/submission/softwarex/`.
 

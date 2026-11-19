@@ -1,9 +1,9 @@
 # Paper 2 — JORS submission and evidence
 
 **Submission package.** The JORS Issues in Research Software manuscript is
-`paper2/submission/jors/paper2-jors.tex`; the target PDF is
-`paper2/submission/jors/paper2-jors.pdf`. The superseded long-form working manuscript is archived
-under `notes/archive/working-manuscripts-2026-11-11/`.
+`paper2/submission/jors/paper2-jors.tex`; the only submission PDF is
+`paper2/submission/jors/paper2-jors.pdf`. The superseded long-form working manuscript has been
+removed from the active tree.
 
 Submission manuscript (LaTeX): `paper2/submission/jors/paper2-jors.tex`
 
@@ -12,8 +12,7 @@ Compiled submission PDF: `paper2/submission/jors/paper2-jors.pdf` — 8 pages, 3
 Target: **JORS, Issues in Research Software**. Fallback: **SoftwareX** after a further cut.
 **EMS/JoH/COR** are not targets for the current draft.
 
-The superseded long-form working manuscript is archived at
-`notes/archive/working-manuscripts-2026-11-11/`.
+The superseded long-form working manuscript has been removed from the active tree.
 
 Evidence release: FRESH Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 
