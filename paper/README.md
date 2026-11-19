@@ -1,12 +1,15 @@
 # Paper 1
 
-Working manuscript (LaTeX): `paper1-manuscript.tex`
+Submission manuscript (LaTeX): `paper/submission/softwarex/paper1-softwarex.tex`
 
-Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,387 source words, 40 references, 2 figures.
+Compiled submission PDF: `paper/submission/softwarex/paper1-softwarex.pdf` — 10 pages, 3,754 counted words.
 
 Bibliography: `paper/references.bib`
 
-Compile with `make` in `paper/` or `latexmk -pdf paper1-manuscript.tex`.
+The superseded long-form working manuscript is archived at
+`notes/archive/working-manuscripts-2026-11-11/`.
+
+Build with `make` in `paper/` or `latexmk -pdf paper1-softwarex.tex` from `paper/submission/softwarex/`.
 
 Target: **SoftwareX, Original Software Publication**. The target-specific 4,000-word draft is
 `paper/submission/softwarex/paper1-softwarex.tex` (10 pages, 3,754 counted words). Fallback: **JORS**

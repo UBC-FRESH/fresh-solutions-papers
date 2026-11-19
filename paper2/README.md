@@ -1,15 +1,19 @@
-# Paper 2 working manuscript and evidence
+# Paper 2 — JORS submission and evidence
 
-**Working evidence repository.** The submission draft is `paper2/submission/jors/paper2-jors.tex` (JORS Issues in Research Software). This directory also contains the longer working manuscript and internal benchmark
-evidence. The JORS target draft is the current submission candidate; the longer manuscript is a working reference.
+**Submission package.** The JORS Issues in Research Software manuscript is
+`paper2/submission/jors/paper2-jors.tex`; the target PDF is
+`paper2/submission/jors/paper2-jors.pdf`. The superseded long-form working manuscript is archived
+under `notes/archive/working-manuscripts-2026-11-11/`.
 
-Working manuscript (LaTeX): `paper2-manuscript.tex`
+Submission manuscript (LaTeX): `paper2/submission/jors/paper2-jors.tex`
 
-Target: **JORS, Issues in Research Software**. The target-specific 3,000–4,000-word draft is
-`paper2/submission/jors/paper2-jors.tex`. Fallback: **SoftwareX** after a further cut. **EMS/JoH/COR**
-are not targets for the current draft.
+Compiled submission PDF: `paper2/submission/jors/paper2-jors.pdf` — 8 pages, 3,830 counted words.
 
-Working manuscript PDF: `paper2-manuscript.pdf` — 23 pages, 8,930 source words.
+Target: **JORS, Issues in Research Software**. Fallback: **SoftwareX** after a further cut.
+**EMS/JoH/COR** are not targets for the current draft.
+
+The superseded long-form working manuscript is archived at
+`notes/archive/working-manuscripts-2026-11-11/`.
 
 Evidence release: FRESH Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 
