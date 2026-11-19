@@ -1,6 +1,6 @@
 # Paper 1 evidence release candidate
 
-Status: public release candidate `p14-evidence-rc20`; DOI pending. The tag and release are public.
+Status: public release candidate `p14-evidence-rc21`; DOI pending. The tag and release are public.
 
 ## Assets
 
