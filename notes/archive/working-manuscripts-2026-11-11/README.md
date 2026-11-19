@@ -10,3 +10,9 @@ Final submission copies:
 
 The final PDFs are the only versions in the current release assets and are the versions linked from
 the manuscripts.
+
+## Known-bad EMS fallback
+
+`paper1-elsarticle.tex` / `paper1-elsarticle.pdf` are the obsolete EMS fallback. They use `\citet`
+with a numeric bibliography that has no author labels, so the PDF renders `(author?)` citations.
+They are retained only for provenance and must not be submitted.

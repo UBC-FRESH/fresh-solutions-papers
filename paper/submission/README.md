@@ -3,6 +3,7 @@
 Target changed to **SoftwareX, Original Software Publication**.
 
 - Current submission draft: `softwarex/`
-- The old EMS `paper1-elsarticle.*` files are obsolete and are not a submission candidate.
-- The official SoftwareX template must be applied before submission; the current draft is a
-  two-column `elsarticle` review build with the content mapped to the required sections.
+- The only Paper 1 submission PDF is `softwarex/paper1-softwarex.pdf`.
+- The obsolete EMS `paper1-elsarticle.*` artifact is archived under
+  `notes/archive/working-manuscripts-2026-11-11/` and is not a submission candidate. It is known
+  to have broken author-year citations and must not be sent to a journal.
