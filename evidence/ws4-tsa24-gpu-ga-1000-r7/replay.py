@@ -14,8 +14,13 @@ HERE = Path(__file__).resolve().parent
 INSTANCE = Path(os.environ["TSA24_ROOT"])
 RECORD = json.loads((HERE / "record.json").read_text(encoding="utf-8"))
 TARGETS = INSTANCE / "config/ws4/targets/evenflow_tsa24.yaml"
+if not TARGETS.exists():
+    TARGETS = INSTANCE / "evenflow_tsa24.yaml"
+COMPILED = INSTANCE / "build/compiled"
+if not COMPILED.exists():
+    COMPILED = INSTANCE / "compiled"
 OPTIMIZER = Optimizer.from_dataset(
-    INSTANCE / "build/compiled",
+    COMPILED,
     OptimizeConfig(years=200, targets_path=str(TARGETS), iterations=1, threads=1),
 )
 EVALUATOR = IncrementalObjective(OPTIMIZER, load_targets(TARGETS))

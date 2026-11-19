@@ -1,27 +1,31 @@
-# Paper 2 working manuscript and evidence
+# Paper 2 — JORS submission and evidence
 
-**DO NOT SUBMIT.** This directory contains the working Paper 2 manuscript and its internal benchmark
-evidence. The paper is a working draft, not a submission-ready article.
+**Submission package.** The JORS Issues in Research Software manuscript is
+`paper2/submission/jors/paper2-jors.tex`; the only submission PDF is
+`paper2/submission/jors/paper2-jors.pdf`. The superseded long-form working manuscript has been
+removed from the active tree.
 
-Working manuscript (LaTeX): `paper2-manuscript.tex`
+Submission manuscript (LaTeX): `paper2/submission/jors/paper2-jors.tex`
 
-Target: **Journal of Heuristics** for the harness/reference-adapter contribution. Fallback:
-**SoftwareX** or **JORS**. **COR** requires an additional methodological contribution beyond the
-current evidence.
+Compiled submission PDF: `paper2/submission/jors/paper2-jors.pdf` — 8 pages, 3,830 counted words.
 
-Compiled PDF: `paper2-manuscript.pdf` — 22 pages, 8,544 source words.
+Target: **JORS, Issues in Research Software**. Fallback: **SoftwareX** after a further cut.
+**EMS/JoH/COR** are not targets for the current draft.
 
-Evidence release: Fresh Solutions **v0.9.3** (campaign generated at v0.8.0; all 60 convergence incumbents replayed exactly under v0.9.3).
+The superseded long-form working manuscript has been removed from the active tree.
+
+Evidence release: FRESH Solutions **v0.9.3 + GEO fix `4583ad3`** (campaign generated at v0.8.0; convergence evidence replayed under the GEO-fix commit).
 
 ## What changed in P12
 
 - The QAP panel is convergence-controlled: ten seeds, 100,000-iteration patience, 1,000,000 cap.
 - All 40 QAP runs stopped on `patience` and replayed exactly.
 - A framework-managed QAP tabu path matched the standalone and production objectives on all 40 runs.
-- TSP is convergence-controlled: five seeds, 10,000 kicks, 1,000-kick patience.
-- All 20 TSP runs stopped on `patience`, reached the known optimum, and replayed exactly.
-- The earlier 20-kick and 2,000-kick tables are retained as short-budget checks, not convergence
-  evidence.
+- The four-instance TSP deep panel is convergence-controlled: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs stopped on `patience`, reached the known optimum, and replayed exactly.
+- The expanded 20-instance TSP panel has 95/100 patience stops and five `brazil58` wall-clock cap hits at the known optimum; cap hits are not called convergence.
+- A generic adapter-only tabu/LNS prototype is a negative result: QAP mean gap 3.848% vs 0.097% for qap_tabu; TSP 127.978% vs 0.000% for tsp_lk. It is retained as a boundary result, not a headline.
+- The earlier 200-kick/20-patience and 2,000-kick tables are retained as short-budget checks, not
+  convergence evidence.
 
 ## Instances
 
@@ -45,6 +49,14 @@ PYTHONPATH=fresh-solutions python paper2/run_tsp_lk.py
 PYTHONPATH=fresh-solutions python paper2/replay_tsp_lk.py
 ```
 
+Set `QAPLIB_ROOT` and `TSPLIB_ROOT` for the expanded replay scripts:
+
+```bash
+export QAPLIB_ROOT=/path/to/QAPLIB
+export TSPLIB_ROOT=/path/to/tsplib
+bash paper2/replay_all.sh
+```
+
 Final QAP framework-use campaign:
 
 ```bash
@@ -66,10 +78,11 @@ python3 paper2/broad_summary.py
 
 ## QAP robust tabu
 
-Expanded convergence panel: 20 QAPLIB instances, five seeds, 100,000-iteration patience. All 100
-runs plateau-stopped and replayed exactly; mean gap 0.274%, worst 1.583%, 37/100 optima. See
-`evidence/qap-expanded-100k.json`. SciPy FAQ on the same panel: mean 25.44%, median 2.55%, worst
-246.34%.
+Expanded convergence panel: 20 QAPLIB instances, ten seeds, 100,000-iteration patience. All 200
+runs plateau-stopped and replayed exactly; mean gap 0.301%, worst 5.695%, 73/200 optima. See
+`evidence/qap-expanded-100k-10seed.json`. Independent BLS baseline on the same panel: mean 0.096%, worst
+1.369%, 161/200 optima; BLS is stronger than tabu on 14 instance means and weaker on `chr22a`. SciPy
+FAQ is a second, weaker external baseline: mean 25.44%, median 2.55%, worst 246.34%.
 
 Final convergence panel: ten seeds, 100,000-iteration patience, 1,000,000-iteration cap. All 40 runs
 plateau-stopped and replayed exactly. The CPU ratio is the framework-managed path divided by the
@@ -104,8 +117,10 @@ comparison, and not a claim of universal dominance.
 
 ## TSP iterated Lin–Kernighan
 
-An expanded 20-instance TSPLIB panel from nearest-neighbour starts is in progress; the four-instance
-generic-local-search-start panel remains the controlled framework evidence.
+Expanded 20-instance TSPLIB panel: 100/100 exact replays, 94/100 known optima, mean gap 0.004%,
+worst 0.185%. 95/100 runs stopped on patience; five brazil58 runs hit the 3,600 s cap at the known
+optimum and are reported as cap hits, not convergence. Adaptive depth: 4 for n<100, 3 for
+100<=n<150, 2 for n>=150. The four-instance 10k panel remains the controlled deep evidence.
 
 Final convergence campaign: five seeds, 10,000 kicks, 1,000-kick patience. All 20 runs
 plateau-stopped, reached the known optimum, and replayed exactly.
@@ -134,15 +149,15 @@ Five seeds per instance. `lk-only` is the sequential exchange without double-bri
 | kroB100 | 0.780% | 0.172% | 0.000% |
 | ch150 | 2.203% | 0.558% | 0.383% |
 
-The kicks are material; all 60 ablation tours replay exactly.
+The kicks are material; all 60 ablation tours replay exactly; the broad panel replays 1,060 QAP/TSP incumbents exactly, with 25 esc8 parse-error records skipped.
 
 ## Broad panels and LKH
 
 - QAP broad: 134 parseable QAPLIB instances, five seeds, 552/670 patience stops, 318 optima,
   median 0.000%, mean 1.823%, worst 36.4%.
-- TSP broad: 78 TSPLIB instances, five seeds, 236/390 patience stops, 183 optima, median 0.000%,
-  mean 0.100%. Large tail remains weak.
-- External LKH large tail: 71/100 optima, mean 0.092%, median 0%, worst 1.930%. LKH is external
+- TSP broad: 78 TSPLIB instances, five seeds, 236/390 patience stops, 195 optima, median 0.000%,
+  converged mean 0.046%, all-run mean 1.460%. Large tail remains weak.
+- External LKH large tail after the GEO fix: 75/100 optima, mean 0.098%, median 0%, worst 1.930%; no negative gaps. LKH is external
   research-use software, not bundled, capability-only comparison.
 
 ## Evidence files
@@ -162,5 +177,4 @@ The kicks are material; all 60 ablation tours replay exactly.
 - `evidence/provenance-2026-11-03.json`
 - `evidence/lkh-provenance.json`
 
-No tag or release has been created. The evidence release remains a candidate until maintainer
-approval.
+Public release candidate: `p14-evidence-rc13`; a DOI is pending.

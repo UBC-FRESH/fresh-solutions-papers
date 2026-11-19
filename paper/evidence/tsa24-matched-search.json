@@ -1,0 +1,56 @@
+{
+  "experiment": "TSA24 matched implementation search: CPU vs CUDA via ws4 gpu-run",
+  "scope": "Full TSA24 model, population 64, seed 7, generations 1/10/100; one seed; CPU is a single torch device path, not a tuned multithreaded CPU-GA; short-horizon only",
+  "hardware": {
+    "cpu": "Intel Xeon Gold 6254; one torch CPU device path",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+  },
+  "runs": [
+    {
+      "generations": 1,
+      "cpu": {
+        "build_s": 67.543,
+        "search_s": 26.241,
+        "objective": 318446559.62959605,
+        "exact": true
+      },
+      "cuda": {
+        "build_s": 79.694,
+        "search_s": 41.655,
+        "objective": 346889126.6202787,
+        "exact": true
+      }
+    },
+    {
+      "generations": 10,
+      "cpu": {
+        "build_s": 63.205,
+        "search_s": 71.485,
+        "objective": 122722342.60147604,
+        "exact": true
+      },
+      "cuda": {
+        "build_s": 88.843,
+        "search_s": 33.675,
+        "objective": 134329920.14531818,
+        "exact": true
+      }
+    },
+    {
+      "generations": 100,
+      "cpu": {
+        "build_s": 69.249,
+        "search_s": 528.756,
+        "objective": 71109866.7617161,
+        "exact": true
+      },
+      "cuda": {
+        "build_s": 70.684,
+        "search_s": 23.866,
+        "objective": 74946054.24733908,
+        "exact": true
+      }
+    }
+  ],
+  "note": "The 100-generation CUDA search is 22.15x faster than CPU search, but the CPU one-seed objective is lower. This is not a full 100,000-generation CPU comparison and not a quality ranking."
+}

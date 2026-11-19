@@ -16,5 +16,7 @@
     "TRACE_LEVEL": 0,
     "timeout_seconds": 600
   },
-  "note": "The binary is not bundled. The provenance sidecar applies to lkh-large.json. The binary was built from the pinned mirror commit."
+  "note": "The binary is not bundled. The provenance sidecar applies to lkh-large.json. The binary was built from the pinned mirror commit.",
+  "command": "LKH_BINARY=/srv/shared-data/gep/ws4/tmp/LKH3/LKH TSPLIB_ROOT=/srv/shared-data/gep/ws4/tmp/bench-inventory/tsplib python3 -u paper2/run_lkh_large.py",
+  "rerun": "2026-11-09 after the GEO parser fix; 75/100 optima, mean 0.098%, no negative gaps"
 }

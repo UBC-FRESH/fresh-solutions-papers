@@ -1,0 +1,36 @@
+{
+  "experiment": "TSA24 target-variant screen",
+  "scope": "1,000 SA iterations, seed 7, 8 threads, same initial schedule; screen only, not convergence",
+  "targets": [
+    {
+      "target": "evenflow_tsa24",
+      "iterations": 1000,
+      "objective": 1713829814.9653804,
+      "time_limit_reached": false
+    },
+    {
+      "target": "evenflow_tsa24_allperiods5",
+      "iterations": 1000,
+      "objective": 1572738081.939906,
+      "time_limit_reached": false
+    },
+    {
+      "target": "evenflow_tsa24_allperiods5_stock90",
+      "iterations": 1000,
+      "objective": 1623849604.0709853,
+      "time_limit_reached": false
+    },
+    {
+      "target": "evenflow_tsa24_ltsy",
+      "iterations": 1000,
+      "objective": 574846994.3451587,
+      "time_limit_reached": false
+    },
+    {
+      "target": "evenflow_tsa24_ltsy_stock90",
+      "iterations": 1000,
+      "objective": 1010.0,
+      "time_limit_reached": false
+    }
+  ]
+}

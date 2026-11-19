@@ -31,3 +31,35 @@ These are public benchmark instances. Preserve source attribution in any redistr
 - Source: TSPLIB `https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/kroA100.tsp.gz`
 - Size: 100
 - Optimum: **21282**
+
+## tai25a
+
+- Source: QAPLIB mirror `https://github.com/didoudiaz/QAP-instances/blob/main/QAPLIB/tai25a.dat`
+- Original library: QAPLIB
+- Size: 25
+- Known optimum: **1167256**
+- Format: QAPLIB
+
+## tai30a
+
+- Source: QAPLIB mirror `https://github.com/didoudiaz/QAP-instances/blob/main/QAPLIB/tai30a.dat`
+- Original library: QAPLIB
+- Size: 30
+- Known optimum: **1818146**
+- Format: QAPLIB
+
+## ch150
+
+- Source: TSPLIB `https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/ch150.tsp.gz`
+- Original library: TSPLIB
+- Size: 150
+- Optimal objective: **6528**
+- Format: TSPLIB EUC_2D
+
+## kroB100
+
+- Source: TSPLIB `https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/kroB100.tsp.gz`
+- Original library: TSPLIB
+- Size: 100
+- Optimal objective: **22141**
+- Format: TSPLIB EUC_2D

@@ -1,9 +1,7 @@
 .PHONY: all clean
 
-all: paper2-manuscript.pdf
-
-paper2-manuscript.pdf: paper2-manuscript.tex references.bib
-	latexmk -pdf -interaction=nonstopmode -halt-on-error paper2-manuscript.tex
+all:
+	cd submission/jors && latexmk -pdf -interaction=nonstopmode -halt-on-error paper2-jors.tex
 
 clean:
-	latexmk -C paper2-manuscript.tex
+	cd submission/jors && latexmk -C paper2-jors.tex

@@ -1,0 +1,71 @@
+{
+  "experiment": "TSA24 factorized mixed feature/product batch evaluation, CPU vs CUDA",
+  "scope": "64 genomes, four mixed target cells, 3 repeats; batch evaluation only, not end-to-end search",
+  "dataset": "TSA24 even-flow compiled artifact",
+  "artifact": "runtime/factorized/tsa24-factorized.npz",
+  "cpu": {
+    "feature": "feature.Yield.managed.Total",
+    "product": "product.HarvestedVolume.managed.Total.CC",
+    "cells": [
+      [
+        9,
+        "feature.Yield.managed.Total"
+      ],
+      [
+        9,
+        "product.HarvestedVolume.managed.Total.CC"
+      ],
+      [
+        19,
+        "feature.Yield.managed.Total"
+      ],
+      [
+        19,
+        "product.HarvestedVolume.managed.Total.CC"
+      ]
+    ],
+    "genomes": 64,
+    "build_seconds": 234.41774496703874,
+    "batch_seconds": 23.123678870033473,
+    "evaluations_per_second": 2.767725687582486,
+    "exact_max_error": 1.7136335372924805e-06,
+    "peak_gpu_bytes": 0
+  },
+  "cuda": {
+    "feature": "feature.Yield.managed.Total",
+    "product": "product.HarvestedVolume.managed.Total.CC",
+    "cells": [
+      [
+        9,
+        "feature.Yield.managed.Total"
+      ],
+      [
+        9,
+        "product.HarvestedVolume.managed.Total.CC"
+      ],
+      [
+        19,
+        "feature.Yield.managed.Total"
+      ],
+      [
+        19,
+        "product.HarvestedVolume.managed.Total.CC"
+      ]
+    ],
+    "genomes": 64,
+    "build_seconds": 234.32089437998366,
+    "batch_seconds": 0.09314953500870615,
+    "evaluations_per_second": 687.0673052100399,
+    "exact_max_error": 1.7136335372924805e-06,
+    "peak_gpu_bytes": 9268166656
+  },
+  "speedup_cpu_over_gpu_batch": 248.2425582465037,
+  "evaluations_per_second_ratio": 248.24255824650373,
+  "exact_max_error": 1.7136335372924805e-06,
+  "build_seconds": 234.41774496703874,
+  "peak_gpu_bytes": 9268166656,
+  "commands": {
+    "cpu": "WS4_GPU_ROOT=/srv/shared-data/gep/ws4/ws4-gpu python3 paper/experiments/benchmark_factorized_switch.py --device cpu ...",
+    "cuda": "WS4_GPU_ROOT=/srv/shared-data/gep/ws4/ws4-gpu python3 paper/experiments/benchmark_factorized_switch.py --device cuda ..."
+  }
+}

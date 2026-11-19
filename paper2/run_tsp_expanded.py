@@ -35,7 +35,7 @@ INSTANCES = (
     "eil101",
     "fri26",
     "gr120",
-    "gr137",
+    "pr152",
     "kroA100",
     "kroB100",
     "kroC100",
@@ -83,15 +83,18 @@ def run_task(task: tuple[str, float, int]) -> dict[str, object]:
     problem = TravellingSalesman.from_tsplib(TSP_ROOT / f"{name}.tsp")
     initial = nearest_neighbour(problem, seed % problem.variable_count)
     initial_objective = problem.evaluate(initial).objective
+    # Frozen per-instance depths recorded in the committed panel.
+    depth = {"d198": 2, "pr152": 2, "lin105": 3}.get(name, 4)
     started = time.perf_counter()
     result = run_tsp_lk(
         problem,
         TspLkConfig(
             candidate_count=16,
-            max_depth=4,
+            max_depth=depth,
             kicks=KICKS,
             patience=PATIENCE,
             seed=seed,
+            max_seconds=3600.0,
         ),
         initial,
     )
@@ -111,6 +114,8 @@ def run_task(task: tuple[str, float, int]) -> dict[str, object]:
         "kicks": result.kicks,
         "kicks_budget": KICKS,
         "patience": PATIENCE,
+        "max_depth": depth,
+        "max_seconds": 3600.0,
         "stop_reason": result.stop_reason,
         "wall_seconds": wall,
         "assignment": assignment,
@@ -124,14 +129,26 @@ def main() -> int:
     """Run the panel in parallel and write per-run and summary evidence."""
     known = optima()
     tasks = [(name, known[name], seed) for name in INSTANCES for seed in SEEDS]
+    checkpoint = OUT.with_suffix(".jsonl")
     records: list[dict[str, object]] = []
+    if checkpoint.exists():
+        records = [
+            json.loads(line)
+            for line in checkpoint.read_text().splitlines()
+            if line.strip() and json.loads(line)["instance"] in INSTANCES
+        ]
+    done = {(str(row["instance"]), int(row["seed"])) for row in records}
+    tasks = [task for task in tasks if (task[0], task[2]) not in done]
     with ProcessPoolExecutor(
         max_workers=max(1, min(WORKERS, len(tasks))),
         mp_context=multiprocessing.get_context("spawn"),
     ) as executor:
         futures = {executor.submit(run_task, task): task for task in tasks}
         for index, future in enumerate(as_completed(futures), 1):
-            records.append(future.result())
+            record = future.result()
+            records.append(record)
+            with checkpoint.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(record) + "\n")
             if index % 10 == 0 or index == len(tasks):
                 print(f"completed {index}/{len(tasks)}", flush=True)
     records.sort(key=lambda row: (str(row["instance"]), int(row["seed"])))

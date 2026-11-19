@@ -8,7 +8,7 @@ Minimal replay after the external inputs are mounted:
 
 ```bash
 export WS4_ROOT=/path/to/ws4
-export TSA24_ROOT=/path/to/femic-tsa24-instance
+export TSA24_ROOT=/path/to/extracted-tsa24-evenflow-v1
 export QAPLIB_ROOT=/path/to/QAPLIB
 export TSPLIB_ROOT=/path/to/tsplib
 python3 paper2/check_evidence.py
@@ -16,5 +16,5 @@ python3 paper2/replay_framework_use.py
 python3 paper2/replay_tsp_convergence.py
 ```
 
-A full container recipe is not yet claimed. The missing pieces are the exact base image digest, the
-solver submodule checkout, and the TSA24 artifact mount point.
+The base image is pinned to a digest and the solver checkout is pinned to `4583ad3`; the remaining
+release item is a tested container run with the TSA24 release tarball mounted.

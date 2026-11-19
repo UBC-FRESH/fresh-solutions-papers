@@ -1,0 +1,28 @@
+{
+  "feature": "feature.Yield.managed.Total",
+  "product": "product.HarvestedVolume.managed.Total.CC",
+  "cells": [
+    [
+      9,
+      "feature.Yield.managed.Total"
+    ],
+    [
+      9,
+      "product.HarvestedVolume.managed.Total.CC"
+    ],
+    [
+      19,
+      "feature.Yield.managed.Total"
+    ],
+    [
+      19,
+      "product.HarvestedVolume.managed.Total.CC"
+    ]
+  ],
+  "genomes": 64,
+  "build_seconds": 234.32089437998366,
+  "batch_seconds": 0.09314953500870615,
+  "evaluations_per_second": 687.0673052100399,
+  "exact_max_error": 1.7136335372924805e-06,
+  "peak_gpu_bytes": 9268166656
+}

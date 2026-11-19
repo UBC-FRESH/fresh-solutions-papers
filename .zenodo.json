@@ -1,0 +1,28 @@
+{
+  "title": "FRESH Solutions Papers: evidence and manuscripts",
+  "description": "Public evidence, manuscripts, replay scripts, and release metadata for the FRESH Solutions papers. This is a release candidate; final article DOIs are pending journal publication. Code is MIT; manuscripts and evidence are CC BY 4.0.",
+  "creators": [
+    {
+      "name": "Paradis, Gregory",
+      "affiliation": "UBC FRESH Lab, University of British Columbia"
+    }
+  ],
+  "license": "other-open",
+  "upload_type": "software",
+  "publication_date": "2026-11-11",
+  "version": "0.1.0",
+  "keywords": [
+    "reproducible research",
+    "metaheuristics",
+    "quadratic assignment",
+    "travelling salesman",
+    "forest planning"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/UBC-FRESH/fresh-solutions-papers",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ Status: convergence panel, not publication evidence.
 
 TSPLIB has 111 symmetric TSP files. This panel includes the 78 with `n <= 1000`;
 the 33 larger instances are excluded because the adapter stores dense matrices.
-QAPLIB has 139 canonical `.dat` files; 134 parse with Fresh Solutions v0.9.3.
+QAPLIB has 139 canonical `.dat` files; 134 parse with FRESH Solutions v0.9.3.
 Five `esc8` variants carry an extra header token and are recorded as parser gaps.
 
 ## Protocol

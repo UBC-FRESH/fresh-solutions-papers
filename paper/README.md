@@ -1,17 +1,19 @@
 # Paper 1
 
-Working manuscript (LaTeX): `paper1-manuscript.tex`
+Submission manuscript (LaTeX): `paper/submission/softwarex/paper1-softwarex.tex`
 
-Compiled PDF: `paper1-manuscript.pdf` — 20 pages, 8,014 source words, 40 references, 5 figures.
+Compiled submission PDF: `paper/submission/softwarex/paper1-softwarex.pdf` — 10 pages, 3,767 counted words.
 
 Bibliography: `paper/references.bib`
 
-Compile with `make` in `paper/` or `latexmk -pdf paper1-manuscript.tex`.
+The superseded long-form working manuscript has been removed from the active tree.
 
-Target: **Environmental Modelling & Software**, as an architecture/reproducibility paper. The
-`elsarticle` class and journal-specific author metadata are not yet applied. Fallback: SoftwareX/JORS
-only if the paper is intentionally a tool/software paper. CJFR/Forest Science are not recommended
-without a real spatial/forestry experiment.
+Build with `make` in `paper/` or `latexmk -pdf paper1-softwarex.tex` from `paper/submission/softwarex/`.
+
+Target: **SoftwareX, Original Software Publication**. The target-specific 4,000-word draft is
+`paper/submission/softwarex/paper1-softwarex.tex` (10 pages, 3,767 counted words). Fallback: **JORS**
+after a further cut. EMS is not a target for the current draft; it would require a new environmental
+validation and a second landscape/spatial case.
 
 Evidence table: `paper/tables/evidence.md`
 
@@ -35,9 +37,7 @@ for record in evidence/*/record.json; do python scripts/check_benchmark_record.p
 
 Current status:
 
-- Claim corrections: non-separable even-flow delta, GPU-only 100k evidence wording, and stale numbers.
-- Public TSA24 artifact: available.
-- Paper-specific schedules and replay scripts: retained in the project evidence repository; public
-  release remains pending approval.
-- Still open for submission: matched architecture ablation or explicit software-paper reframe,
-  matched CPU-GA/CPU-SA, EMS formatting, and final claim audit.
+- SoftwareX target draft is the current submission candidate.
+- Public TSA24 artifact and public evidence capsule are available.
+- The 248x factorized result is not part of the current SoftwareX manuscript.
+- Still open for submission: DOI/Zenodo, tested container, and final PI approval.
