@@ -197,14 +197,14 @@
       "sha256": "fb8042fa197fd6758719be0def50c2d93995500bc4b66008ddb799995559f020"
     }
   },
-  "status": "public release candidate p14-evidence-rc14; DOI pending",
+  "status": "public release candidate p14-evidence-rc15; DOI pending",
   "manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
+    "sha256": "6c0667b3846c42655ab5e4d1356ac347905042e5f097fd6608a409634d7f734c"
   },
   "pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "4cb0ae89bc56c7da77ffeb55bf7ae903586fe23f13c9b4558d48a009f039394b"
+    "sha256": "312cd7dc0df6cbda148aca85c2d54439a76315cdf385238ed0e020a74c32f7f6"
   },
   "references": {
     "path": "paper2/references.bib",
@@ -222,19 +222,19 @@
   },
   "submission_manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
+    "sha256": "6c0667b3846c42655ab5e4d1356ac347905042e5f097fd6608a409634d7f734c"
   },
   "submission_pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "4cb0ae89bc56c7da77ffeb55bf7ae903586fe23f13c9b4558d48a009f039394b"
+    "sha256": "312cd7dc0df6cbda148aca85c2d54439a76315cdf385238ed0e020a74c32f7f6"
   },
   "jors_submission_manuscript": {
     "path": "paper2/submission/jors/paper2-jors.tex",
-    "sha256": "c64494a1e5e894ddf68750e453c015fe873897a5ed14200e4e22a76f13e15297"
+    "sha256": "6c0667b3846c42655ab5e4d1356ac347905042e5f097fd6608a409634d7f734c"
   },
   "jors_submission_pdf": {
     "path": "paper2/submission/jors/paper2-jors.pdf",
-    "sha256": "0738fc6b92a4ea3107b31dc0aec966e18860465bd8e94f767a743fb91c943c2a"
+    "sha256": "312cd7dc0df6cbda148aca85c2d54439a76315cdf385238ed0e020a74c32f7f6"
   },
   "jors_supplement_manuscript": {
     "path": "paper2/submission/jors/paper2-jors-supplement.tex",

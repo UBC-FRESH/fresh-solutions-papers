@@ -1,6 +1,6 @@
 # Paper 2 evidence release candidate
 
-Status: public release candidate `p14-evidence-rc14`; DOI pending.
+Status: public release candidate `p14-evidence-rc15`; DOI pending.
 
 ## Verification
 
@@ -17,7 +17,8 @@ Status: public release candidate `p14-evidence-rc14`; DOI pending.
 - `paper2/submission/jors/paper2-jors-supplement.pdf`
 - `paper2/evidence/`
 - `paper2/*.py` runners and replay scripts
-- `paper2/submission/paper2-sn-jnl.tex` (JoH variant)
+- `paper2/submission/jors/paper2-jors-supplement.tex`
+- `paper2/submission/jors/README.md`, `cover-letter.md`
 
 ## Approval-gated actions
 

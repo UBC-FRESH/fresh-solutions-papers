@@ -119,8 +119,8 @@ The layers exchange explicit objects rather than implicit global state. The sear
 compiled tables, the candidate list, the sparse rows, and the resident state, so it cannot read raw
 inventory or mutate accounting outside the apply/undo interface. A run builds or loads the index and
 table, initializes the state, runs for a declared budget, writes a record, and replays it through the
-exact evaluator. Each stage writes an artifact with an identity, so the next stage can reject a
-mismatch.
+exact evaluator. The record stores the schedule, the objective, and the schedule hash used by the
+replay gate.
 
 \subsection{Compiled model and candidate index}
 
@@ -153,12 +153,13 @@ base is stored once rather than duplicated for every candidate.
 The table has three costs. The build cost is proportional to the number of candidate chains times the
 cells per chain and is paid once per dataset and table format. The storage cost is proportional to the
 number of non-zero cells, not to the dense block-by-period-by-account product. The query cost for one
-move is proportional to the old and new rows. The table identity includes the dataset fingerprint,
-candidate order, target-cell geometry, horizon, period width, and table format version. It is a cache
-key: a dataset change forces a rebuild, while a change to weights, priorities, or targets is a pricing
-change and reuses the table.
-attach rows to the wrong model or chains. If the table does not fit in device memory, a population
-search cannot run; the TSA24 table uses a lean format that omits the full row index.
+move is proportional to the old and new rows. The table is target-specific. In the released GPU path,
+\texttt{ws4 gpu-run} loads a caller-supplied table and does not rebuild or verify it; the table
+carries no embedded dataset identity. Changing the compiled dataset or candidate order therefore
+requires rebuilding the table. Changing weights or priorities is a pricing change and can reuse the
+table; changing targets can reuse it only when the required cells are already in the basis, otherwise
+the table must be extended or rebuilt. If the table does not fit in device memory, a population search cannot run; the TSA24
+table uses a lean format that omits the full row index.
 
 \subsection{Exact resident state and objective}
 
@@ -408,7 +409,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc14}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc15}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -456,7 +457,7 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc14} \\
+C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc15} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
@@ -476,7 +477,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc14}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc15}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}
