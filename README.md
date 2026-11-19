@@ -4,14 +4,14 @@
 
 These are the only two submission PDFs in the repository:
 
-- **Paper 1 — SoftwareX:** `paper/submission/softwarex/paper1-softwarex.pdf` (10 pages, 3,754 words)
+- **Paper 1 — SoftwareX:** `paper/submission/softwarex/paper1-softwarex.pdf` (10 pages, 3,767 words)
 - **Paper 2 — JORS:** `paper2/submission/jors/paper2-jors.pdf` (8 pages, 3,830 words)
 
 Everything else is source, evidence, a figure, or a supplement.
 
 ## Overview
 
-Public release status: **p14 release candidate 21** (`p14-evidence-rc21`); DOI pending. The repository
+Public release status: **p14 release candidate 22** (`p14-evidence-rc22`); DOI pending. The repository
 contains the two submission manuscripts, their evidence, replay scripts, and release metadata. Sole author: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
 
 A two-paper research programme on compiled spatial optimisation, GPU hybrid metaheuristics, and

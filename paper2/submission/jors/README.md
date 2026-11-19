@@ -37,7 +37,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 - Author: Gregory Paradis, UBC FRESH Lab, University of British Columbia; corresponding author,
   affiliation, CRediT, funding, and competing-interest statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc21`.
+  The evidence set is the public release candidate `p14-evidence-rc22`.
 
 ## Blocking issues
 

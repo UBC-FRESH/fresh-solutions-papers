@@ -2,7 +2,7 @@
 
 Submission manuscript (LaTeX): `paper/submission/softwarex/paper1-softwarex.tex`
 
-Compiled submission PDF: `paper/submission/softwarex/paper1-softwarex.pdf` — 10 pages, 3,754 counted words.
+Compiled submission PDF: `paper/submission/softwarex/paper1-softwarex.pdf` — 10 pages, 3,767 counted words.
 
 Bibliography: `paper/references.bib`
 
@@ -11,7 +11,7 @@ The superseded long-form working manuscript has been removed from the active tre
 Build with `make` in `paper/` or `latexmk -pdf paper1-softwarex.tex` from `paper/submission/softwarex/`.
 
 Target: **SoftwareX, Original Software Publication**. The target-specific 4,000-word draft is
-`paper/submission/softwarex/paper1-softwarex.tex` (10 pages, 3,754 counted words). Fallback: **JORS**
+`paper/submission/softwarex/paper1-softwarex.tex` (10 pages, 3,767 counted words). Fallback: **JORS**
 after a further cut. EMS is not a target for the current draft; it would require a new environmental
 validation and a second landscape/spatial case.
 

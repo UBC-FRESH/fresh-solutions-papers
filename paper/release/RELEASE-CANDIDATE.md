@@ -1,11 +1,10 @@
 # Paper 1 evidence release candidate
 
-Status: public release candidate `p14-evidence-rc21`; DOI pending. The tag and release are public.
+Status: public release candidate `p14-evidence-rc22`; DOI pending. The tag and release are public.
 
 ## Assets
 
 - `paper/submission/softwarex/paper1-softwarex.pdf`
-- `paper/submission/softwarex/paper1-softwarex-supplement.pdf`
 - `paper/figures/`
 - `paper/references.bib`
 - `paper/evidence/`

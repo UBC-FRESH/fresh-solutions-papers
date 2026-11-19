@@ -17,7 +17,7 @@
     "ws4-tsa24-gpu-ga-100000-r5": "b351c4b00506278d1e8f7e3df964d8d64eca46f47710265caa101ee3053ad32c",
     "ws4-tsa24-gpu-ga-100000-r7": "3bfdab04f44646f5d5551d7ff33b535e0c76985b161b9b2f6c56ddb0491a967b"
   },
-  "status": "public release candidate p14-evidence-rc21; DOI pending",
+  "status": "public release candidate p14-evidence-rc22; DOI pending",
   "evaluation_ablation": {
     "path": "evidence/ws4-tsa24-eval-ablation.json",
     "sha256": "242b1a4c9e863bbbdd6cae4911590767aef9ecbb0609fe42953c3bc9d9b4973a"
@@ -60,19 +60,11 @@
   },
   "softwarex_manuscript": {
     "path": "paper/submission/softwarex/paper1-softwarex.tex",
-    "sha256": "fe7c5dddec2054dc3ad292b33d929af5254dd9b438447304bf24dc608ffa823f"
+    "sha256": "5a0c0ff982356edfac085af3cf8701a700cdac3082c4112731a13d843c4a3793"
   },
   "softwarex_pdf": {
     "path": "paper/submission/softwarex/paper1-softwarex.pdf",
-    "sha256": "9e097281e7c2d24bb6084d5f7c579bfb4b57f370bb2821222e2f7c68182058aa"
-  },
-  "softwarex_supplement_manuscript": {
-    "path": "paper/submission/softwarex/paper1-softwarex-supplement.tex",
-    "sha256": "3eb414daa791fcc5389c00287c2ba3e9c23273a02bcc1b00fc5b8cab2352a1f0"
-  },
-  "softwarex_supplement_pdf": {
-    "path": "paper/submission/softwarex/paper1-softwarex-supplement.pdf",
-    "sha256": "2d31ff3889cc1dcadea6d78ab867a3881396f95b76558c570dc10e90873c778a"
+    "sha256": "bfa30a85e53b10217e74e6d6f80c22bdba3755cc70f98b9fb9c08ad0866d0b2b"
   },
   "realized_level_figure": {
     "path": "paper/figures/realized-level.pdf",

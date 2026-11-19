@@ -7,20 +7,19 @@ main manuscript, evidence, and EMS variant are unchanged.
 
 - `paper1-softwarex.tex` — official SoftwareX `cas-sc` manuscript.
 - `paper1-softwarex.pdf` — compiled 10-page review copy.
-- `paper1-softwarex-supplement.tex` / `.pdf` — full five-seed and evaluation-path tables (1 page).
 - `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`, `thumbnails/` — official SoftwareX/Elsevier bundle files.
 - `references-softwarex.bib` — copy of `paper/references.bib`; only the WS4 note capitalization is adjusted.
 - `count_words.py` — reproducible word count for the convention below.
 
 ## Length and display items
 
-- **Counted words: 3,754.** Counts abstract, running text, captions, and footnotes; excludes
+- **Counted words: 3,767.** Counts abstract, running text, captions, and footnotes; excludes
   title/authors/affiliations, references, the metadata table, equations, and data-table bodies.
   Verify with `python3 count_words.py`.
 - **Figures: 3** (architecture, scaling, realized level). Limit is 6.
-- **Tables: 1 content table** (seed-7 scaling) plus the **mandatory code-metadata table**.
-  The supplement contains the five-seed and evaluation-path tables. The manuscript has no separate
-  table limit; the metadata table is excluded from the word count.
+- **Tables: 2 content tables** (seed-7 scaling; five-seed campaign) plus the **mandatory
+  code-metadata table**. The manuscript has no separate table limit; table bodies are excluded from
+  the word count.
 - **PDF: 10 pages (official cas-sc template)**, including references and metadata. Abstract: 173 words (SoftwareX limit 250).
 
 ## Template status
