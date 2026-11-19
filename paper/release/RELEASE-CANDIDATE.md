@@ -11,7 +11,6 @@ Status: public release candidate `p14-evidence-rc22`; DOI pending. The tag and r
 - `paper/replay_all.sh`
 - `paper/release/manifest-v0.2.0-candidate.json`
 - `paper/submission/softwarex/paper1-softwarex.tex` (SoftwareX submission)
-- `paper/submission/softwarex/paper1-softwarex-supplement.tex`
 
 ## Verification
 
