@@ -11,7 +11,7 @@ Everything else is source, evidence, a figure, or a supplement.
 
 ## Overview
 
-Public release status: **p14 release candidate 19** (`p14-evidence-rc19`); DOI pending. The repository
+Public release status: **p14 release candidate 20** (`p14-evidence-rc20`); DOI pending. The repository
 contains the two submission manuscripts, their evidence, replay scripts, and release metadata. Sole author: Gregory Paradis, UBC FRESH Lab, University of British Columbia.
 
 A two-paper research programme on compiled spatial optimisation, GPU hybrid metaheuristics, and
