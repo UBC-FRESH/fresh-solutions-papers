@@ -145,10 +145,10 @@ is smaller than the full cross-product but richer than a binary harvest decision
 
 A block/chain pair affects only a small number of \texttt{(year, account)} cells. The effect table
 stores, for each block and candidate chain, a sparse row of those cells and their values relative to
-the untreated block, plus the empty-schedule base totals and block row starts. A move is therefore
-priced by the cells that the old and new chains touch, not by iterating over the whole schedule. Rows
-are relative, so apply and undo are an addition and a subtraction rather than a recomputation, and the
-base is stored once rather than duplicated for every candidate.
+the untreated block, plus block row starts. The evaluator computes the empty-schedule base from the
+compiled model; the table does not store a second dense base. A move is therefore priced by the cells
+that the old and new chains touch, not by iterating over the whole schedule. Rows are relative, so
+apply and undo are an addition and a subtraction rather than a recomputation.
 
 The table has three costs. The build cost is proportional to the number of candidate chains times the
 cells per chain and is paid once per dataset and table format. The storage cost is proportional to the
@@ -225,9 +225,10 @@ The GPU population evaluates a batch of candidate-index genomes against the spar
 a matrix of block/chain choices; the kernel accumulates the corresponding rows into a per-genome
 objective. The device path produces a ranking and does not update the resident state. The CPU path
 reconstructs the state from the stored assignment and computes the objective with the same accounting
-rules. The two paths can differ in floating-point order, so the record stores the CPU replay objective,
-not the device objective. A small device/CPU difference is acceptable as a search signal; it is not
-acceptable as a reported result.
+rules. The two paths can differ in floating-point order. The record stores the reported objective;
+the replay gate recomputes it on the CPU and checks the difference against the declared tolerance. A
+small device/CPU difference is acceptable as a search signal; it is not presented as a separate
+reported result.
 
 Every reported schedule is stored as a complete block/treatment/offset assignment. The record carries
 the instance and its availability, the objective and feasibility definition, the algorithm, version,
@@ -288,7 +289,7 @@ The objective falls by roughly two orders of magnitude from 1,000 to 10,000 gene
 two orders from 10,000 to 100,000 (Figure~\ref{fig:scaling}). That is not a convergence proof; it shows
 that the search is still making progress at the largest budget. The flow term collapses faster than the
 level term, because the even-flow target is what the population can improve by reshaping the profile.
-The level term remains between 499.821 and 517.290 because the aspiration is above the achievable level,
+The level term remains between 499.821 and 515.141 because the aspiration is above the achievable level,
 not because the search ignores it. A 1,000-generation run is a smoke test and a scaling anchor, not a
 competitive result; the three budgets make that sensitivity visible.
 
@@ -363,7 +364,7 @@ does not measure a matched CPU search.
 
 The results establish that the software can run a 208,255-operable-block instance at a
 100,000-generation GPU budget and produce exact, replayable schedules; that the sparse table plus
-resident state avoids a full re-simulation without changing the objective;  They do not establish a controlled
+resident state avoids a full re-simulation without changing the objective; they do not establish a controlled
 architecture-versus-implementation effect, an independent quality comparison, a tuned CPU/GPU ranking,
 or optimality. The retained CPU simulated-annealing run is untuned, single-seed, and not equal-work; it
 is not used here as a quality baseline.
@@ -409,7 +410,7 @@ Two constraints follow. The effect table must fit in device memory alongside the
 campaign required a multi-gigabyte device allocation, and a larger candidate set would need a different
 partitioning. The GPU code is public as release candidate \texttt{ws4-v0.2.0-p14rc1}; the paper-specific
 schedules and replay scripts are in the public papers repository under release candidate
-\texttt{p14-evidence-rc15}. The release is a public snapshot; a DOI is still pending, so the replay
+\texttt{p14-evidence-rc16}. The release is a public snapshot; a DOI is still pending, so the replay
 contract is not yet an archival DOI service. The target
 construction is also a policy choice: the software can make it exact and replayable, not correct, and
 the TSA24 configuration is not an operational decision.
@@ -457,12 +458,12 @@ Nr. & Code metadata description \\
 \midrule
 C1 & Current code version: \texttt{ws4-v0.2.0-p14rc1} (public prerelease) \\
 C2 & Permanent link to code/repository: \url{https://github.com/UBC-FRESH/ws4/releases/tag/ws4-v0.2.0-p14rc1} \\
-C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc15} \\
+C3 & Public release capsule (prerelease; DOI pending): \url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc16} \\
 C4 & Legal code licence: Apache-2.0 for WS4; the TSA24 artifact retains its own public terms \\
 C5 & Code versioning system: Git \\
 C6 & Software code languages and tools: Python 3.12; NumPy; PyTorch (CUDA); Numba (optional) \\
-C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory (); virtual-environment install \\
-C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4/tree/main/docs} \\
+C7 & Compilation requirements, operating environments, and dependencies: Linux; Python 3.12.3; CUDA-capable GPU with multi-gigabyte memory; virtual-environment install \\
+C8 & Link to developer documentation: \url{https://github.com/UBC-FRESH/ws4/tree/ws4-v0.2.0-p14rc1/docs} \\
 C9 & Support email: \url{mailto:gregory.paradis@ubc.ca} \\
 \bottomrule
 \end{tabular}%
@@ -477,7 +478,7 @@ The TSA24 benchmark artifact is available at
 \url{https://github.com/UBC-FRESH/femic-tsa24-instance/releases/tag/ws4-tsa24-evenflow-v1}. The build
 and replay recipe is in \texttt{BENCHMARK\_ARTIFACT.md} in that repository. The paper-specific
 schedules and replay scripts are in the public evidence release
-\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc15}; a DOI
+\url{https://github.com/UBC-FRESH/fresh-solutions-papers/releases/tag/p14-evidence-rc16}; a DOI
 remains pending.
 
 \bibliographystyle{elsarticle-num}

@@ -18,7 +18,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
 
 ## Counts
 
-- **Word count: 3,816** in the counted text (title through Data and code availability, including
+- **Word count: 3,830** in the counted text (title through Data and code availability, including
   abstract, headings, table contents, and captions; excludes the reference list).
   Command: `detex -n paper2-jors.tex | wc -w`.
 - **PDF pages: 8** (6 pages of text/figures/tables plus 2 pages of references).
@@ -27,8 +27,8 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   The supplement contains the full 20-row QAP and TSP tables plus the four-instance framework table.
 - **References: 28**, Vancouver-style numeric citations in square brackets, in order of first
   appearance. Style: `natbib` `[numbers,sort&compress]` with `unsrtnat`.
-- **Replay count stated in the paper:** 40 framework + 20 deep-TSP + 200 expanded-QAP + 200 BLS +
-  100 expanded-TSP + 40 generic + 1,060 broad incumbents.
+- **Replay count stated in the paper:** 40 framework + 20 deep-TSP + 20 QAP 10k + 200 expanded-QAP +
+  200 BLS + 100 expanded-TSP + 40 generic + 1,060 broad + 20 QAP 10k incumbents.
 
 ## Placeholders
 
@@ -38,7 +38,7 @@ The main build has no undefined citations, overfull boxes, or LaTeX warnings.
   author, individual authors, affiliations, ORCIDs, CRediT, funding, and competing-interest
   statements are present; ORCID is not supplied.
 - The repository and release tag are public; a DOI and tested container digest remain pending.
-  The evidence set is the public release candidate `p14-evidence-rc15`.
+  The evidence set is the public release candidate `p14-evidence-rc16`.
 
 ## Blocking issues
 
